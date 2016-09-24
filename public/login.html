@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Supermarket :: Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="assets/style/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/fonts/galano/galano.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/fonts/icon-12/icon-12.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/fonts/icon-16/icon-16.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/grid.css">
+    <link rel="stylesheet" type="text/css" href="assets/style/main.css">
+
+</head>
+<body>
+
+	<main class="grid-login">
+		
+		<header class="content-header">
+			<h1>Login into your account</h1>
+		</header>
+
+		<section>
+			<div class="content-body">
+
+				<div class="logo"></div>
+
+				<form class="form">
+					
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="" required="" />
+					</div>
+
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" placeholder="Password (at least 6 characters)" class="form-control" name="password" value="" maxlength="100" required="" />
+					</div>
+
+					<div class="btn-wrapper">
+						<button type="submit" class="btn btn-success" name="submit">Login</button>
+					</div>
+
+				</form>
+
+				<p class="info-small">Don't you have an account? <a href="signup.html">Sign up</a></p>
+			</div>
+		</section>
+
+		<section>
+			<div class="content-body">
+				<p class="info-small social">Use your Facebook or Google account for a faster login</p>
+				<div class="col-flex-row-spacebetween-center">
+					<button class="btn btn-social btn-facebook" type="button" data-onclick="loginWithFacebook">
+						<div class="btn-content">
+							<span class="icon-16-facebook"></span>
+							<span class="btn-label">Login with Facebook</span>
+						</div>
+					</button>
+					<button class="btn btn-social btn-google" type="button" data-onclick="loginWithGoogle">
+						<div class="btn-content">
+							<span class="icon-google"></span>
+							<span class="btn-label">Login with Google</span>
+						</div>
+					</button>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+    <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+</body>
+</html>
