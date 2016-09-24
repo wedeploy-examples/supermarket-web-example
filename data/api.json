@@ -1,0 +1,9 @@
+[
+	{
+		"path": "/products/*",
+		"data": true,
+		"auth": {
+			"validator": "$auth != null"
+		}
+	}
+]
