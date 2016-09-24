@@ -29,7 +29,7 @@
 
 				<div class="logo"></div>
 
-				<form class="form">
+				<form name="signIn" class="form" onsubmit="signInWithEmailAndPassword(); return false;">
 					
 					<div class="form-group">
 						<label>Email</label>
@@ -55,13 +55,13 @@
 			<div class="content-body">
 				<p class="info-small social">Use your Facebook or Google account for a faster login</p>
 				<div class="col-flex-row-spacebetween-center">
-					<button class="btn btn-social btn-facebook" type="button" data-onclick="loginWithFacebook">
+					<button class="btn btn-social btn-facebook" type="button" onclick="signInWithFacebook();">
 						<div class="btn-content">
 							<span class="icon-16-facebook"></span>
 							<span class="btn-label">Login with Facebook</span>
 						</div>
 					</button>
-					<button class="btn btn-social btn-google" type="button" data-onclick="loginWithGoogle">
+					<button class="btn btn-social btn-google" type="button" onclick="signInWithGoogle();">
 						<div class="btn-content">
 							<span class="icon-google"></span>
 							<span class="btn-label">Login with Google</span>
@@ -74,5 +74,36 @@
 	</main>
 
     <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+    <script>
+    	var auth = WeDeploy.auth('auth.supermarket.wedeploy.io');
+
+    	function signInWithEmailAndPassword() {
+    		auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
+    			.then(function() {
+    				alert('Sign-in successfully.');
+    				signIn.reset();
+    			})
+    			.catch(function() {
+    				alert('Sign-in failed.');
+    				signIn.reset();
+    			});
+    	}
+
+    	function signInWithFacebook() {
+    		var githubProvider = new auth.provider.Facebook();
+    		githubProvider.setProviderScope('email');
+    		auth.signInWithRedirect(githubProvider);
+    	}
+
+    	function signInWithGoogle() {
+    		var googleProvider = new auth.provider.Google();
+    		googleProvider.setProviderScope('email');
+    		auth.signInWithRedirect(googleProvider);
+    	}
+
+    	auth.onSignIn(function(user) {
+    		console.log('Signed-in', user);
+    	});
+    </script>
 </body>
 </html>
