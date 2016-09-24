@@ -29,7 +29,7 @@
 
 				<div class="logo"></div>
 
-				<form class="form">
+				<form name="signUp" class="form" onsubmit="submitForm(); return false;">
 
 					<div class="form-group">
 						<label>Name</label>
@@ -56,28 +56,26 @@
 			</div>
 		</section>
 
-		<section>
-			<div class="content-body">
-				<p class="info-small social">Or sign up using your Github or Google account</p>
-				<div class="col-flex-row-spacebetween-center">
-					<button class="btn btn-social btn-facebook" type="button" data-onclick="loginWithFacebook">
-						<div class="btn-content">
-							<span class="icon-16-facebook"></span>
-							<span class="btn-label">Login with Facebook</span>
-						</div>
-					</button>
-					<button class="btn btn-social btn-google" type="button" data-onclick="loginWithGoogle">
-						<div class="btn-content">
-							<span class="icon-google"></span>
-							<span class="btn-label">Login with Google</span>
-						</div>
-					</button>
-				</div>
-			</div>
-		</section>
-
 	</main>
 
     <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+    <script>
+    	function submitForm() {
+    		WeDeploy.auth('auth.supermarket.wedeploy.io')
+    			.createUser({
+    				email: signUp.email.value,
+    				name: signUp.name.value,
+    				password: signUp.password.value
+    			})
+    			.then(function(user) {
+    				alert('Sign-up successfully.');
+    				location.href = '/';
+    			})
+    			.catch(function() {
+    				alert('Sign-up failed. Try another email.');
+    				signUp.reset();
+    			});
+    	}
+    </script>
 </body>
 </html>
