@@ -30,19 +30,22 @@
 			<div class="tab-filter">
 				<ul class="filters">
 					<li class="filter">
-						<a class="selected" href="javascript:;" data-type="all">All</a>
+						<a class="selected" href="javascript:void(0);" onclick="filter();">All</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:;" data-type="bakery">Bakery</a>
+						<a href="javascript:void(0);" onclick="filter('bakery');">Bakery</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:;" data-type="dairy">Dairy</a>
+						<a href="javascript:void(0);" onclick="filter('dairy');">Dairy</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:;" data-type="fruit">Fruit</a>
+						<a href="javascript:void(0);" onclick="filter('fruit');">Fruit</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:;" data-type="vegetable">Vegetable</a>
+						<a href="javascript:void(0);" onclick="filter('vegetable');">Vegetable</a>
+					</li>
+					<li class="filter">
+						<a href="javascript:void(0);" onclick="filter('meat');">Meat</a>
 					</li>
 				</ul>
 			</div>
@@ -56,26 +59,37 @@
 	</main>
 		
 	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
-	<script type="text/javascript">
-		var list = document.getElementById('productList');
-		var html = '';
-		
-		WeDeploy.data('data.supermarket.wedeploy.io')
-			.get('products')
-			.then(function(products) {
-				for(var i = 0; i < products.length; i++) {
-					html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
-					html += '<a href="javascript:;" class="add-to-cart" data-id="' + products[i].id + '" data-price="' + products[i].price + '" data-image="assets/images/' + products[i].filename + '" data-name="' + products[i].title + '">Add To Cart</a>';
-					html += '<div class="bottom-info">';
-					html += '<span class="title">' + products[i].title + '</span>';
-					html += '<span class="price">$' + products[i].price + '</span>';
-					html += '</div>';
-					html += '<div class="blur"></div>';
-					html += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
-					html += '</li>';
-				}
-				list.innerHTML = html;
-			});
+	<script>
+		function filter(type) {
+			var data = WeDeploy.data('data.supermarket.wedeploy.io');
+
+			if (type) {
+				data.where('type', type);
+			}
+
+			data
+				.get('products')
+				.then(function(products) {
+					var html = '';
+					var list = document.getElementById('productList');
+
+					for(var i = 0; i < products.length; i++) {
+						html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
+						html += '<a href="javascript:;" class="add-to-cart" data-id="' + products[i].id + '" data-price="' + products[i].price + '" data-image="assets/images/' + products[i].filename + '" data-name="' + products[i].title + '">Add To Cart</a>';
+						html += '<div class="bottom-info">';
+						html += '<span class="title">' + products[i].title + '</span>';
+						html += '<span class="price">$' + products[i].price + '</span>';
+						html += '</div>';
+						html += '<div class="blur"></div>';
+						html += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
+						html += '</li>';
+					}
+					list.innerHTML = html;
+				});
+			return false;
+		}
+
+		filter();
 	</script>
 </body>
 </html>
