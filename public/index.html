@@ -60,6 +60,11 @@
 		
 	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 	<script>
+		if (WeDeploy.auth().currentUser === null) {
+			location.href = 'login.html';
+			return;
+		}
+
 		function filter(type) {
 			var data = WeDeploy.data('data.supermarket.wedeploy.io');
 			if (type) {
@@ -95,6 +100,14 @@
 					if (menu.dataset.menutype === type) {
 						menu.classList.add('selected');
 					}
+				});
+		}
+
+		function signOut() {
+			WeDeploy.auth()
+				.signOut()
+				.then(function() {
+					location.href = 'login.html';
 				});
 		}
 
