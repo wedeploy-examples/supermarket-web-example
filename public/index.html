@@ -30,22 +30,22 @@
 			<div class="tab-filter">
 				<ul class="filters">
 					<li class="filter">
-						<a data-menutype="" href="javascript:void(0);" onclick="filter('');">All</a>
+						<a data-menutype="" href="javascript:filter('');">All</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="bakery" href="javascript:void(0);" onclick="filter('bakery');">Bakery</a>
+						<a data-menutype="bakery" href="javascript:filter('bakery');">Bakery</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="dairy" href="javascript:void(0);" onclick="filter('dairy');">Dairy</a>
+						<a data-menutype="dairy" href="javascript:filter('dairy');">Dairy</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="fruit" href="javascript:void(0);" onclick="filter('fruit');">Fruit</a>
+						<a data-menutype="fruit" href="javascript:filter('fruit');">Fruit</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="vegetable" href="javascript:void(0);" onclick="filter('vegetable');">Vegetable</a>
+						<a data-menutype="vegetable" href="javascript:filter('vegetable');">Vegetable</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="meat" href="javascript:void(0);" onclick="filter('meat');">Meat</a>
+						<a data-menutype="meat" href="javascript:filter('meat');">Meat</a>
 					</li>
 					<li>
 						Sopping cart: <span id="shoppingCartCount">0</span> item(s)
@@ -71,19 +71,21 @@
 
 		// Helpers -----------------------------------------------------------------------
 
+		var pendingRequest;
+
 		function filter(type) {
-			var data = WeDeploy.data('data.supermarket.wedeploy.io');
-			if (type) {
-				data.where('type', type);
+			if (pendingRequest) {
+				pendingRequest.cancel();
 			}
-			return data
+			pendingRequest = WeDeploy.data('data.supermarket.wedeploy.io')
+				.any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
 				.get('products')
 				.then(function(products) {
 					var html = '';
 					var list = document.getElementById('productList');
 					for(var i = 0; i < products.length; i++) {
 						html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
-						html += '<a href="javascript:void(0);" class="add-to-cart" onclick="saveItemToShoppingCart(' + products[i].id +');">Add To Cart</a>';
+						html += '<a href="javascript:saveItemToShoppingCart(\'' + products[i].id +'\');" class="add-to-cart">Add To Cart</a>';
 						html += '<div class="bottom-info">';
 						html += '<span class="title">' + products[i].title + '</span>';
 						html += '<span class="price">$' + products[i].price + '</span>';
@@ -96,6 +98,7 @@
 					selectActiveMenu(type);
 					return this;
 				});
+			return pendingRequest;
 		}
 
 		function saveItemToShoppingCart(productId) {
