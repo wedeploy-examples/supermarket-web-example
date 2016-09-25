@@ -73,13 +73,8 @@
 
 		// Helpers -----------------------------------------------------------------------
 
-		var pendingRequest;
-
 		function filter(type) {
-			if (pendingRequest) {
-				pendingRequest.cancel();
-			}
-			pendingRequest = WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
 				.get('products')
 				.then(function(products) {
@@ -87,21 +82,16 @@
 					selectActiveMenu(type);
 					return this;
 				});
-			return pendingRequest;
 		}
 
 		function filterSimilarProducts(description) {
-			if (pendingRequest) {
-				pendingRequest.cancel();
-			}
-			pendingRequest = WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.similar('description', description)
 				.search('products')
 				.then(function(search) {
 					plotProducts(search.documents);
 					return this;
 				});
-			return pendingRequest;
 		}
 
 		function plotProducts(products) {
