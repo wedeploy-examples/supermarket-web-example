@@ -86,7 +86,6 @@
     		auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
     			.then(function() {
     				signIn.reset();
-    				location.href = '/';
     			})
     			.catch(function() {
     				alert('Sign-in failed.');
@@ -107,7 +106,7 @@
     	}
 
     	auth.onSignIn(function(user) {
-    		console.log('Signed-in', user);
+    		location.href = '/';
     	});
     </script>
 </body>
