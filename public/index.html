@@ -23,7 +23,7 @@
 		</div>
 		<div class="menu">
 			<span class="avatar">
-				<span id="initials"></span>
+				<span id="userInitials"></span>
 				<img id="userPhoto" src="" />
 			</span>
 			<button class="logout" onclick="signOut();">
@@ -77,9 +77,12 @@
 
 		if (currentUser === null) {
 			location.href = 'login.html';
-		} else {
-			document.getElementById('userPhoto').src = currentUser.photoUrl;
-			document.getElementById('initials').innerHTML = currentUser.name.charAt(0); 
+		}
+		else {
+			if (currentUser.photoUrl) {
+				document.getElementById('userPhoto').src = currentUser.photoUrl;
+			}
+			document.getElementById('userInitials').innerHTML = currentUser.name.charAt(0); 
 		}
 
 		// Helpers -----------------------------------------------------------------------

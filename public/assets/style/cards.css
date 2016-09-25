@@ -58,7 +58,7 @@ MENU - AVATAR / LOGOUT
    display: none;
 }
 
-.avatar #initials {
+.avatar #userInitials {
 	background: #082947;
 	color: white;
 	font-family: 'Galano Bold', sans-serif;
