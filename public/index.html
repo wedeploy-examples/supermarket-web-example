@@ -57,27 +57,24 @@
 		
 	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 	<script type="text/javascript">
-		var data = WeDeploy.data('data.supermarket.wedeploy.io');
-
-		var listObject = document.getElementById('productList');
-		var listHtml = '';
-		data.get('products')
-		.then(function(products) {
-			for(var i = 0; i < products.length; i++) {
-				listHtml += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
-				listHtml += '<a href="javascript:;" class="add-to-cart" data-id="' + products[i].id + '" data-price="' + products[i].price + '" data-image="assets/images/' + products[i].filename + '" data-name="' + products[i].title + '">Add To Cart</a>';
-				listHtml += '<div class="bottom-info">';
-				listHtml += '<span class="title">' + products[i].title + '</span>';
-				listHtml += '<span class="price">$' + products[i].price + '</span>';
-				listHtml += '</div>';
-				listHtml += '<div class="blur"></div>';
-				listHtml += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
-				listHtml += '</li>';
-			}
-			listObject.innerHTML = listHtml;
-
-			return true;
-		});
+		var list = document.getElementById('productList');
+		var html = '';
+		WeDeploy.data('data.supermarket.wedeploy.io')
+			.get('products')
+			.then(function(products) {
+				for(var i = 0; i < products.length; i++) {
+					html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
+					html += '<a href="javascript:;" class="add-to-cart" data-id="' + products[i].id + '" data-price="' + products[i].price + '" data-image="assets/images/' + products[i].filename + '" data-name="' + products[i].title + '">Add To Cart</a>';
+					html += '<div class="bottom-info">';
+					html += '<span class="title">' + products[i].title + '</span>';
+					html += '<span class="price">$' + products[i].price + '</span>';
+					html += '</div>';
+					html += '<div class="blur"></div>';
+					html += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
+					html += '</li>';
+				}
+				list.innerHTML = html;
+			});
 	</script>
 </body>
 </html>
