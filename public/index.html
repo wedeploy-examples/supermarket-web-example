@@ -62,11 +62,9 @@
 	<script>
 		function filter(type) {
 			var data = WeDeploy.data('data.supermarket.wedeploy.io');
-
 			if (type) {
 				data.where('type', type);
 			}
-
 			data
 				.get('products')
 				.then(function(products) {
@@ -85,8 +83,14 @@
 						html += '</li>';
 					}
 					list.innerHTML = html;
+
+					selectActiveMenu(type);
 				});
 
+			return false;
+		}
+
+		function selectActiveMenu(type) {
 			document.querySelectorAll('[data-menutype]')
 				.forEach(function(menu) {
 					menu.classList.remove('selected');
@@ -94,8 +98,6 @@
 						menu.classList.add('selected');
 					}
 				});
-
-			return false;
 		}
 
 		filter('');
