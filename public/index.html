@@ -65,7 +65,9 @@
 	<script>
 		// Checks user is signed in ------------------------------------------------------
 
-		if (WeDeploy.auth().currentUser === null) {
+		var currentUser = WeDeploy.auth().currentUser;
+
+		if (currentUser === null) {
 			location.href = 'login.html';
 		}
 
@@ -81,31 +83,50 @@
 				.any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
 				.get('products')
 				.then(function(products) {
-					var html = '';
-					var list = document.getElementById('productList');
-					for(var i = 0; i < products.length; i++) {
-						html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
-						html += '<a href="javascript:saveItemToShoppingCart(\'' + products[i].id +'\');" class="add-to-cart">Add To Cart</a>';
-						html += '<div class="bottom-info">';
-						html += '<span class="title">' + products[i].title + '</span>';
-						html += '<span class="price">$' + products[i].price + '</span>';
-						html += '</div>';
-						html += '<div class="blur"></div>';
-						html += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
-						html += '</li>';
-					}
-					list.innerHTML = html;
+					plotProducts(products);
 					selectActiveMenu(type);
 					return this;
 				});
 			return pendingRequest;
 		}
 
+		function filterSimilarProducts(description) {
+			if (pendingRequest) {
+				pendingRequest.cancel();
+			}
+			pendingRequest = WeDeploy.data('data.supermarket.wedeploy.io')
+				.similar(description)
+				.search('products')
+				.then(function(search) {
+					plotProducts(search.documents);
+					return this;
+				});
+			return pendingRequest;
+		}
+
+		function plotProducts(products) {
+			var html = '';
+			var list = document.getElementById('productList');
+			for(var i = 0; i < products.length; i++) {
+				html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
+				html += '<a href="javascript:saveItemToShoppingCart(\'' + products[i].id +'\');" class="add-to-cart">Add To Cart</a>';
+				html += '<a href="javascript:filterSimilarProducts(\'' + products[i].description +'\');" class="filter-similar-products">Find similar products</a>';
+				html += '<div class="bottom-info">';
+				html += '<span class="title">' + products[i].title + '</span>';
+				html += '<span class="price">$' + products[i].price + '</span>';
+				html += '</div>';
+				html += '<div class="blur"></div>';
+				html += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
+				html += '</li>';
+			}
+			list.innerHTML = html;
+		}
+
 		function saveItemToShoppingCart(productId) {
 			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.create('cart', {
 					"productId": productId,
-					"userId": WeDeploy.auth().currentUser.id
+					"userId": currentUser.id
 				})
 				.then(function(item) {
 					return loadShoppintCartCount();
@@ -115,7 +136,7 @@
 		function loadShoppintCartCount() {
 			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.count()
-				.where('userId', WeDeploy.auth().currentUser.id)
+				.where('userId', currentUser.id)
 				.get('cart')
 				.then(function(total) {
 					document.getElementById('shoppingCartCount').innerHTML = total;

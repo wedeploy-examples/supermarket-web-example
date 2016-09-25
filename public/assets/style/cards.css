@@ -239,7 +239,8 @@ PRODUCT LIST
 	transform: scale(1.1) translateX(-50%) translateY(-50%);
 }
 
-#products .gallery li .add-to-cart {
+#products .gallery li .add-to-cart,
+#products .gallery li .filter-similar-products {
 	opacity: 0;
 	position: absolute;
 	top: 50%;
@@ -258,7 +259,12 @@ PRODUCT LIST
 	transform: translateX(-50%) translateY(-50%);
 }
 
-#products .gallery li:hover .add-to-cart {
+#products .gallery li .filter-similar-products {
+	top: 10%;
+}
+
+#products .gallery li:hover .add-to-cart,
+#products .gallery li:hover .filter-similar-products {
 	opacity: 1;
 }
 
@@ -270,7 +276,8 @@ PRODUCT LIST
 	color: rgba(8, 41, 71, 0.8);
 }
 
-#products .add-to-cart {
+#products .add-to-cart,
+#products .filter-similar-products {
 	cursor: pointer;
 	display: inline-block;
 	padding: 1.2em 1.8em;
