@@ -55,9 +55,6 @@
 					<li class="filter">
 						<a data-menu="meat" href="javascript:filter('meat');">Meat</a>
 					</li>
-					<li>
-						Sopping cart: <span id="shoppingCartCount">0</span> item(s)
-					</li>
 				</ul>
 			</div>
 		</div>
@@ -66,6 +63,60 @@
 			<ul id="productList"></ul>
 			<div class="fail-message">No products found</div>
 		</section>
+
+		<div id="cartList" class="cart-list">
+			<div class="cart-list__header">
+				<span>CART</span>
+			</div>
+			<div class="cart-list__items">
+				<ul>
+					<li>
+						<div class="item__image-container">
+							<img src="assets/images/0.jpg" />
+						</div>
+						<div class="item__name-container">
+							<span class="name">Sweet fresh strawberry feelings forever</span>
+							<button class="btn-delete-item">Delete</button>
+						</div>
+						<div class="item__price-container">
+							<span>$29.45</span>
+						</div>
+					</li>
+					<li>
+						<div class="item__image-container">
+							<img src="assets/images/0.jpg" />
+						</div>
+						<div class="item__name-container">
+							<span class="name">Sweet fresh strawberry</span>
+							<button class="btn-delete-item">Delete</button>
+						</div>
+						<div class="item__price-container">
+							<span>$29.45</span>
+						</div>
+					</li>
+					<li>
+						<div class="item__image-container">
+							<img src="assets/images/0.jpg" />
+						</div>
+						<div class="item__name-container">
+							<span class="name">Sweet fresh strawberry</span>
+							<button class="btn-delete-item">Delete</button>
+						</div>
+						<div class="item__price-container">
+							<span>$29.45</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="cart-list__footer">
+				<button class="btn-checkout">Checkout - $101.34</button>
+				<button class="btn-trigger-checkout" onclick="toggleCheckout()">
+					<span id="shoppingCartCount">0</span>
+					<span class="icon"></span>
+				</button>
+			</div>
+			
+		</div>
 
 	</main>
 		
@@ -164,6 +215,16 @@
 				.then(function() {
 					location.href = 'login.html';
 				});
+		}
+
+		function toggleCheckout() {
+			var cartList = document.getElementById('cartList');
+
+			if(cartList.classList.contains('active')){
+				cartList.classList.remove('active');
+			} else {
+				cartList.classList.add('active');
+			}
 		}
 
 		// Load items first time -------------------------------------------------------
