@@ -130,11 +130,11 @@
 					"userId": currentUser.id
 				})
 				.then(function(item) {
-					return loadShoppintCartCount();
+					return loadShoppingCartCount();
 				});
 		}
 
-		function loadShoppintCartCount() {
+		function loadShoppingCartCount() {
 			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.count()
 				.where('userId', currentUser.id)
@@ -167,7 +167,7 @@
 
 		filter('')
 			.then(function() {
-				loadShoppintCartCount();
+				loadShoppingCartCount();
 			});
 	</script>
 </body>
