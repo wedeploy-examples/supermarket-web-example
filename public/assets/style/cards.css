@@ -1,3 +1,103 @@
+*, *::after, *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	position: relative;
+	background: #082947;
+}
+
+body.white {
+	background: white;	
+}
+
+.logo img {
+	width: 48px;
+	height: 92px;
+}
+
+/* -------------------------------- 
+
+MENU - AVATAR / LOGOUT
+
+-------------------------------- */
+.menu {
+	position: absolute;
+	right: 20px;
+	top: 12px;
+}
+
+.avatar {
+	float: left;
+	position: relative;
+	margin-right: 12px;
+	width: 36px;
+	height: 36px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.avatar img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 36px;
+	height: 36px;
+	z-index: 10;
+	border-radius: 50%;
+}
+
+.avatar img[src=""] {
+   display: none;
+}
+
+.avatar #initials {
+	background: #082947;
+	color: white;
+	font-family: 'Galano Bold', sans-serif;
+	text-align: center;
+	display: block;
+	font-size: 14px;
+	line-height: 36px;
+	text-transform: uppercase;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 36px;
+	height: 36px;
+	z-index: 9;
+	border-radius: 50%;
+}
+
+.logout {
+	float: left;
+	position: relative;
+	width: 36px;
+	height: 36px;
+	text-align: center;
+	background: white;
+	border-radius: 50%;
+	display: block;
+	box-shadow: none;
+	border: 0px solid #fff;
+	cursor: pointer;
+	padding: 0;
+}
+
+.logout span {
+	color: #ff4040;
+	line-height: 36px;
+	font-size: 12px;
+	padding: 0 0 0 3px;
+}
+
 /* -------------------------------- 
 
 PRODUCT LIST

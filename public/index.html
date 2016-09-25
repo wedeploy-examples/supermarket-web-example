@@ -22,6 +22,15 @@
 		<div class="logo">
 			<img src="assets/style/images/apple.svg" />
 		</div>
+		<div class="menu">
+			<span class="avatar">
+				<span id="initials"></span>
+				<img id="userPhoto" src="" />
+			</span>
+			<button class="logout" onclick="signOut();">
+				<span class="icon-12-leave"></span>
+			</button>
+		</div>
 	</header>
 
 	<main class="main-content">
@@ -69,6 +78,9 @@
 
 		if (currentUser === null) {
 			location.href = 'login.html';
+		} else {
+			document.getElementById('userPhoto').src = currentUser.photoUrl;
+			document.getElementById('initials').innerHTML = currentUser.name.charAt(0); 
 		}
 
 		// Helpers -----------------------------------------------------------------------
