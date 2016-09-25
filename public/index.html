@@ -15,10 +15,12 @@
     <link rel="stylesheet" type="text/css" href="assets/style/main.css">
 
 </head>
-<body>
+<body class="white">
 
 	<header class="cd-header">
-		<h1>Whole | Organic | Foods</h1>
+		<div class="logo">
+			<img src="assets/style/images/apple.svg" />
+		</div>
 	</header>
 
 	<main class="cd-main-content">
@@ -37,7 +39,7 @@
 
 		<section class="cd-gallery">
 			<ul id="productList"></ul>
-			<div class="cd-fail-message">No results found</div>
+			<div class="cd-fail-message">No products found</div>
 		</section> <!-- cd-gallery -->
 
 		<div class="cd-filter">
@@ -131,6 +133,8 @@
 		.then(function(products) {
 			for(var i = 0; i < products.length; i++) {
 				listHtml += '<li class="mix color-' + i + '">'
+				listHtml += '<span class="title">' + products[i].description + '</span>';
+				listHtml += '<div class="blur"></div>';
 				listHtml += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
 				listHtml += '</li>';
 			}
