@@ -30,22 +30,22 @@
 			<div class="tab-filter">
 				<ul class="filters">
 					<li class="filter">
-						<a class="selected" href="javascript:void(0);" onclick="filter();">All</a>
+						<a data-menutype="" href="javascript:void(0);" onclick="filter('');">All</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:void(0);" onclick="filter('bakery');">Bakery</a>
+						<a data-menutype="bakery" href="javascript:void(0);" onclick="filter('bakery');">Bakery</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:void(0);" onclick="filter('dairy');">Dairy</a>
+						<a data-menutype="dairy" href="javascript:void(0);" onclick="filter('dairy');">Dairy</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:void(0);" onclick="filter('fruit');">Fruit</a>
+						<a data-menutype="fruit" href="javascript:void(0);" onclick="filter('fruit');">Fruit</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:void(0);" onclick="filter('vegetable');">Vegetable</a>
+						<a data-menutype="vegetable" href="javascript:void(0);" onclick="filter('vegetable');">Vegetable</a>
 					</li>
 					<li class="filter">
-						<a href="javascript:void(0);" onclick="filter('meat');">Meat</a>
+						<a data-menutype="meat" href="javascript:void(0);" onclick="filter('meat');">Meat</a>
 					</li>
 				</ul>
 			</div>
@@ -86,10 +86,19 @@
 					}
 					list.innerHTML = html;
 				});
+
+			document.querySelectorAll('[data-menutype]')
+				.forEach(function(menu) {
+					menu.classList.remove('selected');
+					if (menu.dataset.menutype === type) {
+						menu.classList.add('selected');
+					}
+				});
+
 			return false;
 		}
 
-		filter();
+		filter('');
 	</script>
 </body>
 </html>
