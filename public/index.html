@@ -95,7 +95,7 @@
 				pendingRequest.cancel();
 			}
 			pendingRequest = WeDeploy.data('data.supermarket.wedeploy.io')
-				.similar(description)
+				.similar('description', description)
 				.search('products')
 				.then(function(search) {
 					plotProducts(search.documents);
