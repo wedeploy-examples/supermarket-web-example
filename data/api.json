@@ -2,5 +2,9 @@
 	{
 		"path": "/products/*",
 		"data": true
+	},
+	{
+		"path": "/cart/*",
+		"data": true
 	}
 ]

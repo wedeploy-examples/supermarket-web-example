@@ -48,8 +48,7 @@
 					</div>
 
 					<div class="btn-wrapper">
-						<!-- <button type="submit" class="btn btn-success" name="submit">Login</button> -->
-						<a href="./" class="btn btn-success" name="submit">Login</a>
+						<button type="submit" class="btn btn-success" name="submit">Login</button>
 					</div>
 
 				</form>
@@ -87,8 +86,8 @@
     	function signInWithEmailAndPassword() {
     		auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
     			.then(function() {
-    				alert('Sign-in successfully.');
     				signIn.reset();
+    				location.href = '/';
     			})
     			.catch(function() {
     				alert('Sign-in failed.');

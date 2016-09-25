@@ -47,6 +47,9 @@
 					<li class="filter">
 						<a data-menutype="meat" href="javascript:void(0);" onclick="filter('meat');">Meat</a>
 					</li>
+					<li>
+						Sopping cart: <span id="shoppingCartCount">0</span> item(s)
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -60,23 +63,27 @@
 		
 	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 	<script>
+		// Checks user is signed in ------------------------------------------------------
+
 		if (WeDeploy.auth().currentUser === null) {
 			location.href = 'login.html';
 		}
+
+		// Helpers -----------------------------------------------------------------------
 
 		function filter(type) {
 			var data = WeDeploy.data('data.supermarket.wedeploy.io');
 			if (type) {
 				data.where('type', type);
 			}
-			data
+			return data
 				.get('products')
 				.then(function(products) {
 					var html = '';
 					var list = document.getElementById('productList');
 					for(var i = 0; i < products.length; i++) {
 						html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
-						html += '<a href="javascript:;" class="add-to-cart" data-id="' + products[i].id + '" data-price="' + products[i].price + '" data-image="assets/images/' + products[i].filename + '" data-name="' + products[i].title + '">Add To Cart</a>';
+						html += '<a href="javascript:void(0);" class="add-to-cart" onclick="saveItemToShoppingCart(' + products[i].id +');">Add To Cart</a>';
 						html += '<div class="bottom-info">';
 						html += '<span class="title">' + products[i].title + '</span>';
 						html += '<span class="price">$' + products[i].price + '</span>';
@@ -87,9 +94,30 @@
 					}
 					list.innerHTML = html;
 					selectActiveMenu(type);
+					return this;
 				});
+		}
 
-			return false;
+		function saveItemToShoppingCart(productId) {
+			return WeDeploy.data('data.supermarket.wedeploy.io')
+				.create('cart', {
+					"productId": productId,
+					"userId": WeDeploy.auth().currentUser.id
+				})
+				.then(function(item) {
+					return loadShoppintCartCount();
+				});
+		}
+
+		function loadShoppintCartCount() {
+			return WeDeploy.data('data.supermarket.wedeploy.io')
+				.count()
+				.where('userId', WeDeploy.auth().currentUser.id)
+				.get('cart')
+				.then(function(total) {
+					document.getElementById('shoppingCartCount').innerHTML = total;
+					return this;
+				});
 		}
 
 		function selectActiveMenu(type) {
@@ -110,7 +138,12 @@
 				});
 		}
 
-		filter('');
+		// Load items first time -------------------------------------------------------
+
+		filter('')
+			.then(function() {
+				loadShoppintCartCount();
+			});
 	</script>
 </body>
 </html>
