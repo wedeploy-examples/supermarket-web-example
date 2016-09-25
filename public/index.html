@@ -31,8 +31,10 @@
 						<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
 					</li> 
 					<li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
-					<li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>
-					<li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>
+					<li class="filter" data-filter=".bakery"><a href="#0" data-type=".bakery">Bakery</a></li>
+					<li class="filter" data-filter=".dairy"><a href="#0" data-type=".dairy">Dairy</a></li>
+					<li class="filter" data-filter=".fruit"><a href="#0" data-type=".fruit">Fruit</a></li>
+					<li class="filter" data-filter=".vegetable"><a href="#0" data-type=".vegetable">Vegetable</a></li>
 				</ul> <!-- cd-filters -->
 			</div> <!-- cd-tab-filter -->
 		</div> <!-- cd-tab-filter-wrapper -->
@@ -165,7 +167,7 @@
 			data.get('products')
 			.then(function(products) {
 				for(var i = 0; i < products.length; i++) {
-					listHtml += '<li class="mix color-' + i + '">'
+					listHtml += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
 					listHtml += '<a href="javascript:;" class="cd-add-to-cart" data-id="' + products[i].id + '" data-price="' + products[i].price + '" data-image="assets/images/' + products[i].filename + '" data-name="' + products[i].title + '">Add To Cart</a>';
 					listHtml += '<div class="bottom-info">';
 					listHtml += '<span class="title">' + products[i].title + '</span>';

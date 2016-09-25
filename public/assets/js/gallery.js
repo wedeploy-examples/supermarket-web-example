@@ -107,7 +107,7 @@ jQuery(document).ready(function($){
 		        	var $this = $(this);
 		        
 		        	// add item to be filtered out if input text matches items inside the title   
-		        	if($this.attr('class').toLowerCase().match(inputText)) {
+		        	if($this.data('title').toLowerCase().match(inputText)) {
 		          		$matching = $matching.add(this);
 		        	} else {
 		          		// removes any previously matched item
