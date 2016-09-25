@@ -30,22 +30,22 @@
 			<div class="tab-filter">
 				<ul class="filters">
 					<li class="filter">
-						<a data-menutype="" href="javascript:filter('');">All</a>
+						<a data-menu="" href="javascript:filter('');">All</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="bakery" href="javascript:filter('bakery');">Bakery</a>
+						<a data-menu="bakery" href="javascript:filter('bakery');">Bakery</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="dairy" href="javascript:filter('dairy');">Dairy</a>
+						<a data-menu="dairy" href="javascript:filter('dairy');">Dairy</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="fruit" href="javascript:filter('fruit');">Fruit</a>
+						<a data-menu="fruit" href="javascript:filter('fruit');">Fruit</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="vegetable" href="javascript:filter('vegetable');">Vegetable</a>
+						<a data-menu="vegetable" href="javascript:filter('vegetable');">Vegetable</a>
 					</li>
 					<li class="filter">
-						<a data-menutype="meat" href="javascript:filter('meat');">Meat</a>
+						<a data-menu="meat" href="javascript:filter('meat');">Meat</a>
 					</li>
 					<li>
 						Sopping cart: <span id="shoppingCartCount">0</span> item(s)
@@ -124,10 +124,10 @@
 		}
 
 		function selectActiveMenu(type) {
-			document.querySelectorAll('[data-menutype]')
+			document.querySelectorAll('[data-menu]')
 				.forEach(function(menu) {
 					menu.classList.remove('selected');
-					if (menu.dataset.menutype === type) {
+					if (menu.dataset.menu === type) {
 						menu.classList.add('selected');
 					}
 				});
