@@ -240,13 +240,15 @@
 			for(var i = 0; i < products.length; i++) {
 				html += `<li class="mix ${products[i].type}" data-title="${products[i].title}">
 					<a href="javascript:saveItemToShoppingCart('${products[i].id}', '${products[i].title}', '${products[i].filename}', ${products[i].price});" class="add-to-cart">Add To Cart</a>
-					<a href="javascript:filterSimilarProducts(${products[i].description});" class="filter-similar-products">Find similar products</a>
+					<a href="javascript:filterSimilarProducts('${products[i].description}');" class="filter-similar-products"><span class="icon-12-magnifier"></span><span class="tooltip">Search for Similar Items</span></a>
 					<div class="bottom-info">
 						<span class="title">${products[i].title}</span>
 						<span class="price">$${products[i].price}</span>
 					</div>
 					<div class="blur"></div>
-					<img src="assets/images/${products[i].filename}" alt="${products[i].description}" />
+					<div class="img-mask">
+						<img src="assets/images/${products[i].filename}" alt="${products[i].description}" />
+					</div>
 				</li>`;
 			}
 			list.innerHTML = html;

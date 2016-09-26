@@ -119,7 +119,7 @@ PRODUCT LIST
 	width: 48px;
 	height: 72px;
 	overflow: hidden;
-	z-index: 300;
+	z-index: 100;
 }
 
 /** MAIN CONTENT **/
@@ -222,7 +222,7 @@ PRODUCT LIST
 	box-shadow: 0 2px 12px rgba(8, 41, 71, 0.12);
 	position: relative;
 	border-radius: 4px;
-	overflow: hidden;
+	overflow: visible;
 	cursor: pointer;
 	width: 92vw;
 	height: 92vw;
@@ -334,6 +334,13 @@ PRODUCT LIST
 	transform: translateY(-50%);
 }
 
+#products .gallery li .img-mask {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
 #products .gallery li img {
 	display: block;
 	min-width: 100%;
@@ -352,8 +359,7 @@ PRODUCT LIST
 	transform: scale(1.1);
 }
 
-#products .gallery li .add-to-cart,
-#products .gallery li .filter-similar-products {
+#products .gallery li .add-to-cart {
 	opacity: 0;
 	position: absolute;
 	top: 50%;
@@ -373,7 +379,53 @@ PRODUCT LIST
 }
 
 #products .gallery li .filter-similar-products {
-	top: 10%;
+	display: block;
+	opacity: 0;
+	position: absolute;
+	top: 12px;
+	left: 20px;
+	width: 32px;
+	height: 32px;
+	z-index: 300;
+	padding: 0;
+	text-align: center;
+
+	background: rgba(255, 255, 255, 0.6);
+	transition: all 0.3s;
+}
+
+#products .gallery li .filter-similar-products:hover {
+	background: rgba(255, 255, 255, 0.8);
+}
+
+#products .gallery li .filter-similar-products .icon-12-magnifier {
+	color: #082947;
+	font-size: 12px;
+	line-height: 32px;
+}
+
+#products .gallery li .filter-similar-products .tooltip {
+	height: 36px;
+	width: 160px;
+	font-family: 'Galano Semibold', sans-serif;
+	font-size: 12px;
+	line-height: 36px;
+	background: white;
+	color: #082947;
+	text-align: center;
+	position: absolute;
+	border-radius: 4px;
+	top: 40px;
+	left: -62px;
+	z-index: 400;
+	display: none;
+	text-transform: none;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+	letter-spacing: -0.02em;
+}
+
+#products .gallery li .filter-similar-products:hover .tooltip {
+	display: block;
 }
 
 #products .gallery li:hover .add-to-cart,
@@ -432,6 +484,7 @@ CART
 	border-radius: 4px;
 	overflow: visible;
 	box-shadow: none;
+	z-index: 9999;
 }
 
 .cart-list.active {
