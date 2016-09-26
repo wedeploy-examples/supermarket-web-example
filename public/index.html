@@ -72,7 +72,7 @@
 				<ul id="shoppingCartList"></ul>
 			</div>
 			<div class="cart-list__footer">
-				<button class="btn-checkout">Checkout - $<span id="shoppingCartTotal"></span></button>
+				<button class="btn-checkout" onclick="checkout();">Checkout - $<span id="shoppingCartTotal"></span></button>
 				<button class="btn-trigger-checkout" onclick="document.getElementById('cartList').classList.toggle('active');">
 					<span id="shoppingCartCount">0</span>
 					<span class="icon"></span>
@@ -177,6 +177,49 @@
 					document.getElementById('shoppingCartCount').innerHTML = items.length;
 					return this;
 				});
+		}
+
+		// Checkout ------------------------------------------------------------------------
+		
+		function checkout() {
+			makeCheckoutMessageFromShoppingCartList()
+				.then(function(message) {
+					sendCheckoutEmail(message);
+				});
+		}
+
+		function makeCheckoutMessageFromShoppingCartList() {
+			return WeDeploy.data('data.supermarket.wedeploy.io')
+				.where('userId', currentUser.id)
+				.get('cart')
+				.then(function(items) {
+					return items
+						.map(function(item) {
+							return `<div>${item.productTitle} - $${item.productPrice}</div>`;
+						})
+						.join('') + '<br>Thank you!';
+				});
+		}
+
+		function sendCheckoutEmail(message) {
+			return WeDeploy
+					.url('http://email.supermarket.wedeploy.io/emails')
+					.form('from', 'auto-confirm@supermarket.wedeploy.io')
+					.form('to', currentUser.email)
+					.form('subject', `Thank you ${currentUser.name}, your order was confirmed!`)
+					.form('message', message)
+					.post()
+					.then(function(response) {
+						if (response.succeeded()) {
+							alert('Your order was confirmed, check your inbox.');
+						}
+						else {
+							alert('Your order was not confirmed, try again.');
+						}
+					})
+					.catch(function(error) {
+						alert('Ops, some error has happened.');
+					});
 		}
 
 		// Helpers ------------------------------------------------------------------------
