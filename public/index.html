@@ -69,47 +69,10 @@
 				<span>CART</span>
 			</div>
 			<div class="cart-list__items">
-				<ul>
-					<li>
-						<div class="item__image-container">
-							<img src="assets/images/0.jpg" />
-						</div>
-						<div class="item__name-container">
-							<span class="name">Sweet fresh strawberry feelings forever</span>
-							<button class="btn-delete-item">Delete</button>
-						</div>
-						<div class="item__price-container">
-							<span>$29.45</span>
-						</div>
-					</li>
-					<li>
-						<div class="item__image-container">
-							<img src="assets/images/0.jpg" />
-						</div>
-						<div class="item__name-container">
-							<span class="name">Sweet fresh strawberry</span>
-							<button class="btn-delete-item">Delete</button>
-						</div>
-						<div class="item__price-container">
-							<span>$29.45</span>
-						</div>
-					</li>
-					<li>
-						<div class="item__image-container">
-							<img src="assets/images/0.jpg" />
-						</div>
-						<div class="item__name-container">
-							<span class="name">Sweet fresh strawberry</span>
-							<button class="btn-delete-item">Delete</button>
-						</div>
-						<div class="item__price-container">
-							<span>$29.45</span>
-						</div>
-					</li>
-				</ul>
+				<ul id="shoppingCartList"></ul>
 			</div>
 			<div class="cart-list__footer">
-				<button class="btn-checkout">Checkout - $101.34</button>
+				<button class="btn-checkout">Checkout - $<span id="shoppingCartTotal"></span></button>
 				<button class="btn-trigger-checkout" onclick="document.getElementById('cartList').classList.toggle('active');">
 					<span id="shoppingCartCount">0</span>
 					<span class="icon"></span>
@@ -163,38 +126,58 @@
 			var html = '';
 			var list = document.getElementById('productList');
 			for(var i = 0; i < products.length; i++) {
-				html += '<li class="mix ' + products[i].type + '" data-title="' + products[i].title + '">';
-				html += '<a href="javascript:saveItemToShoppingCart(\'' + products[i].id +'\');" class="add-to-cart">Add To Cart</a>';
-				html += '<a href="javascript:filterSimilarProducts(\'' + products[i].description +'\');" class="filter-similar-products">Find similar products</a>';
-				html += '<div class="bottom-info">';
-				html += '<span class="title">' + products[i].title + '</span>';
-				html += '<span class="price">$' + products[i].price + '</span>';
-				html += '</div>';
-				html += '<div class="blur"></div>';
-				html += '<img src="assets/images/' + products[i].filename + '" alt="' + products[i].description + '" />';
-				html += '</li>';
+				html += `<li class="mix ${products[i].type}" data-title="${products[i].title}">
+					<a href="javascript:saveItemToShoppingCart('${products[i].id}', '${products[i].title}', '${products[i].filename}', ${products[i].price});" class="add-to-cart">Add To Cart</a>
+					<a href="javascript:filterSimilarProducts(${products[i].description});" class="filter-similar-products">Find similar products</a>
+					<div class="bottom-info">
+						<span class="title">${products[i].title}</span>
+						<span class="price">$${products[i].price}</span>
+					</div>
+					<div class="blur"></div>
+					<img src="assets/images/${products[i].filename}" alt="${products[i].description}" />
+				</li>`;
 			}
 			list.innerHTML = html;
 		}
 
-		function saveItemToShoppingCart(productId) {
+		function saveItemToShoppingCart(productId, productTitle, productFilename, productPrice) {
 			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.create('cart', {
+					"productTitle": productTitle,
+					"productPrice": productPrice,
+					"productFilename": productFilename,
 					"productId": productId,
 					"userId": currentUser.id
 				})
 				.then(function(item) {
-					return loadShoppingCartCount();
+					return loadShoppingCart();
 				});
 		}
 
-		function loadShoppingCartCount() {
+		function loadShoppingCart() {
 			return WeDeploy.data('data.supermarket.wedeploy.io')
-				.count()
 				.where('userId', currentUser.id)
 				.get('cart')
-				.then(function(total) {
-					document.getElementById('shoppingCartCount').innerHTML = total;
+				.then(function(items) {
+					var total = 0;
+					document.getElementById('shoppingCartList').innerHTML = items
+						.map(function(item) {
+							total += item.productPrice;
+							return `<li>
+								<div class="item__image-container">
+									<img src="assets/images/${item.productFilename}" />
+								</div>
+								<div class="item__name-container">
+									<span class="name">${item.productTitle}</span>
+									<button class="btn-delete-item">Delete</button>
+								</div>
+								<div class="item__price-container">
+									<span>$${item.productPrice}</span>
+								</div>
+							</li>`;
+						});
+					document.getElementById('shoppingCartTotal').innerHTML = total;
+					document.getElementById('shoppingCartCount').innerHTML = items.length;
 					return this;
 				});
 		}
@@ -221,7 +204,7 @@
 
 		filter('')
 			.then(function() {
-				loadShoppingCartCount();
+				loadShoppingCart();
 			});
 	</script>
 </body>
