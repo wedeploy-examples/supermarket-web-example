@@ -9,11 +9,6 @@
 	{
 		"path": "/cart/*",
 		"data": true,
-		"parameters": {
-			"filter": {
-				"value": "{\"userId\":{\"operator\":\"=\",\"value\": $data.userId }"
-			}
-		},
 		"auth": {
 			"validator": "$auth != null"
 		}
