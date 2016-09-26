@@ -154,6 +154,14 @@
 				});
 		}
 
+		function deleteItemToShoppingCart(cartId) {
+			return WeDeploy.data('data.supermarket.wedeploy.io')
+				.delete('cart/' + cartId)
+				.then(function(item) {
+					return loadShoppingCart();
+				});
+		}
+
 		function loadShoppingCart() {
 			return WeDeploy.data('data.supermarket.wedeploy.io')
 				.where('userId', currentUser.id)
@@ -169,7 +177,7 @@
 								</div>
 								<div class="item__name-container">
 									<span class="name">${item.productTitle}</span>
-									<button class="btn-delete-item">Delete</button>
+									<button class="btn-delete-item" onclick="deleteItemToShoppingCart('${item.id}')">Delete</button>
 								</div>
 								<div class="item__price-container">
 									<span>$${item.productPrice}</span>
