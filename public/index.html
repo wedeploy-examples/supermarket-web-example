@@ -211,10 +211,7 @@
 
 		// Load items first time -------------------------------------------------------
 
-		filter('')
-			.then(function() {
-				loadShoppingCart();
-			});
+		filter('').then(loadShoppingCart);
 	</script>
 </body>
 </html>
