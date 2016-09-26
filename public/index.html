@@ -89,7 +89,7 @@
 
 		var currentUser = WeDeploy.auth().currentUser;
 
-		if (currentUser === null) {
+		if (currentUser) {
 			location.href = 'login.html';
 		}
 		else {
