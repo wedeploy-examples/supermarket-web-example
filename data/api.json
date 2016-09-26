@@ -1,10 +1,21 @@
 [
 	{
 		"path": "/products/*",
-		"data": true
+		"data": true,
+		"auth": {
+			"validator": "$auth != null"
+		}
 	},
 	{
 		"path": "/cart/*",
-		"data": true
+		"data": true,
+		"parameters": {
+			"filter": {
+				"value": "{\"userId\":{\"operator\":\"=\",\"value\": $data.userId }"
+			}
+		},
+		"auth": {
+			"validator": "$auth != null"
+		}
 	}
 ]
