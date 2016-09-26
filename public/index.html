@@ -110,7 +110,7 @@
 			</div>
 			<div class="cart-list__footer">
 				<button class="btn-checkout">Checkout - $101.34</button>
-				<button class="btn-trigger-checkout" onclick="toggleCheckout()">
+				<button class="btn-trigger-checkout" onclick="document.getElementById('cartList').classList.toggle('active');">
 					<span id="shoppingCartCount">0</span>
 					<span class="icon"></span>
 				</button>
@@ -215,16 +215,6 @@
 				.then(function() {
 					location.href = 'login.html';
 				});
-		}
-
-		function toggleCheckout() {
-			var cartList = document.getElementById('cartList');
-
-			if(cartList.classList.contains('active')){
-				cartList.classList.remove('active');
-			} else {
-				cartList.classList.add('active');
-			}
 		}
 
 		// Load items first time -------------------------------------------------------
