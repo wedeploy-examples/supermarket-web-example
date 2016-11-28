@@ -94,9 +94,9 @@
     	}
 
     	function signInWithFacebook() {
-    		var githubProvider = new auth.provider.Facebook();
-    		githubProvider.setProviderScope('email');
-    		auth.signInWithRedirect(githubProvider);
+    		var facebookProvider = new auth.provider.Facebook();
+    		facebookProvider.setProviderScope('email');
+    		auth.signInWithRedirect(facebookProvider);
     	}
 
     	function signInWithGoogle() {
