@@ -19,8 +19,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-
-		UIImageView().rx.image
 		loginScreenlet.delegate.subscribe { print($0) }
 
 	}

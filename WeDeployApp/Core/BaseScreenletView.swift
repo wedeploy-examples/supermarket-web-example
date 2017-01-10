@@ -11,7 +11,7 @@ import UIKit
 public class BaseScreenletView : UIView {
 	var actionPerformer: ActionPerformer?
 
-	public func perform(actionName: String, params: [String: Any]) {
+	public func perform(actionName: String, params: InteractorInput) {
 		actionPerformer?(actionName, params)
 	}
 
@@ -19,7 +19,7 @@ public class BaseScreenletView : UIView {
 
 	}
 
-	public func interactionEnded(actionName: String, result: [String: Any]) {
+	public func interactionEnded(actionName: String, result: InteractorOutput) {
 
 	}
 

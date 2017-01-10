@@ -10,37 +10,34 @@ import Foundation
 import WeDeploy
 import RxSwift
 
+extension User : InteractorOutput { }
+
 public class LoginInteractor : Interactor {
 
 	public static let ActionName = "LoginAction"
 
-	var username: String?
-	var password: String?
+	var loginParams: LoginInteractorInput!
 
 	override var actionName: String {
 		return LoginInteractor.ActionName
 	}
 
-	public override func execute() -> Observable<[String : Any]> {
+	public override func execute() -> Observable<InteractorOutput> {
 
 		return WeDeploy.auth("auth.easley84.wedeploy.io")
-			.signInWith(username: username!, password: password!)
+			.signInWith(username: loginParams.username, password: loginParams.password)
 			.toObservable()
 			.map { user in
-				print(Thread.isMainThread)
-				return ["user" : user]
+				return user
 			}
 	}
 
 	public override func validateParams() -> Bool {
-		guard let username = params["username"] as? String,
-			let password = params["password"] as? String else {
-				return false
-		}
+		guard let loginParams = params as? LoginInteractorInput
+			else { return false }
 
-		self.username = username
-		self.password = password
-
+		self.loginParams = loginParams
+		
 		return true
 	}
 

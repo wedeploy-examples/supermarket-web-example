@@ -17,13 +17,14 @@ public class ScreenletWarehouse {
 	private init() {
 		definitions = [String : ScreenletDefinition]()
 		definitions = [
-			"LoginScreenlet" : ScreenletDefinition(interactors: [LoginWithProviderInteractor(), LoginInteractor()], viewNames: ["WeLoginScreenletView"], classType: LoginScreenlet.self)
+			"LoginScreenlet" : ScreenletDefinition(interactors: [LoginWithProviderInteractor(), LoginInteractor()], viewNames: ["WeLoginScreenletView"])
 		]
 	}
 
 	func definitionFor(screenlet: BaseScreenlet.Type) -> ScreenletDefinition? {
 		let name = screenletName(screenlet)
 		return definitions[name]
+
 	}
 
 	public func createDefinitionFor(screenlet: BaseScreenlet.Type, definition: ScreenletDefinition) {
@@ -38,5 +39,4 @@ public class ScreenletWarehouse {
 public struct ScreenletDefinition {
 	let interactors: [Interactor]
 	let viewNames: [String]
-	let classType: BaseScreenlet.Type
 }

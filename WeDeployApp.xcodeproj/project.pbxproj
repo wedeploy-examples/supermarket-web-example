@@ -21,6 +21,7 @@
 		0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF73C611E24DB5300D07BAB /* LoginScreenlet.swift */; };
 		0BF73C681E24DB5B00D07BAB /* WeLoginScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF73C661E24DB5B00D07BAB /* WeLoginScreenletView.swift */; };
 		0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */; };
+		0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */; };
 		1B920553338BE9B7A703281C /* Pods_WeDeployApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB4D711B8A2345AE7495C70 /* Pods_WeDeployApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		0BF73C611E24DB5300D07BAB /* LoginScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenlet.swift; sourceTree = "<group>"; };
 		0BF73C661E24DB5B00D07BAB /* WeLoginScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeLoginScreenletView.swift; sourceTree = "<group>"; };
 		0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeLoginScreenletView.xib; sourceTree = "<group>"; };
+		0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractorInput.swift; sourceTree = "<group>"; };
 		3CB4D711B8A2345AE7495C70 /* Pods_WeDeployApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeDeployApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8ABC9A8EBF5701FB046735 /* Pods-WeDeployApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDeployApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeDeployApp/Pods-WeDeployApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C014196B76C62ABA11506D /* Pods-WeDeployApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDeployApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeDeployApp/Pods-WeDeployApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				0BF73C5F1E24DB5300D07BAB /* LoginInteractor.swift */,
 				0BF73C601E24DB5300D07BAB /* LoginWithProviderInteractor.swift */,
+				0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */,
 				0BCF55AF1E1E470600404C0F /* ViewController.swift in Sources */,
 				0BF73C5A1E24DB4C00D07BAB /* BaseScreenletView.swift in Sources */,
 				0BF73C621E24DB5300D07BAB /* LoginInteractor.swift in Sources */,

@@ -17,7 +17,7 @@ public enum InteractorError: Error {
 
 public class Interactor {
 
-	var params: [String : Any]!
+	var params: InteractorInput!
 	var actionName: String {
 		return ""
 	} 
@@ -25,7 +25,7 @@ public class Interactor {
 	public required init() {
 	}
 
-	public func start(params: [String: Any]) -> Observable<[String: Any]> {
+	public func start(params: InteractorInput) -> Observable<InteractorOutput> {
 		self.params = params
 		if !validateParams() {
 			return Observable.error(InteractorError.invalidParams)
@@ -34,7 +34,7 @@ public class Interactor {
 		return execute()
 	}
 
-	public func execute() -> Observable<[String: Any]> {
+	public func execute() -> Observable<InteractorOutput> {
 		fatalError("this has to be overriden")
 	}
 

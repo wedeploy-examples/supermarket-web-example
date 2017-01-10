@@ -15,15 +15,17 @@ public class WeLoginScreenletView : BaseScreenletView {
 	@IBOutlet weak var label: UILabel!
 
 	@IBAction func buttonClick(_ sender: Any) {
-		perform(actionName: LoginWithProviderInteractor.ActionName, params: ["provider" : "github", "redirectUri" : "wedeploy-app://"])
+		let params = LoginWithProviderInteractorInput(provider: .github, redirectUri: "wedeploy-app://")
+		perform(actionName: LoginWithProviderInteractor.ActionName, params: params)
 	}
 
 	@IBAction func Login() {
-		perform(actionName:  LoginInteractor.ActionName, params: ["username" : "test@test.com", "password" : "test"])
+		let params = LoginInteractorInput(username: "test@test.com", password: "test")
+		perform(actionName:  LoginInteractor.ActionName, params: params)
 	}
 
-	public override func interactionEnded(actionName: String, result: [String : Any]) {
-		let user = result["user"] as! User
+	public override func interactionEnded(actionName: String, result: InteractorOutput) {
+		let user = result as! User
 		
 		label.text = "\(user)"
 

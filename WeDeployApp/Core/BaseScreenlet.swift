@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-public typealias ActionPerformer = (String, [String: Any]) -> ()
+public typealias ActionPerformer = (String, InteractorInput) -> ()
 
 public class BaseScreenlet : UIView {
 
@@ -81,9 +81,9 @@ public class BaseScreenlet : UIView {
 		return nil
 	}
 
-	public func perform(actionName: String, params: [String: Any]) {
+	public func perform(actionName: String, params: InteractorInput) {
 
-		let interactor = interactorFor(actionName: actionName, params: params)
+		let interactor = interactorFor(actionName: actionName)
 
 		interactor?.start(params: params)
 			.do(onSubscribe: { [weak self] in
@@ -100,7 +100,7 @@ public class BaseScreenlet : UIView {
 				.addDisposableTo(disposeBag)
 	}
 
-	public func interactorFor(actionName: String,  params: [String: Any]) -> Interactor? {
+	public func interactorFor(actionName: String) -> Interactor? {
 
 		return interactors?.filter { $0.support(actionName: actionName) }.first
 	}
@@ -109,7 +109,7 @@ public class BaseScreenlet : UIView {
 		screenletView?.interactionStarted(actionName: actionName)
 	}
 
-	public func interactionEnded(actionName: String, result: [String: Any]) {
+	public func interactionEnded(actionName: String, result: InteractorOutput) {
 		screenletView?.interactionEnded(actionName: actionName, result: result)
 	}
 
@@ -120,10 +120,10 @@ public class BaseScreenlet : UIView {
 }
 
 
-public protocol InteractionParams {
+public protocol InteractorInput {
 
 }
 
-public protocol InteractionResult {
+public protocol InteractorOutput {
 
 }
