@@ -15,38 +15,62 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjz-cV-oWY">
-                    <rect key="frame" x="88" y="318" width="182" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Login with provider"/>
-                    <connections>
-                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Y4v-8d-yNw"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5F7-N6-sZ2">
-                    <rect key="frame" x="45" y="390" width="259" height="236"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Te-f7-Pjl">
-                    <rect key="frame" x="54" y="51" width="250" height="189"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAX-b3-GpD">
-                    <rect key="frame" x="88" y="398" width="182" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="Login" destination="iN0-l3-epB" eventType="touchUpInside" id="OaE-qN-Rbq"/>
-                    </connections>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="o1c-Ld-jZa" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="255" width="335" height="60"/>
+                    <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="cEl-fT-3ln"/>
+                    </constraints>
+                    <color key="textColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                            <color key="value" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-Qc-Jox" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="327" width="335" height="60"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ik8-bk-hY8"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="m11-Nd-U42"/>
+                    </constraints>
+                    <color key="textColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                            <color key="value" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7s2-im-qg5" customClass="WeButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="399" width="335" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="wHX-xH-P5Y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <state key="normal" title="Log in"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="o1c-Ld-jZa" secondAttribute="trailing" constant="20" id="6oM-cZ-vE1"/>
+                <constraint firstItem="XUR-Qc-Jox" firstAttribute="trailing" secondItem="o1c-Ld-jZa" secondAttribute="trailing" id="HYm-vV-6Mu"/>
+                <constraint firstItem="7s2-im-qg5" firstAttribute="trailing" secondItem="XUR-Qc-Jox" secondAttribute="trailing" id="LVC-Q2-DIJ"/>
+                <constraint firstItem="7s2-im-qg5" firstAttribute="top" secondItem="XUR-Qc-Jox" secondAttribute="bottom" constant="12" id="MFv-am-WIA"/>
+                <constraint firstItem="XUR-Qc-Jox" firstAttribute="top" secondItem="o1c-Ld-jZa" secondAttribute="bottom" constant="12" id="NUv-3a-1yz"/>
+                <constraint firstItem="7s2-im-qg5" firstAttribute="leading" secondItem="XUR-Qc-Jox" secondAttribute="leading" id="SwW-9u-0mw"/>
+                <constraint firstItem="o1c-Ld-jZa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="V9S-H7-iZq"/>
+                <constraint firstItem="o1c-Ld-jZa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="255" id="XG5-xd-vdt"/>
+                <constraint firstItem="XUR-Qc-Jox" firstAttribute="leading" secondItem="o1c-Ld-jZa" secondAttribute="leading" id="f59-Zj-Cor"/>
+            </constraints>
             <connections>
-                <outlet property="label" destination="5F7-N6-sZ2" id="8B5-kD-Kyg"/>
-                <outlet property="profileImage" destination="7Te-f7-Pjl" id="f7p-jT-obl"/>
+                <outlet property="button" destination="7s2-im-qg5" id="WG1-oV-bki"/>
+                <outlet property="textField" destination="o1c-Ld-jZa" id="PYQ-6d-OA2"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>

@@ -22,6 +22,8 @@
 		0BF73C681E24DB5B00D07BAB /* WeLoginScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF73C661E24DB5B00D07BAB /* WeLoginScreenletView.swift */; };
 		0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */; };
 		0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */; };
+		0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76A91E252E08000E5BA4 /* WeTextField.swift */; };
+		0BFC76AC1E254201000E5BA4 /* WeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76AB1E254201000E5BA4 /* WeButton.swift */; };
 		1B920553338BE9B7A703281C /* Pods_WeDeployApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB4D711B8A2345AE7495C70 /* Pods_WeDeployApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		0BF73C661E24DB5B00D07BAB /* WeLoginScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeLoginScreenletView.swift; sourceTree = "<group>"; };
 		0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeLoginScreenletView.xib; sourceTree = "<group>"; };
 		0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractorInput.swift; sourceTree = "<group>"; };
+		0BFC76A91E252E08000E5BA4 /* WeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeTextField.swift; sourceTree = "<group>"; };
+		0BFC76AB1E254201000E5BA4 /* WeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeButton.swift; sourceTree = "<group>"; };
 		3CB4D711B8A2345AE7495C70 /* Pods_WeDeployApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeDeployApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8ABC9A8EBF5701FB046735 /* Pods-WeDeployApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDeployApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeDeployApp/Pods-WeDeployApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C014196B76C62ABA11506D /* Pods-WeDeployApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDeployApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeDeployApp/Pods-WeDeployApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			children = (
 				0BF73C661E24DB5B00D07BAB /* WeLoginScreenletView.swift */,
 				0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */,
+				0BFC76A91E252E08000E5BA4 /* WeTextField.swift */,
+				0BFC76AB1E254201000E5BA4 /* WeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,10 +286,12 @@
 				0BF73C621E24DB5300D07BAB /* LoginInteractor.swift in Sources */,
 				0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */,
 				0BF73C5B1E24DB4C00D07BAB /* Interactor.swift in Sources */,
+				0BFC76AC1E254201000E5BA4 /* WeButton.swift in Sources */,
 				0BF73C5C1E24DB4C00D07BAB /* ScreenletWarehouse.swift in Sources */,
 				0BF73C681E24DB5B00D07BAB /* WeLoginScreenletView.swift in Sources */,
 				0BF73C631E24DB5300D07BAB /* LoginWithProviderInteractor.swift in Sources */,
 				0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */,
+				0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */,
 				0BF73C591E24DB4C00D07BAB /* BaseScreenlet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

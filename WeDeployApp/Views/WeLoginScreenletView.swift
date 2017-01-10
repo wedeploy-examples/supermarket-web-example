@@ -8,33 +8,30 @@
 
 import UIKit
 import WeDeploy
+import RxCocoa
 
 public class WeLoginScreenletView : BaseScreenletView {
 
-	@IBOutlet weak var profileImage: UIImageView!
-	@IBOutlet weak var label: UILabel!
-
-	@IBAction func buttonClick(_ sender: Any) {
-		let params = LoginWithProviderInteractorInput(provider: .github, redirectUri: "wedeploy-app://")
-		perform(actionName: LoginScreenlet.LoginWithProviderActionName, params: params)
-	}
-
-	@IBAction func Login() {
-		let params = LoginInteractorInput(username: "test@test.com", password: "test")
-		perform(actionName:  LoginScreenlet.LoginActionName, params: params)
-	}
-
-	public override func interactionEnded(actionName: String, result: InteractorOutput) {
-		let user = result as! User
-		
-		label.text = "\(user)"
-
-//		let data = try? Data(contentsOf: URL(string: user.photoUrl!)!)
+//	@IBOutlet weak var profileImage: UIImageView!
+//	@IBOutlet weak var label: UILabel!
 //
-//		profileImage.image = UIImage(data: data)
+//	@IBAction func buttonClick(_ sender: Any) {
+//		let params = LoginWithProviderInteractorInput(provider: .github, redirectUri: "wedeploy-app://")
+//		perform(actionName: LoginScreenlet.LoginWithProviderActionName, params: params)
+//	}
+//
+//	@IBAction func Login() {
+//		let params = LoginInteractorInput(username: "test@test.com", password: "test")
+//		perform(actionName:  LoginScreenlet.LoginActionName, params: params)
+//	}
+	@IBOutlet weak var textField: BorderLessTextField!
+	@IBOutlet weak var button: WeButton!
+
+
+	public override func awakeFromNib() {
+		super.awakeFromNib()
+
+		textField.rx.text.orEmpty.map { $0.characters.count > 0 }.bindTo(button.rx.isEnabled)
 	}
 
-	public override func interactionErrored(actionName: String, error: Error) {
-		print(error)
-	}
 }
