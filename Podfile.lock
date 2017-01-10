@@ -1,0 +1,32 @@
+PODS:
+  - later (0.2.0)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
+  - Socket.IO-Client-Swift (8.1.2)
+  - WeDeploy (0.3.0):
+    - later (~> 0.2)
+    - RxSwift (~> 3.0)
+    - Socket.IO-Client-Swift (~> 8.1)
+
+DEPENDENCIES:
+  - later (from `../later`)
+  - RxCocoa
+  - WeDeploy (from `../api-swift`)
+
+EXTERNAL SOURCES:
+  later:
+    :path: "../later"
+  WeDeploy:
+    :path: "../api-swift"
+
+SPEC CHECKSUMS:
+  later: 1c4f0846d4799471e77171db9f95eeb567b9d31c
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  Socket.IO-Client-Swift: 542d82e6708f9901b3f6c1d134fb60fa0d09d4d1
+  WeDeploy: 23cfaa5c4570d3f6ee034722066cf5f4c7247801
+
+PODFILE CHECKSUM: b1c502e8b5678421053ca56afcd1f18d953bc2c8
+
+COCOAPODS: 1.1.1

@@ -1,0 +1,6 @@
+framework module later {
+  umbrella header "later-umbrella.h"
+
+  export *
+  module * { export * }
+}
