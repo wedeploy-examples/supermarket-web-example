@@ -14,10 +14,15 @@ public class ScreenletWarehouse {
 
 	internal var definitions: [String : ScreenletDefinition]
 
+	let loginInteractors: [String : Interactor.Type] = [
+		LoginScreenlet.LoginActionName : LoginInteractor.self,
+		LoginScreenlet.LoginWithProviderActionName : LoginWithProviderInteractor.self
+	]
+
 	private init() {
 		definitions = [String : ScreenletDefinition]()
 		definitions = [
-			"LoginScreenlet" : ScreenletDefinition(interactors: [LoginWithProviderInteractor(), LoginInteractor()], viewNames: ["WeLoginScreenletView"])
+			"LoginScreenlet" : ScreenletDefinition(interactors: loginInteractors, viewNames: ["WeLoginScreenletView"])
 		]
 	}
 
@@ -37,6 +42,6 @@ public class ScreenletWarehouse {
 }
 
 public struct ScreenletDefinition {
-	let interactors: [Interactor]
+	let interactors: [String : Interactor.Type]
 	let viewNames: [String]
 }

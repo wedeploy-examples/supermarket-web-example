@@ -20,11 +20,14 @@ public enum LoginDelegate {
 
 class LoginScreenlet: BaseScreenlet {
 
+	public static let LoginActionName = "LoginAction"
+	public static let LoginWithProviderActionName = "LoginWithProviderActionName"
+
 	var delegate = PublishSubject<LoginDelegate>()
 
 	override func interactionEnded(actionName: String, result: InteractorOutput) {
-		if actionName == LoginInteractor.ActionName ||
-			actionName == LoginWithProviderInteractor.ActionName {
+		if actionName == LoginScreenlet.LoginActionName ||
+			actionName == LoginScreenlet.LoginWithProviderActionName {
 
 			delegate.onNext(.loginSuccessful(result as! User))
 		}
@@ -36,8 +39,8 @@ class LoginScreenlet: BaseScreenlet {
 	}
 
 	override func interactionErrored(actionName: String, error: Error) {
-		if actionName == LoginInteractor.ActionName ||
-			actionName == LoginWithProviderInteractor.ActionName {
+		if actionName == LoginScreenlet.LoginActionName ||
+			actionName == LoginScreenlet.LoginWithProviderActionName {
 
 			delegate.onNext(.loginError(error))
 		}

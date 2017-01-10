@@ -18,9 +18,6 @@ public enum InteractorError: Error {
 public class Interactor {
 
 	var params: InteractorInput!
-	var actionName: String {
-		return ""
-	} 
 
 	public required init() {
 	}
@@ -39,10 +36,6 @@ public class Interactor {
 	}
 
 	public func validateParams() -> Bool {
-		return false
-	}
-
-	public func support(actionName: String) -> Bool {
 		return false
 	}
 }

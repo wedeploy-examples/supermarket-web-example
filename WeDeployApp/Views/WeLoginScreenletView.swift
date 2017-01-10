@@ -16,12 +16,12 @@ public class WeLoginScreenletView : BaseScreenletView {
 
 	@IBAction func buttonClick(_ sender: Any) {
 		let params = LoginWithProviderInteractorInput(provider: .github, redirectUri: "wedeploy-app://")
-		perform(actionName: LoginWithProviderInteractor.ActionName, params: params)
+		perform(actionName: LoginScreenlet.LoginWithProviderActionName, params: params)
 	}
 
 	@IBAction func Login() {
 		let params = LoginInteractorInput(username: "test@test.com", password: "test")
-		perform(actionName:  LoginInteractor.ActionName, params: params)
+		perform(actionName:  LoginScreenlet.LoginActionName, params: params)
 	}
 
 	public override func interactionEnded(actionName: String, result: InteractorOutput) {

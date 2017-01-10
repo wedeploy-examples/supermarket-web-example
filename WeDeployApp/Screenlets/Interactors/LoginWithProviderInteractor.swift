@@ -12,14 +12,8 @@ import RxSwift
 
 public class LoginWithProviderInteractor : Interactor {
 
-	static let ActionName = "LoginWithProviderAction"
-
 	var loginParams: LoginWithProviderInteractorInput!
-
-	override var actionName: String {
-		return LoginWithProviderInteractor.ActionName
-	}
-
+	
 	public override func execute() -> Observable<InteractorOutput> {
 	
 		let authProvider =
@@ -48,8 +42,5 @@ public class LoginWithProviderInteractor : Interactor {
 
 		return true
 	}
-
-	public override func support(actionName: String) -> Bool {
-		return actionName == LoginWithProviderInteractor.ActionName
-	}
+	
 }

@@ -14,7 +14,7 @@ public typealias ActionPerformer = (String, InteractorInput) -> ()
 public class BaseScreenlet : UIView {
 
 	var screenletView: BaseScreenletView?
-	var interactors: [Interactor]?
+	var interactors: [String : Interactor]?
 	var viewName: String? = ""
 
 	var disposeBag = DisposeBag()
@@ -42,7 +42,11 @@ public class BaseScreenlet : UIView {
 				return
 			}
 
-		self.interactors = definition.interactors
+		self.interactors = [:]
+
+		for (actionName, interactor) in definition.interactors {
+			 interactors![actionName] = interactor.init()
+		}
 
 		if !definition.viewNames.contains(viewName!) {
 			print("This view is not included in the definition, falling back to default viewname")
@@ -102,7 +106,7 @@ public class BaseScreenlet : UIView {
 
 	public func interactorFor(actionName: String) -> Interactor? {
 
-		return interactors?.filter { $0.support(actionName: actionName) }.first
+		return interactors?[actionName]
 	}
 
 	public func interactionStarted(actionName: String) {

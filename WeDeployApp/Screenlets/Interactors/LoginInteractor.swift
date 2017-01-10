@@ -14,13 +14,7 @@ extension User : InteractorOutput { }
 
 public class LoginInteractor : Interactor {
 
-	public static let ActionName = "LoginAction"
-
 	var loginParams: LoginInteractorInput!
-
-	override var actionName: String {
-		return LoginInteractor.ActionName
-	}
 
 	public override func execute() -> Observable<InteractorOutput> {
 
@@ -39,10 +33,6 @@ public class LoginInteractor : Interactor {
 		self.loginParams = loginParams
 		
 		return true
-	}
-
-	public override func support(actionName: String) -> Bool {
-		return actionName == LoginInteractor.ActionName
 	}
 	
 }
