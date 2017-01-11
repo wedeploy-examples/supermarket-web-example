@@ -1,6 +1,0 @@
-framework module Pods_WeDeployApp {
-  umbrella header "Pods-WeDeployApp-umbrella.h"
-
-  export *
-  module * { export * }
-}

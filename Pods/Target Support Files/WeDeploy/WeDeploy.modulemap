@@ -1,6 +1,0 @@
-framework module WeDeploy {
-  umbrella header "WeDeploy-umbrella.h"
-
-  export *
-  module * { export * }
-}
