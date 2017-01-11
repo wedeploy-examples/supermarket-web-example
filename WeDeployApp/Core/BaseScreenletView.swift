@@ -8,22 +8,22 @@
 
 import UIKit
 
-public class BaseScreenletView : UIView {
+open class BaseScreenletView : UIView {
 	var actionPerformer: ActionPerformer?
 
-	public func perform(actionName: String, params: InteractorInput) {
+	open func perform(actionName: String, params: InteractorInput) {
 		actionPerformer?(actionName, params)
 	}
 
-	public func interactionStarted(actionName: String) {
+	open func interactionStarted(actionName: String) {
 
 	}
 
-	public func interactionEnded(actionName: String, result: InteractorOutput) {
+	open func interactionEnded(actionName: String, result: InteractorOutput) {
 
 	}
 
-	public func interactionErrored(actionName: String, error: Error) {
+	open func interactionErrored(actionName: String, error: Error) {
 		
 	}
 }

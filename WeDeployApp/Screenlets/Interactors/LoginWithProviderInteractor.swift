@@ -10,11 +10,11 @@ import Foundation
 import WeDeploy
 import RxSwift
 
-public class LoginWithProviderInteractor : Interactor {
+open class LoginWithProviderInteractor : Interactor {
 
 	var loginParams: LoginWithProviderInteractorInput!
 	
-	public override func execute() -> Observable<InteractorOutput> {
+	open override func execute() -> Observable<InteractorOutput> {
 	
 		let authProvider =
 				AuthProvider(provider: loginParams.provider, redirectUri: loginParams.redirectUri)
@@ -34,7 +34,7 @@ public class LoginWithProviderInteractor : Interactor {
 		}
 	}
 
-	public override func validateParams() -> Bool {
+	open override func validateParams() -> Bool {
 		guard let loginParams = params as? LoginWithProviderInteractorInput
 			else { return false }
 

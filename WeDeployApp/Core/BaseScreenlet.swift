@@ -11,7 +11,7 @@ import RxSwift
 
 public typealias ActionPerformer = (String, InteractorInput) -> ()
 
-public class BaseScreenlet : UIView {
+open class BaseScreenlet : UIView {
 
 	var screenletView: BaseScreenletView?
 	var interactors: [String : Interactor]?
@@ -30,11 +30,11 @@ public class BaseScreenlet : UIView {
 		super.init(coder: aDecoder)
 	}
 
-	public override func awakeFromNib() {
+	open override func awakeFromNib() {
 		initialize()
 	}
 
-	public func initialize() {
+	open func initialize() {
 
 		guard let definition = ScreenletWarehouse.shared.definitionFor(screenlet: type(of: self))
 			else {
@@ -56,7 +56,7 @@ public class BaseScreenlet : UIView {
 		loadView()
 	}
 
-	public func loadView() {
+	open func loadView() {
 		if let view = viewFrom(nibName: viewName!, type: BaseScreenletView.self) {
 			self.screenletView = view
 			view.actionPerformer = perform
@@ -70,7 +70,7 @@ public class BaseScreenlet : UIView {
 		}
 	}
 
-	public func viewFrom<T: UIView>(nibName: String, type: T.Type? = T.self) -> T? {
+	open func viewFrom<T: UIView>(nibName: String, type: T.Type? = T.self) -> T? {
 		for bundle in Bundle.allBundles {
 			if let _ = bundle.path(forResource: nibName, ofType: "nib") {
 				guard let nib = bundle.loadNibNamed(nibName, owner: nil, options: [:])
@@ -85,7 +85,7 @@ public class BaseScreenlet : UIView {
 		return nil
 	}
 
-	public func perform(actionName: String, params: InteractorInput) {
+	open func perform(actionName: String, params: InteractorInput) {
 
 		let interactor = interactorFor(actionName: actionName)
 
@@ -104,20 +104,20 @@ public class BaseScreenlet : UIView {
 				.addDisposableTo(disposeBag)
 	}
 
-	public func interactorFor(actionName: String) -> Interactor? {
+	open func interactorFor(actionName: String) -> Interactor? {
 
 		return interactors?[actionName]
 	}
 
-	public func interactionStarted(actionName: String) {
+	open func interactionStarted(actionName: String) {
 		screenletView?.interactionStarted(actionName: actionName)
 	}
 
-	public func interactionEnded(actionName: String, result: InteractorOutput) {
+	open func interactionEnded(actionName: String, result: InteractorOutput) {
 		screenletView?.interactionEnded(actionName: actionName, result: result)
 	}
 
-	public func interactionErrored(actionName: String, error: Error) {
+	open func interactionErrored(actionName: String, error: Error) {
 		screenletView?.interactionErrored(actionName: actionName, error: error)
 	}
 

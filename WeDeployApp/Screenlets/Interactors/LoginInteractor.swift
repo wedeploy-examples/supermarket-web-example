@@ -12,11 +12,11 @@ import RxSwift
 
 extension User : InteractorOutput { }
 
-public class LoginInteractor : Interactor {
+open class LoginInteractor : Interactor {
 
 	var loginParams: LoginInteractorInput!
 
-	public override func execute() -> Observable<InteractorOutput> {
+	open override func execute() -> Observable<InteractorOutput> {
 
 		return WeDeploy.auth("auth.easley84.wedeploy.io")
 			.signInWith(username: loginParams.username, password: loginParams.password)
@@ -26,7 +26,7 @@ public class LoginInteractor : Interactor {
 			}
 	}
 
-	public override func validateParams() -> Bool {
+	open override func validateParams() -> Bool {
 		guard let loginParams = params as? LoginInteractorInput
 			else { return false }
 

@@ -18,14 +18,14 @@ public enum LoginDelegate {
 	case error(Error)
 }
 
-class LoginScreenlet: BaseScreenlet {
+open class LoginScreenlet: BaseScreenlet {
 
 	public static let LoginActionName = "LoginAction"
 	public static let LoginWithProviderActionName = "LoginWithProviderActionName"
 
 	var delegate = PublishSubject<LoginDelegate>()
 
-	override func interactionEnded(actionName: String, result: InteractorOutput) {
+	override open func interactionEnded(actionName: String, result: InteractorOutput) {
 		if actionName == LoginScreenlet.LoginActionName ||
 			actionName == LoginScreenlet.LoginWithProviderActionName {
 
@@ -38,7 +38,7 @@ class LoginScreenlet: BaseScreenlet {
 		super.interactionEnded(actionName: actionName, result: result)
 	}
 
-	override func interactionErrored(actionName: String, error: Error) {
+	override open func interactionErrored(actionName: String, error: Error) {
 		if actionName == LoginScreenlet.LoginActionName ||
 			actionName == LoginScreenlet.LoginWithProviderActionName {
 

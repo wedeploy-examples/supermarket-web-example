@@ -28,7 +28,7 @@ public class WeLoginScreenletView : BaseScreenletView {
 	@IBOutlet weak var button: WeButton!
 
 
-	public override func awakeFromNib() {
+	open override func awakeFromNib() {
 		super.awakeFromNib()
 
 		textField.rx.text.orEmpty.map { $0.characters.count > 0 }.bindTo(button.rx.isEnabled)
