@@ -12,14 +12,21 @@ import RxSwift
 import RxCocoa
 
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
 	@IBOutlet weak var loginScreenlet: LoginScreenlet!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		loginScreenlet.delegate.subscribe { print($0) }
+		loginScreenlet.delegate.subscribe(onNext: { [weak self] event in
+
+			if case .actionStarted(let actionName) = event {
+				if actionName == WeLoginScreenletView.GoBackActionName {
+					self?.navigationController?.popViewController(animated: true)
+				}
+			}
+		})
 
 	}
 
