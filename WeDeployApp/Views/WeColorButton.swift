@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeButton: UIButton {
+class WeColorButton: UIButton {
 
 	override var isEnabled: Bool {
 		didSet {
