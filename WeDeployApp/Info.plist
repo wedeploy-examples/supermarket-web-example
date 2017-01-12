@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>loop_icons_16px.ttf</string>
+		<string>rene_bieder_galano_grotesque_bold.otf</string>
 		<string>loop_icons_12px.ttf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
