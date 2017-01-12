@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-public typealias ActionPerformer = (String, InteractorInput) -> ()
+public typealias ActionPerformer = (String, InteractorInput, Bool?) -> ()
 
 open class BaseScreenlet : UIView {
 
@@ -85,7 +85,11 @@ open class BaseScreenlet : UIView {
 		return nil
 	}
 
-	open func perform(actionName: String, params: InteractorInput) {
+	open func perform(actionName: String, params: InteractorInput, requiresInteractor: Bool? = true) {
+
+		if !requiresInteractor! {
+			interactionStarted(actionName: actionName)
+		}
 
 		let interactor = interactorFor(actionName: actionName)
 

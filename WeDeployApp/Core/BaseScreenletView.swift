@@ -8,11 +8,17 @@
 
 import UIKit
 
+extension String : InteractorInput { }
+
 open class BaseScreenletView : UIView {
 	var actionPerformer: ActionPerformer?
 
-	open func perform(actionName: String, params: InteractorInput) {
-		actionPerformer?(actionName, params)
+	open func perform(actionName: String, params: InteractorInput, requiresInteractor: Bool? = true) {
+		actionPerformer?(actionName, params, requiresInteractor)
+	}
+
+	open func perform(actionName: String) {
+		actionPerformer?(actionName, "no params", false)
 	}
 
 	open func interactionStarted(actionName: String) {

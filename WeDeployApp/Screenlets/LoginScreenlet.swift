@@ -13,6 +13,7 @@ import RxSwift
 public enum LoginDelegate {
 	case loginSuccessful(User)
 	case loginError(Error)
+	case actionStarted(String)
 	case customAction(String, InteractorOutput)
 	case customActionError(String, Error)
 	case error(Error)
@@ -24,6 +25,10 @@ open class LoginScreenlet: BaseScreenlet {
 	public static let LoginWithProviderActionName = "LoginWithProviderActionName"
 
 	var delegate = PublishSubject<LoginDelegate>()
+
+	override open func interactionStarted(actionName: String) {
+		delegate.onNext(.actionStarted(actionName))
+	}
 
 	override open func interactionEnded(actionName: String, result: InteractorOutput) {
 		if actionName == LoginScreenlet.LoginActionName ||
