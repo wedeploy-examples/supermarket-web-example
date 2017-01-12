@@ -12,6 +12,12 @@
         <array key="loop_icons_12px.ttf">
             <string>loop-icons-12px</string>
         </array>
+        <array key="rene_bieder_galano_grotesque_bold.otf">
+            <string>GalanoGrotesque-Bold</string>
+        </array>
+        <array key="rene_bieder_galano_grotesque_semibold.otf">
+            <string>GalanoGrotesque-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -49,20 +55,23 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <state key="normal" title="Log in"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="loginButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="5Pc-Rv-NqD"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="jd1-Ac-MDU">
-                    <rect key="frame" x="136" y="130" width="103" height="43"/>
+                    <rect key="frame" x="134.5" y="130" width="107" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="MTY-FO-2WR"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                    <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToForgotPasswordName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9x-kR-CNc">
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToForgotPasswordName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9x-kR-CNc" customClass="SpanButton" customModule="WeDeployApp" customModuleProvider="target">
                     <rect key="frame" x="108" y="418" width="159" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="Forgot your password?">
@@ -76,13 +85,13 @@
                     <rect key="frame" x="0.0" y="600" width="375" height="67"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't you have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehy-iA-maZ">
-                            <rect key="frame" x="62" y="25" width="185" height="17"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <rect key="frame" x="62" y="24.5" width="191" height="19"/>
+                            <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="Galano Grotesque" pointSize="14"/>
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToSignUpActionName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-IQ-QJ5">
-                            <rect key="frame" x="252" y="19" width="52" height="29"/>
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToSignUpActionName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-IQ-QJ5" customClass="SpanButton" customModule="WeDeployApp" customModuleProvider="target">
+                            <rect key="frame" x="258" y="19" width="52" height="29"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <state key="normal" title="Sign up">
                                 <color key="titleColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,8 +153,8 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in using your social network account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLF-hB-mJy">
-                    <rect key="frame" x="20" y="488" width="335" height="17"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <rect key="frame" x="20" y="486" width="335" height="19"/>
+                    <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="Galano Grotesque" pointSize="14"/>
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>

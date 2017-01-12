@@ -1,18 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oyQ-T8-CiT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="loop_icons_16px.ttf">
+            <string>loop-icons-16px</string>
+        </array>
+        <array key="rene_bieder_galano_grotesque_bold.otf">
+            <string>GalanoGrotesque-Bold</string>
+        </array>
+        <array key="rene_bieder_galano_grotesque_medium.otf">
+            <string>GalanoGrotesque-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Inital View Conroller-->
+        <scene sceneID="szO-Ka-hVh">
+            <objects>
+                <viewController id="uRQ-Tf-8sp" customClass="InitalViewConroller" customModule="WeDeployApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qMV-Pf-1sI"/>
+                        <viewControllerLayoutGuide type="bottom" id="jWw-8f-gzU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QX0-CT-5cN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heK-NL-MUv">
+                                <rect key="frame" x="36" y="100" width="84" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="8pA-zl-8nw"/>
+                                    <constraint firstAttribute="height" constant="84" id="Zpl-Vg-4E9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="loop-icons-16px" family="loop-icons-16px" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a short description of your app here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiX-sB-ngA">
+                                <rect key="frame" x="20" y="312" width="335" height="65"/>
+                                <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="Galano Grotesque" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jar-N7-2sy">
+                                <rect key="frame" x="20" y="576" width="335" height="60"/>
+                                <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kBN-8Y-8Ui"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="16"/>
+                                <state key="normal" title="Log in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToLoginClick" destination="uRQ-Tf-8sp" eventType="touchUpInside" id="DzA-ds-V36"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzI-LP-fjb" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="504" width="335" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FrH-Bt-7UJ"/>
+                                </constraints>
+                                <state key="normal" title="Sign up"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-rR-8Zx">
+                                <rect key="frame" x="20" y="204" width="335" height="91"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to AppName">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="48" name="GalanoGrotesque-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="0.10000000000000001" lineHeightMultiple="0.69999999999999996" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.1498036968" blue="0.40921200470000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="h9p-rR-8Zx" firstAttribute="top" secondItem="heK-NL-MUv" secondAttribute="bottom" constant="20" id="1OZ-fM-9qz"/>
+                            <constraint firstAttribute="trailing" secondItem="h9p-rR-8Zx" secondAttribute="trailing" constant="20" id="JPe-iG-hfr"/>
+                            <constraint firstItem="heK-NL-MUv" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leadingMargin" constant="20" id="KiK-xo-TjH"/>
+                            <constraint firstItem="pzI-LP-fjb" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="Ksa-R7-Duo"/>
+                            <constraint firstItem="GiX-sB-ngA" firstAttribute="top" secondItem="h9p-rR-8Zx" secondAttribute="bottom" constant="17" id="RQ7-3B-RSt"/>
+                            <constraint firstAttribute="trailing" secondItem="GiX-sB-ngA" secondAttribute="trailing" constant="20" id="VOG-U3-3fW"/>
+                            <constraint firstItem="GiX-sB-ngA" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="W3m-Ip-gli"/>
+                            <constraint firstAttribute="trailing" secondItem="pzI-LP-fjb" secondAttribute="trailing" constant="20" id="YSL-yO-WcE"/>
+                            <constraint firstItem="Jar-N7-2sy" firstAttribute="top" secondItem="pzI-LP-fjb" secondAttribute="bottom" constant="12" id="Zap-9a-5Xr"/>
+                            <constraint firstItem="h9p-rR-8Zx" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="a7h-l4-Oix"/>
+                            <constraint firstAttribute="trailing" secondItem="Jar-N7-2sy" secondAttribute="trailing" constant="20" id="nd6-JG-SsX"/>
+                            <constraint firstItem="Jar-N7-2sy" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="us9-jK-hKC"/>
+                            <constraint firstItem="heK-NL-MUv" firstAttribute="top" secondItem="qMV-Pf-1sI" secondAttribute="bottom" constant="80" id="xD6-1H-tNX"/>
+                            <constraint firstItem="jWw-8f-gzU" firstAttribute="top" secondItem="Jar-N7-2sy" secondAttribute="bottom" constant="31" id="y1C-7C-W7E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rCD-uu-sLR"/>
+                    <connections>
+                        <outlet property="logoLabel" destination="heK-NL-MUv" id="Ej7-ri-Tug"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="kHL-rr-1fy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rfr-wz-kV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="127.28635682158921"/>
+        </scene>
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeDeployApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="WeDeployApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,7 +146,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="131.78410794602701"/>
+            <point key="canvasLocation" x="1076" y="131.78410794602701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="10D-oq-gU1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oyQ-T8-CiT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mgm-C6-b3K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uRQ-Tf-8sp" kind="relationship" relationship="rootViewController" id="vIT-2s-UAi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGa-fP-XNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-631.20000000000005" y="127.28635682158921"/>
         </scene>
     </scenes>
 </document>
