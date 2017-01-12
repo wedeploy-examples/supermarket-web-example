@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724C71E2621E100913DA1 /* WeColors.swift */; };
+		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
+		0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */; };
+		0B7724D01E266F1700913DA1 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CF1E266F1700913DA1 /* FloatingView.swift */; };
+		0B7724D21E268CC800913DA1 /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7724D11E268CC600913DA1 /* loop_icons_16px.ttf */; };
+		0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4801E2779CE00082427 /* WeProviderButton.swift */; };
 		0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF55AC1E1E470600404C0F /* AppDelegate.swift */; };
 		0BCF55AF1E1E470600404C0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF55AE1E1E470600404C0F /* ViewController.swift */; };
 		0BCF55B21E1E470600404C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B01E1E470600404C0F /* Main.storyboard */; };
@@ -23,11 +29,17 @@
 		0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */; };
 		0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */; };
 		0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76A91E252E08000E5BA4 /* WeTextField.swift */; };
-		0BFC76AC1E254201000E5BA4 /* WeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76AB1E254201000E5BA4 /* WeButton.swift */; };
+		0BFC76AC1E254201000E5BA4 /* WeColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC76AB1E254201000E5BA4 /* WeColorButton.swift */; };
 		1B920553338BE9B7A703281C /* Pods_WeDeployApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB4D711B8A2345AE7495C70 /* Pods_WeDeployApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B7724C71E2621E100913DA1 /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
+		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
+		0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_12px.ttf; sourceTree = "<group>"; };
+		0B7724CF1E266F1700913DA1 /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		0B7724D11E268CC600913DA1 /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
+		0BA9F4801E2779CE00082427 /* WeProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeProviderButton.swift; sourceTree = "<group>"; };
 		0BCF55A91E1E470600404C0F /* WeDeployApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeDeployApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BCF55AC1E1E470600404C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BCF55AE1E1E470600404C0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +58,7 @@
 		0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeLoginScreenletView.xib; sourceTree = "<group>"; };
 		0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractorInput.swift; sourceTree = "<group>"; };
 		0BFC76A91E252E08000E5BA4 /* WeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeTextField.swift; sourceTree = "<group>"; };
-		0BFC76AB1E254201000E5BA4 /* WeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeButton.swift; sourceTree = "<group>"; };
+		0BFC76AB1E254201000E5BA4 /* WeColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColorButton.swift; sourceTree = "<group>"; };
 		3CB4D711B8A2345AE7495C70 /* Pods_WeDeployApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeDeployApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8ABC9A8EBF5701FB046735 /* Pods-WeDeployApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDeployApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeDeployApp/Pods-WeDeployApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C014196B76C62ABA11506D /* Pods-WeDeployApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDeployApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeDeployApp/Pods-WeDeployApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +84,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0B7724C61E2621D600913DA1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0B7724C71E2621E100913DA1 /* WeColors.swift */,
+				0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0B7724C91E26289A00913DA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0B7724CA1E2628CC00913DA1 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0B7724CA1E2628CC00913DA1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */,
+				0B7724D11E268CC600913DA1 /* loop_icons_16px.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0BCF55A01E1E470600404C0F = {
 			isa = PBXGroup;
 			children = (
@@ -93,8 +131,10 @@
 		0BCF55AB1E1E470600404C0F /* WeDeployApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B7724C91E26289A00913DA1 /* Resources */,
 				0BF73C5D1E24DB5300D07BAB /* Screenlets */,
 				0BF73C541E24DB4C00D07BAB /* Core */,
+				0B7724C61E2621D600913DA1 /* Extensions */,
 				0BF73C651E24DB5B00D07BAB /* Views */,
 				0BCF55AC1E1E470600404C0F /* AppDelegate.swift */,
 				0BCF55AE1E1E470600404C0F /* ViewController.swift */,
@@ -142,7 +182,9 @@
 				0BF73C661E24DB5B00D07BAB /* WeLoginScreenletView.swift */,
 				0BF73C671E24DB5B00D07BAB /* WeLoginScreenletView.xib */,
 				0BFC76A91E252E08000E5BA4 /* WeTextField.swift */,
-				0BFC76AB1E254201000E5BA4 /* WeButton.swift */,
+				0BFC76AB1E254201000E5BA4 /* WeColorButton.swift */,
+				0B7724CF1E266F1700913DA1 /* FloatingView.swift */,
+				0BA9F4801E2779CE00082427 /* WeProviderButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,7 +262,9 @@
 			files = (
 				0BCF55B71E1E470600404C0F /* LaunchScreen.storyboard in Resources */,
 				0BCF55B41E1E470600404C0F /* Assets.xcassets in Resources */,
+				0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */,
 				0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */,
+				0B7724D21E268CC800913DA1 /* loop_icons_16px.ttf in Resources */,
 				0BCF55B21E1E470600404C0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,15 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */,
 				0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */,
 				0BCF55AF1E1E470600404C0F /* ViewController.swift in Sources */,
 				0BF73C5A1E24DB4C00D07BAB /* BaseScreenletView.swift in Sources */,
 				0BF73C621E24DB5300D07BAB /* LoginInteractor.swift in Sources */,
+				0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */,
 				0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */,
+				0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */,
 				0BF73C5B1E24DB4C00D07BAB /* Interactor.swift in Sources */,
-				0BFC76AC1E254201000E5BA4 /* WeButton.swift in Sources */,
+				0BFC76AC1E254201000E5BA4 /* WeColorButton.swift in Sources */,
 				0BF73C5C1E24DB4C00D07BAB /* ScreenletWarehouse.swift in Sources */,
 				0BF73C681E24DB5B00D07BAB /* WeLoginScreenletView.swift in Sources */,
+				0B7724D01E266F1700913DA1 /* FloatingView.swift in Sources */,
 				0BF73C631E24DB5300D07BAB /* LoginWithProviderInteractor.swift in Sources */,
 				0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */,
 				0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */,

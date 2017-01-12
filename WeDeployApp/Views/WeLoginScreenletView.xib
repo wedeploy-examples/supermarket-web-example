@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="loop_icons_12px.ttf">
+            <string>loop-icons-12px</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -15,23 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="o1c-Ld-jZa" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
-                    <rect key="frame" x="20" y="255" width="335" height="60"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="o1c-Ld-jZa" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="202" width="335" height="60"/>
                     <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="cEl-fT-3ln"/>
                     </constraints>
                     <color key="textColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
-                            <color key="value" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-Qc-Jox" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
-                    <rect key="frame" x="20" y="327" width="335" height="60"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-Qc-Jox" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="274" width="335" height="60"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="ik8-bk-hY8"/>
@@ -39,40 +39,175 @@
                     </constraints>
                     <color key="textColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
-                            <color key="value" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7s2-im-qg5" customClass="WeButton" customModule="WeDeployApp" customModuleProvider="target">
-                    <rect key="frame" x="20" y="399" width="335" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7s2-im-qg5" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="346" width="335" height="60"/>
                     <color key="backgroundColor" red="1" green="0.71764705882352942" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="wHX-xH-P5Y"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <state key="normal" title="Log in"/>
+                    <connections>
+                        <action selector="loginButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="5Pc-Rv-NqD"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="jd1-Ac-MDU">
+                    <rect key="frame" x="136" y="130" width="103" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="MTY-FO-2WR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToForgotPasswordName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9x-kR-CNc">
+                    <rect key="frame" x="108" y="418" width="159" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="Forgot your password?">
+                        <color key="titleColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="interactorlessActionButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="vUg-5i-UHC"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G95-03-cfk">
+                    <rect key="frame" x="0.0" y="600" width="375" height="67"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't you have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehy-iA-maZ">
+                            <rect key="frame" x="62" y="25" width="185" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToSignUpActionName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-IQ-QJ5">
+                            <rect key="frame" x="252" y="19" width="52" height="29"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <state key="normal" title="Sign up">
+                                <color key="titleColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="interactorlessActionButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Ef-dC-1Qg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dgG-IQ-QJ5" firstAttribute="centerY" secondItem="G95-03-cfk" secondAttribute="centerY" id="Hso-3T-0SZ"/>
+                        <constraint firstItem="dgG-IQ-QJ5" firstAttribute="leading" secondItem="Ehy-iA-maZ" secondAttribute="trailing" constant="5" id="LY3-ZA-k4u"/>
+                        <constraint firstItem="Ehy-iA-maZ" firstAttribute="leading" secondItem="G95-03-cfk" secondAttribute="leading" constant="62" id="TzW-SS-VKG"/>
+                        <constraint firstAttribute="height" constant="67" id="sn7-CK-2m8"/>
+                        <constraint firstItem="Ehy-iA-maZ" firstAttribute="centerY" secondItem="G95-03-cfk" secondAttribute="centerY" id="tE9-9G-nQi"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoBack" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-2g-E96">
+                    <rect key="frame" x="20" y="30" width="30" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="L0H-F3-c4C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="loop-icons-12px" family="loop-icons-12px" pointSize="24"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.60115346859999996" green="0.60115346859999996" blue="0.60115346859999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="interactorlessActionButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="58p-5Z-kjG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huT-fh-pci" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="138" y="520" width="98" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="XlS-Ec-ROJ"/>
+                        <constraint firstAttribute="width" constant="98" id="hlj-uj-ypI"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="providerName" value="facebook"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="providerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="j6f-qE-OuM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zod-ZL-NqP" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="257" y="520" width="98" height="60"/>
+                    <color key="backgroundColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="98" id="b7u-yf-BNN"/>
+                        <constraint firstAttribute="height" constant="60" id="w0R-eb-fOm"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="providerName" value="github"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="providerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="pHC-FG-6BC"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in using your social network account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLF-hB-mJy">
+                    <rect key="frame" x="20" y="488" width="335" height="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-2T-uDp" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="19" y="520" width="98" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="98" id="b1g-1S-QGC"/>
+                        <constraint firstAttribute="height" constant="60" id="tbp-rI-Xnc"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="providerName" value="google"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="providerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="5i8-U4-vCi"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="bZN-2g-E96" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="30V-Tv-4eQ"/>
+                <constraint firstItem="huT-fh-pci" firstAttribute="leading" secondItem="Eco-2T-uDp" secondAttribute="trailing" constant="21" id="4kl-Pn-aSv"/>
                 <constraint firstAttribute="trailing" secondItem="o1c-Ld-jZa" secondAttribute="trailing" constant="20" id="6oM-cZ-vE1"/>
+                <constraint firstItem="jd1-Ac-MDU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8ta-mX-YU8"/>
+                <constraint firstItem="dLF-hB-mJy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="AU4-h0-e1Z"/>
+                <constraint firstAttribute="bottom" secondItem="k9x-kR-CNc" secondAttribute="bottom" constant="220" id="FZs-eH-ILW"/>
                 <constraint firstItem="XUR-Qc-Jox" firstAttribute="trailing" secondItem="o1c-Ld-jZa" secondAttribute="trailing" id="HYm-vV-6Mu"/>
+                <constraint firstItem="G95-03-cfk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JS1-yW-8pR"/>
                 <constraint firstItem="7s2-im-qg5" firstAttribute="trailing" secondItem="XUR-Qc-Jox" secondAttribute="trailing" id="LVC-Q2-DIJ"/>
+                <constraint firstItem="G95-03-cfk" firstAttribute="top" secondItem="Eco-2T-uDp" secondAttribute="bottom" constant="20" id="M3T-Ou-pqF"/>
                 <constraint firstItem="7s2-im-qg5" firstAttribute="top" secondItem="XUR-Qc-Jox" secondAttribute="bottom" constant="12" id="MFv-am-WIA"/>
                 <constraint firstItem="XUR-Qc-Jox" firstAttribute="top" secondItem="o1c-Ld-jZa" secondAttribute="bottom" constant="12" id="NUv-3a-1yz"/>
+                <constraint firstItem="G95-03-cfk" firstAttribute="top" secondItem="huT-fh-pci" secondAttribute="bottom" constant="20" id="Ocb-pL-2p1"/>
+                <constraint firstItem="huT-fh-pci" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OiE-DW-hQE"/>
                 <constraint firstItem="7s2-im-qg5" firstAttribute="leading" secondItem="XUR-Qc-Jox" secondAttribute="leading" id="SwW-9u-0mw"/>
+                <constraint firstItem="k9x-kR-CNc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Tpo-E9-BCp"/>
                 <constraint firstItem="o1c-Ld-jZa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="V9S-H7-iZq"/>
-                <constraint firstItem="o1c-Ld-jZa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="255" id="XG5-xd-vdt"/>
+                <constraint firstItem="bZN-2g-E96" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="YPT-pN-cdl"/>
+                <constraint firstItem="Zod-ZL-NqP" firstAttribute="leading" secondItem="huT-fh-pci" secondAttribute="trailing" constant="21" id="Yal-51-JCK"/>
+                <constraint firstItem="G95-03-cfk" firstAttribute="top" secondItem="Zod-ZL-NqP" secondAttribute="bottom" constant="20" id="cxG-9h-07z"/>
                 <constraint firstItem="XUR-Qc-Jox" firstAttribute="leading" secondItem="o1c-Ld-jZa" secondAttribute="leading" id="f59-Zj-Cor"/>
+                <constraint firstItem="Zod-ZL-NqP" firstAttribute="top" secondItem="dLF-hB-mJy" secondAttribute="bottom" constant="15" id="h6m-sS-xai"/>
+                <constraint firstAttribute="bottom" secondItem="G95-03-cfk" secondAttribute="bottom" id="jJf-3w-Hb0"/>
+                <constraint firstItem="k9x-kR-CNc" firstAttribute="top" secondItem="7s2-im-qg5" secondAttribute="bottom" constant="12" id="lao-za-68O"/>
+                <constraint firstItem="jd1-Ac-MDU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="130" id="p3M-8y-ZX1"/>
+                <constraint firstAttribute="trailing" secondItem="G95-03-cfk" secondAttribute="trailing" id="q0R-91-QOX"/>
+                <constraint firstAttribute="trailing" secondItem="dLF-hB-mJy" secondAttribute="trailing" constant="20" id="wYP-WB-VAD"/>
             </constraints>
             <connections>
-                <outlet property="button" destination="7s2-im-qg5" id="WG1-oV-bki"/>
-                <outlet property="textField" destination="o1c-Ld-jZa" id="PYQ-6d-OA2"/>
+                <outlet property="arrowBackButton" destination="bZN-2g-E96" id="grQ-EI-7ra"/>
+                <outlet property="bottomConstraint" destination="FZs-eH-ILW" id="KWt-pl-pqw"/>
+                <outlet property="bottomView" destination="G95-03-cfk" id="cY4-Tl-cwI"/>
+                <outlet property="emailTextField" destination="o1c-Ld-jZa" id="T4s-jp-mWt"/>
+                <outlet property="loginButton" destination="7s2-im-qg5" id="ckg-Gz-TK2"/>
+                <outlet property="loginLabel" destination="jd1-Ac-MDU" id="sL7-Ql-RMM"/>
+                <outlet property="passwordTextField" destination="XUR-Qc-Jox" id="hEw-E0-xCd"/>
+                <outlet property="topConstraint" destination="p3M-8y-ZX1" id="Cjq-QM-X06"/>
+                <outletCollection property="providerButtons" destination="Eco-2T-uDp" collectionClass="NSMutableArray" id="125-6s-F5E"/>
+                <outletCollection property="providerButtons" destination="huT-fh-pci" collectionClass="NSMutableArray" id="D2s-NX-GyO"/>
+                <outletCollection property="providerButtons" destination="Zod-ZL-NqP" collectionClass="NSMutableArray" id="BOR-6e-5Ck"/>
             </connections>
-            <point key="canvasLocation" x="34.5" y="54.5"/>
+            <point key="canvasLocation" x="33.5" y="-23.5"/>
         </view>
     </objects>
 </document>

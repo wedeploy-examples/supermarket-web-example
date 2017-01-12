@@ -10,9 +10,6 @@ import UIKit
 
 class BorderLessTextField: UITextField {
 
-	@IBInspectable var selectedBackgroundColor: UIColor = .clear
-	var unselectedBackgroundColor: UIColor?
-
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		initialize()
@@ -24,25 +21,35 @@ class BorderLessTextField: UITextField {
 	}
 
 	func initialize() {
-		unselectedBackgroundColor = backgroundColor
 		layer.borderColor = UIColor.clear.cgColor
+		layer.borderWidth = 0
 		layer.cornerRadius = 4
 
-		tintColor = .yellow
+		textColor = .WeTextFieldTextColor
 	}
 
 	override func becomeFirstResponder() -> Bool {
-		self.backgroundColor = selectedBackgroundColor
+		self.backgroundColor = .WeTextFieldSelectedBackgroundColor
 		return super.becomeFirstResponder()
 	}
 
 	override func resignFirstResponder() -> Bool {
-		self.backgroundColor = unselectedBackgroundColor
+		self.backgroundColor = .WeTextFieldBackgroundColor
 		return super.resignFirstResponder()
 	}
 
 	override func editingRect(forBounds bounds: CGRect) -> CGRect {
 		var rect = super.editingRect(forBounds: bounds)
+		let defaultPadding = rect.origin.x
+
+		rect.origin.x = 20
+		rect.size.width = rect.size.width - (60 - defaultPadding)
+
+		return rect
+	}
+
+	override func textRect(forBounds bounds: CGRect) -> CGRect {
+		var rect = super.textRect(forBounds: bounds)
 		let defaultPadding = rect.origin.x
 
 		rect.origin.x = 20
