@@ -22,7 +22,8 @@ public class ScreenletWarehouse {
 	private init() {
 		definitions = [String : ScreenletDefinition]()
 		definitions = [
-			"LoginScreenlet" : ScreenletDefinition(interactors: loginInteractors, viewNames: ["WeLoginScreenletView"])
+			"LoginScreenlet" : ScreenletDefinition(interactors: loginInteractors, viewNames: ["WeLoginScreenletView"]),
+			"ForgotPasswordScreenlet" : ScreenletDefinition(interactors: [ForgotPasswordScreenlet.ForgotPasswordAction : ForgotPasswordInteractor.self], viewNames: ["WeForgotPasswordScreenletView"])
 		]
 	}
 
