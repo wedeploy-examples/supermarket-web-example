@@ -15,7 +15,9 @@ import RxCocoa
 class LoginViewController: UIViewController {
 
 	@IBOutlet weak var loginScreenlet: LoginScreenlet!
-	
+
+	var disposeBag = DisposeBag()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -23,13 +25,16 @@ class LoginViewController: UIViewController {
 
 			if case .actionStarted(let actionName) = event {
 				if actionName == WeLoginScreenletView.GoBackActionName {
-					self?.navigationController?.popViewController(animated: true)
+					_ = self?.navigationController?.popViewController(animated: true)
+				}
+
+				if actionName == WeLoginScreenletView.GoToForgotPasswordActionName {
+					self?.performSegue(withIdentifier: "forgotpassword", sender: nil)
 				}
 			}
 		})
-
+		.addDisposableTo(disposeBag)
+		
 	}
-
-
 }
 
