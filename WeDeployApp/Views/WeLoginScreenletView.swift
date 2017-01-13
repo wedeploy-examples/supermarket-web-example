@@ -34,6 +34,8 @@ public class WeLoginScreenletView : BaseScreenletView {
 	var initialBottomConstraintConstant: CGFloat!
 	var initialTopContraintConstant: CGFloat!
 
+	let floatingView = FloatingView()
+
 	var disposeBag = DisposeBag()
 
 	var keyboardDismisser: KeyboardDismisserOnClick?
@@ -44,13 +46,13 @@ public class WeLoginScreenletView : BaseScreenletView {
 		initialBottomConstraintConstant = bottomConstraint.constant
 		initialTopContraintConstant = topConstraint.constant
 
-		arrowBackButton.setTitle("\u{E03D}", for: .normal)
-
 		bottomView.layer.shadowColor = UIColor.black.cgColor
 		bottomView.layer.shadowOffset = CGSize(width: 0, height: -1);
 		bottomView.layer.shadowRadius = 5;
 		bottomView.layer.shadowOpacity = 0.1;
 		bottomView.layer.masksToBounds = false
+
+		addSubview(floatingView)
 
 		setupBindings()
 		setupKeyboardStuff()
@@ -111,9 +113,9 @@ public class WeLoginScreenletView : BaseScreenletView {
 	}
 
 	@IBAction func loginButtonClicked(_ sender: UIButton) {
+		endEditing(false)
 		sender.setTitle("Logging in...", for: .disabled)
 		sender.isEnabled = false
-		endEditing(false)
 
 		let interactorInput = LoginInteractorInput(username: emailTextField.text!, password: passwordTextField.text!)
 
@@ -135,10 +137,25 @@ public class WeLoginScreenletView : BaseScreenletView {
 		if actionName == LoginScreenlet.LoginActionName {
 			loginButton.setTitle("Log in", for: .disabled)
 			loginButton.isEnabled = true
+
+            floatingView.show(message: "Login successful", error: false)
 		}
 		else if actionName == LoginScreenlet.LoginWithProviderActionName {
 			providerButtons.forEach { $0.isEnabled = true }
 		}
 	}
+    
+    override open func interactionErrored(actionName: String, error: Error) {
+		print(error)
+        if actionName == LoginScreenlet.LoginActionName {
+            emailTextField.setErrorAppearance()
+            passwordTextField.setErrorAppearance()
+            loginButton.setTitle("Log in", for: .disabled)
+            loginButton.isEnabled = true
+
+            
+            floatingView.show(message: "Ops, invalid password or email.", error: true)
+        }
+    }
 
 }

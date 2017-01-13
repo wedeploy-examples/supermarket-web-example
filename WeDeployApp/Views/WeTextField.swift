@@ -26,10 +26,17 @@ class BorderLessTextField: UITextField {
 		layer.cornerRadius = 4
 
 		textColor = .WeTextFieldTextColor
+
+		UIFont.familyNames.forEach{print(UIFont.fontNames(forFamilyName: $0))}
+
+		font = UIFont(name: "GalanoGrotesque-SemiBold", size: 16)
+
+		tintColor = .mainColor
 	}
 
 	override func becomeFirstResponder() -> Bool {
-		self.backgroundColor = .WeTextFieldSelectedBackgroundColor
+		backgroundColor = .WeTextFieldSelectedBackgroundColor
+        textColor = .WeTextFieldTextColor
 		return super.becomeFirstResponder()
 	}
 
@@ -57,5 +64,10 @@ class BorderLessTextField: UITextField {
 
 		return rect
 	}
+    
+    open func setErrorAppearance() {
+        backgroundColor = UIColor(255, 64,64, 0.10);
+        textColor = UIColor(255, 64, 64, 1)
+    }
 
 }

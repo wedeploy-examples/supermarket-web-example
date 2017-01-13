@@ -23,6 +23,12 @@
 		0BCF55B41E1E470600404C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B31E1E470600404C0F /* Assets.xcassets */; };
 		0BCF55B71E1E470600404C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B51E1E470600404C0F /* LaunchScreen.storyboard */; };
 		0BF06B791E27D5260040B010 /* SpanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B781E27D5260040B010 /* SpanButton.swift */; };
+		0BF06B7B1E27E0620040B010 /* ForgotPasswordScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */; };
+		0BF06B7D1E27E1340040B010 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B7C1E27E1340040B010 /* ForgotPasswordInteractor.swift */; };
+		0BF06B7F1E27E2AF0040B010 /* WeForgotPasswordScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B7E1E27E2AF0040B010 /* WeForgotPasswordScreenletView.swift */; };
+		0BF06B811E27E2CA0040B010 /* WeForgotPasswordScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF06B801E27E2CA0040B010 /* WeForgotPasswordScreenletView.xib */; };
+		0BF06B831E27E65D0040B010 /* WeBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B821E27E65D0040B010 /* WeBackButton.swift */; };
+		0BF06B851E27F0360040B010 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B841E27F0360040B010 /* ForgotPasswordViewController.swift */; };
 		0BF73C591E24DB4C00D07BAB /* BaseScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF73C551E24DB4C00D07BAB /* BaseScreenlet.swift */; };
 		0BF73C5A1E24DB4C00D07BAB /* BaseScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF73C561E24DB4C00D07BAB /* BaseScreenletView.swift */; };
 		0BF73C5B1E24DB4C00D07BAB /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF73C571E24DB4C00D07BAB /* Interactor.swift */; };
@@ -57,6 +63,12 @@
 		0BCF55B61E1E470600404C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BCF55B81E1E470600404C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BF06B781E27D5260040B010 /* SpanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanButton.swift; sourceTree = "<group>"; };
+		0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenlet.swift; sourceTree = "<group>"; };
+		0BF06B7C1E27E1340040B010 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
+		0BF06B7E1E27E2AF0040B010 /* WeForgotPasswordScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeForgotPasswordScreenletView.swift; sourceTree = "<group>"; };
+		0BF06B801E27E2CA0040B010 /* WeForgotPasswordScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeForgotPasswordScreenletView.xib; sourceTree = "<group>"; };
+		0BF06B821E27E65D0040B010 /* WeBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeBackButton.swift; sourceTree = "<group>"; };
+		0BF06B841E27F0360040B010 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		0BF73C551E24DB4C00D07BAB /* BaseScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScreenlet.swift; sourceTree = "<group>"; };
 		0BF73C561E24DB4C00D07BAB /* BaseScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScreenletView.swift; sourceTree = "<group>"; };
 		0BF73C571E24DB4C00D07BAB /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
@@ -156,6 +168,7 @@
 				0BCF55B51E1E470600404C0F /* LaunchScreen.storyboard */,
 				0BCF55B81E1E470600404C0F /* Info.plist */,
 				0BA9F4821E27A53600082427 /* IntialViewController.swift */,
+				0BF06B841E27F0360040B010 /* ForgotPasswordViewController.swift */,
 			);
 			path = WeDeployApp;
 			sourceTree = "<group>";
@@ -176,6 +189,7 @@
 			children = (
 				0BF73C5E1E24DB5300D07BAB /* Interactors */,
 				0BF73C611E24DB5300D07BAB /* LoginScreenlet.swift */,
+				0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */,
 			);
 			path = Screenlets;
 			sourceTree = "<group>";
@@ -186,6 +200,7 @@
 				0BF73C5F1E24DB5300D07BAB /* LoginInteractor.swift */,
 				0BF73C601E24DB5300D07BAB /* LoginWithProviderInteractor.swift */,
 				0BFC76A71E24FC51000E5BA4 /* LoginInteractorInput.swift */,
+				0BF06B7C1E27E1340040B010 /* ForgotPasswordInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -200,6 +215,9 @@
 				0B7724CF1E266F1700913DA1 /* FloatingView.swift */,
 				0BA9F4801E2779CE00082427 /* WeProviderButton.swift */,
 				0BF06B781E27D5260040B010 /* SpanButton.swift */,
+				0BF06B7E1E27E2AF0040B010 /* WeForgotPasswordScreenletView.swift */,
+				0BF06B801E27E2CA0040B010 /* WeForgotPasswordScreenletView.xib */,
+				0BF06B821E27E65D0040B010 /* WeBackButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +295,7 @@
 			files = (
 				0BCF55B71E1E470600404C0F /* LaunchScreen.storyboard in Resources */,
 				0BA9F4891E27A78500082427 /* rene_bieder_galano_grotesque_semibold.otf in Resources */,
+				0BF06B811E27E2CA0040B010 /* WeForgotPasswordScreenletView.xib in Resources */,
 				0BCF55B41E1E470600404C0F /* Assets.xcassets in Resources */,
 				0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */,
 				0BA9F48B1E27ABCB00082427 /* loop_icons_16px.ttf in Resources */,
@@ -344,18 +363,23 @@
 			files = (
 				0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */,
 				0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */,
+				0BF06B831E27E65D0040B010 /* WeBackButton.swift in Sources */,
 				0BCF55AF1E1E470600404C0F /* LoginViewController.swift in Sources */,
 				0BF06B791E27D5260040B010 /* SpanButton.swift in Sources */,
 				0BF73C5A1E24DB4C00D07BAB /* BaseScreenletView.swift in Sources */,
+				0BF06B7B1E27E0620040B010 /* ForgotPasswordScreenlet.swift in Sources */,
 				0BF73C621E24DB5300D07BAB /* LoginInteractor.swift in Sources */,
+				0BF06B851E27F0360040B010 /* ForgotPasswordViewController.swift in Sources */,
 				0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */,
 				0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */,
 				0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */,
+				0BF06B7D1E27E1340040B010 /* ForgotPasswordInteractor.swift in Sources */,
 				0BF73C5B1E24DB4C00D07BAB /* Interactor.swift in Sources */,
 				0BFC76AC1E254201000E5BA4 /* WeColorButton.swift in Sources */,
 				0BF73C5C1E24DB4C00D07BAB /* ScreenletWarehouse.swift in Sources */,
 				0BF73C681E24DB5B00D07BAB /* WeLoginScreenletView.swift in Sources */,
 				0B7724D01E266F1700913DA1 /* FloatingView.swift in Sources */,
+				0BF06B7F1E27E2AF0040B010 /* WeForgotPasswordScreenletView.swift in Sources */,
 				0BF73C631E24DB5300D07BAB /* LoginWithProviderInteractor.swift in Sources */,
 				0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */,
 				0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */,
@@ -484,6 +508,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeDeployApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.WeDeployApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -499,6 +524,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeDeployApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.WeDeployApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

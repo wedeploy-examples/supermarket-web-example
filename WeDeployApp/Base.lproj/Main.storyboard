@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oyQ-T8-CiT">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oyQ-T8-CiT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +31,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heK-NL-MUv">
-                                <rect key="frame" x="36" y="100" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="8pA-zl-8nw"/>
                                     <constraint firstAttribute="height" constant="84" id="Zpl-Vg-4E9"/>
@@ -44,13 +40,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a short description of your app here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiX-sB-ngA">
-                                <rect key="frame" x="20" y="312" width="335" height="65"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="Galano Grotesque" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jar-N7-2sy">
-                                <rect key="frame" x="20" y="576" width="335" height="60"/>
                                 <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kBN-8Y-8Ui"/>
@@ -64,7 +58,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzI-LP-fjb" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="504" width="335" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FrH-Bt-7UJ"/>
                                 </constraints>
@@ -73,17 +66,9 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-rR-8Zx">
-                                <rect key="frame" x="20" y="204" width="335" height="91"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Welcome to AppName">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="48" name="GalanoGrotesque-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="0.10000000000000001" lineHeightMultiple="0.69999999999999996" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to AppName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-rR-8Zx">
+                                <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -128,7 +113,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-vX-hps" customClass="LoginScreenlet" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -142,11 +126,45 @@
                     </view>
                     <connections>
                         <outlet property="loginScreenlet" destination="rBm-vX-hps" id="zJD-v4-hIo"/>
+                        <segue destination="g8F-fg-eXF" kind="show" identifier="forgotpassword" id="olA-It-BoX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="131.78410794602701"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="OUK-5W-6Is">
+            <objects>
+                <viewController id="g8F-fg-eXF" customClass="ForgotPasswordViewController" customModule="WeDeployApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1tP-RI-x2J"/>
+                        <viewControllerLayoutGuide type="bottom" id="wTb-EL-H2V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jb9-Et-Nlt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajV-sj-RIr" customClass="ForgotPasswordScreenlet" customModule="WeDeployApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wTb-EL-H2V" firstAttribute="top" secondItem="ajV-sj-RIr" secondAttribute="bottom" id="40l-8N-udO"/>
+                            <constraint firstAttribute="trailing" secondItem="ajV-sj-RIr" secondAttribute="trailing" id="QJf-tm-cB1"/>
+                            <constraint firstItem="ajV-sj-RIr" firstAttribute="top" secondItem="Jb9-Et-Nlt" secondAttribute="top" id="YQB-Se-Yzw"/>
+                            <constraint firstItem="ajV-sj-RIr" firstAttribute="leading" secondItem="Jb9-Et-Nlt" secondAttribute="leading" id="g1g-37-zKo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="forgotPasswordScreenleet" destination="ajV-sj-RIr" id="IIG-5D-Exu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkP-z3-Guo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1890.4000000000001" y="131.78410794602701"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="10D-oq-gU1">
@@ -154,7 +172,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oyQ-T8-CiT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mgm-C6-b3K">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mgm-C6-b3K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

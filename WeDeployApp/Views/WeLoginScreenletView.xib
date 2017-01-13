@@ -110,7 +110,7 @@
                         <constraint firstItem="Ehy-iA-maZ" firstAttribute="centerY" secondItem="G95-03-cfk" secondAttribute="centerY" id="tE9-9G-nQi"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoBack" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-2g-E96">
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoBack" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-2g-E96" customClass="WeBackButton" customModule="WeDeployApp" customModuleProvider="target">
                     <rect key="frame" x="20" y="30" width="30" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="L0H-F3-c4C"/>
