@@ -75,7 +75,6 @@ public class FloatingView : UIView {
 		logoView.widthAnchor.constraint(equalToConstant: 24).isActive = true
 		logoView.heightAnchor.constraint(equalToConstant: 24).isActive = true
 
-//		logoView.font = UIFont(name: "loop-icons-12px", size: 12)
 		logoView.textAlignment = .center
 		logoView.text = "\u{E049}"
 		logoView.textColor = UIColor(248, 22, 22, 1)
@@ -108,14 +107,14 @@ public class FloatingView : UIView {
 		messageLabel.leftAnchor.constraint(equalTo: logoView.rightAnchor, constant: 16).isActive = true
 
 		messageLabel.textColor = .WeTextColor
-		messageLabel.font = UIFont.systemFont(ofSize: 15)
+		messageLabel.font = UIFont(name: "GalanoGrotesque-SemiBold", size: 15)
 		messageLabel.numberOfLines = 0
 	}
 
 	open func show(message: String, error: Bool) {
 		messageLabel.text = message
+        
 		showIcon(error: error)
-		
 		animateY(finalY: 35)
 	}
 
@@ -156,12 +155,17 @@ public class FloatingView : UIView {
 	}
 
 	func panView(_ gestureRecognizer: UIPanGestureRecognizer) {
-		if gestureRecognizer.state == .ended && self.frame.minX > 20 {
-			UIView.animate(withDuration: 0.3) {
+		if gestureRecognizer.state == .ended && self.frame.minX != 20 {
+			UIView.animate(withDuration: 0.3, animations: {
 				var newFrame = self.frame
 				newFrame.origin.x = UIScreen.main.bounds.maxX + 10
 				self.frame = newFrame
-			}
+			}, completion: { _ in
+				self.frame = CGRect(x: 20.0,
+						y: -100,
+						width: self.frame.width,
+						height: self.frame.height)
+			})
 		}
 
 		let view = gestureRecognizer.view!
@@ -178,7 +182,7 @@ public class FloatingView : UIView {
 		let view = gestureRecognizer.view!
 
 		let locationInView = gestureRecognizer.location(in: view)
-		let locationInSuperView = gestureRecognizer.location(in: view	.superview)
+		let locationInSuperView = gestureRecognizer.location(in: view.superview)
 
 		view.layer.anchorPoint = CGPoint(x: locationInView.x / view.bounds.width, y: locationInView.y / view.bounds.height)
 		view.center = locationInSuperView
