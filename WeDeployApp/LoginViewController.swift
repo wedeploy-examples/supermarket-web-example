@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
 		super.viewDidLoad()
 
 		loginScreenlet.delegate.subscribe(onNext: { [weak self] event in
-
+			print(event)
 			if case .actionStarted(let actionName) = event {
 				if actionName == WeLoginScreenletView.GoBackActionName {
 					_ = self?.navigationController?.popViewController(animated: true)
@@ -31,10 +31,21 @@ class LoginViewController: UIViewController {
 				if actionName == WeLoginScreenletView.GoToForgotPasswordActionName {
 					self?.performSegue(withIdentifier: "forgotpassword", sender: nil)
 				}
+
+				if actionName == WeLoginScreenletView.GoToSignUpActionName {
+					_ = self?.navigationController?.popViewController(animated: true)
+					let topVC = self?.navigationController?.topViewController as? InitalViewConroller
+					topVC?.goSingUp = true
+				}
+			}
+
+			if case .loginSuccessful(_) = event {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+					self?.performSegue(withIdentifier: "main", sender: nil)
+				}
 			}
 		})
 		.addDisposableTo(disposeBag)
-		
 	}
 }
 
