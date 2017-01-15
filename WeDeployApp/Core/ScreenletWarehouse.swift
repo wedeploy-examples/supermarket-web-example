@@ -19,11 +19,18 @@ public class ScreenletWarehouse {
 		LoginScreenlet.LoginWithProviderActionName : LoginWithProviderInteractor.self
 	]
 
+	let signUpInteractors: [String : Interactor.Type] = [
+		SignUpScreenlet.CheckEmailAction: CheckEmailInteractor.self,
+		SignUpScreenlet.CreateUserAction: CreateUserInteractor.self,
+		LoginScreenlet.LoginWithProviderActionName: LoginWithProviderInteractor.self
+	]
+
 	private init() {
 		definitions = [String : ScreenletDefinition]()
 		definitions = [
 			"LoginScreenlet" : ScreenletDefinition(interactors: loginInteractors, viewNames: ["WeLoginScreenletView"]),
-			"ForgotPasswordScreenlet" : ScreenletDefinition(interactors: [ForgotPasswordScreenlet.ForgotPasswordAction : ForgotPasswordInteractor.self], viewNames: ["WeForgotPasswordScreenletView"])
+			"ForgotPasswordScreenlet" : ScreenletDefinition(interactors: [ForgotPasswordScreenlet.ForgotPasswordAction : ForgotPasswordInteractor.self], viewNames: ["WeForgotPasswordScreenletView"]),
+			"SignUpScreenlet" : ScreenletDefinition(interactors: signUpInteractors, viewNames: ["WeSignUpScreenletView"])
 		]
 	}
 
