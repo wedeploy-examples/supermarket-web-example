@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="rene_bieder_galano_grotesque_bold.otf">
+            <string>GalanoGrotesque-Bold</string>
+        </array>
+        <array key="rene_bieder_galano_grotesque_semibold.otf">
+            <string>GalanoGrotesque-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeSignUpScreenletView" customModule="WeDeployApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="qLl-O1-Q9q">
+                    <rect key="frame" x="20" y="369" width="335" height="6"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="6" id="F3Y-Ta-goJ"/>
+                    </constraints>
+                    <color key="progressTintColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </progressView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your full name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L73-SY-N2H" customClass="BorderLessTextField" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="303" width="335" height="60"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ycy-fu-4fc"/>
+                    </constraints>
+                    <color key="textColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your name?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="DNR-aR-GJ6">
+                    <rect key="frame" x="20" y="233" width="335" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="HyB-Gy-YAD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="26"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxt-93-AS9" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="198" y="387" width="157" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="157" id="DOX-Fl-N5w"/>
+                        <constraint firstAttribute="height" constant="60" id="EOa-Xm-hKQ"/>
+                    </constraints>
+                    <state key="normal" title="Next"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="q5t-KN-lLy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oiu-f4-wXF">
+                    <rect key="frame" x="20" y="387" width="157" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="157" id="NFJ-po-Czy"/>
+                        <constraint firstAttribute="height" constant="60" id="v8B-V9-Yna"/>
+                    </constraints>
+                    <state key="normal" title="Previous"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Yr-rN-5Ur"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-vW-6FS">
+                    <rect key="frame" x="117" y="183" width="140" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="bdO-6Q-4KG"/>
+                        <constraint firstAttribute="width" constant="140" id="iVK-74-6Ef"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="yC2-A5-8Ac"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoBack" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdD-aQ-ULP" customClass="WeBackButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="30" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="Y6n-SF-6a4"/>
+                        <constraint firstAttribute="height" constant="36" id="yWj-Ce-WYd"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="interactionLessButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="DZd-nP-be2"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufg-dA-PrK">
+                    <rect key="frame" x="0.0" y="600" width="375" height="67"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beP-iB-aNK">
+                            <rect key="frame" x="62" y="24.5" width="180" height="19"/>
+                            <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="Galano Grotesque" pointSize="14"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToSignUpActionName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-xI-vQA" customClass="SpanButton" customModule="WeDeployApp" customModuleProvider="target">
+                            <rect key="frame" x="247" y="19" width="42" height="29"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <state key="normal" title="Log in">
+                                <color key="titleColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="67" id="7iV-h9-Psv"/>
+                        <constraint firstItem="W7Y-xI-vQA" firstAttribute="centerY" secondItem="Ufg-dA-PrK" secondAttribute="centerY" id="IAo-9f-0sO"/>
+                        <constraint firstItem="W7Y-xI-vQA" firstAttribute="leading" secondItem="beP-iB-aNK" secondAttribute="trailing" constant="5" id="Qaw-hp-Iy4"/>
+                        <constraint firstItem="beP-iB-aNK" firstAttribute="centerY" secondItem="Ufg-dA-PrK" secondAttribute="centerY" id="XKH-Zg-QHn"/>
+                        <constraint firstItem="beP-iB-aNK" firstAttribute="leading" secondItem="Ufg-dA-PrK" secondAttribute="leading" constant="62" id="o1o-Yb-CKL"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbE-Qr-wQT" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="139" y="520" width="98" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="98" id="q8e-Qz-1ao"/>
+                        <constraint firstAttribute="height" constant="60" id="tpI-bG-q58"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="providerName" value="facebook"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="providerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Q3-1E-SBK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eV3-Vr-ikX" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="258" y="520" width="98" height="60"/>
+                    <color key="backgroundColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="1Ww-FH-nf3"/>
+                        <constraint firstAttribute="width" constant="98" id="ySf-sT-C7L"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="providerName" value="github"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="providerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Tuy-dN-yMZ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or sign up using your Google or Github account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DN4-xn-7nI">
+                    <rect key="frame" x="25" y="486" width="325.5" height="19"/>
+                    <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="Galano Grotesque" pointSize="14"/>
+                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-DR-i2P" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="520" width="98" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="9jw-OD-YYX"/>
+                        <constraint firstAttribute="width" constant="98" id="hJX-vr-sCh"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="providerName" value="google"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="providerButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="fbK-x9-XAc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ufg-dA-PrK" secondAttribute="trailing" id="0vZ-kl-fLq"/>
+                <constraint firstItem="eV3-Vr-ikX" firstAttribute="top" secondItem="DN4-xn-7nI" secondAttribute="bottom" constant="15" id="3bj-TB-dF8"/>
+                <constraint firstAttribute="trailing" secondItem="Pxt-93-AS9" secondAttribute="trailing" constant="20" id="4a6-8g-r6L"/>
+                <constraint firstItem="QYk-vW-6FS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8fe-vA-49P"/>
+                <constraint firstAttribute="bottom" secondItem="Ufg-dA-PrK" secondAttribute="bottom" id="GLU-oI-YJF"/>
+                <constraint firstAttribute="bottom" secondItem="Oiu-f4-wXF" secondAttribute="bottom" constant="220" id="IvF-Sj-1HR"/>
+                <constraint firstAttribute="trailing" secondItem="L73-SY-N2H" secondAttribute="trailing" constant="20" id="P33-fx-Bl9"/>
+                <constraint firstItem="qLl-O1-Q9q" firstAttribute="top" secondItem="L73-SY-N2H" secondAttribute="bottom" constant="6" id="QEJ-2l-SnT"/>
+                <constraint firstItem="eV3-Vr-ikX" firstAttribute="leading" secondItem="RbE-Qr-wQT" secondAttribute="trailing" constant="21" id="SUZ-ye-u4N"/>
+                <constraint firstItem="rdD-aQ-ULP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="SoI-uo-J7l"/>
+                <constraint firstItem="rdD-aQ-ULP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="UTC-5I-dLb"/>
+                <constraint firstItem="Ufg-dA-PrK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VAN-6L-HL4"/>
+                <constraint firstItem="RbE-Qr-wQT" firstAttribute="leading" secondItem="9bx-DR-i2P" secondAttribute="trailing" constant="21" id="VNQ-Kr-W3j"/>
+                <constraint firstAttribute="trailing" secondItem="qLl-O1-Q9q" secondAttribute="trailing" constant="20" id="Wjj-gW-rLW"/>
+                <constraint firstAttribute="trailing" secondItem="DNR-aR-GJ6" secondAttribute="trailing" constant="20" id="WnP-ui-2kz"/>
+                <constraint firstItem="L73-SY-N2H" firstAttribute="top" secondItem="DNR-aR-GJ6" secondAttribute="bottom" constant="27" id="YRH-uE-Pdz"/>
+                <constraint firstItem="DN4-xn-7nI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZR5-gR-y5l"/>
+                <constraint firstItem="DNR-aR-GJ6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ags-Bw-ZJg"/>
+                <constraint firstItem="Oiu-f4-wXF" firstAttribute="top" secondItem="qLl-O1-Q9q" secondAttribute="bottom" constant="12" id="ayg-YH-vo2"/>
+                <constraint firstItem="RbE-Qr-wQT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="b0C-0Z-qLf"/>
+                <constraint firstItem="qLl-O1-Q9q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="e9U-Cp-CjV"/>
+                <constraint firstItem="Ufg-dA-PrK" firstAttribute="top" secondItem="RbE-Qr-wQT" secondAttribute="bottom" constant="20" id="eBj-1N-8ZJ"/>
+                <constraint firstItem="Pxt-93-AS9" firstAttribute="top" secondItem="Oiu-f4-wXF" secondAttribute="top" id="g5d-q3-eG7"/>
+                <constraint firstItem="QYk-vW-6FS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="183" id="uFR-s3-G4x"/>
+                <constraint firstItem="Ufg-dA-PrK" firstAttribute="top" secondItem="9bx-DR-i2P" secondAttribute="bottom" constant="20" id="wld-vW-ZFK"/>
+                <constraint firstItem="Ufg-dA-PrK" firstAttribute="top" secondItem="eV3-Vr-ikX" secondAttribute="bottom" constant="20" id="x0Z-Or-xBq"/>
+                <constraint firstItem="L73-SY-N2H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ykO-FQ-Uha"/>
+                <constraint firstItem="Oiu-f4-wXF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="yno-Gz-lk1"/>
+            </constraints>
+            <connections>
+                <outlet property="bigText" destination="DNR-aR-GJ6" id="0c5-sM-7ph"/>
+                <outlet property="bottomConstraint" destination="IvF-Sj-1HR" id="mOH-ef-Xc3"/>
+                <outlet property="bottomView" destination="Ufg-dA-PrK" id="9d9-h8-NjM"/>
+                <outlet property="editText" destination="L73-SY-N2H" id="Nd1-7L-iVr"/>
+                <outlet property="nextButton" destination="Pxt-93-AS9" id="0aF-Eo-fSD"/>
+                <outlet property="previousButton" destination="Oiu-f4-wXF" id="ejV-Fp-wjr"/>
+                <outlet property="progressView" destination="qLl-O1-Q9q" id="eAX-OW-jbG"/>
+                <outlet property="signUpLabel" destination="QYk-vW-6FS" id="1ZZ-LW-pbE"/>
+                <outlet property="topConstraint" destination="uFR-s3-G4x" id="blN-DI-Rex"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="97.5"/>
+        </view>
+    </objects>
+</document>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oyQ-T8-CiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oyQ-T8-CiT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,6 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heK-NL-MUv">
+                                <rect key="frame" x="36" y="100" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="8pA-zl-8nw"/>
                                     <constraint firstAttribute="height" constant="84" id="Zpl-Vg-4E9"/>
@@ -40,11 +44,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a short description of your app here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiX-sB-ngA">
+                                <rect key="frame" x="20" y="351" width="335" height="65"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="Galano Grotesque" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jar-N7-2sy">
+                                <rect key="frame" x="20" y="576" width="335" height="60"/>
                                 <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kBN-8Y-8Ui"/>
@@ -54,10 +60,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToLoginClick" destination="uRQ-Tf-8sp" eventType="touchUpInside" id="DzA-ds-V36"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="hzL-cQ-1Hs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzI-LP-fjb" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="504" width="335" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FrH-Bt-7UJ"/>
                                 </constraints>
@@ -65,8 +72,12 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Vv3-uO-pRv" kind="show" identifier="signup" id="h4n-MG-AYA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to AppName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-rR-8Zx">
+                                <rect key="frame" x="20" y="204" width="335" height="130"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -93,12 +104,45 @@
                     <navigationItem key="navigationItem" id="rCD-uu-sLR"/>
                     <connections>
                         <outlet property="logoLabel" destination="heK-NL-MUv" id="Ej7-ri-Tug"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="login" id="kHL-rr-1fy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfr-wz-kV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="308" y="127.28635682158921"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="Uaf-zS-6k8">
+            <objects>
+                <viewController id="Vv3-uO-pRv" customClass="SignUpViewController" customModule="WeDeployApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="68i-kL-ZqF"/>
+                        <viewControllerLayoutGuide type="bottom" id="5jV-pp-AOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aaw-fM-uwD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9j-AT-zSL" customClass="SignUpScreenlet" customModule="WeDeployApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="a9j-AT-zSL" secondAttribute="trailing" id="3XX-57-JaU"/>
+                            <constraint firstItem="a9j-AT-zSL" firstAttribute="top" secondItem="aaw-fM-uwD" secondAttribute="top" id="8hV-8p-RSo"/>
+                            <constraint firstItem="a9j-AT-zSL" firstAttribute="leading" secondItem="aaw-fM-uwD" secondAttribute="leading" id="p4T-lf-lwD"/>
+                            <constraint firstItem="5jV-pp-AOf" firstAttribute="top" secondItem="a9j-AT-zSL" secondAttribute="bottom" id="vVV-Lp-CJP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signUpScreenlet" destination="a9j-AT-zSL" id="hsC-LD-5b2"/>
+                        <segue destination="Ocj-kP-fmm" kind="show" identifier="main" id="AxK-S1-600"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s96-d2-yRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="840"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -113,6 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-vX-hps" customClass="LoginScreenlet" customModule="WeDeployApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -127,6 +172,7 @@
                     <connections>
                         <outlet property="loginScreenlet" destination="rBm-vX-hps" id="zJD-v4-hIo"/>
                         <segue destination="g8F-fg-eXF" kind="show" identifier="forgotpassword" id="olA-It-BoX"/>
+                        <segue destination="Ocj-kP-fmm" kind="show" identifier="main" id="41a-Oh-eLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,13 +212,40 @@
             </objects>
             <point key="canvasLocation" x="1890.4000000000001" y="131.78410794602701"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="hNM-JN-D4f">
+            <objects>
+                <viewController id="Ocj-kP-fmm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rcn-sm-QfO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ugh-kh-N3r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ITp-rS-rQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logged" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX0-aV-uRR">
+                                <rect key="frame" x="91" y="254" width="192" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kzA-9s-Qvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200.8" y="887.40629685157433"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="10D-oq-gU1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oyQ-T8-CiT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mgm-C6-b3K">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mgm-C6-b3K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -186,4 +259,7 @@
             <point key="canvasLocation" x="-631.20000000000005" y="127.28635682158921"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="AxK-S1-600"/>
+    </inferredMetricsTieBreakers>
 </document>
