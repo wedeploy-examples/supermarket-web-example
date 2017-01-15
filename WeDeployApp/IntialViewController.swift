@@ -13,6 +13,9 @@ public class InitalViewConroller : UIViewController {
 
 	@IBOutlet weak var logoLabel: UILabel!
 
+	public var goLogin = false
+	public var goSingUp = false
+
 	public override func viewDidLoad() {
 
 		logoLabel.text = "\u{E55F}"
@@ -24,7 +27,15 @@ public class InitalViewConroller : UIViewController {
 		view.backgroundColor = .mainColor
 	}
 
-	@IBAction func goToLoginClick() {
-		performSegue(withIdentifier: "login", sender: nil)
+	public override func viewDidAppear(_ animated: Bool) {
+		if goLogin {
+			goLogin = false
+			performSegue(withIdentifier: "login", sender: nil)
+		}
+		else if goSingUp {
+			goSingUp = false
+			performSegue(withIdentifier: "signup", sender: nil)
+		}
 	}
+
 }
