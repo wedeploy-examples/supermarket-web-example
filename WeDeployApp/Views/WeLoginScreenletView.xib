@@ -46,6 +46,9 @@
                     <color key="textColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isPasswordField" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7s2-im-qg5" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
                     <rect key="frame" x="20" y="346" width="335" height="60"/>
@@ -85,7 +88,7 @@
                     <rect key="frame" x="0.0" y="600" width="375" height="67"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't you have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehy-iA-maZ">
-                            <rect key="frame" x="62" y="24.5" width="191" height="19"/>
+                            <rect key="frame" x="62" y="24" width="191" height="19"/>
                             <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="Galano Grotesque" pointSize="14"/>
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -124,7 +127,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huT-fh-pci" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
-                    <rect key="frame" x="138" y="520" width="98" height="60"/>
+                    <rect key="frame" x="138.5" y="520" width="98" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="XlS-Ec-ROJ"/>
                         <constraint firstAttribute="width" constant="98" id="hlj-uj-ypI"/>
@@ -138,7 +141,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zod-ZL-NqP" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
-                    <rect key="frame" x="257" y="520" width="98" height="60"/>
+                    <rect key="frame" x="257.5" y="520" width="98" height="60"/>
                     <color key="backgroundColor" red="0.89411764709999997" green="0.2784313725" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="98" id="b7u-yf-BNN"/>
@@ -159,7 +162,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-2T-uDp" customClass="WeProviderButton" customModule="WeDeployApp" customModuleProvider="target">
-                    <rect key="frame" x="19" y="520" width="98" height="60"/>
+                    <rect key="frame" x="19.5" y="520" width="98" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="98" id="b1g-1S-QGC"/>
                         <constraint firstAttribute="height" constant="60" id="tbp-rI-Xnc"/>

@@ -10,6 +10,14 @@ import UIKit
 
 class BorderLessTextField: UITextField {
 
+	@IBInspectable var isPasswordField: Bool = false {
+		didSet {
+			isPasswordFieldChanged()
+		}
+	}
+
+	var showPasswordButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		initialize()
@@ -26,8 +34,6 @@ class BorderLessTextField: UITextField {
 		layer.cornerRadius = 4
 
 		textColor = .WeTextFieldTextColor
-
-		UIFont.familyNames.forEach{print(UIFont.fontNames(forFamilyName: $0))}
 
 		font = UIFont(name: "GalanoGrotesque-SemiBold", size: 16)
 
@@ -64,10 +70,40 @@ class BorderLessTextField: UITextField {
 
 		return rect
 	}
+
+	override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+
+		return CGRect(x: self.frame.maxX - 70, y: 10, width: 40, height: 40)
+	}
     
     open func setErrorAppearance() {
         backgroundColor = UIColor(255, 64,64, 0.10);
         textColor = UIColor(255, 64, 64, 1)
     }
+
+	func isPasswordFieldChanged() {
+		if isPasswordField {
+			showPasswordButton.backgroundColor = .WeTextFieldSelectedBackgroundColor
+			showPasswordButton.titleLabel?.font = UIFont(name: "loop-icons-12px", size: 12)
+			showPasswordButton.setTitle("\u{E04B}", for: .normal)
+			showPasswordButton.addTarget(self, action: #selector(showOrHidePassword), for: .touchUpInside)
+			showPasswordButton.setTitleColor(.WeTextColor, for: .normal)
+			showPasswordButton.layer.cornerRadius = 4
+			rightView = showPasswordButton
+			rightViewMode = .always
+			isSecureTextEntry = true
+		}
+		else {
+			showPasswordButton.removeTarget(self, action: #selector(showOrHidePassword), for: .touchUpInside)
+			rightViewMode = .never
+			isSecureTextEntry = false
+		}
+	}
+
+	func showOrHidePassword() {
+		isSecureTextEntry = !isSecureTextEntry
+
+		showPasswordButton.setTitle(isSecureTextEntry ? "\u{E04B}" : "\u{E037}", for: .normal)
+	}
 
 }
