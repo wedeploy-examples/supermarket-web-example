@@ -142,6 +142,7 @@ public class WeLoginScreenletView : BaseScreenletView {
 		}
 		else if actionName == LoginScreenlet.LoginWithProviderActionName {
 			providerButtons.forEach { $0.isEnabled = true }
+			floatingView.show(message: "Login successful", error: false)
 		}
 	}
     
