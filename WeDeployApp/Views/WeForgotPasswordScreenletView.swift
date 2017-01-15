@@ -89,14 +89,15 @@ class WeForgotPasswordScreenletView: BaseScreenletView {
 	}
 
 	@IBAction func backButtonClicked(_ sender: UIButton) {
-		sender.setTitle("Sending email...", for: .disabled)
-		sender.isEnabled = false
 
 		perform(actionName: sender.restorationIdentifier!)
 	}
 
 	@IBAction func sendResetButtonClicked(_ sender: UIButton) {
 		let interactorInput = ForgotPasswordInteractorInput(email: emailTextField.text!)
+		sender.setTitle("Sending email...", for: .disabled)
+		sender.isEnabled = false
+		endEditing(false)
 
 		perform(actionName: ForgotPasswordScreenlet.ForgotPasswordAction, params: interactorInput)
 	}
