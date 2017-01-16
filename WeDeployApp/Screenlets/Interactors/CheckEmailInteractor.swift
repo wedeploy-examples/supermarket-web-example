@@ -11,10 +11,8 @@ import WeDeploy
 import RxSwift
 
 public struct CheckEmailInteractorInput : InteractorInput {
-
 	let email: String
 	let name: String
-
 }
 
 open class CheckEmailInteractor : Interactor {

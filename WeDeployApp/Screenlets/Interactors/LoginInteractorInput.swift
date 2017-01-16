@@ -10,10 +10,8 @@ import Foundation
 import WeDeploy
 
 public struct LoginInteractorInput : InteractorInput {
-
 	let username: String
 	let password: String
-
 }
 
 public struct LoginWithProviderInteractorInput : InteractorInput {

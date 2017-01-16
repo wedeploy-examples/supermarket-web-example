@@ -30,7 +30,11 @@ public class CreateUserInteractor : Interactor {
 			.toObservable()
 			.flatMap { _ in
 				return WeDeploy.auth()
-					.updateUser(id: self.createUserParams.id, email: self.createUserParams.email, password: self.createUserParams.password, name: self.createUserParams.name)
+					.updateUser(
+							id: self.createUserParams.id,
+							email: self.createUserParams.email,
+							password: self.createUserParams.password,
+							name: self.createUserParams.name)
 					.toObservable()
 			}
 			.map { _ in

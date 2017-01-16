@@ -233,9 +233,12 @@ class WeSignUpScreenletView: BaseScreenletView {
 	override func interactionErrored(actionName: String, error: Error) {
 		if actionName == SignUpScreenlet.CheckEmailAction {
 			floatingView.show(message: "That email is already in use. Please, try a different one.", error: true)
+
 			nextButton.setTitle("Next", for: .disabled)
 			nextButton.isEnabled = true
+
 			previousButton.isEnabled = true
+
 			editText.setErrorAppearance()
 		}
 	}
@@ -247,7 +250,10 @@ class WeSignUpScreenletView: BaseScreenletView {
 	@IBAction func providerButtonClicked(_ sender: WeProviderButton) {
 		sender.isEnabled = false
 
-		let interactorInput = LoginWithProviderInteractorInput(provider: sender.provider!, redirectUri: "wedeploy-app://")
+		let interactorInput = LoginWithProviderInteractorInput(
+				provider: sender.provider!,
+				redirectUri: "wedeploy-app://")
+
 		self.perform(actionName: LoginScreenlet.LoginWithProviderActionName, params: interactorInput)
 	}
 }

@@ -16,9 +16,9 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   later:
-    :path: ../later
+    :path: "../later"
   WeDeploy:
-    :path: ../api-swift
+    :path: "../api-swift"
 
 SPEC CHECKSUMS:
   later: 1c4f0846d4799471e77171db9f95eeb567b9d31c
