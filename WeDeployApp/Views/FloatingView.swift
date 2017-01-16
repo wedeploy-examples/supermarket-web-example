@@ -123,6 +123,7 @@ public class FloatingView : UIView {
 			logoView.font = UIFont(name: "loop-icons-12px", size: 20)
 			logoView.textColor = errorColor
 			logoView.text = errorIcon
+			logoView.backgroundColor = .white
 		}
 		else {
 			logoView.layer.cornerRadius = 12
