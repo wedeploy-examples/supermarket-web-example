@@ -13,6 +13,8 @@ import WeDeploy
 
 class WeSignUpScreenletView: BaseScreenletView {
 
+	public static let GoToLoginAction = "GoToLoginActionName"
+
 	@IBOutlet weak var topConstraint: NSLayoutConstraint!
 	@IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 

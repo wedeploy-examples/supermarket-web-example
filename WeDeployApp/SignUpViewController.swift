@@ -19,16 +19,22 @@ class SignUpViewController: UIViewController {
 		super.viewDidLoad()
 
 		signUpScreenlet.delegate.subscribe(onNext: { [weak self] event in
-
+		
 			if case .actionStarted(let actionName) = event {
 				if actionName == WeLoginScreenletView.GoBackActionName {
 					_ = self?.navigationController?.popViewController(animated: true)
 				}
+				else if actionName == WeSignUpScreenletView.GoToLoginAction {
+					_ = self?.navigationController?.popViewController(animated: true)
+					let topVC = self?.navigationController?.topViewController as? InitalViewConroller
+					topVC?.goLogin = true
+				}
 			}
 
-			if case .userCreated(_) = event {
+			else if case .userCreated(_) = event {
 				self?.performSegue(withIdentifier: "main", sender: nil)
 			}
+
 		})
 		.addDisposableTo(disposeBag)
     }
