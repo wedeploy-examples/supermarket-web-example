@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6776431E2CC7500089C466 /* MainViewController.swift */; };
 		0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724C71E2621E100913DA1 /* WeColors.swift */; };
 		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
 		0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B6776431E2CC7500089C466 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0B7724C71E2621E100913DA1 /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
 		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
 		0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_12px.ttf; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				0BA9F4821E27A53600082427 /* IntialViewController.swift */,
 				0BF06B841E27F0360040B010 /* ForgotPasswordViewController.swift */,
 				0B9053361E29453F007D41B3 /* SignUpViewController.swift */,
+				0B6776431E2CC7500089C466 /* MainViewController.swift */,
 			);
 			path = WeDeployApp;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				0B9053371E29453F007D41B3 /* SignUpViewController.swift in Sources */,
 				0BF7EBD71E28E5BF00883CD0 /* WeSignUpScreenletView.swift in Sources */,
 				0BF73C5A1E24DB4C00D07BAB /* BaseScreenletView.swift in Sources */,
+				0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */,
 				0BF06B7B1E27E0620040B010 /* ForgotPasswordScreenlet.swift in Sources */,
 				0BF73C621E24DB5300D07BAB /* LoginInteractor.swift in Sources */,
 				0BF06B851E27F0360040B010 /* ForgotPasswordViewController.swift in Sources */,

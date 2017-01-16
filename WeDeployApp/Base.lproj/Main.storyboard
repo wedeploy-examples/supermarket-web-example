@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="1890.4000000000001" y="131.78410794602701"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="hNM-JN-D4f">
             <objects>
-                <viewController id="Ocj-kP-fmm" sceneMemberID="viewController">
+                <viewController id="Ocj-kP-fmm" customClass="MainViewController" customModule="WeDeployApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rcn-sm-QfO"/>
                         <viewControllerLayoutGuide type="bottom" id="Ugh-kh-N3r"/>
@@ -231,13 +231,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qW6-dY-mC1">
+                                <rect key="frame" x="16" y="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonClick" destination="Ocj-kP-fmm" eventType="touchUpInside" id="1mb-fr-ECE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzA-9s-Qvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200.8" y="887.40629685157433"/>
+            <point key="canvasLocation" x="1266" y="821"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="10D-oq-gU1">
