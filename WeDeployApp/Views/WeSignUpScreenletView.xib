@@ -108,12 +108,15 @@
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToSignUpActionName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-xI-vQA" customClass="SpanButton" customModule="WeDeployApp" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoToLoginActionName" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-xI-vQA" customClass="SpanButton" customModule="WeDeployApp" customModuleProvider="target">
                             <rect key="frame" x="247" y="19" width="42" height="29"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <state key="normal" title="Log in">
                                 <color key="titleColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="interactionLessButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="MIj-cM-QY0"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -23,7 +23,16 @@ public class WeLoginScreenletView : BaseScreenletView {
 	@IBOutlet weak var loginButton: WeColorButton!
 	@IBOutlet weak var loginLabel: UILabel!
 
-	@IBOutlet weak var bottomView: UIView!
+	@IBOutlet weak var bottomView: UIView! {
+		didSet {
+			bottomView.layer.shadowColor = UIColor.black.cgColor
+			bottomView.layer.shadowOffset = CGSize(width: 0, height: -1);
+			bottomView.layer.shadowRadius = 5;
+			bottomView.layer.shadowOpacity = 0.1;
+			bottomView.layer.masksToBounds = false
+		}
+	}
+
 	@IBOutlet weak var arrowBackButton: UIButton!
 
 	@IBOutlet var providerButtons: [UIButton]!
@@ -45,12 +54,6 @@ public class WeLoginScreenletView : BaseScreenletView {
 
 		initialBottomConstraintConstant = bottomConstraint.constant
 		initialTopContraintConstant = topConstraint.constant
-
-		bottomView.layer.shadowColor = UIColor.black.cgColor
-		bottomView.layer.shadowOffset = CGSize(width: 0, height: -1);
-		bottomView.layer.shadowRadius = 5;
-		bottomView.layer.shadowOpacity = 0.1;
-		bottomView.layer.masksToBounds = false
 
 		addSubview(floatingView)
 
@@ -151,6 +154,7 @@ public class WeLoginScreenletView : BaseScreenletView {
         if actionName == LoginScreenlet.LoginActionName {
             emailTextField.setErrorAppearance()
             passwordTextField.setErrorAppearance()
+
             loginButton.setTitle("Log in", for: .disabled)
             loginButton.isEnabled = true
 

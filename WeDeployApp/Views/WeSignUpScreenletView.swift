@@ -21,11 +21,33 @@ class WeSignUpScreenletView: BaseScreenletView {
 	var initialBottomConstraintConstant: CGFloat!
 	var initialTopContraintConstant: CGFloat!
 
-	@IBOutlet weak var progressView: UIProgressView!
-	@IBOutlet weak var bottomView: UIView!
+	@IBOutlet weak var progressView: UIProgressView! {
+		didSet {
+			progressView.progressTintColor = .mainColor
+			progressView.trackTintColor = .WeTextFieldBackgroundColor
+		}
+	}
+
+	@IBOutlet weak var bottomView: UIView! {
+		didSet {
+			bottomView.layer.shadowColor = UIColor.black.cgColor
+			bottomView.layer.shadowOffset = CGSize(width: 0, height: -1);
+			bottomView.layer.shadowRadius = 5;
+			bottomView.layer.shadowOpacity = 0.1;
+			bottomView.layer.masksToBounds = false
+		}
+	}
 
 	@IBOutlet weak var nextButton: WeColorButton!
-	@IBOutlet weak var previousButton: UIButton!
+
+	@IBOutlet weak var previousButton: UIButton! {
+		didSet {
+			previousButton.backgroundColor = .WeTextFieldBackgroundColor
+			previousButton.setTitleColor(.WeTextColor, for: .normal)
+			previousButton.titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: 16)
+			previousButton.layer.cornerRadius = 4
+		}
+	}
 	@IBOutlet weak var bigText: UILabel!
 
 	@IBOutlet weak var editText: BorderLessTextField!
@@ -53,20 +75,6 @@ class WeSignUpScreenletView: BaseScreenletView {
 
 		initialBottomConstraintConstant = bottomConstraint.constant
 		initialTopContraintConstant = topConstraint.constant
-
-		progressView.progressTintColor = .mainColor
-		progressView.trackTintColor = .WeTextFieldBackgroundColor
-
-		bottomView.layer.shadowColor = UIColor.black.cgColor
-		bottomView.layer.shadowOffset = CGSize(width: 0, height: -1);
-		bottomView.layer.shadowRadius = 5;
-		bottomView.layer.shadowOpacity = 0.1;
-		bottomView.layer.masksToBounds = false
-
-		previousButton.backgroundColor = .WeTextFieldBackgroundColor
-		previousButton.setTitleColor(.WeTextColor, for: .normal)
-		previousButton.titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: 16)
-		previousButton.layer.cornerRadius = 4
 
 		editText.rx.text.orEmpty.map { $0.characters.count > 1 }
 			.bindTo(nextButton.rx.isEnabled)
