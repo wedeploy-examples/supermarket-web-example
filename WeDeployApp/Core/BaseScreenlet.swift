@@ -70,7 +70,7 @@ open class BaseScreenlet : UIView {
 
 			self.layoutIfNeeded()
 
-			view.onCreated()
+			onViewCreated()
 		}
 	}
 
@@ -87,6 +87,10 @@ open class BaseScreenlet : UIView {
 		}
 
 		return nil
+	}
+
+	open func onViewCreated() {
+		screenletView?.onCreated()
 	}
 
 	open func perform(actionName: String, params: InteractorInput, requiresInteractor: Bool = true) {
