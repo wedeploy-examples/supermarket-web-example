@@ -31,7 +31,8 @@ public class ScreenletWarehouse {
 			"LoginScreenlet" : ScreenletDefinition(interactors: loginInteractors, viewNames: ["WeLoginScreenletView"]),
 			"ForgotPasswordScreenlet" : ScreenletDefinition(interactors: [ForgotPasswordScreenlet.ForgotPasswordAction : ForgotPasswordInteractor.self], viewNames: ["WeForgotPasswordScreenletView"]),
 			"SignUpScreenlet" : ScreenletDefinition(interactors: signUpInteractors, viewNames: ["WeSignUpScreenletView"]),
-			"DataListScreenlet": ScreenletDefinition(interactors: [DataListScreenlet.LoadDataAction : LoadDataInteractor.self], viewNames: ["WeDataListScreenletView"])
+			"DataListScreenlet": ScreenletDefinition(interactors: [DataListScreenlet.LoadDataAction : LoadDataInteractor.self], viewNames: ["WeDataListScreenletView"]),
+			"UserPortraitScreenlet": ScreenletDefinition(interactors: [UserPortraitScreenlet.GetCurrentUserAction : GetCurrentUserInteractor.self], viewNames: ["WeUserPortraitScreenletView"])
 		]
 	}
 
