@@ -150,7 +150,6 @@ public class WeLoginScreenletView : BaseScreenletView {
 	}
     
     override open func interactionErrored(actionName: String, error: Error) {
-		print(error)
         if actionName == LoginScreenlet.LoginActionName {
             emailTextField.setErrorAppearance()
             passwordTextField.setErrorAppearance()
