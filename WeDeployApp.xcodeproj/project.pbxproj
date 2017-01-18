@@ -17,6 +17,8 @@
 		0B9053391E2AA445007D41B3 /* CheckEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */; };
 		0B9F61431E2CFA2A00DF43D0 /* LoadDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */; };
 		0B9F61451E2D240900DF43D0 /* DataListScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F61441E2D240900DF43D0 /* DataListScreenlet.swift */; };
+		0B9F61471E2D253400DF43D0 /* WeDataListScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F61461E2D253400DF43D0 /* WeDataListScreenletView.swift */; };
+		0B9F61491E2D258300DF43D0 /* WeDataListScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B9F61481E2D258300DF43D0 /* WeDataListScreenletView.xib */; };
 		0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4801E2779CE00082427 /* WeProviderButton.swift */; };
 		0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4821E27A53600082427 /* IntialViewController.swift */; };
 		0BA9F48B1E27ABCB00082427 /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */; };
@@ -66,6 +68,8 @@
 		0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmailInteractor.swift; sourceTree = "<group>"; };
 		0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadDataInteractor.swift; sourceTree = "<group>"; };
 		0B9F61441E2D240900DF43D0 /* DataListScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataListScreenlet.swift; sourceTree = "<group>"; };
+		0B9F61461E2D253400DF43D0 /* WeDataListScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeDataListScreenletView.swift; sourceTree = "<group>"; };
+		0B9F61481E2D258300DF43D0 /* WeDataListScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeDataListScreenletView.xib; sourceTree = "<group>"; };
 		0BA9F4801E2779CE00082427 /* WeProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeProviderButton.swift; sourceTree = "<group>"; };
 		0BA9F4821E27A53600082427 /* IntialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntialViewController.swift; sourceTree = "<group>"; };
 		0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 				0BF06B821E27E65D0040B010 /* WeBackButton.swift */,
 				0BF7EBD61E28E5BF00883CD0 /* WeSignUpScreenletView.swift */,
 				0BF7EBD81E28E5D700883CD0 /* WeSignUpScreenletView.xib */,
+				0B9F61461E2D253400DF43D0 /* WeDataListScreenletView.swift */,
+				0B9F61481E2D258300DF43D0 /* WeDataListScreenletView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				0BF7EBD91E28E5D700883CD0 /* WeSignUpScreenletView.xib in Resources */,
 				0BF7EBE01E28EEF700883CD0 /* rene_bieder_galano_grotesque_bold.otf in Resources */,
 				0BCF55B41E1E470600404C0F /* Assets.xcassets in Resources */,
+				0B9F61491E2D258300DF43D0 /* WeDataListScreenletView.xib in Resources */,
 				0BF7EBE21E28EEF700883CD0 /* rene_bieder_galano_grotesque_semibold.otf in Resources */,
 				0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */,
 				0BA9F48B1E27ABCB00082427 /* loop_icons_16px.ttf in Resources */,
@@ -418,6 +425,7 @@
 				0BF73C5B1E24DB4C00D07BAB /* Interactor.swift in Sources */,
 				0BFC76AC1E254201000E5BA4 /* WeColorButton.swift in Sources */,
 				0BF73C5C1E24DB4C00D07BAB /* ScreenletWarehouse.swift in Sources */,
+				0B9F61471E2D253400DF43D0 /* WeDataListScreenletView.swift in Sources */,
 				0BF73C681E24DB5B00D07BAB /* WeLoginScreenletView.swift in Sources */,
 				0B7724D01E266F1700913DA1 /* FloatingView.swift in Sources */,
 				0BF06B7F1E27E2AF0040B010 /* WeForgotPasswordScreenletView.swift in Sources */,
