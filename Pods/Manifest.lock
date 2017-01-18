@@ -1,4 +1,5 @@
 PODS:
+  - Kingfisher (3.2.4)
   - later (0.2.0)
   - RxCocoa (3.1.0):
     - RxSwift (~> 3.1)
@@ -8,33 +9,35 @@ PODS:
     - later (~> 0.2)
     - RxSwift (~> 3.0)
     - Socket.IO-Client-Swift (~> 8.1)
+  - WZLBadge (1.2.5)
 
 DEPENDENCIES:
+  - Kingfisher
   - later (from `https://github.com/victorg1991/later`)
   - RxCocoa
-  - WeDeploy (from `https://github.com/jmnavarro/api-swift`)
+  - WeDeploy (from `../api-swift`)
+  - WZLBadge
 
 EXTERNAL SOURCES:
   later:
     :git: https://github.com/victorg1991/later
   WeDeploy:
-    :git: https://github.com/jmnavarro/api-swift
+    :path: "../api-swift"
 
 CHECKOUT OPTIONS:
   later:
     :commit: 08666e210cb196040d9154efdfd63df9b967b9bb
     :git: https://github.com/victorg1991/later
-  WeDeploy:
-    :commit: bba50663ec870bd44d295510f1b4e2d68af7e302
-    :git: https://github.com/jmnavarro/api-swift
 
 SPEC CHECKSUMS:
+  Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   later: 1c4f0846d4799471e77171db9f95eeb567b9d31c
   RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   Socket.IO-Client-Swift: 900cf511777045c80d1ce1f11f71261e87765dd1
   WeDeploy: 23cfaa5c4570d3f6ee034722066cf5f4c7247801
+  WZLBadge: 16c08aa0a645e2591690f21cbcb410a3d878c7ac
 
-PODFILE CHECKSUM: 6026e9a0859bb9436d06bdb2dc998e375357009e
+PODFILE CHECKSUM: 21095e3d41e74245c4f1f23335e13934ee54fb9e
 
 COCOAPODS: 1.1.1
