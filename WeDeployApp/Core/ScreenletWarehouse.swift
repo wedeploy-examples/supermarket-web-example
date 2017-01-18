@@ -30,7 +30,8 @@ public class ScreenletWarehouse {
 		definitions = [
 			"LoginScreenlet" : ScreenletDefinition(interactors: loginInteractors, viewNames: ["WeLoginScreenletView"]),
 			"ForgotPasswordScreenlet" : ScreenletDefinition(interactors: [ForgotPasswordScreenlet.ForgotPasswordAction : ForgotPasswordInteractor.self], viewNames: ["WeForgotPasswordScreenletView"]),
-			"SignUpScreenlet" : ScreenletDefinition(interactors: signUpInteractors, viewNames: ["WeSignUpScreenletView"])
+			"SignUpScreenlet" : ScreenletDefinition(interactors: signUpInteractors, viewNames: ["WeSignUpScreenletView"]),
+			"DataListScreenlet": ScreenletDefinition(interactors: [DataListScreenlet.LoadDataAction : LoadDataInteractor.self], viewNames: ["WeDataListScreenletView"])
 		]
 	}
 
