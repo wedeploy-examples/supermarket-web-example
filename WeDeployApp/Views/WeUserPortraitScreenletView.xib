@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeUserPortraitScreenletView" customModule="WeDeployApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="78" height="72"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qFw-Ip-EM1">
+                    <rect key="frame" x="0.0" y="0.0" width="78" height="72"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="TEs-2v-jlY">
+                    <rect key="frame" x="0.0" y="0.0" width="78" height="72"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TEs-2v-jlY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1zl-gx-vHs"/>
+                <constraint firstItem="qFw-Ip-EM1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bqf-q4-9b6"/>
+                <constraint firstAttribute="trailing" secondItem="qFw-Ip-EM1" secondAttribute="trailing" id="Ebi-6h-0P7"/>
+                <constraint firstItem="TEs-2v-jlY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OIC-q1-V8F"/>
+                <constraint firstItem="TEs-2v-jlY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="P4D-yS-F64"/>
+                <constraint firstAttribute="trailing" secondItem="TEs-2v-jlY" secondAttribute="trailing" id="RVH-qd-H4c"/>
+                <constraint firstItem="qFw-Ip-EM1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TBO-5g-6pw"/>
+                <constraint firstItem="TEs-2v-jlY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TJd-hq-jWD"/>
+                <constraint firstAttribute="bottom" secondItem="TEs-2v-jlY" secondAttribute="bottom" id="Z8Z-Oo-jhu"/>
+                <constraint firstAttribute="bottom" secondItem="qFw-Ip-EM1" secondAttribute="bottom" id="gmS-wJ-Mbl"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="initialsLabel" destination="TEs-2v-jlY" id="5ms-dM-Vy9"/>
+                <outlet property="userImage" destination="qFw-Ip-EM1" id="prZ-Xr-Zn3"/>
+            </connections>
+            <point key="canvasLocation" x="-52" y="-96"/>
+        </view>
+    </objects>
+</document>
