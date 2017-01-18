@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B10F7041E2E196700030277 /* BaseListScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10F7031E2E196700030277 /* BaseListScreenletView.swift */; };
+		0B1DD4AF1E2F4DCF00F145ED /* ViewWithArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */; };
 		0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6776431E2CC7500089C466 /* MainViewController.swift */; };
 		0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724C71E2621E100913DA1 /* WeColors.swift */; };
 		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		0B10F7031E2E196700030277 /* BaseListScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListScreenletView.swift; sourceTree = "<group>"; };
+		0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewWithArrow.swift; sourceTree = "<group>"; };
 		0B6776431E2CC7500089C466 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0B7724C71E2621E100913DA1 /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
 		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				0B9F61481E2D258300DF43D0 /* WeDataListScreenletView.xib */,
 				0B9F614A1E2D315A00DF43D0 /* ProductCell.swift */,
 				0B9F614B1E2D315A00DF43D0 /* ProductCell.xib */,
+				0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				0BF06B791E27D5260040B010 /* SpanButton.swift in Sources */,
 				0B9053371E29453F007D41B3 /* SignUpViewController.swift in Sources */,
 				0BF7EBD71E28E5BF00883CD0 /* WeSignUpScreenletView.swift in Sources */,
+				0B1DD4AF1E2F4DCF00F145ED /* ViewWithArrow.swift in Sources */,
 				0BF73C5A1E24DB4C00D07BAB /* BaseScreenletView.swift in Sources */,
 				0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */,
 				0BF06B7B1E27E0620040B010 /* ForgotPasswordScreenlet.swift in Sources */,
