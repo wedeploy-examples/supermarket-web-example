@@ -13,6 +13,9 @@ extension String : InteractorInput { }
 open class BaseScreenletView : UIView {
 	var actionPerformer: ActionPerformer?
 
+	open func onCreated() {
+		
+	}
 
 	open func perform(actionName: String, params: InteractorInput, requiresInteractor: Bool = true) {
 		actionPerformer?(actionName, params, requiresInteractor)

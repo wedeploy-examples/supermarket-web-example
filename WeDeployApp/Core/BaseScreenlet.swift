@@ -67,6 +67,10 @@ open class BaseScreenlet : UIView {
 			view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 			view.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
 			view.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+
+			self.layoutIfNeeded()
+
+			view.onCreated()
 		}
 	}
 
