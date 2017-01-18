@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B10F7041E2E196700030277 /* BaseListScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10F7031E2E196700030277 /* BaseListScreenletView.swift */; };
 		0B1DD4AF1E2F4DCF00F145ED /* ViewWithArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */; };
+		0B1DD4B31E2F664A00F145ED /* GetCurrentUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DD4B21E2F664A00F145ED /* GetCurrentUserInteractor.swift */; };
 		0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6776431E2CC7500089C466 /* MainViewController.swift */; };
 		0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724C71E2621E100913DA1 /* WeColors.swift */; };
 		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		0B10F7031E2E196700030277 /* BaseListScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListScreenletView.swift; sourceTree = "<group>"; };
 		0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewWithArrow.swift; sourceTree = "<group>"; };
+		0B1DD4B21E2F664A00F145ED /* GetCurrentUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentUserInteractor.swift; sourceTree = "<group>"; };
 		0B6776431E2CC7500089C466 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0B7724C71E2621E100913DA1 /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
 		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */,
 				0BE1F8C31E2AB0D000D80B08 /* CreateUserInteractor.swift */,
 				0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */,
+				0B1DD4B21E2F664A00F145ED /* GetCurrentUserInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				0BE1F8C41E2AB0D000D80B08 /* CreateUserInteractor.swift in Sources */,
 				0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */,
 				0B9F61431E2CFA2A00DF43D0 /* LoadDataInteractor.swift in Sources */,
+				0B1DD4B31E2F664A00F145ED /* GetCurrentUserInteractor.swift in Sources */,
 				0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */,
 				0B10F7041E2E196700030277 /* BaseListScreenletView.swift in Sources */,
 				0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */,
