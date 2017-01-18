@@ -11,6 +11,7 @@ import UIKit
 class WeColorButton: UIButton {
 
 	@IBInspectable open var darkButton: Bool = false
+	@IBInspectable open var textSize: Int = 16
 
 	override var isEnabled: Bool {
 		didSet {
@@ -39,7 +40,7 @@ class WeColorButton: UIButton {
 		setTitleColor(.white, for: .disabled)
 		alpha = isEnabled ? 1 : 0.6
 
-		titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: 16)
+		titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: CGFloat(textSize))
 
 		if darkButton {
 			setTitleColor(.white, for: .normal)
