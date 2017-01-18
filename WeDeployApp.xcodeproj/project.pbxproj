@@ -14,6 +14,7 @@
 		0B7724D01E266F1700913DA1 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CF1E266F1700913DA1 /* FloatingView.swift */; };
 		0B9053371E29453F007D41B3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9053361E29453F007D41B3 /* SignUpViewController.swift */; };
 		0B9053391E2AA445007D41B3 /* CheckEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */; };
+		0B9F61451E2D240900DF43D0 /* DataListScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F61441E2D240900DF43D0 /* DataListScreenlet.swift */; };
 		0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4801E2779CE00082427 /* WeProviderButton.swift */; };
 		0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4821E27A53600082427 /* IntialViewController.swift */; };
 		0BA9F48B1E27ABCB00082427 /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */; };
@@ -60,6 +61,7 @@
 		0B7724CF1E266F1700913DA1 /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 		0B9053361E29453F007D41B3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmailInteractor.swift; sourceTree = "<group>"; };
+		0B9F61441E2D240900DF43D0 /* DataListScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataListScreenlet.swift; sourceTree = "<group>"; };
 		0BA9F4801E2779CE00082427 /* WeProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeProviderButton.swift; sourceTree = "<group>"; };
 		0BA9F4821E27A53600082427 /* IntialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntialViewController.swift; sourceTree = "<group>"; };
 		0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				0BF73C611E24DB5300D07BAB /* LoginScreenlet.swift */,
 				0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */,
 				0BF7EBDA1E28E6FA00883CD0 /* SignUpScreenlet.swift */,
+				0B9F61441E2D240900DF43D0 /* DataListScreenlet.swift */,
 			);
 			path = Screenlets;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */,
 				0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */,
 				0BF06B7D1E27E1340040B010 /* ForgotPasswordInteractor.swift in Sources */,
+				0B9F61451E2D240900DF43D0 /* DataListScreenlet.swift in Sources */,
 				0BF73C5B1E24DB4C00D07BAB /* Interactor.swift in Sources */,
 				0BFC76AC1E254201000E5BA4 /* WeColorButton.swift in Sources */,
 				0BF73C5C1E24DB4C00D07BAB /* ScreenletWarehouse.swift in Sources */,
