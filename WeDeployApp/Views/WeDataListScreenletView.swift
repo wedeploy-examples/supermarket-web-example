@@ -53,6 +53,7 @@ class WeDataListScreenletView: BaseListScreenletView {
 
 	public var currentLayout: LayoutType = .card
 
+	public var totalItemsInCart: Int = 0
 	var itemWidth: CGFloat = 0
 	var itemHeight: CGFloat = 320
 
@@ -114,7 +115,13 @@ class WeDataListScreenletView: BaseListScreenletView {
 
 		itemWidth = self.frame.width
 
-		self.collectionView.backgroundColor = .white
+		totalItemsInCart = ShopCart.shared.totalItemsCount
+
+		if totalItemsInCart != 0 {
+			cartIcon.showBadge(with: .redDot, value: totalItemsInCart, animationType: .none)
+		}
+
+		collectionView.backgroundColor = .white
 		loadDataFrom(category: "All")
 	}
 
@@ -122,8 +129,6 @@ class WeDataListScreenletView: BaseListScreenletView {
 		let nib = UINib(nibName: "ProductCell", bundle: nil)
 		self.collectionView.register(nib, forCellWithReuseIdentifier: identifier)
 	}
-
-	public var itemsCount = 0
 
 	override open func configureCell(cell: UICollectionViewCell, item: Any) {
 		let cell = cell as! ProductCell
@@ -133,8 +138,9 @@ class WeDataListScreenletView: BaseListScreenletView {
 		cell.nameLabel.text = item.name
 		cell.priceLabel.text = "$\(item.price)"
 		cell.onAddToCartClick = { [weak self] in
-			self?.itemsCount += 1
-			self?.cartIcon.showBadge(with: .number, value: self!.itemsCount, animationType: .none)
+			self?.totalItemsInCart += 1
+			ShopCart.shared.add(product: item)
+			self?.cartIcon.showBadge(with: .number, value: self?.totalItemsInCart ?? 0, animationType: .none)
 		}
 	}
 
