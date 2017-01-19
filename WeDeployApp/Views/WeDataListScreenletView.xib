@@ -101,6 +101,7 @@
                 <outlet property="navigationBar" destination="pwD-vX-PoK" id="UJW-8c-UPj"/>
                 <outlet property="toolbarView" destination="RLq-Cr-ku5" id="y1f-gq-8ZF"/>
                 <outlet property="topConstraint" destination="L9p-3P-8z5" id="0gJ-yL-Y4t"/>
+                <outlet property="userPortraitScreenlet" destination="r1f-EY-Zkp" id="QeN-W7-T2N"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>

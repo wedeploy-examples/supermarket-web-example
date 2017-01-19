@@ -12,6 +12,8 @@ import WZLBadge
 
 class WeDataListScreenletView: BaseListScreenletView {
 
+	public static let LogoutAction = "LogoutAction"
+
 	public enum LayoutType {
 		case card
 		case list
@@ -54,8 +56,13 @@ class WeDataListScreenletView: BaseListScreenletView {
 	public var currentLayout: LayoutType = .card
 
 	public var totalItemsInCart: Int = 0
+
+	public var previousOffset: CGFloat = 0
+
 	var itemWidth: CGFloat = 0
 	var itemHeight: CGFloat = 320
+
+	@IBOutlet weak var topConstraint: NSLayoutConstraint!
 
 	@IBOutlet weak var categoryView: ViewWithArrow! {
 		didSet {
@@ -106,7 +113,7 @@ class WeDataListScreenletView: BaseListScreenletView {
 			changeLayoutButton.backgroundColor = .WeTextFieldSelectedBackgroundColor
 			changeLayoutButton.setTitleColor(.WeTextColor, for: .normal)
 			changeLayoutButton.layer.cornerRadius = 4
-			changeLayoutButton.setTitle("\u{E56D}", for: .normal)
+			changeLayoutButton.setTitle(currentLayout.nextLayout.icon, for: .normal)
 		}
 	}
 
@@ -192,7 +199,31 @@ class WeDataListScreenletView: BaseListScreenletView {
 		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
 	}
 
-	@IBOutlet weak var topConstraint: NSLayoutConstraint!
+	@IBOutlet weak var userPortraitScreenlet: UserPortraitScreenlet! {
+		didSet {
+			let recognizer = UITapGestureRecognizer(target: self, action: #selector(userPortraitClick))
+
+			userPortraitScreenlet.addGestureRecognizer(recognizer)
+		}
+	}
+
+	func userPortraitClick() {
+		let logoutAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+		let logoutAction = UIAlertAction(title: "Log out", style: .destructive) { [weak self] _ in
+
+			ShopCart.shared.emptyCart()
+			self?.perform(actionName: WeDataListScreenletView.LogoutAction, params: "")
+		}
+
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+		logoutAlert.addAction(logoutAction)
+		logoutAlert.addAction(cancelAction)
+
+
+		UIApplication.shared.keyWindow?.rootViewController?.present(logoutAlert, animated: true, completion: nil)
+	}
 
 	func loadDataFrom(category: String) {
 		let query = LoadDataQuery().orderBy(field: "id", order: .ASC)
@@ -204,8 +235,6 @@ class WeDataListScreenletView: BaseListScreenletView {
 		let input = LoadDataInteractorInput(resourceName: "products", type: Product.self, dataQuery: query)
 		self.perform(actionName: DataListScreenlet.LoadDataAction, params: input)
 	}
-
-	public var previousOffset: CGFloat = 0
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let size = self.toolbarView.frame.height
