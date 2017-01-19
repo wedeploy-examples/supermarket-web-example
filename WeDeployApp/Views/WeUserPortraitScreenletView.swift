@@ -36,6 +36,7 @@ class WeUserPortraitScreenletView: BaseScreenletView {
 			let user = result as! User
 
 			if let photoUrl = user.photoUrl {
+				initialsLabel.alpha = 0
 				userImage.kf.setImage(with: URL(string: photoUrl)!)
 			}
 			else if let name = user.name, name.characters.count > 0 {
