@@ -10,20 +10,6 @@ import UIKit
 import WeDeploy
 import WZLBadge
 
-public struct Product: JSONDecodable {
-	let id: String
-	let price: Float
-	let name: String
-	let imageUrl: String
-
-	public init(json: [String: AnyObject]) {
-		self.id = json["id"] as! String
-		self.price = json["price"] as! Float
-		self.name = json["title"] as! String
-		self.imageUrl = "http://public.easley84.wedeploy.io/assets/images/" + (json["filename"] as! String)
-	}
-}
-
 class WeDataListScreenletView: BaseListScreenletView {
 
 	public enum LayoutType {
