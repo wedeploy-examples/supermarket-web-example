@@ -14,6 +14,8 @@
 		0B1DD4B51E2F69DA00F145ED /* WeUserPortraitScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DD4B41E2F69DA00F145ED /* WeUserPortraitScreenletView.swift */; };
 		0B1DD4B71E2F69E700F145ED /* WeUserPortraitScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1DD4B61E2F69E700F145ED /* WeUserPortraitScreenletView.xib */; };
 		0B52540C1E30D2A3000227CE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52540B1E30D2A3000227CE /* Product.swift */; };
+		0B5254121E30FCD4000227CE /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B5254111E30FCD4000227CE /* loop_icons_16px.ttf */; };
+		0B5254141E30FF1F000227CE /* LogoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5254131E30FF1F000227CE /* LogoutInteractor.swift */; };
 		0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6776431E2CC7500089C466 /* MainViewController.swift */; };
 		0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724C71E2621E100913DA1 /* WeColors.swift */; };
 		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
@@ -29,7 +31,6 @@
 		0B9F614D1E2D315A00DF43D0 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B9F614B1E2D315A00DF43D0 /* ProductCell.xib */; };
 		0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4801E2779CE00082427 /* WeProviderButton.swift */; };
 		0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9F4821E27A53600082427 /* IntialViewController.swift */; };
-		0BA9F48B1E27ABCB00082427 /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */; };
 		0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF55AC1E1E470600404C0F /* AppDelegate.swift */; };
 		0BCF55AF1E1E470600404C0F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF55AE1E1E470600404C0F /* LoginViewController.swift */; };
 		0BCF55B21E1E470600404C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B01E1E470600404C0F /* Main.storyboard */; };
@@ -73,6 +74,8 @@
 		0B1DD4B41E2F69DA00F145ED /* WeUserPortraitScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeUserPortraitScreenletView.swift; sourceTree = "<group>"; };
 		0B1DD4B61E2F69E700F145ED /* WeUserPortraitScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeUserPortraitScreenletView.xib; sourceTree = "<group>"; };
 		0B52540B1E30D2A3000227CE /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		0B5254111E30FCD4000227CE /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
+		0B5254131E30FF1F000227CE /* LogoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutInteractor.swift; sourceTree = "<group>"; };
 		0B6776431E2CC7500089C466 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0B7724C71E2621E100913DA1 /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
 		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
@@ -88,7 +91,6 @@
 		0B9F614B1E2D315A00DF43D0 /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		0BA9F4801E2779CE00082427 /* WeProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeProviderButton.swift; sourceTree = "<group>"; };
 		0BA9F4821E27A53600082427 /* IntialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntialViewController.swift; sourceTree = "<group>"; };
-		0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
 		0BCF55A91E1E470600404C0F /* WeDeployApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeDeployApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BCF55AC1E1E470600404C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BCF55AE1E1E470600404C0F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -178,8 +180,8 @@
 				0BF7EBDD1E28EEF700883CD0 /* rene_bieder_galano_grotesque_bold.otf */,
 				0BF7EBDE1E28EEF700883CD0 /* rene_bieder_galano_grotesque_medium.otf */,
 				0BF7EBDF1E28EEF700883CD0 /* rene_bieder_galano_grotesque_semibold.otf */,
+				0B5254111E30FCD4000227CE /* loop_icons_16px.ttf */,
 				0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */,
-				0BA9F48A1E27ABCB00082427 /* loop_icons_16px.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -261,6 +263,7 @@
 				0BE1F8C31E2AB0D000D80B08 /* CreateUserInteractor.swift */,
 				0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */,
 				0B1DD4B21E2F664A00F145ED /* GetCurrentUserInteractor.swift */,
+				0B5254131E30FF1F000227CE /* LogoutInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -371,11 +374,11 @@
 				0B9F61491E2D258300DF43D0 /* WeDataListScreenletView.xib in Resources */,
 				0BF7EBE21E28EEF700883CD0 /* rene_bieder_galano_grotesque_semibold.otf in Resources */,
 				0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */,
-				0BA9F48B1E27ABCB00082427 /* loop_icons_16px.ttf in Resources */,
 				0B9F614D1E2D315A00DF43D0 /* ProductCell.xib in Resources */,
 				0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */,
 				0BF7EBDC1E28EE7800883CD0 /* Info.plist in Resources */,
 				0BF7EBE11E28EEF700883CD0 /* rene_bieder_galano_grotesque_medium.otf in Resources */,
+				0B5254121E30FCD4000227CE /* loop_icons_16px.ttf in Resources */,
 				0BCF55B21E1E470600404C0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +440,7 @@
 			files = (
 				0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */,
 				0BF7EBDB1E28E6FA00883CD0 /* SignUpScreenlet.swift in Sources */,
+				0B5254141E30FF1F000227CE /* LogoutInteractor.swift in Sources */,
 				0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */,
 				0BF06B831E27E65D0040B010 /* WeBackButton.swift in Sources */,
 				0BCF55AF1E1E470600404C0F /* LoginViewController.swift in Sources */,
