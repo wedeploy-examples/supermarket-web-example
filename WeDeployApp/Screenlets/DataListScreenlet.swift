@@ -7,8 +7,22 @@
 //
 
 import UIKit
+import RxSwift
 
+public enum DataListScreenletDelegate {
+	case actionStarted(String)
+}
 
 open class DataListScreenlet : BaseScreenlet {
 	public static let LoadDataAction = "LoadData"
+
+	public var delegate = PublishSubject<DataListScreenletDelegate>()
+
+	open override func interactionStarted(actionName: String) {
+		super.interactionStarted(actionName: actionName)
+
+		delegate.onNext(.actionStarted(actionName))
+	}
+
+
 }

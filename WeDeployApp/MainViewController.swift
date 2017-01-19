@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import RxSwift
 
 public class MainViewController : UIViewController {
 
+	@IBOutlet weak var dataListScreenlet: DataListScreenlet!
 
-	@IBAction func backButtonClick() {
-		_ = navigationController?.popViewController(animated: true)
+	var disposeBag = DisposeBag()
+
+	public override func viewDidLoad() {
+		super.viewDidLoad()
+
+		dataListScreenlet.delegate.subscribe(onNext: { [weak self] event in
+
+			if case .actionStarted(let actionName) = event {
+				if actionName == WeDataListScreenletView.LogoutAction {
+					_ = self?.navigationController?.popViewController(animated: true)
+				}
+			}
+		})
+		.addDisposableTo(disposeBag)
 	}
 	
 }
