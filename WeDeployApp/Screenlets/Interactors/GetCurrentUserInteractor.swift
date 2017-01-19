@@ -17,7 +17,7 @@ public enum GetCurrentUserInteractorError : Error {
 public class GetCurrentUserInteractor : Interactor {
 
 	public override func execute() -> Observable<InteractorOutput> {
-		guard let user = WeDeploy.auth("auth.easley84.wedeploy.io").currentUser else {
+		guard let user = WeDeploy.auth().currentUser else {
 			return Observable.error(GetCurrentUserInteractorError.userNotLoggedIn)
 		}
 		return Observable.just(user)

@@ -19,7 +19,6 @@ public class MainViewController : UIViewController {
 		super.viewDidLoad()
 
 		dataListScreenlet.delegate.subscribe(onNext: { [weak self] event in
-
 			if case .actionStarted(let actionName) = event {
 				if actionName == WeDataListScreenletView.LogoutAction {
 					_ = self?.navigationController?.popViewController(animated: true)

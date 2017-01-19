@@ -29,7 +29,6 @@ open class BaseListScreenletView: BaseScreenletView, UICollectionViewDataSource,
 		if let result = result as? [Any] {
 			items = result
 		}
-		print(items.count)
 		collectionView.reloadData()
 	}
 

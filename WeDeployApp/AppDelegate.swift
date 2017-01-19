@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		let currentColor = selectedColor
 
-		UIColor.mainColor = mainColors[currentColor]
+		UIColor.mainColor =	UIColor(0, 164, 255, 1)// mainColors[currentColor]
 
 		var nextColor = 0
 		if selectedColor != mainColors.count - 1 {
