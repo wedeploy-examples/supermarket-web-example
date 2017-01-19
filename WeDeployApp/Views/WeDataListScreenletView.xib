@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="loop_icons_16px.ttf">
+            <string>loop-icons-16px</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,6 +36,18 @@
                             <rect key="frame" x="20" y="12" width="99" height="36"/>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaS-0X-79Z">
+                            <rect key="frame" x="319" y="12" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="By8-HB-CTF"/>
+                                <constraint firstAttribute="width" constant="36" id="MmL-zJ-tqQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="loop-icons-16px" family="loop-icons-16px" pointSize="15"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="changeLayoutButtonClick" destination="iN0-l3-epB" eventType="touchUpInside" id="EFG-G9-wIe"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -38,6 +55,8 @@
                         <constraint firstItem="uZA-Sf-Ijm" firstAttribute="leading" secondItem="RLq-Cr-ku5" secondAttribute="leading" constant="20" id="K8L-DV-6az"/>
                         <constraint firstItem="uZA-Sf-Ijm" firstAttribute="top" secondItem="RLq-Cr-ku5" secondAttribute="top" constant="12" id="Kan-u4-zay"/>
                         <constraint firstAttribute="bottom" secondItem="uZA-Sf-Ijm" secondAttribute="bottom" constant="12" id="iQk-jC-O8p"/>
+                        <constraint firstAttribute="trailing" secondItem="BaS-0X-79Z" secondAttribute="trailing" constant="20" id="ozV-c9-Lh4"/>
+                        <constraint firstItem="BaS-0X-79Z" firstAttribute="centerY" secondItem="RLq-Cr-ku5" secondAttribute="centerY" id="phB-Ia-757"/>
                     </constraints>
                 </view>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwD-vX-PoK">
@@ -49,6 +68,13 @@
                         <navigationItem title="Title" id="Ojz-9W-SUr">
                             <barButtonItem key="leftBarButtonItem" style="plain" id="IxA-8p-uea">
                                 <color key="tintColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="X4Y-YI-fe7">
+                                <view key="customView" contentMode="scaleToFill" id="r1f-EY-Zkp" customClass="UserPortraitScreenlet" customModule="WeDeployApp" customModuleProvider="target">
+                                    <rect key="frame" x="331" y="36" width="28" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                             </barButtonItem>
                         </navigationItem>
                     </items>
@@ -70,6 +96,7 @@
             <connections>
                 <outlet property="cartIcon" destination="IxA-8p-uea" id="r8Z-y9-q6r"/>
                 <outlet property="categoryView" destination="uZA-Sf-Ijm" id="6FC-8e-6LJ"/>
+                <outlet property="changeLayoutButton" destination="BaS-0X-79Z" id="Qny-aL-7S5"/>
                 <outlet property="collectionView" destination="FG2-yd-cxZ" id="g7T-Un-bvc"/>
                 <outlet property="navigationBar" destination="pwD-vX-PoK" id="UJW-8c-UPj"/>
                 <outlet property="toolbarView" destination="RLq-Cr-ku5" id="y1f-gq-8ZF"/>

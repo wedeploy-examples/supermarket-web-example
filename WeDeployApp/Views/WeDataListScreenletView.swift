@@ -11,11 +11,13 @@ import WeDeploy
 import WZLBadge
 
 public struct Product: JSONDecodable {
+	let id: String
 	let price: Float
 	let name: String
 	let imageUrl: String
 
 	public init(json: [String: AnyObject]) {
+		self.id = json["id"] as! String
 		self.price = json["price"] as! Float
 		self.name = json["title"] as! String
 		self.imageUrl = "http://public.easley84.wedeploy.io/assets/images/" + (json["filename"] as! String)
@@ -23,6 +25,50 @@ public struct Product: JSONDecodable {
 }
 
 class WeDataListScreenletView: BaseListScreenletView {
+
+	public enum LayoutType {
+		case card
+		case list
+		case collection
+
+		var icon: String  {
+			switch self {
+			case .card:
+				return "\u{E56C}"
+			case .list:
+				return "\u{E507}"
+			case .collection:
+				return "\u{E55E}"
+			}
+		}
+
+		var nextLayout: LayoutType {
+			switch self {
+			case .card:
+				return .list
+			case .list:
+				return .collection
+			case .collection:
+				return .card
+			}
+		}
+
+		var height: CGFloat {
+			switch self {
+			case .card:
+				return 320
+			case .list:
+				return 132
+			case .collection:
+				return 252
+			}
+		}
+	}
+
+	public var currentLayout: LayoutType = .card
+
+	var itemWidth: CGFloat = 0
+	var itemHeight: CGFloat = 320
 
 	@IBOutlet weak var categoryView: ViewWithArrow! {
 		didSet {
@@ -68,12 +114,19 @@ class WeDataListScreenletView: BaseListScreenletView {
 		}
 	}
 
-	override var itemSize: CGSize {
-		return CGSize(width: self.frame.width, height: 250)
+	@IBOutlet weak var changeLayoutButton: UIButton! {
+		didSet {
+			changeLayoutButton.backgroundColor = .WeTextFieldSelectedBackgroundColor
+			changeLayoutButton.setTitleColor(.WeTextColor, for: .normal)
+			changeLayoutButton.layer.cornerRadius = 4
+			changeLayoutButton.setTitle("\u{E56D}", for: .normal)
+		}
 	}
 
 	override func onCreated() {
 		super.onCreated()
+
+		itemWidth = self.frame.width
 
 		self.collectionView.backgroundColor = .white
 		loadDataFrom(category: "All")
@@ -84,6 +137,8 @@ class WeDataListScreenletView: BaseListScreenletView {
 		self.collectionView.register(nib, forCellWithReuseIdentifier: identifier)
 	}
 
+	public var itemsCount = 0
+
 	override open func configureCell(cell: UICollectionViewCell, item: Any) {
 		let cell = cell as! ProductCell
 		let item = item as! Product
@@ -91,6 +146,30 @@ class WeDataListScreenletView: BaseListScreenletView {
 		cell.imageUrl = item.imageUrl
 		cell.nameLabel.text = item.name
 		cell.priceLabel.text = "$\(item.price)"
+		cell.onAddToCartClick = { [weak self] in
+			self?.itemsCount += 1
+			self?.cartIcon.showBadge(with: .number, value: self!.itemsCount, animationType: .none)
+		}
+	}
+
+	@IBAction func changeLayoutButtonClick() {
+		let nextType = self.currentLayout.nextLayout
+
+		if case .collection = nextType {
+			self.itemWidth = self.frame.width/2
+		}
+		else {
+			self.itemWidth = self.frame.width
+		}
+
+		self.itemHeight = nextType.height
+		self.changeLayoutButton.setTitle(nextType.nextLayout.icon, for: .normal)
+
+		self.currentLayout = nextType
+
+		self.collectionView.performBatchUpdates({
+			self.collectionView.collectionViewLayout.invalidateLayout()
+		}, completion: nil)
 	}
 
 	@IBAction func categoryButtonClick() {
@@ -146,12 +225,21 @@ class WeDataListScreenletView: BaseListScreenletView {
 		if scrollOffset <= -scrollView.contentInset.top {
 			topConstraint.constant = 0
 		} else if scrollOffset + scrollHeight >= scrollcontentSizeHeight {
-			topConstraint.constant = size
+			topConstraint.constant = -size
 		} else {
 			topConstraint.constant = min(0, max(-size, topConstraint.constant - scrollDiff))
 		}
 
 		self.previousOffset = scrollOffset
+	}
+
+	override open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return CGSize(width: itemWidth, height: itemHeight)
+	}
+
+	open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+
+		return 0
 	}
 
 }
