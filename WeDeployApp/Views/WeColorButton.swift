@@ -12,6 +12,7 @@ class WeColorButton: UIButton {
 
 	@IBInspectable open var darkButton: Bool = false
 	@IBInspectable open var textSize: Int = 16
+	@IBInspectable open var cornerRadius: Int = 4
 
 	override var isEnabled: Bool {
 		didSet {
@@ -36,7 +37,7 @@ class WeColorButton: UIButton {
 
 	func initialize() {
 
-		layer.cornerRadius = 4
+		layer.cornerRadius = CGFloat(cornerRadius)
 		setTitleColor(.white, for: .disabled)
 		alpha = isEnabled ? 1 : 0.6
 
