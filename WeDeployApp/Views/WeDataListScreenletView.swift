@@ -13,6 +13,7 @@ import WZLBadge
 class WeDataListScreenletView: BaseListScreenletView {
 
 	public static let LogoutAction = "LogoutAction"
+	public static let OpenCartAction = "OpenCartAction"
 
 	public enum LayoutType {
 		case card
@@ -117,6 +118,14 @@ class WeDataListScreenletView: BaseListScreenletView {
 		}
 	}
 
+	@IBOutlet weak var userPortraitScreenlet: UserPortraitScreenlet! {
+		didSet {
+			let recognizer = UITapGestureRecognizer(target: self, action: #selector(userPortraitClick))
+
+			userPortraitScreenlet.addGestureRecognizer(recognizer)
+		}
+	}
+
 	override func onCreated() {
 		super.onCreated()
 
@@ -199,14 +208,6 @@ class WeDataListScreenletView: BaseListScreenletView {
 		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
 	}
 
-	@IBOutlet weak var userPortraitScreenlet: UserPortraitScreenlet! {
-		didSet {
-			let recognizer = UITapGestureRecognizer(target: self, action: #selector(userPortraitClick))
-
-			userPortraitScreenlet.addGestureRecognizer(recognizer)
-		}
-	}
-
 	func userPortraitClick() {
 		let logoutAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
@@ -223,6 +224,10 @@ class WeDataListScreenletView: BaseListScreenletView {
 
 
 		UIApplication.shared.keyWindow?.rootViewController?.present(logoutAlert, animated: true, completion: nil)
+	}
+
+	@IBAction func cartIconClick(_ sender: UIBarButtonItem) {
+		perform(actionName: WeDataListScreenletView.OpenCartAction)
 	}
 
 	func loadDataFrom(category: String) {

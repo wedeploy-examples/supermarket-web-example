@@ -23,6 +23,9 @@ public class MainViewController : UIViewController {
 				if actionName == WeDataListScreenletView.LogoutAction {
 					_ = self?.navigationController?.popViewController(animated: true)
 				}
+				else if actionName == WeDataListScreenletView.OpenCartAction {
+					self?.performSegue(withIdentifier: "cart", sender: nil)
+				}
 			}
 		})
 		.addDisposableTo(disposeBag)

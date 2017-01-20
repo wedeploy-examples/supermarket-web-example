@@ -68,6 +68,9 @@
                         <navigationItem title="Title" id="Ojz-9W-SUr">
                             <barButtonItem key="leftBarButtonItem" style="plain" id="IxA-8p-uea">
                                 <color key="tintColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="cartIconClick:" destination="iN0-l3-epB" id="E9Y-ID-vSC"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" style="plain" id="X4Y-YI-fe7">
                                 <view key="customView" contentMode="scaleToFill" id="r1f-EY-Zkp" customClass="UserPortraitScreenlet" customModule="WeDeployApp" customModuleProvider="target">
