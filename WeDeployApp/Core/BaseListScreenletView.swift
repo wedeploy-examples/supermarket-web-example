@@ -11,18 +11,22 @@ import UIKit
 open class BaseListScreenletView: BaseScreenletView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
 	@IBOutlet weak var collectionView: UICollectionView!
+
 	public var items: [Any] = []
+
+	public let cellIdentifier = "cell"
 
 	open var itemSize: CGSize {
 		return CGSize.zero
 	}
+
 
 	open override func onCreated() {
 		self.collectionView.dataSource = self
 		self.collectionView.delegate = self
 		self.collectionView.alwaysBounceVertical = true
 
-		self.registerCell(with: "cell")
+		self.registerCell(with: cellIdentifier)
 	}
 
 	open override func interactionEnded(actionName: String, result: InteractorOutput) {
@@ -37,7 +41,7 @@ open class BaseListScreenletView: BaseScreenletView, UICollectionViewDataSource,
 	}
 
 	open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
 
 		configureCell(cell: cell, item: items[indexPath.row])
 
