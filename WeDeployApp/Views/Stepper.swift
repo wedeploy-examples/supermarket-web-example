@@ -63,10 +63,10 @@ public class Stepper : UIView {
 	}
 
 	func initialize() {
-		layer.shadowColor = UIColor.black.cgColor
-		layer.shadowOffset = CGSize(width: 0, height: 0);
-		layer.shadowRadius = 5;
-		layer.shadowOpacity = 0.1;
+		layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
+		layer.shadowOffset = CGSize(width: 0, height: 2);
+		layer.shadowRadius = 8;
+		layer.shadowOpacity = 1;
 		layer.masksToBounds = false
 		layer.cornerRadius = 4
 
