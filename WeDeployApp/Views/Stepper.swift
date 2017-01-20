@@ -16,6 +16,7 @@ public class Stepper : UIView {
 		b.titleLabel?.font = UIFont(name: "loop-icons-16px", size: 15)
 		b.setTitleColor(.mainColor, for: .normal)
 		b.setTitle("\u{E50D}", for: .normal)
+		b.addTarget(self, action: #selector(plusButtonClicked), for: .touchUpInside)
 
 		return b
 	}()
@@ -26,6 +27,7 @@ public class Stepper : UIView {
 		b.titleLabel?.font =  UIFont(name: "loop-icons-16px", size: 15)
 		b.setTitleColor(.mainColor, for: .normal)
 		b.setTitle("\u{E543}", for: .normal)
+		b.addTarget(self, action: #selector(minusButtonClicked), for: .touchUpInside)
 
 		return b
 	}()
@@ -43,9 +45,12 @@ public class Stepper : UIView {
 
 	public var currentValue: Int = 0 {
 		didSet {
+			currentValueChanged?(currentValue)
 			numberLabel.text = "\(currentValue)"
 		}
 	}
+
+	public var currentValueChanged: ((Int) -> Void)?
 
 	override public init(frame: CGRect) {
 		super.init(frame: frame)
@@ -83,5 +88,15 @@ public class Stepper : UIView {
 		numberLabel.leftAnchor.constraint(equalTo: minusButton.rightAnchor).isActive = true
 		numberLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 		numberLabel.rightAnchor.constraint(equalTo: plusButton.leftAnchor).isActive = true
+	}
+
+	func plusButtonClicked() {
+		currentValue += 1
+	}
+
+	func minusButtonClicked() {
+		if currentValue > 0 {
+			currentValue -= 1
+		}
 	}
 }
