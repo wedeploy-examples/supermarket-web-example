@@ -18,6 +18,12 @@
 		0B5254121E30FCD4000227CE /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B5254111E30FCD4000227CE /* loop_icons_16px.ttf */; };
 		0B5254141E30FF1F000227CE /* LogoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5254131E30FF1F000227CE /* LogoutInteractor.swift */; };
 		0B5254161E3111C5000227CE /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5254151E3111C5000227CE /* Stepper.swift */; };
+		0B60AAA91E31F2AE0044B1AF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60AAA81E31F2AE0044B1AF /* CartViewController.swift */; };
+		0B60AAAB1E321E950044B1AF /* CartScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60AAAA1E321E950044B1AF /* CartScreenlet.swift */; };
+		0B60AAAD1E321F030044B1AF /* WeCartScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60AAAC1E321F030044B1AF /* WeCartScreenletView.swift */; };
+		0B60AAAF1E321F1B0044B1AF /* WeCartScreenletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B60AAAE1E321F1B0044B1AF /* WeCartScreenletView.xib */; };
+		0B60AAB21E322C570044B1AF /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60AAB01E322C570044B1AF /* CartItemCell.swift */; };
+		0B60AAB31E322C570044B1AF /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B60AAB11E322C570044B1AF /* CartItemCell.xib */; };
 		0B6776441E2CC7500089C466 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6776431E2CC7500089C466 /* MainViewController.swift */; };
 		0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724C71E2621E100913DA1 /* WeColors.swift */; };
 		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
@@ -80,6 +86,12 @@
 		0B5254111E30FCD4000227CE /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
 		0B5254131E30FF1F000227CE /* LogoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutInteractor.swift; sourceTree = "<group>"; };
 		0B5254151E3111C5000227CE /* Stepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
+		0B60AAA81E31F2AE0044B1AF /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		0B60AAAA1E321E950044B1AF /* CartScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartScreenlet.swift; sourceTree = "<group>"; };
+		0B60AAAC1E321F030044B1AF /* WeCartScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeCartScreenletView.swift; sourceTree = "<group>"; };
+		0B60AAAE1E321F1B0044B1AF /* WeCartScreenletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeCartScreenletView.xib; sourceTree = "<group>"; };
+		0B60AAB01E322C570044B1AF /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		0B60AAB11E322C570044B1AF /* CartItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
 		0B6776431E2CC7500089C466 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0B7724C71E2621E100913DA1 /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
 		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
@@ -228,6 +240,7 @@
 				0BF06B841E27F0360040B010 /* ForgotPasswordViewController.swift */,
 				0B9053361E29453F007D41B3 /* SignUpViewController.swift */,
 				0B6776431E2CC7500089C466 /* MainViewController.swift */,
+				0B60AAA81E31F2AE0044B1AF /* CartViewController.swift */,
 			);
 			path = WeDeployApp;
 			sourceTree = "<group>";
@@ -253,6 +266,7 @@
 				0BF7EBDA1E28E6FA00883CD0 /* SignUpScreenlet.swift */,
 				0B9F61441E2D240900DF43D0 /* DataListScreenlet.swift */,
 				0B1DD4B01E2F65ED00F145ED /* UserPortraitScreenlet.swift */,
+				0B60AAAA1E321E950044B1AF /* CartScreenlet.swift */,
 			);
 			path = Screenlets;
 			sourceTree = "<group>";
@@ -296,6 +310,10 @@
 				0B1DD4B41E2F69DA00F145ED /* WeUserPortraitScreenletView.swift */,
 				0B1DD4B61E2F69E700F145ED /* WeUserPortraitScreenletView.xib */,
 				0B5254151E3111C5000227CE /* Stepper.swift */,
+				0B60AAAC1E321F030044B1AF /* WeCartScreenletView.swift */,
+				0B60AAAE1E321F1B0044B1AF /* WeCartScreenletView.xib */,
+				0B60AAB01E322C570044B1AF /* CartItemCell.swift */,
+				0B60AAB11E322C570044B1AF /* CartItemCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -385,6 +403,8 @@
 				0BF7EBDC1E28EE7800883CD0 /* Info.plist in Resources */,
 				0BF7EBE11E28EEF700883CD0 /* rene_bieder_galano_grotesque_medium.otf in Resources */,
 				0B5254121E30FCD4000227CE /* loop_icons_16px.ttf in Resources */,
+				0B60AAB31E322C570044B1AF /* CartItemCell.xib in Resources */,
+				0B60AAAF1E321F1B0044B1AF /* WeCartScreenletView.xib in Resources */,
 				0BCF55B21E1E470600404C0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +467,7 @@
 				0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */,
 				0BF7EBDB1E28E6FA00883CD0 /* SignUpScreenlet.swift in Sources */,
 				0B5254141E30FF1F000227CE /* LogoutInteractor.swift in Sources */,
+				0B60AAB21E322C570044B1AF /* CartItemCell.swift in Sources */,
 				0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */,
 				0BF06B831E27E65D0040B010 /* WeBackButton.swift in Sources */,
 				0BCF55AF1E1E470600404C0F /* LoginViewController.swift in Sources */,
@@ -469,6 +490,7 @@
 				0B5254161E3111C5000227CE /* Stepper.swift in Sources */,
 				0B10F7041E2E196700030277 /* BaseListScreenletView.swift in Sources */,
 				0B7724C81E2621E100913DA1 /* WeColors.swift in Sources */,
+				0B60AAAB1E321E950044B1AF /* CartScreenlet.swift in Sources */,
 				0B1DD4B51E2F69DA00F145ED /* WeUserPortraitScreenletView.swift in Sources */,
 				0BF06B7D1E27E1340040B010 /* ForgotPasswordInteractor.swift in Sources */,
 				0B9F61451E2D240900DF43D0 /* DataListScreenlet.swift in Sources */,
@@ -483,7 +505,9 @@
 				0BF73C631E24DB5300D07BAB /* LoginWithProviderInteractor.swift in Sources */,
 				0B1DD4B11E2F65ED00F145ED /* UserPortraitScreenlet.swift in Sources */,
 				0B9F614C1E2D315A00DF43D0 /* ProductCell.swift in Sources */,
+				0B60AAAD1E321F030044B1AF /* WeCartScreenletView.swift in Sources */,
 				0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */,
+				0B60AAA91E31F2AE0044B1AF /* CartViewController.swift in Sources */,
 				0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */,
 				0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */,
 				0BF73C591E24DB4C00D07BAB /* BaseScreenlet.swift in Sources */,
