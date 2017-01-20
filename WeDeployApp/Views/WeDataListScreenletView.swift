@@ -126,16 +126,23 @@ class WeDataListScreenletView: BaseListScreenletView {
 		}
 	}
 
+	override func didMoveToWindow() {
+		if window != nil {
+			totalItemsInCart = ShopCart.shared.totalItemsCount
+
+			if totalItemsInCart == 0 {
+				cartIcon.clearBadge()
+			}
+			else {
+				cartIcon.showBadge(with: .number, value: totalItemsInCart, animationType: .none)
+			}
+		}
+	}
+
 	override func onCreated() {
 		super.onCreated()
 
 		itemWidth = self.frame.width
-
-		totalItemsInCart = ShopCart.shared.totalItemsCount
-
-		if totalItemsInCart != 0 {
-			cartIcon.showBadge(with: .redDot, value: totalItemsInCart, animationType: .none)
-		}
 
 		collectionView.backgroundColor = .white
 		loadDataFrom(category: "All")
