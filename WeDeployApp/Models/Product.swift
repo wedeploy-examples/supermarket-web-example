@@ -29,3 +29,10 @@ extension Product : Equatable {
 	}
 }
 
+extension Product : Hashable {
+
+	public var hashValue: Int {
+		return "\(id)\(price)\(name)\(imageUrl)".hashValue
+	}
+}
+

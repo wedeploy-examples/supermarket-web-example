@@ -12,21 +12,35 @@ public class ShopCart: CustomStringConvertible {
 
 	public static let shared = ShopCart()
 
-	public var products = [String : Int]()
+	fileprivate var products = [Product : Int]()
+
+	public var productsArray: [(product: Product, quantity: Int)] {
+		var array = [(product: Product, quantity: Int)]()
+
+		for (key, value) in products {
+			array.append((key, value))
+		}
+
+		return array
+	}
 
 	private init() { }
 
 	func add(product: Product, quantity: Int = 1) {
-		if let currentQuantity = products[product.id] {
-			products[product.id] = currentQuantity + quantity
+		if let currentQuantity = products[product] {
+			products[product] = currentQuantity + quantity
 		}
 		else {
-			products[product.id] = quantity
+			products[product] = quantity
 		}
 	}
 
-	func remove(product: Product, quantity: Int = 1) {
-		
+	func remove(product: Product) {
+		products.removeValue(forKey: product)
+	}
+
+	func update(product: Product, quantity: Int) {
+		products[product] = quantity
 	}
 
 	public func emptyCart() {
