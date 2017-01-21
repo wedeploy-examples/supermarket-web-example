@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RxSwift
 
 class CartViewController: UIViewController {
+
+	@IBOutlet weak var cartScreenlet: CartScreenlet!
 
 	@IBOutlet weak var closeButton: UIBarButtonItem! {
 		didSet {
@@ -19,6 +22,8 @@ class CartViewController: UIViewController {
 			closeButton.title = "\u{E00D}"
 		}
 	}
+
+	private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,16 @@ class CartViewController: UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.backgroundColor = .white
+
+
+		cartScreenlet.delegate.subscribe(onNext: { [weak self] event in
+			if case .actionStarted(let actionName) = event {
+				if actionName == WeCartScreenletView.CloseCartAction {
+					self?.dismiss(animated: true, completion: nil)
+				}
+			}
+		})
+		.addDisposableTo(disposeBag)
     }
 
 	@IBAction func closeButtonClick(_ sender: UIBarButtonItem) {

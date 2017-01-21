@@ -10,6 +10,8 @@ import UIKit
 
 class WeCartScreenletView: BaseListScreenletView {
 
+	public static let CloseCartAction = "CloseCartAction"
+
 	override var itemSize: CGSize {
 		return CGSize(width: self.frame.width, height: 132)
 	}
@@ -99,6 +101,12 @@ class WeCartScreenletView: BaseListScreenletView {
 			}
 
 			checkoutButton.setTitle("Checkout: $\(totalAmount)", for: .normal)
+		}
+	}
+
+	@IBAction func checkoutButtonClick(_ sender: Any) {
+		if items.count == 0 {
+			perform(actionName: WeCartScreenletView.CloseCartAction)
 		}
 	}
 }

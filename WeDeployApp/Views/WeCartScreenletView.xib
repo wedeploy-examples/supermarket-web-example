@@ -48,6 +48,9 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="darkButton" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="checkoutButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="RI0-aF-HDy"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cS-3i-1ys">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
