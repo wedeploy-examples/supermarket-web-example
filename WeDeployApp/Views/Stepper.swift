@@ -13,9 +13,9 @@ public class Stepper : UIView {
 	let plusButton: UIButton = {
 		let b = UIButton()
 		b.translatesAutoresizingMaskIntoConstraints = false
-		b.titleLabel?.font = UIFont(name: "loop-icons-16px", size: 15)
+		b.titleLabel?.font = UIFont.iconFont16px(ofSize: 15)
 		b.setTitleColor(.mainColor, for: .normal)
-		b.setTitle("\u{E50D}", for: .normal)
+		b.setTitle(.plus, for: .normal)
 		b.addTarget(self, action: #selector(plusButtonClicked), for: .touchUpInside)
 
 		return b
@@ -24,9 +24,9 @@ public class Stepper : UIView {
 	let minusButton: UIButton = {
 		let b = UIButton()
 		b.translatesAutoresizingMaskIntoConstraints = false
-		b.titleLabel?.font =  UIFont(name: "loop-icons-16px", size: 15)
+		b.titleLabel?.font =  UIFont.iconFont16px(ofSize: 15)
 		b.setTitleColor(.mainColor, for: .normal)
-		b.setTitle("\u{E543}", for: .normal)
+		b.setTitle(.minus, for: .normal)
 		b.addTarget(self, action: #selector(minusButtonClicked), for: .touchUpInside)
 
 		return b
@@ -35,7 +35,7 @@ public class Stepper : UIView {
 	lazy var numberLabel: UILabel = {
 		let b = UILabel()
 		b.translatesAutoresizingMaskIntoConstraints = false
-		b.font = UIFont(name: "GalanoGrotesque-Bold", size: 14)
+		b.font = UIFont.boldWeFont(ofSize: 14)
 		b.textAlignment = .center
 		b.textColor = .WeTextColor
 		b.text = "0"

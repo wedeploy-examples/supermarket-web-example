@@ -23,11 +23,11 @@ class WeDataListScreenletView: BaseListScreenletView {
 		var icon: String  {
 			switch self {
 			case .card:
-				return "\u{E56C}"
+				return .cardLayout
 			case .list:
-				return "\u{E507}"
+				return .listLayout
 			case .collection:
-				return "\u{E55E}"
+				return .collectionLayout
 			}
 		}
 
@@ -97,15 +97,15 @@ class WeDataListScreenletView: BaseListScreenletView {
 		didSet {
 			cartIcon.setTitleTextAttributes([
 					NSForegroundColorAttributeName : UIColor.white,
-					NSFontAttributeName: UIFont(name: "loop-icons-16px", size: 24)!
+					NSFontAttributeName: UIFont.iconFont16px(ofSize: 24)
 				], for: .normal)
-			cartIcon.title = "\u{E503}"
+			cartIcon.title = .cart
 		}
 	}
 	
 	@IBOutlet weak var titleLabel: UILabel! {
 		didSet {
-			titleLabel.font = UIFont(name: "GalanoGrotesque-SemiBold", size: 20)
+			titleLabel.font = UIFont.semiboldWeFont(ofSize: 20)
 		}
 	}
 

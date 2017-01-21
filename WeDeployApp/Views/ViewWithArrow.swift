@@ -42,10 +42,10 @@ public class ViewWithArrow : UIView {
 		labelText.translatesAutoresizingMaskIntoConstraints = false
 		labelText.font = UIFont.boldSystemFont(ofSize: 14)
 
-		arrow.text = "\u{E01C}"
+		arrow.text = .arrow
 		arrow.textColor = .WeTextColor
 		arrow.translatesAutoresizingMaskIntoConstraints = false
-		arrow.font = UIFont(name: "loop-icons-12px", size: 12)
+		arrow.font = UIFont.iconFont12px(ofSize: 12)
 
 		addSubview(labelText)
 		addSubview(arrow)

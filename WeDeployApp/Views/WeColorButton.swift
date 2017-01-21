@@ -41,7 +41,7 @@ class WeColorButton: UIButton {
 		setTitleColor(.white, for: .disabled)
 		alpha = isEnabled ? 1 : 0.6
 
-		titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: CGFloat(textSize))
+		titleLabel?.font = UIFont.boldWeFont(ofSize: CGFloat(textSize))
 
 		if darkButton {
 			setTitleColor(.white, for: .normal)

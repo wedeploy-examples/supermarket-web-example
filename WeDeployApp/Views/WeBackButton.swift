@@ -26,8 +26,8 @@ class WeBackButton: UIButton {
 	}
 
 	func initialize() {
-		titleLabel?.font = UIFont(name: "loop-icons-12px", size: 24)
-		setTitle("\u{E03D}", for: .normal)
+		titleLabel?.font = UIFont.iconFont12px(ofSize: 24)
+		setTitle(.back, for: .normal)
 		setTitleColor(.WePlaceholderTextColor, for: .normal)
 	}
 

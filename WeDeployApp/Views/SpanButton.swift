@@ -27,7 +27,7 @@ class SpanButton : UIButton {
 	}
 
 	func initialize() {
-		titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: 14)
+		titleLabel?.font = UIFont.boldWeFont(ofSize: 14)
 		setTitleColor(.mainColor, for: .normal)
 	}
 }

@@ -18,7 +18,7 @@ public class InitalViewConroller : UIViewController {
 
 	public override func viewDidLoad() {
 
-		logoLabel.text = "\u{E55F}"
+		logoLabel.text = .thunder
 		logoLabel.layer.cornerRadius = 42
 		logoLabel.backgroundColor = .white
 		logoLabel.layer.masksToBounds = true

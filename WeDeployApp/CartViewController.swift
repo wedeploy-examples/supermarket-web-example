@@ -17,9 +17,9 @@ class CartViewController: UIViewController {
 		didSet {
 			closeButton.setTitleTextAttributes([
 				NSForegroundColorAttributeName : UIColor.mainColor,
-				NSFontAttributeName: UIFont(name: "loop-icons-12px", size: 24)!
+				NSFontAttributeName: UIFont.iconFont12px(ofSize: 24)
 				], for: .normal)
-			closeButton.title = "\u{E00D}"
+			closeButton.title = .close
 		}
 	}
 

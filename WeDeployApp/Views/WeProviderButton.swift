@@ -50,14 +50,14 @@ import WeDeploy
 
 		setTitle(providerSettings.icon, for: .normal)
 		setTitleColor(.white, for: .normal)
-		titleLabel?.font = UIFont(name: "loop-icons-12px", size: 24)
+		titleLabel?.font = UIFont.iconFont12px(ofSize: 24)
 
 		layer.cornerRadius = 4
 	}
 
 	func enabledChanged() {
 		if !isEnabled {
-			setTitle("\u{E04E}", for: .normal)
+			setTitle(.processing, for: .normal)
 			backgroundColor = UIColor(59, 88, 152, 0.6)
 		}
 		else {
@@ -72,11 +72,11 @@ extension AuthProvider.Provider {
 	var providerSettings: (color: UIColor, icon: String) {
 		switch self {
 		case .facebook:
-			return (.FacebookColor, "\u{E052}")
+			return (.FacebookColor, .facebook)
 		case .github:
-			return (.GithubColor, "\u{E04C}")
+			return (.GithubColor, .github)
 		case .google:
-			return (.GoogleColor, "\u{E025}")
+			return (.GoogleColor, .google)
 		}
 	}
 }

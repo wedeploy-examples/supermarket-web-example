@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B08A8AC1E33779D0036C171 /* WeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B08A8AB1E33779D0036C171 /* WeFonts.swift */; };
+		0B08A8AE1E337CC30036C171 /* WeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B08A8AD1E337CC30036C171 /* WeIcons.swift */; };
 		0B10F7041E2E196700030277 /* BaseListScreenletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10F7031E2E196700030277 /* BaseListScreenletView.swift */; };
 		0B1DD4AF1E2F4DCF00F145ED /* ViewWithArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */; };
 		0B1DD4B11E2F65ED00F145ED /* UserPortraitScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1DD4B01E2F65ED00F145ED /* UserPortraitScreenlet.swift */; };
@@ -75,6 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B08A8AB1E33779D0036C171 /* WeFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeFonts.swift; sourceTree = "<group>"; };
+		0B08A8AD1E337CC30036C171 /* WeIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeIcons.swift; sourceTree = "<group>"; };
 		0B10F7031E2E196700030277 /* BaseListScreenletView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListScreenletView.swift; sourceTree = "<group>"; };
 		0B1DD4AE1E2F4DCF00F145ED /* ViewWithArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewWithArrow.swift; sourceTree = "<group>"; };
 		0B1DD4B01E2F65ED00F145ED /* UserPortraitScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPortraitScreenlet.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			children = (
 				0B7724C71E2621E100913DA1 /* WeColors.swift */,
 				0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */,
+				0B08A8AB1E33779D0036C171 /* WeFonts.swift */,
+				0B08A8AD1E337CC30036C171 /* WeIcons.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				0BE1F8C41E2AB0D000D80B08 /* CreateUserInteractor.swift in Sources */,
 				0BA9F4811E2779CE00082427 /* WeProviderButton.swift in Sources */,
 				0B9F61431E2CFA2A00DF43D0 /* LoadDataInteractor.swift in Sources */,
+				0B08A8AE1E337CC30036C171 /* WeIcons.swift in Sources */,
 				0B52540C1E30D2A3000227CE /* Product.swift in Sources */,
 				0B1DD4B31E2F664A00F145ED /* GetCurrentUserInteractor.swift in Sources */,
 				0BF73C641E24DB5300D07BAB /* LoginScreenlet.swift in Sources */,
@@ -510,6 +517,7 @@
 				0B60AAA91E31F2AE0044B1AF /* CartViewController.swift in Sources */,
 				0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */,
 				0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */,
+				0B08A8AC1E33779D0036C171 /* WeFonts.swift in Sources */,
 				0BF73C591E24DB4C00D07BAB /* BaseScreenlet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

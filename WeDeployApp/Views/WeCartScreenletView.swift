@@ -18,7 +18,7 @@ class WeCartScreenletView: BaseListScreenletView {
 
 	@IBOutlet weak var cartLabel: UILabel! {
 		didSet {
-			cartLabel.text = "\u{E503}"
+			cartLabel.text = .cart
 		}
 	}
 	

@@ -15,9 +15,9 @@ public class FloatingView : UIView {
 	let marginSide = 20.0
 
 	let errorColor = UIColor(248, 22, 22, 1)
-	let errorIcon = "\u{E049}"
+	let errorIcon = String.error
 	let successColor = UIColor(0, 212, 85, 1)
-	let successIcon = "\u{E018}"
+	let successIcon = String.success
 
 	let logoView = UILabel()
 	let closeButton = UIButton()
@@ -76,7 +76,6 @@ public class FloatingView : UIView {
 		logoView.heightAnchor.constraint(equalToConstant: 24).isActive = true
 
 		logoView.textAlignment = .center
-		logoView.text = "\u{E049}"
 		logoView.textColor = UIColor(248, 22, 22, 1)
 	}
 
@@ -90,8 +89,8 @@ public class FloatingView : UIView {
 		closeButton.widthAnchor.constraint(equalToConstant: 36).isActive = true
 		closeButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
 
-		closeButton.titleLabel?.font = UIFont(name: "loop-icons-12px", size: 18)
-		closeButton.setTitle("\u{E00D}", for: .normal)
+		closeButton.titleLabel?.font = UIFont.iconFont12px(ofSize: 18)
+		closeButton.setTitle(.close, for: .normal)
 		closeButton.setTitleColor(.WeTextColor, for: .normal)
 
 		closeButton.addTarget(self, action: #selector(FloatingView.hide), for: .touchUpInside)
@@ -107,7 +106,7 @@ public class FloatingView : UIView {
 		messageLabel.leftAnchor.constraint(equalTo: logoView.rightAnchor, constant: 16).isActive = true
 
 		messageLabel.textColor = .WeTextColor
-		messageLabel.font = UIFont(name: "GalanoGrotesque-SemiBold", size: 15)
+		messageLabel.font = UIFont.semiboldWeFont(ofSize: 15)
 		messageLabel.numberOfLines = 0
 	}
 
@@ -120,7 +119,7 @@ public class FloatingView : UIView {
 
 	func showIcon(error: Bool) {
 		if error {
-			logoView.font = UIFont(name: "loop-icons-12px", size: 20)
+			logoView.font = UIFont.iconFont12px(ofSize: 20)
 			logoView.textColor = errorColor
 			logoView.text = errorIcon
 			logoView.backgroundColor = .white
@@ -129,7 +128,7 @@ public class FloatingView : UIView {
 			logoView.layer.cornerRadius = 12
 			logoView.layer.masksToBounds = true
 			logoView.backgroundColor = successColor
-			logoView.font = UIFont(name: "loop-icons-12px", size: 12)
+			logoView.font = UIFont.iconFont12px(ofSize: 12)
 			logoView.text = successIcon
 			logoView.textColor = .white
 		}

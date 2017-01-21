@@ -43,8 +43,8 @@ class WeUserPortraitScreenletView: BaseScreenletView {
 				initialsLabel.text = "\(user.name?.characters.first!)"
 			}
 			else {
-				initialsLabel.font = UIFont(name: "loop-icons-12px", size: 12)
-				initialsLabel.text = "\u{E009}"
+				initialsLabel.font = UIFont.iconFont12px(ofSize: 12)
+				initialsLabel.text = .profile
 			}
 		}
 	}

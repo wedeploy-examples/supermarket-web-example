@@ -35,7 +35,7 @@ class BorderLessTextField: UITextField {
 
 		textColor = .WeTextFieldTextColor
 
-		font = UIFont(name: "GalanoGrotesque-SemiBold", size: 16)
+		font = UIFont.semiboldWeFont(ofSize: 16)
 
 		tintColor = .mainColor
 	}
@@ -84,8 +84,8 @@ class BorderLessTextField: UITextField {
 	func isPasswordFieldChanged() {
 		if isPasswordField {
 			showPasswordButton.backgroundColor = .WeTextFieldSelectedBackgroundColor
-			showPasswordButton.titleLabel?.font = UIFont(name: "loop-icons-12px", size: 12)
-			showPasswordButton.setTitle("\u{E04B}", for: .normal)
+			showPasswordButton.titleLabel?.font = UIFont.iconFont12px(ofSize: 12)
+			showPasswordButton.setTitle(.showPassword, for: .normal)
 			showPasswordButton.addTarget(self, action: #selector(showOrHidePassword), for: .touchUpInside)
 			showPasswordButton.setTitleColor(.WeTextColor, for: .normal)
 			showPasswordButton.layer.cornerRadius = 4
@@ -103,7 +103,7 @@ class BorderLessTextField: UITextField {
 	func showOrHidePassword() {
 		isSecureTextEntry = !isSecureTextEntry
 
-		showPasswordButton.setTitle(isSecureTextEntry ? "\u{E04B}" : "\u{E037}", for: .normal)
+		showPasswordButton.setTitle(isSecureTextEntry ? .showPassword : .hidePassword, for: .normal)
 	}
 
 }

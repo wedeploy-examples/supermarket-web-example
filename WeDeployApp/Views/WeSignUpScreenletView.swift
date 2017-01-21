@@ -44,7 +44,7 @@ class WeSignUpScreenletView: BaseScreenletView {
 		didSet {
 			previousButton.backgroundColor = .WeTextFieldBackgroundColor
 			previousButton.setTitleColor(.WeTextColor, for: .normal)
-			previousButton.titleLabel?.font = UIFont(name: "GalanoGrotesque-Bold", size: 16)
+			previousButton.titleLabel?.font = UIFont.boldWeFont(ofSize: 16)
 			previousButton.layer.cornerRadius = 4
 		}
 	}
