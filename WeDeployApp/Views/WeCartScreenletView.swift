@@ -11,6 +11,7 @@ import UIKit
 class WeCartScreenletView: BaseListScreenletView {
 
 	public static let CloseCartAction = "CloseCartAction"
+	public static let SendCheckoutEmailAction = "SendCheckoutEmailAction"
 
 	override var itemSize: CGSize {
 		return CGSize(width: self.frame.width, height: 132)
@@ -36,11 +37,15 @@ class WeCartScreenletView: BaseListScreenletView {
 	@IBOutlet weak var emptyCartView: UIView!
 
 	@IBOutlet weak var checkoutButton: WeColorButton!
+
+	var floatingView = FloatingView()
 	
 	override func onCreated() {
 		super.onCreated()
 
 		self.items = ShopCart.shared.productsArray
+
+		superview?.superview?.addSubview(floatingView)
 
 		if items.count > 0 {
 			emptyCartView.alpha = 0
@@ -107,6 +112,33 @@ class WeCartScreenletView: BaseListScreenletView {
 	@IBAction func checkoutButtonClick(_ sender: Any) {
 		if items.count == 0 {
 			perform(actionName: WeCartScreenletView.CloseCartAction)
+		}
+		else {
+			let subject = "Your order"
+			var body = ""
+
+			for item in items {
+				let item = item as! (product: Product, quantity: Int)
+				body = "- \(item.product.name) x \(item.quantity)\n"
+			}
+
+			body += checkoutButton.titleLabel!.text!
+
+			let input = SendEmailInteractorInput(subject: subject, body: body)
+
+			perform(actionName: WeCartScreenletView.SendCheckoutEmailAction, params: input)
+		}
+	}
+
+	override func interactionEnded(actionName: String, result: InteractorOutput) {
+		if actionName == WeCartScreenletView.SendCheckoutEmailAction {
+			floatingView.show(message: "Email sent with the details of the order", error: false)
+		}
+	}
+
+	override func interactionErrored(actionName: String, error: Error) {
+		if actionName == WeCartScreenletView.SendCheckoutEmailAction {
+			floatingView.show(message: "Error sending email", error: true)
 		}
 	}
 }

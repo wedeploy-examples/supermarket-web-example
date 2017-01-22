@@ -48,6 +48,7 @@
 		0BCF55B71E1E470600404C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B51E1E470600404C0F /* LaunchScreen.storyboard */; };
 		0BE0FA871E35266E00A84FFD /* ScreensSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0FA861E35266E00A84FFD /* ScreensSettings.swift */; };
 		0BE0FA891E352C8100A84FFD /* screens-config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BE0FA881E352C8100A84FFD /* screens-config.plist */; };
+		0BE0FA8B1E3532F500A84FFD /* SendEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0FA8A1E3532F500A84FFD /* SendEmailInteractor.swift */; };
 		0BE1F8C41E2AB0D000D80B08 /* CreateUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1F8C31E2AB0D000D80B08 /* CreateUserInteractor.swift */; };
 		0BF06B791E27D5260040B010 /* SpanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B781E27D5260040B010 /* SpanButton.swift */; };
 		0BF06B7B1E27E0620040B010 /* ForgotPasswordScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */; };
@@ -122,6 +123,7 @@
 		0BCF55B81E1E470600404C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE0FA861E35266E00A84FFD /* ScreensSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreensSettings.swift; sourceTree = "<group>"; };
 		0BE0FA881E352C8100A84FFD /* screens-config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "screens-config.plist"; sourceTree = "<group>"; };
+		0BE0FA8A1E3532F500A84FFD /* SendEmailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendEmailInteractor.swift; sourceTree = "<group>"; };
 		0BE1F8C31E2AB0D000D80B08 /* CreateUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserInteractor.swift; sourceTree = "<group>"; };
 		0BF06B781E27D5260040B010 /* SpanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanButton.swift; sourceTree = "<group>"; };
 		0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenlet.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */,
 				0B1DD4B21E2F664A00F145ED /* GetCurrentUserInteractor.swift */,
 				0B5254131E30FF1F000227CE /* LogoutInteractor.swift */,
+				0BE0FA8A1E3532F500A84FFD /* SendEmailInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				0B9F614C1E2D315A00DF43D0 /* ProductCell.swift in Sources */,
 				0B60AAAD1E321F030044B1AF /* WeCartScreenletView.swift in Sources */,
 				0BCF55AD1E1E470600404C0F /* AppDelegate.swift in Sources */,
+				0BE0FA8B1E3532F500A84FFD /* SendEmailInteractor.swift in Sources */,
 				0B60AAA91E31F2AE0044B1AF /* CartViewController.swift in Sources */,
 				0BA9F4831E27A53600082427 /* IntialViewController.swift in Sources */,
 				0BFC76AA1E252E08000E5BA4 /* WeTextField.swift in Sources */,

@@ -39,7 +39,7 @@ public class ScreenletWarehouse {
 			"DataListScreenlet": ScreenletDefinition(interactors: dataListInteractors, viewNames: ["WeDataListScreenletView"]),
 			"UserPortraitScreenlet": ScreenletDefinition(interactors: [UserPortraitScreenlet.GetCurrentUserAction : GetCurrentUserInteractor.self], viewNames: ["WeUserPortraitScreenletView"]),
 
-			"CartScreenlet": ScreenletDefinition(interactors: [:], viewNames: ["WeCartScreenletView"])
+			"CartScreenlet": ScreenletDefinition(interactors: [WeCartScreenletView.SendCheckoutEmailAction: SendEmailInteractor.self], viewNames: ["WeCartScreenletView"])
 		]
 	}
 
