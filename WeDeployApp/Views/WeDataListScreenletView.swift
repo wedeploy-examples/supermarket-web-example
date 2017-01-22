@@ -54,6 +54,17 @@ class WeDataListScreenletView: BaseListScreenletView {
 		}
 	}
 
+	public lazy var animationImageView: UIImageView = {
+		let i = UIImageView()
+		i.contentMode = .scaleAspectFill
+		i.clipsToBounds = true
+		i.layer.cornerRadius = 4
+
+		return i
+	}()
+
+	public var isAnimatingAddToCart = false
+
 	public var currentLayout: LayoutType = .card
 
 	public var totalItemsInCart: Int = 0
@@ -139,6 +150,8 @@ class WeDataListScreenletView: BaseListScreenletView {
 	override func onCreated() {
 		super.onCreated()
 
+		addSubview(animationImageView)
+
 		itemWidth = self.frame.width
 
 		collectionView.backgroundColor = .white
@@ -157,11 +170,59 @@ class WeDataListScreenletView: BaseListScreenletView {
 		cell.imageUrl = item.imageUrl
 		cell.nameLabel.text = item.name
 		cell.priceLabel.text = "$\(item.price)"
-		cell.onAddToCartClick = { [weak self] in
-			self?.totalItemsInCart += 1
+		cell.onAddToCartClick = { [unowned self] in
+			guard !self.isAnimatingAddToCart else { return }
+
+			self.isAnimatingAddToCart = true
+			self.totalItemsInCart += 1
 			ShopCart.shared.add(product: item)
-			self?.cartIcon.showBadge(with: .number, value: self?.totalItemsInCart ?? 0, animationType: .none)
+
+			let indexPath = self.collectionView.indexPath(for: cell)
+
+			let attributes = self.collectionView.layoutAttributesForItem(at: indexPath!)
+			let cellFrame = self.collectionView.convert(attributes!.frame, to: self)
+			let pictureFrame = cell.productImage.frame
+
+			var finalFrame = cellFrame
+			finalFrame.origin.x += pictureFrame.minX
+			finalFrame.origin.y += pictureFrame.minY
+			finalFrame.size = pictureFrame.size
+
+			self.animationImageView.frame = finalFrame
+			self.animationImageView.image = cell.productImage.image
+			self.animationImageView.backgroundColor = .white
+
+			self.animateAddToCart()
 		}
+	}
+
+	func animateAddToCart() {
+		UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 30, options: [], animations: {
+
+			self.animationImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+		}, completion:nil)
+
+		UIView.animate(withDuration: 0.3, delay: 0.3, options: [], animations: {
+			self.animationImageView.frame = CGRect(x: 25, y: 25, width: 25, height: 25)
+			self.animationImageView.alpha = 0.1
+		}, completion: { _ in
+			self.animationImageView.transform = CGAffineTransform.identity
+			self.animationImageView.frame = CGRect.zero
+			self.animationImageView.alpha = 1
+		})
+
+		UIView.animate(withDuration: 0.2, delay: 0.4, options: [], animations: {
+			self.cartIcon.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+		}, completion: { _ in
+			self.cartIcon.showBadge(with: .number, value: self.totalItemsInCart, animationType: .none)
+		})
+
+		UIView.animate(withDuration: 0.1, delay: 0.6, options: [], animations: {
+			self.cartIcon.transform = CGAffineTransform.identity
+		}, completion: { _ in
+			self.isAnimatingAddToCart = false
+		})
+
 	}
 
 	@IBAction func changeLayoutButtonClick() {
