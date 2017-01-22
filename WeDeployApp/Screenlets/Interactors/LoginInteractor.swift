@@ -18,7 +18,7 @@ open class LoginInteractor : Interactor {
 
 	open override func execute() -> Observable<InteractorOutput> {
 
-		return WeDeploy.auth("auth.easley84.wedeploy.io")
+		return WeDeploy.auth(ScreensSettings.shared!.stringProperty(for: "authUrl"))
 			.signInWith(username: loginParams.username, password: loginParams.password)
 			.toObservable()
 			.map { user in

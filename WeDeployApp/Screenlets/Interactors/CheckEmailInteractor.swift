@@ -20,7 +20,7 @@ open class CheckEmailInteractor : Interactor {
 	var checkEmailParams: CheckEmailInteractorInput!
 
 	open override func execute() -> Observable<InteractorOutput> {
-		return WeDeploy.auth("auth.easley84.wedeploy.io")
+		return WeDeploy.auth(ScreensSettings.shared!.stringProperty(for: "authUrl"))
 			.createUser(email: checkEmailParams.email, password: "1234", name: checkEmailParams.name)
 			.toObservable()
 			.map { user in

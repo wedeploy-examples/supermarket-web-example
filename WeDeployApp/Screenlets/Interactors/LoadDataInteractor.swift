@@ -57,7 +57,7 @@ open class LoadDataInteractor : Interactor {
 
 	open override func execute() -> Observable<InteractorOutput> {
 
-	let query = WeDeploy.data("data.easley84.wedeploy.io")
+	let query = WeDeploy.data(ScreensSettings.shared!.stringProperty(for: "dataUrl"))
 			.query(query: loadDataParams.dataQuery.query)
 
 	if let filter = loadDataParams.dataQuery.filter {

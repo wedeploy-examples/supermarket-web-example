@@ -20,7 +20,7 @@ open class LoginWithProviderInteractor : Interactor {
 				AuthProvider(provider: loginParams.provider, redirectUri: loginParams.redirectUri)
 
 		return Observable.create { observer in
-			WeDeploy.auth("auth.easley84.wedeploy.io")
+			WeDeploy.auth(ScreensSettings.shared!.stringProperty(for: "authUrl"))
 				.signInWithRedirect(provider: authProvider) { (user, error) in
 					if let user = user {
 						observer.onNext(user)

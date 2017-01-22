@@ -46,6 +46,8 @@
 		0BCF55B21E1E470600404C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B01E1E470600404C0F /* Main.storyboard */; };
 		0BCF55B41E1E470600404C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B31E1E470600404C0F /* Assets.xcassets */; };
 		0BCF55B71E1E470600404C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCF55B51E1E470600404C0F /* LaunchScreen.storyboard */; };
+		0BE0FA871E35266E00A84FFD /* ScreensSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0FA861E35266E00A84FFD /* ScreensSettings.swift */; };
+		0BE0FA891E352C8100A84FFD /* screens-config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BE0FA881E352C8100A84FFD /* screens-config.plist */; };
 		0BE1F8C41E2AB0D000D80B08 /* CreateUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1F8C31E2AB0D000D80B08 /* CreateUserInteractor.swift */; };
 		0BF06B791E27D5260040B010 /* SpanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B781E27D5260040B010 /* SpanButton.swift */; };
 		0BF06B7B1E27E0620040B010 /* ForgotPasswordScreenlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */; };
@@ -118,6 +120,8 @@
 		0BCF55B31E1E470600404C0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BCF55B61E1E470600404C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BCF55B81E1E470600404C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BE0FA861E35266E00A84FFD /* ScreensSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreensSettings.swift; sourceTree = "<group>"; };
+		0BE0FA881E352C8100A84FFD /* screens-config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "screens-config.plist"; sourceTree = "<group>"; };
 		0BE1F8C31E2AB0D000D80B08 /* CreateUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserInteractor.swift; sourceTree = "<group>"; };
 		0BF06B781E27D5260040B010 /* SpanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanButton.swift; sourceTree = "<group>"; };
 		0BF06B7A1E27E0620040B010 /* ForgotPasswordScreenlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordScreenlet.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				0B9053361E29453F007D41B3 /* SignUpViewController.swift */,
 				0B6776431E2CC7500089C466 /* MainViewController.swift */,
 				0B60AAA81E31F2AE0044B1AF /* CartViewController.swift */,
+				0BE0FA881E352C8100A84FFD /* screens-config.plist */,
 			);
 			path = WeDeployApp;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				0BF73C571E24DB4C00D07BAB /* Interactor.swift */,
 				0BF73C581E24DB4C00D07BAB /* ScreenletWarehouse.swift */,
 				0B10F7031E2E196700030277 /* BaseListScreenletView.swift */,
+				0BE0FA861E35266E00A84FFD /* ScreensSettings.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				0B9F614D1E2D315A00DF43D0 /* ProductCell.xib in Resources */,
 				0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */,
 				0BF7EBDC1E28EE7800883CD0 /* Info.plist in Resources */,
+				0BE0FA891E352C8100A84FFD /* screens-config.plist in Resources */,
 				0BF7EBE11E28EEF700883CD0 /* rene_bieder_galano_grotesque_medium.otf in Resources */,
 				0B5254121E30FCD4000227CE /* loop_icons_16px.ttf in Resources */,
 				0B60AAB31E322C570044B1AF /* CartItemCell.xib in Resources */,
@@ -474,6 +481,7 @@
 				0BF7EBDB1E28E6FA00883CD0 /* SignUpScreenlet.swift in Sources */,
 				0B5254141E30FF1F000227CE /* LogoutInteractor.swift in Sources */,
 				0B60AAB21E322C570044B1AF /* CartItemCell.swift in Sources */,
+				0BE0FA871E35266E00A84FFD /* ScreensSettings.swift in Sources */,
 				0BFC76A81E24FC51000E5BA4 /* LoginInteractorInput.swift in Sources */,
 				0BF06B831E27E65D0040B010 /* WeBackButton.swift in Sources */,
 				0BCF55AF1E1E470600404C0F /* LoginViewController.swift in Sources */,
