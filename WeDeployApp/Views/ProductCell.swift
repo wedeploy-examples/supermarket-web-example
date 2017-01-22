@@ -47,7 +47,7 @@ class ProductCell: UICollectionViewCell {
 		}
 	}
 
-	@IBOutlet private weak var productImage: UIImageView! {
+	@IBOutlet weak var productImage: UIImageView! {
 		didSet {
 			productImage.layer.cornerRadius = 4
 			productImage.clipsToBounds = true
