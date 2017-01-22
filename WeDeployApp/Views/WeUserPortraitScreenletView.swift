@@ -40,7 +40,7 @@ class WeUserPortraitScreenletView: BaseScreenletView {
 				userImage.kf.setImage(with: URL(string: photoUrl)!)
 			}
 			else if let name = user.name, name.characters.count > 0 {
-				initialsLabel.text = "\(user.name?.characters.first!)"
+				initialsLabel.text = "\(name.characters.first!)".uppercased()
 			}
 			else {
 				initialsLabel.font = UIFont.iconFont12px(ofSize: 12)
