@@ -15,19 +15,22 @@ DEPENDENCIES:
   - Kingfisher
   - later (from `https://github.com/victorg1991/later`)
   - RxCocoa
-  - WeDeploy (from `../api-swift`)
+  - WeDeploy (from `https://github.com/jmnavarro/api-swift`)
   - WZLBadge
 
 EXTERNAL SOURCES:
   later:
     :git: https://github.com/victorg1991/later
   WeDeploy:
-    :path: "../api-swift"
+    :git: https://github.com/jmnavarro/api-swift
 
 CHECKOUT OPTIONS:
   later:
     :commit: 08666e210cb196040d9154efdfd63df9b967b9bb
     :git: https://github.com/victorg1991/later
+  WeDeploy:
+    :commit: 57feb8fc08ad87ba55f5aa8997b38f7efb3b44e9
+    :git: https://github.com/jmnavarro/api-swift
 
 SPEC CHECKSUMS:
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
@@ -38,6 +41,6 @@ SPEC CHECKSUMS:
   WeDeploy: 23cfaa5c4570d3f6ee034722066cf5f4c7247801
   WZLBadge: 16c08aa0a645e2591690f21cbcb410a3d878c7ac
 
-PODFILE CHECKSUM: 21095e3d41e74245c4f1f23335e13934ee54fb9e
+PODFILE CHECKSUM: 00ed034d0315d43a57545dcb3b12f87d9e607b63
 
 COCOAPODS: 1.1.1

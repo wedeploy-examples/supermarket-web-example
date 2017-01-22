@@ -6,7 +6,7 @@ target 'WeDeployApp' do
   use_frameworks!
 
   pod 'later', :git => 'https://github.com/victorg1991/later'
-  pod 'WeDeploy', :path => '../api-swift'
+  pod 'WeDeploy', :git => 'https://github.com/jmnavarro/api-swift'
   pod 'RxCocoa'
   pod 'Kingfisher'
   pod 'WZLBadge'
