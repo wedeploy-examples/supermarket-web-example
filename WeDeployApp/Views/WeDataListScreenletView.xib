@@ -66,11 +66,23 @@
                     </constraints>
                     <items>
                         <navigationItem title="Title" id="Ojz-9W-SUr">
-                            <barButtonItem key="leftBarButtonItem" style="plain" id="IxA-8p-uea">
-                                <color key="tintColor" red="1" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="cartIconClick:" destination="iN0-l3-epB" id="E9Y-ID-vSC"/>
-                                </connections>
+                            <barButtonItem key="leftBarButtonItem" style="plain" id="qei-DZ-XFJ">
+                                <view key="customView" contentMode="scaleToFill" id="hC1-TC-bA0">
+                                    <rect key="frame" x="16" y="35" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQg-a3-qLo">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="loop-icons-16px" family="loop-icons-16px" pointSize="24"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="cartIconClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6bD-Ir-oHW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" style="plain" id="X4Y-YI-fe7">
                                 <view key="customView" contentMode="scaleToFill" id="r1f-EY-Zkp" customClass="UserPortraitScreenlet" customModule="WeDeployApp" customModuleProvider="target">
@@ -97,7 +109,7 @@
                 <constraint firstAttribute="bottom" secondItem="FG2-yd-cxZ" secondAttribute="bottom" id="wuD-2L-mN7"/>
             </constraints>
             <connections>
-                <outlet property="cartIcon" destination="IxA-8p-uea" id="r8Z-y9-q6r"/>
+                <outlet property="cartIcon" destination="zQg-a3-qLo" id="Pap-Ws-0qT"/>
                 <outlet property="categoryView" destination="uZA-Sf-Ijm" id="6FC-8e-6LJ"/>
                 <outlet property="changeLayoutButton" destination="BaS-0X-79Z" id="Qny-aL-7S5"/>
                 <outlet property="collectionView" destination="FG2-yd-cxZ" id="g7T-Un-bvc"/>

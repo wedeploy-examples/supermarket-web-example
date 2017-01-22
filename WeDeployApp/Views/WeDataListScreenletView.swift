@@ -93,13 +93,10 @@ class WeDataListScreenletView: BaseListScreenletView {
 			navigationBar.barTintColor = .mainColor
 		}
 	}
-	@IBOutlet weak var cartIcon: UIBarButtonItem! {
+	@IBOutlet weak var cartIcon: UIButton! {
 		didSet {
-			cartIcon.setTitleTextAttributes([
-					NSForegroundColorAttributeName : UIColor.white,
-					NSFontAttributeName: UIFont.iconFont16px(ofSize: 24)
-				], for: .normal)
-			cartIcon.title = .cart
+			cartIcon.setTitleColor(.white, for: .normal)
+			cartIcon.setTitle(.cart, for: .normal)
 		}
 	}
 	
@@ -233,7 +230,7 @@ class WeDataListScreenletView: BaseListScreenletView {
 		UIApplication.shared.keyWindow?.rootViewController?.present(logoutAlert, animated: true, completion: nil)
 	}
 
-	@IBAction func cartIconClick(_ sender: UIBarButtonItem) {
+	@IBAction func cartIconClick(_ sender: UIButton) {
 		perform(actionName: WeDataListScreenletView.OpenCartAction)
 	}
 
