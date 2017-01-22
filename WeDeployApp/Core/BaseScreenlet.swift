@@ -15,7 +15,8 @@ open class BaseScreenlet : UIView {
 
 	var screenletView: BaseScreenletView?
 	var interactors: [String : Interactor]?
-	var viewName: String? = ""
+
+	@IBInspectable var viewName: String = ""
 
 	var disposeBag = DisposeBag()
 
@@ -48,16 +49,16 @@ open class BaseScreenlet : UIView {
 			 interactors![actionName] = interactor.init()
 		}
 
-		if !definition.viewNames.contains(viewName!) {
+		if !definition.viewNames.contains(viewName) {
 			print("This view is not included in the definition, falling back to default viewname")
-			viewName = definition.viewNames.first
+			viewName = definition.viewNames.first ?? ""
 		}
 
 		loadView()
 	}
 
 	open func loadView() {
-		if let view = viewFrom(nibName: viewName!, type: BaseScreenletView.self) {
+		if let view = viewFrom(nibName: viewName, type: BaseScreenletView.self) {
 			self.screenletView = view
 			view.actionPerformer = perform
 			addSubview(view)
