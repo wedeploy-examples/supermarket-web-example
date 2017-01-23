@@ -26,6 +26,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="533" height="154"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRZ-82-8BU">
+                        <rect key="frame" x="20" y="23" width="120" height="108"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E74-Kv-gZp">
                         <rect key="frame" x="20" y="23" width="120" height="108"/>
                         <constraints>
@@ -62,13 +66,17 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="pRZ-82-8BU" firstAttribute="trailing" secondItem="E74-Kv-gZp" secondAttribute="trailing" id="8Mt-Q4-em8"/>
                 <constraint firstItem="NaW-jg-VT7" firstAttribute="leading" secondItem="E74-Kv-gZp" secondAttribute="trailing" constant="20" id="H8F-dD-Suf"/>
+                <constraint firstItem="pRZ-82-8BU" firstAttribute="leading" secondItem="E74-Kv-gZp" secondAttribute="leading" id="Hjp-CK-gON"/>
+                <constraint firstItem="pRZ-82-8BU" firstAttribute="baseline" secondItem="E74-Kv-gZp" secondAttribute="baseline" id="IWn-4G-F0u"/>
                 <constraint firstItem="Ykb-mo-yKv" firstAttribute="leading" secondItem="E74-Kv-gZp" secondAttribute="trailing" constant="20" id="b0c-om-i8e"/>
                 <constraint firstItem="xWq-5D-mxk" firstAttribute="top" secondItem="NaW-jg-VT7" secondAttribute="bottom" constant="10" id="eRR-nL-3QG"/>
                 <constraint firstItem="xWq-5D-mxk" firstAttribute="leading" secondItem="E74-Kv-gZp" secondAttribute="trailing" constant="20" id="efR-aC-JME"/>
                 <constraint firstItem="E74-Kv-gZp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="erq-b6-4HV"/>
                 <constraint firstItem="E74-Kv-gZp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ie4-7S-2gj"/>
                 <constraint firstItem="NaW-jg-VT7" firstAttribute="top" secondItem="Ykb-mo-yKv" secondAttribute="bottom" constant="5" id="kUN-bG-Qpm"/>
+                <constraint firstItem="pRZ-82-8BU" firstAttribute="top" secondItem="E74-Kv-gZp" secondAttribute="top" id="mfi-Rq-UDg"/>
                 <constraint firstItem="Ykb-mo-yKv" firstAttribute="top" secondItem="E74-Kv-gZp" secondAttribute="top" constant="5" id="rCl-s3-rsa"/>
                 <constraint firstAttribute="trailing" secondItem="Ykb-mo-yKv" secondAttribute="trailing" constant="20" id="xot-rb-jjA"/>
                 <constraint firstAttribute="trailing" secondItem="NaW-jg-VT7" secondAttribute="trailing" constant="20" id="zjc-LA-K4b"/>
@@ -78,6 +86,7 @@
                 <outlet property="nameLabel" destination="Ykb-mo-yKv" id="x48-3x-eX3"/>
                 <outlet property="priceLabel" destination="NaW-jg-VT7" id="HZT-vx-fmc"/>
                 <outlet property="productImage" destination="E74-Kv-gZp" id="bL7-2P-HTZ"/>
+                <outlet property="shadowView" destination="pRZ-82-8BU" id="TYa-Ke-AxV"/>
                 <outlet property="stepper" destination="xWq-5D-mxk" id="tlD-t5-jHv"/>
             </connections>
             <point key="canvasLocation" x="-30.5" y="63"/>

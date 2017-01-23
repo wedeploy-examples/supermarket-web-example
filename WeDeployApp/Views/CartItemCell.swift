@@ -10,6 +10,18 @@ import UIKit
 
 class CartItemCell: UICollectionViewCell {
 	
+	@IBOutlet weak var shadowView: UIView! {
+		didSet {
+			shadowView.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+			shadowView.layer.shadowOffset = CGSize(width: 0, height: 2);
+			shadowView.layer.shadowRadius = 8;
+			shadowView.layer.shadowOpacity = 1;
+			shadowView.layer.masksToBounds = false
+			shadowView.layer.cornerRadius = 4
+		}
+	}
+
+
 	@IBOutlet weak var productImage: UIImageView! {
 		didSet {
 			productImage.layer.cornerRadius = 4
