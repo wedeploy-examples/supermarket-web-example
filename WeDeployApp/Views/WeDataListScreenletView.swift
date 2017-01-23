@@ -84,6 +84,13 @@ class WeDataListScreenletView: BaseListScreenletView {
 		}
 	}
 	
+	@IBOutlet weak var spinner: UIActivityIndicatorView! {
+		didSet {
+			spinner.color = .mainColor
+			spinner.hidesWhenStopped = true
+		}
+	}
+
 	@IBOutlet weak var toolbarView: UIView! {
 		didSet {
 			toolbarView.layer.shadowColor = UIColor.black.cgColor
@@ -154,8 +161,15 @@ class WeDataListScreenletView: BaseListScreenletView {
 
 		itemWidth = self.frame.width
 
+		spinner.startAnimating()
+
 		collectionView.backgroundColor = .white
 		loadDataFrom(category: "All")
+	}
+
+	override func interactionEnded(actionName: String, result: InteractorOutput) {
+		super.interactionEnded(actionName: actionName, result: result)
+		spinner.stopAnimating()
 	}
 
 	override func registerCell(with identifier: String) {
@@ -296,6 +310,11 @@ class WeDataListScreenletView: BaseListScreenletView {
 	}
 
 	func loadDataFrom(category: String) {
+		items = []
+		collectionView.reloadData()
+
+		spinner.startAnimating()
+
 		let query = LoadDataQuery().orderBy(field: "id", order: .ASC)
 
 		if category != "All" {

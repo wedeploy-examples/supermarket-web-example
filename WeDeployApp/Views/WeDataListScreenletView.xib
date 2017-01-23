@@ -94,15 +94,20 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gOi-iL-qCi">
+                    <rect key="frame" x="169" y="315.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="pwD-vX-PoK" secondAttribute="trailing" id="13n-Kw-YNb"/>
                 <constraint firstItem="pwD-vX-PoK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Pp-0q-Dnn"/>
+                <constraint firstItem="gOi-iL-qCi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5Un-Vo-Zap"/>
                 <constraint firstAttribute="trailing" secondItem="RLq-Cr-ku5" secondAttribute="trailing" id="EI5-YQ-oks"/>
                 <constraint firstItem="pwD-vX-PoK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FcV-GN-nch"/>
                 <constraint firstItem="RLq-Cr-ku5" firstAttribute="top" secondItem="pwD-vX-PoK" secondAttribute="bottom" id="L9p-3P-8z5"/>
                 <constraint firstAttribute="trailing" secondItem="FG2-yd-cxZ" secondAttribute="trailing" id="bxf-cU-55l"/>
+                <constraint firstItem="gOi-iL-qCi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cjj-aV-oK8"/>
                 <constraint firstItem="FG2-yd-cxZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="k0r-WG-4tA"/>
                 <constraint firstItem="RLq-Cr-ku5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rT1-XC-Et0"/>
                 <constraint firstItem="FG2-yd-cxZ" firstAttribute="top" secondItem="RLq-Cr-ku5" secondAttribute="bottom" id="rtQ-rl-PkJ"/>
@@ -114,6 +119,7 @@
                 <outlet property="changeLayoutButton" destination="BaS-0X-79Z" id="Qny-aL-7S5"/>
                 <outlet property="collectionView" destination="FG2-yd-cxZ" id="g7T-Un-bvc"/>
                 <outlet property="navigationBar" destination="pwD-vX-PoK" id="UJW-8c-UPj"/>
+                <outlet property="spinner" destination="gOi-iL-qCi" id="Jsz-43-3lR"/>
                 <outlet property="toolbarView" destination="RLq-Cr-ku5" id="y1f-gq-8ZF"/>
                 <outlet property="topConstraint" destination="L9p-3P-8z5" id="0gJ-yL-Y4t"/>
                 <outlet property="userPortraitScreenlet" destination="r1f-EY-Zkp" id="QeN-W7-T2N"/>
