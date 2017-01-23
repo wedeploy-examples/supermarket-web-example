@@ -135,6 +135,8 @@ class ProductCell: UICollectionViewCell {
 			lastFrameHeight = frame.height
 
 			if lastFrameHeight == WeDataListScreenletView.LayoutType.list.height {
+				productImage.layer.cornerRadius = 4
+				productImage.layer.mask = nil
 
 				self.const.forEach {$0.isActive = false}
 				self.const.removeAll()
@@ -201,11 +203,25 @@ class ProductCell: UICollectionViewCell {
 				addAndActivate(constraints: const1, const2, const3, const4, const5, const6, const7, const8, const9, const10,
 				               const11, const12, const13, const14, const15, const16, const17, const18, const19)
 
-				UIView.animate(withDuration: 0.3) {
+
+				UIView.animate(withDuration: 0.3, animations: {
 					self.layoutIfNeeded()
-				}
+				}, completion: { _ in
+					self.productImage.layer.cornerRadius = 0
+					let path = UIBezierPath(
+						roundedRect: self.productImage.bounds,
+						byRoundingCorners: [.topLeft, .topRight],
+						cornerRadii: CGSize(width: 4, height: 4))
+
+					let mask = CAShapeLayer()
+					mask.path = path.cgPath
+					self.productImage.layer.mask = mask
+				})
 			}
 			else {
+				productImage.layer.mask = nil
+				productImage.layer.cornerRadius = 4
+
 				self.const.forEach {$0.isActive = false}
 				self.const.removeAll()
 
