@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
 
-	@nonobjc public static var mainColor = UIColor.red
+	@nonobjc public static var mainColor = UIColor(8, 223, 133, 1)
 
 	convenience init(_ red: Int, _ green: Int, _ blue: Int, _ alpha: CGFloat) {
 

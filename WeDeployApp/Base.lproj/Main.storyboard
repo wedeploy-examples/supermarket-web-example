@@ -103,6 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rCD-uu-sLR"/>
                     <connections>
+                        <outlet property="colorButton" destination="pzI-LP-fjb" id="jPH-9Y-Nvg"/>
                         <outlet property="logoLabel" destination="heK-NL-MUv" id="Ej7-ri-Tug"/>
                     </connections>
                 </viewController>
@@ -297,7 +298,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oyQ-T8-CiT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mgm-C6-b3K">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mgm-C6-b3K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -316,7 +317,7 @@
                 <navigationController title="Cart" automaticallyAdjustsScrollViewInsets="NO" id="gML-r8-jAy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="d1s-no-IwA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="d1s-no-IwA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
