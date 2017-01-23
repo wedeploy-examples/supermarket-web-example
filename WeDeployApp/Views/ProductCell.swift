@@ -36,10 +36,10 @@ class ProductCell: UICollectionViewCell {
 
 	@IBOutlet weak var shadowView: UIView! {
 		didSet {
-			shadowView.layer.shadowColor = UIColor.black.cgColor
-			shadowView.layer.shadowOffset = CGSize(width: 0, height: 0);
-			shadowView.layer.shadowRadius = 5;
-			shadowView.layer.shadowOpacity = 0.3;
+			shadowView.layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
+			shadowView.layer.shadowOffset = CGSize(width: 0, height: 2);
+			shadowView.layer.shadowRadius = 8;
+			shadowView.layer.shadowOpacity = 1;
 			shadowView.layer.masksToBounds = false
 			shadowView.layer.cornerRadius = 4
 
