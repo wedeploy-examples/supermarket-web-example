@@ -29,6 +29,11 @@ public class MainViewController : UIViewController {
 			}
 		})
 		.addDisposableTo(disposeBag)
+
+		setNeedsStatusBarAppearanceUpdate()
 	}
-	
+
+	public override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
 }

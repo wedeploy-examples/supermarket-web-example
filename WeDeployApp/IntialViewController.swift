@@ -25,6 +25,7 @@ public class InitalViewConroller : UIViewController {
 		logoLabel.textColor = .mainColor
 
 		view.backgroundColor = .mainColor
+		setNeedsStatusBarAppearanceUpdate()
 	}
 
 	public override func viewDidAppear(_ animated: Bool) {
@@ -38,4 +39,7 @@ public class InitalViewConroller : UIViewController {
 		}
 	}
 
+	public override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
 }
