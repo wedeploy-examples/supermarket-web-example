@@ -19,6 +19,10 @@ open class LoginWithProviderInteractor : Interactor {
 		let authProvider =
 				AuthProvider(provider: loginParams.provider, redirectUri: loginParams.redirectUri)
 
+		if case .github = loginParams.provider {
+			authProvider.providerScope = "user:email"
+		}
+		
 		return Observable.create { observer in
 			WeDeploy.auth(ScreensSettings.shared!.stringProperty(for: "authUrl"))
 				.signInWithRedirect(provider: authProvider) { (user, error) in
