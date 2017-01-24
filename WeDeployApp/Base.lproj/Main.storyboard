@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oyQ-T8-CiT">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,27 +31,26 @@
                         <viewControllerLayoutGuide type="bottom" id="jWw-8f-gzU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QX0-CT-5cN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heK-NL-MUv">
-                                <rect key="frame" x="36" y="100" width="84" height="84"/>
+                                <rect key="frame" x="20" y="50" width="72" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="8pA-zl-8nw"/>
-                                    <constraint firstAttribute="height" constant="84" id="Zpl-Vg-4E9"/>
+                                    <constraint firstAttribute="width" secondItem="heK-NL-MUv" secondAttribute="height" multiplier="1:1" id="1hz-4N-2t6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="loop-icons-16px" family="loop-icons-16px" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a short description of your app here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiX-sB-ngA">
-                                <rect key="frame" x="20" y="351" width="335" height="65"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a short description of your app here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GiX-sB-ngA">
+                                <rect key="frame" x="20" y="261.5" width="280" height="50.5"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="Galano Grotesque" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jar-N7-2sy">
-                                <rect key="frame" x="20" y="576" width="335" height="60"/>
+                                <rect key="frame" x="20" y="477" width="280" height="60"/>
                                 <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kBN-8Y-8Ui"/>
@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzI-LP-fjb" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="504" width="335" height="60"/>
+                                <rect key="frame" x="20" y="405" width="280" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FrH-Bt-7UJ"/>
                                 </constraints>
@@ -76,8 +76,8 @@
                                     <segue destination="Vv3-uO-pRv" kind="show" identifier="signup" id="h4n-MG-AYA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to AppName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-rR-8Zx">
-                                <rect key="frame" x="20" y="204" width="335" height="130"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to AppName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-rR-8Zx">
+                                <rect key="frame" x="20" y="142" width="280" height="102.5"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                         <constraints>
                             <constraint firstItem="h9p-rR-8Zx" firstAttribute="top" secondItem="heK-NL-MUv" secondAttribute="bottom" constant="20" id="1OZ-fM-9qz"/>
                             <constraint firstAttribute="trailing" secondItem="h9p-rR-8Zx" secondAttribute="trailing" constant="20" id="JPe-iG-hfr"/>
-                            <constraint firstItem="heK-NL-MUv" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leadingMargin" constant="20" id="KiK-xo-TjH"/>
+                            <constraint firstItem="heK-NL-MUv" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="KiK-xo-TjH"/>
                             <constraint firstItem="pzI-LP-fjb" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="Ksa-R7-Duo"/>
                             <constraint firstItem="GiX-sB-ngA" firstAttribute="top" secondItem="h9p-rR-8Zx" secondAttribute="bottom" constant="17" id="RQ7-3B-RSt"/>
                             <constraint firstAttribute="trailing" secondItem="GiX-sB-ngA" secondAttribute="trailing" constant="20" id="VOG-U3-3fW"/>
@@ -95,9 +95,12 @@
                             <constraint firstAttribute="trailing" secondItem="pzI-LP-fjb" secondAttribute="trailing" constant="20" id="YSL-yO-WcE"/>
                             <constraint firstItem="Jar-N7-2sy" firstAttribute="top" secondItem="pzI-LP-fjb" secondAttribute="bottom" constant="12" id="Zap-9a-5Xr"/>
                             <constraint firstItem="h9p-rR-8Zx" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="a7h-l4-Oix"/>
+                            <constraint firstItem="heK-NL-MUv" firstAttribute="height" secondItem="h9p-rR-8Zx" secondAttribute="height" multiplier="0.7" id="jja-8h-m7Q"/>
                             <constraint firstAttribute="trailing" secondItem="Jar-N7-2sy" secondAttribute="trailing" constant="20" id="nd6-JG-SsX"/>
+                            <constraint firstItem="h9p-rR-8Zx" firstAttribute="height" secondItem="QX0-CT-5cN" secondAttribute="height" multiplier="0.18" id="uYw-Te-Q75"/>
                             <constraint firstItem="Jar-N7-2sy" firstAttribute="leading" secondItem="QX0-CT-5cN" secondAttribute="leading" constant="20" id="us9-jK-hKC"/>
-                            <constraint firstItem="heK-NL-MUv" firstAttribute="top" secondItem="qMV-Pf-1sI" secondAttribute="bottom" constant="80" id="xD6-1H-tNX"/>
+                            <constraint firstItem="GiX-sB-ngA" firstAttribute="height" secondItem="h9p-rR-8Zx" secondAttribute="height" multiplier="0.5" id="vVi-mQ-gxd"/>
+                            <constraint firstItem="heK-NL-MUv" firstAttribute="top" secondItem="qMV-Pf-1sI" secondAttribute="bottom" constant="30" id="xD6-1H-tNX"/>
                             <constraint firstItem="jWw-8f-gzU" firstAttribute="top" secondItem="Jar-N7-2sy" secondAttribute="bottom" constant="31" id="y1C-7C-W7E"/>
                         </constraints>
                     </view>
@@ -120,11 +123,11 @@
                         <viewControllerLayoutGuide type="bottom" id="5jV-pp-AOf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aaw-fM-uwD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9j-AT-zSL" customClass="SignUpScreenlet" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -154,11 +157,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-vX-hps" customClass="LoginScreenlet" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="viewName" value="WeLoginScreenletView"/>
@@ -192,11 +195,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wTb-EL-H2V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jb9-Et-Nlt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajV-sj-RIr" customClass="ForgotPasswordScreenlet" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -225,11 +228,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ugh-kh-N3r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ITp-rS-rQQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOe-sX-Q4w" customClass="DataListScreenlet" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -259,11 +262,11 @@
                         <viewControllerLayoutGuide type="bottom" id="iXe-5I-K7m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q4Z-me-Wy7">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B2-FB-RYS" customClass="CartScreenlet" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

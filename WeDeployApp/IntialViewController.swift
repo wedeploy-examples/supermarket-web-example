@@ -31,7 +31,7 @@ public class InitalViewConroller : UIViewController, UIGestureRecognizerDelegate
 	public override func viewDidLoad() {
 
 		logoLabel.text = .thunder
-		logoLabel.layer.cornerRadius = 42
+
 		logoLabel.backgroundColor = .white
 		logoLabel.layer.masksToBounds = true
 		logoLabel.textColor = .mainColor
@@ -44,6 +44,11 @@ public class InitalViewConroller : UIViewController, UIGestureRecognizerDelegate
 		tap.delegate = self
 		
 		view.addGestureRecognizer(tap)
+	}
+
+	public override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		logoLabel.layer.cornerRadius = logoLabel.frame.height/2
 	}
 
 	public override func viewDidAppear(_ animated: Bool) {
