@@ -165,6 +165,8 @@ class ProductCell: UICollectionViewCell {
 				let const18 = priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20) 
 				let const19 = priceLabel.heightAnchor.constraint(equalToConstant: 21) 
 
+				nameLabel.numberOfLines = 2
+				
 				addAndActivate(constraints: const1, const2, const3, const4, const5, const6, const7, const8, const9, const10,
 						const11, const12, const13, const14, const15, const16, const17, const18, const19)
 				UIView.animate(withDuration: 0.3) {
@@ -200,6 +202,7 @@ class ProductCell: UICollectionViewCell {
 				let const18 = priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -22)
 				let const19 = priceLabel.heightAnchor.constraint(equalToConstant: 21)
 
+				nameLabel.numberOfLines = 2
 				addAndActivate(constraints: const1, const2, const3, const4, const5, const6, const7, const8, const9, const10,
 				               const11, const12, const13, const14, const15, const16, const17, const18, const19)
 
@@ -225,6 +228,7 @@ class ProductCell: UICollectionViewCell {
 				self.const.forEach {$0.isActive = false}
 				self.const.removeAll()
 
+				nameLabel.numberOfLines = 1
 				addConstraintsForCartButton()
 				addConstraintsForNameLabel()
 				addConstraintsForPriceLabel()
