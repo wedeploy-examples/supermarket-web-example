@@ -67,7 +67,7 @@ public class InitalViewConroller : UIViewController, UIGestureRecognizerDelegate
 	}
 
 	func doubleTapped() {
-		if index == mainColors.count - 1 {
+		if index == mainColors.count {
 			index = 0
 		}
 		index += 1
