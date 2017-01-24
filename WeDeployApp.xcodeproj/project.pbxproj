@@ -31,6 +31,7 @@
 		0B7724CC1E26446F00913DA1 /* DismissKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */; };
 		0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */; };
 		0B7724D01E266F1700913DA1 /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7724CF1E266F1700913DA1 /* FloatingView.swift */; };
+		0B82A06C1E377B1D003B64C3 /* launchscreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B82A06B1E377B1D003B64C3 /* launchscreen1.png */; };
 		0B9053371E29453F007D41B3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9053361E29453F007D41B3 /* SignUpViewController.swift */; };
 		0B9053391E2AA445007D41B3 /* CheckEmailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */; };
 		0B9F61431E2CFA2A00DF43D0 /* LoadDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */; };
@@ -104,6 +105,7 @@
 		0B7724CB1E26446F00913DA1 /* DismissKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboardView.swift; sourceTree = "<group>"; };
 		0B7724CD1E26697800913DA1 /* loop_icons_12px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_12px.ttf; sourceTree = "<group>"; };
 		0B7724CF1E266F1700913DA1 /* FloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		0B82A06B1E377B1D003B64C3 /* launchscreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchscreen1.png; sourceTree = "<group>"; };
 		0B9053361E29453F007D41B3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0B9053381E2AA445007D41B3 /* CheckEmailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmailInteractor.swift; sourceTree = "<group>"; };
 		0B9F61421E2CFA2A00DF43D0 /* LoadDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadDataInteractor.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				0BCF55B01E1E470600404C0F /* Main.storyboard */,
 				0BCF55B31E1E470600404C0F /* Assets.xcassets */,
 				0BCF55B51E1E470600404C0F /* LaunchScreen.storyboard */,
+				0B82A06B1E377B1D003B64C3 /* launchscreen1.png */,
 				0BCF55B81E1E470600404C0F /* Info.plist */,
 				0BA9F4821E27A53600082427 /* IntialViewController.swift */,
 				0BF06B841E27F0360040B010 /* ForgotPasswordViewController.swift */,
@@ -412,6 +415,7 @@
 				0BCF55B41E1E470600404C0F /* Assets.xcassets in Resources */,
 				0B9F61491E2D258300DF43D0 /* WeDataListScreenletView.xib in Resources */,
 				0BF7EBE21E28EEF700883CD0 /* rene_bieder_galano_grotesque_semibold.otf in Resources */,
+				0B82A06C1E377B1D003B64C3 /* launchscreen1.png in Resources */,
 				0B7724CE1E26697800913DA1 /* loop_icons_12px.ttf in Resources */,
 				0B9F614D1E2D315A00DF43D0 /* ProductCell.xib in Resources */,
 				0BF73C691E24DB5B00D07BAB /* WeLoginScreenletView.xib in Resources */,
@@ -654,7 +658,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeDeployApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.WeDeployApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -670,7 +674,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeDeployApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.WeDeployApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
