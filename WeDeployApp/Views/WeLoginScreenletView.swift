@@ -52,6 +52,11 @@ public class WeLoginScreenletView : BaseScreenletView {
 	open override func awakeFromNib() {
 		super.awakeFromNib()
 
+		if UIScreen.main.bounds.height < 570 {
+			bottomConstraint.constant = 180
+			topConstraint.constant = 110
+		}
+
 		initialBottomConstraintConstant = bottomConstraint.constant
 		initialTopContraintConstant = topConstraint.constant
 

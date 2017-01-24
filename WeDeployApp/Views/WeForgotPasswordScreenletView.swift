@@ -32,6 +32,11 @@ class WeForgotPasswordScreenletView: BaseScreenletView {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
+		if UIScreen.main.bounds.height < 570 {
+			bottomConstraint.constant = 180
+			topConstraint.constant = 130
+		}
+
 		initialBottomConstraintConstant = bottomConstraint.constant
 		initialTopContraintConstant = topConstraint.constant
 

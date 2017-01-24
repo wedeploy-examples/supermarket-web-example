@@ -71,6 +71,11 @@ class WeSignUpScreenletView: BaseScreenletView {
 
 		addSubview(floatingView)
 
+		if UIScreen.main.bounds.height < 570 {
+			bottomConstraint.constant = 180
+			topConstraint.constant = 130
+		}
+
 		keyboardDismisser = KeyboardDismisserOnClick(forView: self)
 
 		initialBottomConstraintConstant = bottomConstraint.constant
