@@ -21,20 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nx9-pi-Th5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreenfinal.png" translatesAutoresizingMaskIntoConstraints="NO" id="5bR-UD-yZZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.02727865614" green="0.87290275100000003" blue="0.52181804180000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Nx9-pi-Th5" secondAttribute="trailing" id="b1E-kh-9ru"/>
-                            <constraint firstItem="Nx9-pi-Th5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="b8A-el-G6V"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Nx9-pi-Th5" secondAttribute="bottom" id="fl3-de-L0J"/>
-                            <constraint firstItem="Nx9-pi-Th5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="h5L-BN-isW"/>
-                            <constraint firstItem="Nx9-pi-Th5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="lEe-8J-Sub"/>
-                            <constraint firstItem="Nx9-pi-Th5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="mjH-c9-BDU"/>
-                            <constraint firstAttribute="trailing" secondItem="Nx9-pi-Th5" secondAttribute="trailing" id="nrR-Ot-zgt"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Nx9-pi-Th5" secondAttribute="bottom" id="uPL-OV-qCt"/>
+                            <constraint firstItem="5bR-UD-yZZ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="7g9-or-FJe"/>
+                            <constraint firstItem="5bR-UD-yZZ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="JPI-JY-oSe"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="5bR-UD-yZZ" secondAttribute="bottom" id="beV-Zd-c2G"/>
+                            <constraint firstAttribute="trailing" secondItem="5bR-UD-yZZ" secondAttribute="trailing" id="x0v-dZ-6cf"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreen1.png" width="640" height="1136"/>
+        <image name="launchscreenfinal.png" width="640" height="1136"/>
     </resources>
 </document>

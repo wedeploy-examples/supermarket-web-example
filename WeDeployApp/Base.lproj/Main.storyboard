@@ -50,10 +50,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jar-N7-2sy">
-                                <rect key="frame" x="20" y="477" width="280" height="60"/>
+                                <rect key="frame" x="20" y="487" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.054901960784313725" green="0.074509803921568626" blue="0.10196078431372549" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="kBN-8Y-8Ui"/>
+                                    <constraint firstAttribute="height" constant="50" id="kBN-8Y-8Ui"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="16"/>
                                 <state key="normal" title="Log in">
@@ -64,9 +64,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzI-LP-fjb" customClass="WeColorButton" customModule="WeDeployApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="405" width="280" height="60"/>
+                                <rect key="frame" x="20" y="425" width="280" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="FrH-Bt-7UJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="FrH-Bt-7UJ"/>
                                 </constraints>
                                 <state key="normal" title="Sign up"/>
                                 <userDefinedRuntimeAttributes>
