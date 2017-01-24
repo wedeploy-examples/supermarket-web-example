@@ -159,7 +159,7 @@ class WeDataListScreenletView: BaseListScreenletView {
 
 		addSubview(animationImageView)
 
-		itemWidth = self.frame.width
+		itemWidth = UIScreen.main.bounds.width
 
 		spinner.startAnimating()
 
