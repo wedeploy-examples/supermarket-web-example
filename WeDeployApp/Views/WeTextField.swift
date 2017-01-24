@@ -35,7 +35,9 @@ class BorderLessTextField: UITextField {
 
 		textColor = .WeTextFieldTextColor
 
-		font = UIFont.semiboldWeFont(ofSize: 16)
+		let fontSize: CGFloat = UIScreen.main.bounds.width > 340 ? 16 : 14
+
+		font = UIFont.semiboldWeFont(ofSize: fontSize)
 
 		tintColor = .mainColor
 	}
@@ -73,7 +75,7 @@ class BorderLessTextField: UITextField {
 
 	override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
 
-		return CGRect(x: self.frame.maxX - 70, y: 10, width: 40, height: 40)
+		return CGRect(x: self.frame.maxX - bounds.height-10, y: 10, width: bounds.height-20, height: bounds.height-20)
 	}
     
     open func setErrorAppearance() {

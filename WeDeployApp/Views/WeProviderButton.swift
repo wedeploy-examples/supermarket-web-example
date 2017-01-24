@@ -50,7 +50,8 @@ import WeDeploy
 
 		setTitle(providerSettings.icon, for: .normal)
 		setTitleColor(.white, for: .normal)
-		titleLabel?.font = UIFont.iconFont12px(ofSize: 24)
+		let fontSize: CGFloat = UIScreen.main.bounds.width > 340 ? 24: 20
+		titleLabel?.font = UIFont.iconFont12px(ofSize: fontSize)
 
 		layer.cornerRadius = 4
 	}
