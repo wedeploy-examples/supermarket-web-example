@@ -16,8 +16,8 @@ public class Product {
 		type = jsonObject.optString("type", "");
 	}
 
-	public String getFilename() {
-		return filename;
+	public String getImageUrl() {
+		return "http://public.supermarket.wedeploy.io/assets/images/" + filename;
 	}
 
 	public double getPrice() {
