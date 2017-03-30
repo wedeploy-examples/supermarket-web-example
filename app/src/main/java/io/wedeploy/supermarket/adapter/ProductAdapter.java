@@ -36,7 +36,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
 	public void setItems(List<Product> products) {
 		this.products.clear();
-		this.products.addAll(products);
+
+		if (products != null) {
+			this.products.addAll(products);
+		}
+
 		notifyDataSetChanged();
 	}
 
