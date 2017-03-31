@@ -1,16 +1,42 @@
 <resources>
 
-	<!-- Base application theme. -->
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-		<!-- Customize your theme here. -->
-		<item name="colorPrimary">@color/colorPrimary</item>
-		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-		<item name="colorAccent">@color/colorAccent</item>
-	</style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textAppearanceSmall">@style/WeTextAppearance.Small</item>
+        <item name="android:textAppearanceLarge">@style/WeTextAppearance.Large</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonStyle">@style/WeButton</item>
+        <item name="editTextStyle">@style/WeEditText</item>
+    </style>
 
-	<style name="AppTheme.NoActionBar" parent="AppTheme">
-		<item name="windowActionBar">false</item>
-		<item name="windowNoTitle">true</item>
-	</style>
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="WeButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/we_button_background</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WeEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/we_edittext_background</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="backgroundTint">@color/we_edittext_selector</item>
+        <item name="android:textColor">@color/editTextColor</item>
+        <item name="android:textColorHint">@color/editTextColorHint</item>
+        <item name="colorControlNormal">@color/we_edittext_background_default</item>
+        <item name="colorControlActivated">@color/we_edittext_background_focused</item>
+    </style>
+
+    <style name="WeTextAppearance.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WeTextAppearance.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
 
 </resources>
