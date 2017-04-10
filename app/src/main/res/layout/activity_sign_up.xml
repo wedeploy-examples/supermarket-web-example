@@ -35,15 +35,27 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-            <include
-                layout="@layout/sign_up_step_fields"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <include
-                layout="@layout/sign_up_step_fields"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    style="@style/WeTextAppearance.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="27dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/whats_your_name"
+                    android:textColor="@color/sign_up_title_color"
+                    android:textSize="26dp"
+                    tools:text="@string/whats_your_name" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,12 +63,35 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/title"
                     style="@style/WeTextAppearance.Large"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="27dp"
                     android:gravity="center_horizontal"
+                    android:text="@string/and_your_email"
+                    android:textColor="@color/sign_up_title_color"
+                    android:textSize="26dp"
+                    tools:text="@string/and_your_email" />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="textEmailAddress" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/WeTextAppearance.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="27dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/now_create_a_password"
                     android:textColor="@color/sign_up_title_color"
                     android:textSize="26dp" />
 
@@ -68,7 +103,7 @@
                     app:passwordToggleEnabled="true">
 
                     <EditText
-                        android:id="@+id/value"
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:inputType="textPassword" />
