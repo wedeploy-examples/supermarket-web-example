@@ -3,6 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textAppearanceSmall">@style/WeTextAppearance.Small</item>
         <item name="android:textAppearanceLarge">@style/WeTextAppearance.Large</item>
+        <item name="android:windowBackground">@android:color/white</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -18,6 +19,7 @@
     <style name="WeButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/we_button_background</item>
         <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/colorAccent</item>
     </style>
 
     <style name="WeEditText" parent="Widget.AppCompat.EditText">

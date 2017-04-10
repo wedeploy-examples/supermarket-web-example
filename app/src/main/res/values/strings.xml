@@ -6,4 +6,6 @@
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="password">password</string>
     <string name="log_in">Log in</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 </resources>
