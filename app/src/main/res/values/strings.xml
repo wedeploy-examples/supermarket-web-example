@@ -10,5 +10,6 @@
     <string name="previous">Previous</string>
     <string name="and_your_email">And your email?</string>
     <string name="now_create_a_password">Now, create a password</string>
+    <string name="sign_up">Sign up</string>
     <string name="whats_your_name">Whats your name?</string>
 </resources>

@@ -3,12 +3,13 @@ package io.wedeploy.supermarket.view;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
-import android.support.transition.TransitionManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -30,19 +31,19 @@ public class StepLayout extends FrameLayout {
     public StepLayout(@NonNull Context context) {
         super(context);
 
-        init();
+        init(null);
     }
 
     public StepLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
-        init();
+        init(attrs);
     }
 
     public StepLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        init();
+        init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -51,7 +52,11 @@ public class StepLayout extends FrameLayout {
 
         super(context, attrs, defStyleAttr, defStyleRes);
 
-        init();
+        init(attrs);
+    }
+
+    public void setOnDoneClickListener(OnClickListener doneAction) {
+        this.doneAction = doneAction;
     }
 
     public List<View> getStepViews() {
@@ -82,10 +87,17 @@ public class StepLayout extends FrameLayout {
         nextButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewAnimator.showNext();
-
-                setProgress();
-                setPreviousButtonVisiblity();
+                if (isLastView()) {
+                    if (doneAction != null) {
+                        doneAction.onClick(nextButton);
+                    }
+                }
+                else {
+                    viewAnimator.showNext();
+                    setProgress();
+                    setNextButtonLabel();
+                    setPreviousButtonVisiblity();
+                }
             }
         });
 
@@ -95,6 +107,7 @@ public class StepLayout extends FrameLayout {
                 viewAnimator.showPrevious();
 
                 setProgress();
+                setNextButtonLabel();
                 setPreviousButtonVisiblity();
             }
         });
@@ -120,6 +133,19 @@ public class StepLayout extends FrameLayout {
         }
 
         viewAnimator.setDisplayedChild(0);
+    }
+
+    private boolean isLastView() {
+        return getCurrentIndex() == viewAnimator.getChildCount() - 1;
+    }
+
+    private void setNextButtonLabel() {
+        if (isLastView()) {
+            nextButton.setText(doneButtonText);
+        }
+        else {
+            nextButton.setText(R.string.next);
+        }
     }
 
     private void setPreviousButtonVisiblity() {
@@ -152,10 +178,21 @@ public class StepLayout extends FrameLayout {
         return viewAnimator.indexOfChild(viewAnimator.getCurrentView());
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.step_layout, this);
+    private void init(AttributeSet attributes) {
+        Context context = getContext();
+
+        inflate(context, R.layout.step_layout, this);
+
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(
+                attributes, R.styleable.StepLayout, 0, 0);
+
+        doneButtonText = typedArray.getResourceId(R.styleable.StepLayout_doneButtonText, 0);
     }
 
+    private OnClickListener doneAction;
+
+    @StringRes
+    private int doneButtonText;
     private Button nextButton;
     private Button previousButton;
     private ProgressBar progressBar;
