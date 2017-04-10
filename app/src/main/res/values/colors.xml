@@ -8,5 +8,6 @@
 	<color name="textColor">#3E4348</color>
 	<color name="editTextColor">#CC0E141A</color>
 	<color name="editTextColorHint">#4D0E141A</color>
+	<color name="sign_up_title_color">#CC0E141A</color>
     <color name="step_previous_button_color">#E6E7E8</color>
 </resources>
