@@ -12,4 +12,5 @@
     <string name="now_create_a_password">Now, create a password</string>
     <string name="sign_up">Sign up</string>
     <string name="whats_your_name">Whats your name?</string>
+    <string name="already_have_an_account_log_in">Already have an account? <font fgcolor="#FF4040">Log in</font></string>
 </resources>
