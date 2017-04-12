@@ -5,11 +5,9 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-
-import java.util.List;
 
 import io.wedeploy.supermarket.databinding.ActivitySignUpBinding;
+import io.wedeploy.supermarket.login.LoginActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 

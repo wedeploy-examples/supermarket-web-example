@@ -27,7 +27,7 @@
             android:windowSoftInputMode="adjustPan" />/>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 

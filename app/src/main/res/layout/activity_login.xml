@@ -6,7 +6,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="io.wedeploy.supermarket.LoginActivity">
+        tools:context="io.wedeploy.supermarket.login.LoginActivity">
 
         <TextView
             android:id="@+id/textView2"
@@ -30,14 +30,14 @@
             android:layout_marginTop="40dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/password"
+            app:layout_constraintBottom_toTopOf="@+id/passwordInputLayout"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/guideline4"
             app:layout_constraintRight_toLeftOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/password"
+            android:id="@+id/passwordInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -53,6 +53,7 @@
             app:passwordToggleEnabled="true">
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="@string/password"
@@ -89,7 +90,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/guideline4"
             app:layout_constraintRight_toLeftOf="@+id/guideline5"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
 
         <TextView
             android:id="@+id/signUpButton"

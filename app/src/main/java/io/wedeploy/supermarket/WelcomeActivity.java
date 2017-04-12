@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import io.wedeploy.supermarket.databinding.ActivityWelcomeBinding;
+import io.wedeploy.supermarket.login.LoginActivity;
 
 /**
  * @author Silvio Santos
