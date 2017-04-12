@@ -17,6 +17,13 @@ public class SupermarketAuth {
             .execute(callback);
     }
 
-    private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
+    public void resetPassword(String email, Callback callback) {
+        WeDeploy weDeploy = new WeDeploy.Builder().build();
 
+        weDeploy.auth(AUTH_URL)
+                .sendPasswordResetEmail(email)
+                .execute(callback);
+    }
+
+    private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
 }

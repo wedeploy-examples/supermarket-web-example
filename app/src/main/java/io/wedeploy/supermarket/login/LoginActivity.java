@@ -12,6 +12,7 @@ import io.wedeploy.supermarket.MainActivity;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.SignUpActivity;
 import io.wedeploy.supermarket.databinding.ActivityLoginBinding;
+import io.wedeploy.supermarket.resetpassword.ResetPasswordActivity;
 
 /**
  * @author Silvio Santos
@@ -39,6 +40,13 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
                 String password = binding.password.getText().toString();
 
                 LoginRequest.login(LoginActivity.this, email, password);
+            }
+        });
+
+        binding.forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
             }
         });
     }

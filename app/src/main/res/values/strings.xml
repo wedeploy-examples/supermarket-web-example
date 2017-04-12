@@ -13,4 +13,7 @@
     <string name="sign_up">Sign up</string>
     <string name="whats_your_name">Whats your name?</string>
     <string name="already_have_an_account_log_in">Already have an account? <font fgcolor="#FF4040">Log in</font></string>
+    <string name="reset_password">Reset Password</string>
+    <string name="we_will_send_you_a_link_to_reset_your_password">We will send you a link to reset your password</string>
+    <string name="send_reset_instructions">Send Reset Instructions</string>
 </resources>
