@@ -38,7 +38,7 @@ public class LoginRequest extends Fragment {
         super.onAttach(context);
 
         if (context instanceof LoginActivity) {
-            this.listener = (LoginActivity)context;
+            this.listener = (LoginListener)context;
         }
     }
 
