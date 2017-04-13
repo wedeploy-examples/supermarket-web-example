@@ -16,7 +16,8 @@ import io.wedeploy.supermarket.model.Product;
 /**
  * @author Silvio Santos
  */
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Product>> {
+public class MainActivity extends AppCompatActivity
+    implements LoaderManager.LoaderCallbacks<List<Product>> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

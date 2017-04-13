@@ -22,4 +22,5 @@
     <string name="the_email_should_arrive_within_a_few_minuts">The email should arrive within a few minutes</string>
     <string name="invalid_email">Ops! Invalid email</string>
     <string name="your_full_name">your full name</string>
+    <string name="signing_up">Signing up</string>
 </resources>

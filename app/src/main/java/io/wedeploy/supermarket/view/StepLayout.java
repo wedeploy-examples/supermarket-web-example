@@ -69,6 +69,14 @@ public class StepLayout extends FrameLayout {
         return stepViews;
     }
 
+    public Button getNextButton() {
+        return nextButton;
+    }
+
+    public Button getPreviousButton() {
+        return previousButton;
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
