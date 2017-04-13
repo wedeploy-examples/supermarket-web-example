@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="SocialLoginInButtons">
+        <attr name="title" format="string" />
+    </declare-styleable>
+
     <declare-styleable name="StepLayout">
         <attr name="doneButtonText" format="string" />
     </declare-styleable>

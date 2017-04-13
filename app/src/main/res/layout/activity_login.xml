@@ -19,14 +19,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
             android:id="@+id/email"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:layout_marginTop="40dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
@@ -41,8 +40,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:layout_marginTop="12dp"
             app:hintAnimationEnabled="false"
             app:hintEnabled="false"
@@ -65,12 +62,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:gravity="center_horizontal"
             android:text="@string/forgot_your_password"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+            app:layout_constraintBottom_toTopOf="@+id/socialLoginInButtons"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@+id/guideline4"
             app:layout_constraintRight_toLeftOf="@+id/guideline5"
@@ -81,8 +76,6 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:text="@string/log_in"
             android:textColor="@android:color/white"
             android:textSize="16sp"
@@ -91,6 +84,16 @@
             app:layout_constraintLeft_toLeftOf="@+id/guideline4"
             app:layout_constraintRight_toLeftOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout" />
+
+        <io.wedeploy.supermarket.view.SocialLoginInButtons
+            android:id="@+id/socialLoginInButtons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
             android:id="@+id/signUpButton"
@@ -109,13 +112,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="20dp" />
+            app:layout_constraintGuide_begin="20dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="81dp" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="20dp" />
+            app:layout_constraintGuide_end="20dp"
+            tools:layout_editor_absoluteX="391dp"
+            tools:layout_editor_absoluteY="81dp" />
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -14,4 +14,6 @@
 	<color name="text_light">#9EA0A2</color>
 	<color name="sign_up_title_color">#CC0E141A</color>
     <color name="step_previous_button_color">#E6E7E8</color>
+    <color name="social_google_button_background">#4285f4</color>
+	<color name="social_facebook_button_background">#3B5998</color>
 </resources>

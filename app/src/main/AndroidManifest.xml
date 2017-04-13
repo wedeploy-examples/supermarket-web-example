@@ -24,12 +24,24 @@
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />/>
+            android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
+
+        <activity android:name=".OAuthActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="io.wedeploy.supermarket"
+                    android:scheme="oauth-wedeploy" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".resetpassword.ResetPasswordActivity"

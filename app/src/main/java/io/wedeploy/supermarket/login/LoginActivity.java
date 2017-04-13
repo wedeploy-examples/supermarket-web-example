@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.wedeploy.sdk.auth.Auth;
+import com.wedeploy.sdk.auth.TokenAuth;
 import com.wedeploy.sdk.transport.Response;
 
 import io.wedeploy.supermarket.MainActivity;
@@ -55,6 +57,18 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
                     REQUEST_RESET_PASSWORD);
             }
         });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        Auth auth = TokenAuth.getAuthFromIntent(intent);
+
+        if (auth != null) {
+            startActivity(new Intent(this, MainActivity.class));
+            finishAffinity();
+        }
     }
 
     @Override
