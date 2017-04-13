@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket.login;
+package io.wedeploy.supermarket;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,23 +10,21 @@ import android.support.v7.app.AppCompatActivity;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
 
-import io.wedeploy.supermarket.SupermarketAuth;
+import io.wedeploy.supermarket.login.LoginActivity;
 
 /**
  * @author Silvio Santos
  */
-public class LoginRequest extends Fragment {
+public class SignUpRequest extends Fragment {
 
-    public static final String TAG = "loginRequest";
+    public static void signUp(
+            AppCompatActivity activity, String email, String password, String name) {
 
-    public LoginRequest() {
-        setRetainInstance(true);
-    }
-
-    public static void login(AppCompatActivity activity, String email, String password) {
-        LoginRequest request = new LoginRequest();
+        SignUpRequest request = new SignUpRequest();
+        request.setRetainInstance(true);
         request.email = email;
         request.password = password;
+        request.name = name;
 
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
         transaction.add(request, TAG);
@@ -37,8 +35,8 @@ public class LoginRequest extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if (context instanceof LoginListener) {
-            this.listener = (LoginListener)context;
+        if (context instanceof SignUpListener) {
+            this.listener = (SignUpListener) context;
         }
     }
 
@@ -47,21 +45,24 @@ public class LoginRequest extends Fragment {
         super.onCreate(savedInstanceState);
 
         SupermarketAuth auth = new SupermarketAuth();
-        auth.login(email, password, new Callback() {
+        auth.signUp(email, password, name, new Callback() {
             @Override
             public void onSuccess(Response response) {
-                listener.onLoginSuccess(response);
+                listener.onSignUpSuccess(response);
             }
 
             @Override
             public void onFailure(Exception e) {
-                listener.onLoginFailed(e);
+                listener.onSignUpFailed(e);
             }
         });
     }
 
-    private String password;
+    private static final String TAG = SignUpActivity.class.getSimpleName();
+
     private String email;
-    private LoginListener listener;
+    private SignUpListener listener;
+    private String password;
+    private String name;
 
 }

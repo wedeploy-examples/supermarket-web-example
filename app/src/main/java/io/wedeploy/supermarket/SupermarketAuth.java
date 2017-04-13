@@ -25,5 +25,13 @@ public class SupermarketAuth {
                 .execute(callback);
     }
 
+    public void signUp(String email, String password, String name, Callback callback) {
+        WeDeploy weDeploy = new WeDeploy.Builder().build();
+
+        weDeploy.auth(AUTH_URL)
+                .createUser(email, password, name)
+                .execute(callback);
+    }
+
     private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
 }
