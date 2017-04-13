@@ -18,4 +18,7 @@
     <string name="send_reset_instructions">Send Reset Instructions</string>
     <string name="invalid_email_or_password">Ops! Invalid email or password</string>
     <string name="logging_in">Logging in</string>
+    <string name="sending_reset_instructions">Sending reset instructions</string>
+    <string name="the_email_should_arrive_within_a_few_minuts">The email should arrive within a few minutes</string>
+    <string name="invalid_email">Ops! Invalid email</string>
 </resources>

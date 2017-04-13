@@ -50,9 +50,21 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         binding.forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
+                startActivityForResult(
+                    new Intent(LoginActivity.this, ResetPasswordActivity.class),
+                    REQUEST_RESET_PASSWORD);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ((requestCode == REQUEST_RESET_PASSWORD) &&  (resultCode == RESULT_OK)) {
+            AlertMessage.showMessage(
+                this, getString(R.string.the_email_should_arrive_within_a_few_minuts));
+        }
     }
 
     @Override
@@ -79,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         binding.signInButton.setEnabled(enable);
     }
 
+    private static final int REQUEST_RESET_PASSWORD = 1;
 
     private ActivityLoginBinding binding;
 

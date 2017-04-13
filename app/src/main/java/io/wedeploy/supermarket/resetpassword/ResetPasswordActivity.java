@@ -10,6 +10,7 @@ import com.wedeploy.sdk.transport.Response;
 
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.databinding.ActivityResetPasswordBinding;
+import io.wedeploy.supermarket.view.AlertMessage;
 
 /**
  * @author Silvio Santos
@@ -25,6 +26,9 @@ public class ResetPasswordActivity extends AppCompatActivity implements ResetPas
         binding.resetPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                enableFields(false);
+                binding.resetPasswordButton.setText(R.string.sending_reset_instructions);
+
                 ResetPasswordRequest.resetPassword(
                         ResetPasswordActivity.this, binding.editText.getText().toString());
             }
@@ -34,12 +38,21 @@ public class ResetPasswordActivity extends AppCompatActivity implements ResetPas
 
     @Override
     public void onResetPasswordSuccess(Response response) {
+        setResult(RESULT_OK);
         finish();
     }
 
     @Override
     public void onResetPasswordFailed(Exception e) {
-        System.out.println("ResetPasswordActivity.onResetPasswordFailed");
+        enableFields(true);
+        binding.resetPasswordButton.setText(R.string.send_reset_instructions);
+
+        AlertMessage.showMessage(this, getString(R.string.invalid_email));
+    }
+
+    private void enableFields(boolean enable) {
+        binding.editText.setEnabled(enable);
+        binding.resetPasswordButton.setEnabled(enable);
     }
 
     private ActivityResetPasswordBinding binding;
