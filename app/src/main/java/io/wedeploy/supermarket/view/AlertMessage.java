@@ -3,6 +3,7 @@ package io.wedeploy.supermarket.view;
 import android.app.Dialog;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +51,18 @@ public class AlertMessage extends DialogFragment {
         binding.message.setText(bundle.getString(MESSAGE));
 
         return dialog;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dismissAllowingStateLoss();
+            }
+        }, 5000);
     }
 
     private static final String MESSAGE = "message";

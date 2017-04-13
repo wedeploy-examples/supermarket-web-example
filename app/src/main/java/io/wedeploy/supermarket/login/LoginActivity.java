@@ -13,6 +13,7 @@ import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.SignUpActivity;
 import io.wedeploy.supermarket.databinding.ActivityLoginBinding;
 import io.wedeploy.supermarket.resetpassword.ResetPasswordActivity;
+import io.wedeploy.supermarket.view.AlertMessage;
 
 /**
  * @author Silvio Santos
@@ -36,6 +37,9 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         binding.signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                enableFields(false);
+                binding.signInButton.setText(R.string.logging_in);
+
                 String email = binding.email.getText().toString();
                 String password = binding.password.getText().toString();
 
@@ -63,7 +67,16 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
     public void onLoginFailed(Exception exception) {
         if (isFinishing()) return;
 
-        System.out.println("LoginActivity.onLoginFailed");
+        enableFields(true);
+        binding.signInButton.setText(R.string.log_in);
+
+        AlertMessage.showMessage(this, getString(R.string.invalid_email_or_password));
+    }
+
+    private void enableFields(boolean enable) {
+        binding.password.setEnabled(enable);
+        binding.email.setEnabled(enable);
+        binding.signInButton.setEnabled(enable);
     }
 
 
