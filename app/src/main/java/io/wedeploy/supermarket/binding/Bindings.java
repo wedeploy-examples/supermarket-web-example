@@ -33,4 +33,9 @@ public class Bindings {
 		Font.setFont(button, fontName);
 	}
 
+	@BindingAdapter({"font"})
+	public static void font(TextView textView, String fontName) {
+		Font.setFont(textView, fontName);
+	}
+
 }
