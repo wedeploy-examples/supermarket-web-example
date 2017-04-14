@@ -16,6 +16,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBar.LightStatusBar" parent="AppTheme.NoActionBar">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
     <style name="WeButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/we_button_background</item>
         <item name="android:textStyle">bold</item>

@@ -23,12 +23,12 @@
 
         <activity
             android:name=".SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar.LightStatusBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".login.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar.LightStatusBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity android:name=".OAuthActivity">
@@ -45,7 +45,7 @@
 
         <activity
             android:name=".resetpassword.ResetPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar.LightStatusBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity android:name=".MainActivity" />
