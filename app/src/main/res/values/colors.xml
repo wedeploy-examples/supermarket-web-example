@@ -9,6 +9,7 @@
 	<color name="we_button_background_disabled">#99FF4040</color>
 	<color name="we_button_background_pressed">#CCFF4040</color>
 	<color name="textColor">#3E4348</color>
+	<color name="textColor2">#E60E141A</color>
 	<color name="editTextColor">#CC0E141A</color>
 	<color name="text_light2">#4D0E141A</color>
 	<color name="text_light">#9EA0A2</color>

@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import io.wedeploy.supermarket.R;
@@ -35,6 +37,14 @@ public class FilterBarView extends FrameLayout {
         init();
     }
 
+    public String getFilter() {
+        return binding.filter.getText().toString();
+    }
+
+    public void setFilter(String filter) {
+        binding.filter.setText(filter);
+    }
+
     private void init() {
         inflate(getContext(), R.layout.filter_bar_view, this);
 
@@ -42,6 +52,17 @@ public class FilterBarView extends FrameLayout {
             return;
         }
 
-        FilterBarViewBinding.bind(getChildAt(0));
+        binding = FilterBarViewBinding.bind(getChildAt(0));
+        binding.container.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FilterBottomSheet.show((AppCompatActivity)getContext());
+
+            }
+        });
+
     }
+
+    private FilterBarViewBinding binding;
+
 }

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Supermarket</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="all">All</string>
     <string name="dont_you_have_an_account_sign_up">Don\'t you have an account? <font fgcolor="#FF4040">Sign up</font></string>
     <string name="email">email</string>
     <string name="forgot_your_password">Forgot your password?</string>
@@ -25,4 +26,13 @@
     <string name="signing_up">Signing up</string>
     <string name="log_in_using_your_social_network_account">Log in using your social network account</string>
     <string name="or_sign_up_using_your_social_network_account">Or sign up using your social network account</string>
+
+    <string-array name="filter">
+        <item>@string/all</item>
+        <item>Bakery</item>
+        <item>Dairy</item>
+        <item>Fruit</item>
+        <item>Vegetable</item>
+        <item>Meat</item>
+    </string-array>
 </resources>

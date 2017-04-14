@@ -18,8 +18,10 @@ import io.wedeploy.supermarket.repository.SupermarketRepository;
  */
 public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
 
-    public ProductsLoader(Context context) {
+    public ProductsLoader(Context context, String filter) {
         super(context);
+
+        this.filter = filter;
     }
 
     @Override
@@ -35,7 +37,9 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
     @Override
     public List<Product> loadInBackground() {
         try {
-            products = repository.getProducts();
+            String type = ("all".equalsIgnoreCase(filter)) ? null : filter;
+
+            products = repository.getProducts(type);
 
             return products;
         }
@@ -46,7 +50,8 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
         return null;
     }
 
-    private SupermarketRepository repository = new SupermarketRepository();
+    private final String filter;
     private List<Product> products;
+    private SupermarketRepository repository = new SupermarketRepository();
 
 }
