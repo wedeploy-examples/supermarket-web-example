@@ -60,7 +60,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpListener 
 
         enableFields(true);
         binding.steps.getNextButton().setText(R.string.sign_up);
-        AlertMessage.showMessage(this, "Could not sign up");
+        AlertMessage.showErrorMessage(this, "Could not sign up");
     }
 
 

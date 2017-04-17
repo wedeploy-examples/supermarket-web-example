@@ -47,7 +47,7 @@ public class ResetPasswordActivity extends AppCompatActivity implements ResetPas
         enableFields(true);
         binding.resetPasswordButton.setText(R.string.send_reset_instructions);
 
-        AlertMessage.showMessage(this, getString(R.string.invalid_email));
+        AlertMessage.showErrorMessage(this, getString(R.string.invalid_email));
     }
 
     private void enableFields(boolean enable) {

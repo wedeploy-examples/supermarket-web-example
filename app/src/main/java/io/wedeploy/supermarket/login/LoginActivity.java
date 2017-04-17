@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         super.onActivityResult(requestCode, resultCode, data);
 
         if ((requestCode == REQUEST_RESET_PASSWORD) &&  (resultCode == RESULT_OK)) {
-            AlertMessage.showMessage(
+            AlertMessage.showSuccessMessage(
                 this, getString(R.string.the_email_should_arrive_within_a_few_minuts));
         }
     }
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         enableFields(true);
         binding.signInButton.setText(R.string.log_in);
 
-        AlertMessage.showMessage(this, getString(R.string.invalid_email_or_password));
+        AlertMessage.showErrorMessage(this, getString(R.string.invalid_email_or_password));
     }
 
     private void enableFields(boolean enable) {
