@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="product"
             type="io.wedeploy.supermarket.model.Product" />
@@ -32,15 +33,19 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="@{product.title}"
             android:textColor="#8D8F91"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/imageView"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView"
             tools:text="Brown eggs" />
 
