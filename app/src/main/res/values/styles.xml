@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textAppearanceSmall">@style/WeTextAppearance.Small</item>
         <item name="android:textAppearanceLarge">@style/WeTextAppearance.Large</item>
         <item name="android:windowBackground">@android:color/white</item>

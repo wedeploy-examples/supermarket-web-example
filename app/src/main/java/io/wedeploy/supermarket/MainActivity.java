@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity
             binding.filterBarView.setFilter(getString(R.string.all));
         }
 
+        setSupportActionBar(binding.toolbar);
+
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
