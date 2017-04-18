@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
     }
 
     @Override
-    public void onLoginSuccess(Response response) {
+    public void onLoginSuccess() {
         if (isFinishing()) return;
 
         startActivity(new Intent(this, MainActivity.class));

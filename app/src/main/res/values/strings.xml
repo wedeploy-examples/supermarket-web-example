@@ -34,6 +34,7 @@
     <string name="cart">Cart</string>
     <string name="could_not_add_item_to_cart">Could not add item to cart</string>
     <string name="item_added_to_cart">Item added to cart</string>
+    <string name="could_not_sign_in_please_try_again">Could not log in. Please, try again</string>
 
     <string-array name="filter">
         <item>@string/all</item>

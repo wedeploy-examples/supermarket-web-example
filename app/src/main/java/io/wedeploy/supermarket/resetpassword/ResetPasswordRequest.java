@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
 
+import io.wedeploy.supermarket.Settings;
 import io.wedeploy.supermarket.SupermarketAuth;
 
 /**
@@ -45,7 +46,7 @@ public class ResetPasswordRequest extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SupermarketAuth auth = new SupermarketAuth();
+        SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
         auth.resetPassword(email, new Callback() {
             @Override
             public void onSuccess(Response response) {

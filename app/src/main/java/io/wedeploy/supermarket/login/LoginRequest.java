@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
@@ -14,6 +13,11 @@ import com.wedeploy.sdk.transport.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 import io.wedeploy.supermarket.Settings;
 import io.wedeploy.supermarket.SupermarketAuth;
 
@@ -51,31 +55,24 @@ public class LoginRequest extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SupermarketAuth auth = new SupermarketAuth();
-        auth.login(email, password, new Callback() {
-            @Override
-            public void onSuccess(Response response) {
-                try {
-                    saveToken(response);
-                    listener.onLoginSuccess(response);
+        SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
+        auth.signIn(email, password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableSingleObserver<Response>() {
+                    @Override
+                    public void onSuccess(Response response) {
+                        listener.onLoginSuccess();
+                    }
 
-                }
-                catch (JSONException e) {
-                    listener.onLoginFailed(e);
-                }
-            }
-
-            @Override
-            public void onFailure(Exception e) {
-                listener.onLoginFailed(e);
-            }
-        });
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onLoginFailed(new Exception(e));
+                    }
+                });
     }
 
-    private void saveToken(Response response) throws JSONException {
-        JSONObject tokenJsonObject = new JSONObject(response.getBody());
-        Settings.getInstance(getContext()).saveToken(tokenJsonObject.getString("access_token"));
-    }
+
 
     private String password;
     private String email;

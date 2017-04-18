@@ -13,6 +13,9 @@ import com.wedeploy.sdk.transport.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 import io.wedeploy.supermarket.login.LoginActivity;
 
 /**
@@ -21,7 +24,7 @@ import io.wedeploy.supermarket.login.LoginActivity;
 public class SignUpRequest extends Fragment {
 
     public static void signUp(
-            AppCompatActivity activity, String email, String password, String name) {
+        AppCompatActivity activity, String email, String password, String name) {
 
         SignUpRequest request = new SignUpRequest();
         request.setRetainInstance(true);
@@ -47,30 +50,21 @@ public class SignUpRequest extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SupermarketAuth auth = new SupermarketAuth();
-        auth.signUp(email, password, name, new Callback() {
-            @Override
-            public void onSuccess(Response response) {
-                try {
-                    saveToken(response);
-                    listener.onSignUpSuccess(response);
-                }
-                catch (JSONException e) {
-                    listener.onSignUpFailed(e);
-                }
+        SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
+        auth.signUp(email, password, name)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableSingleObserver<Response>() {
+                    @Override
+                    public void onSuccess(Response response) {
+                        listener.onSignUpSuccess(response);
+                    }
 
-            }
-
-            @Override
-            public void onFailure(Exception e) {
-                listener.onSignUpFailed(e);
-            }
-        });
-    }
-
-    private void saveToken(Response response) throws JSONException {
-        JSONObject tokenJsonObject = new JSONObject(response.getBody());
-        Settings.getInstance(getContext()).saveToken(tokenJsonObject.getString("access_token"));
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onSignUpFailed(new Exception(e));
+                    }
+                });
     }
 
     private static final String TAG = SignUpRequest.class.getSimpleName();
