@@ -4,49 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="io.wedeploy.supermarket.binding.Font" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/alert_container"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:minHeight="84dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_marginRight="20dp">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/we_rounded_background"
-            android:gravity="center"
-            android:text="@string/icon_error"
-            android:textColor="@android:color/white"
-            app:font="@{Font.ICONS_12}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginLeft="12dp"
-            android:ellipsize="end"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
             android:gravity="center_vertical"
-            android:maxLines="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toRightOf="@+id/icon"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="The email should arrive within a few minutes" />
-    </android.support.constraint.ConstraintLayout>
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <TextView
+                android:id="@+id/icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/we_rounded_background"
+                android:gravity="center"
+                android:text="@string/icon_error"
+                android:textColor="@android:color/white"
+                app:font="@{Font.ICONS_12}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toRightOf="@+id/icon"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="The email should arrive within a few minutes" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </layout>
