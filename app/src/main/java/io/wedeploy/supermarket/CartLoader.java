@@ -10,13 +10,14 @@ import org.json.JSONException;
 
 import java.util.List;
 
+import io.wedeploy.supermarket.model.CartProduct;
 import io.wedeploy.supermarket.model.Product;
 import io.wedeploy.supermarket.repository.SupermarketRepository;
 
 /**
  * @author Silvio Santos
  */
-public class CartLoader extends AsyncTaskLoader<List<Product>> {
+public class CartLoader extends AsyncTaskLoader<List<CartProduct>> {
 
     public CartLoader(Context context) {
         super(context);
@@ -35,7 +36,7 @@ public class CartLoader extends AsyncTaskLoader<List<Product>> {
     }
 
     @Override
-    public List<Product> loadInBackground() {
+    public List<CartProduct> loadInBackground() {
         try {
             products = repository.getCart();
 
@@ -48,7 +49,7 @@ public class CartLoader extends AsyncTaskLoader<List<Product>> {
         return null;
     }
 
-    private List<Product> products;
+    private List<CartProduct> products;
     private final SupermarketRepository repository;
 
 }

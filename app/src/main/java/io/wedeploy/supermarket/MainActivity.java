@@ -1,11 +1,13 @@
 package io.wedeploy.supermarket;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.List;
@@ -27,6 +29,12 @@ public class MainActivity extends AppCompatActivity
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.productsList.setAdapter(adapter);
+        binding.cartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CartActivity.class));
+            }
+        });
 
         if (savedInstanceState != null) {
             binding.filterBarView.setFilter(savedInstanceState.getString(STATE_FILTER));
@@ -36,7 +44,6 @@ public class MainActivity extends AppCompatActivity
         }
 
         setSupportActionBar(binding.toolbar);
-
         getSupportLoaderManager().initLoader(0, null, this);
     }
 

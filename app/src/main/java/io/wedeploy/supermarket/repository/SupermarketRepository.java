@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.wedeploy.supermarket.Settings;
+import io.wedeploy.supermarket.model.CartProduct;
 import io.wedeploy.supermarket.model.Product;
 
 import static com.wedeploy.sdk.query.filter.Filter.*;
@@ -30,23 +31,22 @@ public class SupermarketRepository {
                 .build();
     }
 
-    public List<Product> getCart() throws WeDeployException, JSONException {
+    public List<CartProduct> getCart() throws WeDeployException, JSONException {
         Response response = weDeploy
                 .data(DATA_URL)
                 .auth(settings.getToken())
-                .where(exists("filename"))
-                .orderBy("title")
+                .orderBy("productTitle")
                 .get("cart")
                 .execute();
 
         JSONArray jsonArray = new JSONArray(response.getBody());
-        List<Product> products = new ArrayList<>(50);
+        List<CartProduct> cartProducts = new ArrayList<>(50);
 
         for (int i = 0; i < jsonArray.length(); i++) {
-            products.add(new Product(jsonArray.getJSONObject(i)));
+            cartProducts.add(new CartProduct(jsonArray.getJSONObject(i)));
         }
 
-        return products;
+        return cartProducts;
     }
 
     public List<Product> getProducts(String type) throws WeDeployException, JSONException {

@@ -105,6 +105,7 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:paddingTop="8dp"
+            app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@+id/appBar"

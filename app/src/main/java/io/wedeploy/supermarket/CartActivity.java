@@ -10,15 +10,16 @@ import android.view.View;
 
 import java.util.List;
 
-import io.wedeploy.supermarket.adapter.ProductAdapter;
+import io.wedeploy.supermarket.adapter.CartAdapter;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
+import io.wedeploy.supermarket.model.CartProduct;
 import io.wedeploy.supermarket.model.Product;
 
 /**
  * @author Silvio Santos
  */
 public class CartActivity extends AppCompatActivity
-    implements LoaderManager.LoaderCallbacks<List<Product>> {
+    implements LoaderManager.LoaderCallbacks<List<CartProduct>> {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,12 +34,12 @@ public class CartActivity extends AppCompatActivity
     }
 
     @Override
-    public Loader<List<Product>> onCreateLoader(int id, Bundle args) {
+    public Loader<List<CartProduct>> onCreateLoader(int id, Bundle args) {
         return new CartLoader(this);
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Product>> loader, List<Product> products) {
+    public void onLoadFinished(Loader<List<CartProduct>> loader, List<CartProduct> products) {
         if (products == null) {
             return;
         }
@@ -62,6 +63,7 @@ public class CartActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 //TODO SEND EMAIL
+                finish();
             }
         });
     }
@@ -79,10 +81,10 @@ public class CartActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLoaderReset(Loader<List<Product>> loader) {
+    public void onLoaderReset(Loader<List<CartProduct>> loader) {
         adapter.setItems(null);
     }
 
-    private ProductAdapter adapter = new ProductAdapter();
+    private CartAdapter adapter = new CartAdapter();
     private ActivityCartBinding binding;
 }
