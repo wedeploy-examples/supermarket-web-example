@@ -28,6 +28,10 @@
     <string name="or_sign_up_using_your_social_network_account">Or sign up using your social network account</string>
     <string name="icon_error"></string>
     <string name="icon_success"></string>
+    <string name="icon_cart"></string>
+    <string name="start_shopping">Start shopping</string>
+    <string name="checkout">Checkout</string>
+    <string name="cart">Cart</string>
 
     <string-array name="filter">
         <item>@string/all</item>

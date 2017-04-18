@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/sign_up"
-            android:textColor="@color/sign_up_title_color"
+            android:textColor="@color/title_color"
             android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/steps"
             app:layout_constraintHorizontal_bias="0.501"
@@ -48,7 +48,7 @@
                     android:layout_marginBottom="27dp"
                     android:gravity="center_horizontal"
                     android:text="@string/whats_your_name"
-                    android:textColor="@color/sign_up_title_color"
+                    android:textColor="@color/title_color"
                     android:textSize="26dp"
                     tools:text="@string/whats_your_name" />
 
@@ -71,7 +71,7 @@
                     android:layout_marginBottom="27dp"
                     android:gravity="center_horizontal"
                     android:text="@string/and_your_email"
-                    android:textColor="@color/sign_up_title_color"
+                    android:textColor="@color/title_color"
                     android:textSize="26dp"
                     tools:text="@string/and_your_email" />
 
@@ -95,7 +95,7 @@
                     android:layout_marginBottom="27dp"
                     android:gravity="center_horizontal"
                     android:text="@string/now_create_a_password"
-                    android:textColor="@color/sign_up_title_color"
+                    android:textColor="@color/title_color"
                     android:textSize="26dp" />
 
                 <android.support.design.widget.TextInputLayout

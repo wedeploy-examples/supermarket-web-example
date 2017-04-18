@@ -49,6 +49,8 @@
             android:windowSoftInputMode="adjustPan" />
 
         <activity android:name=".MainActivity" />
+
+        <activity android:name=".CartActivity" />
     </application>
 
 </manifest>

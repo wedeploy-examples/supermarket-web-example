@@ -28,6 +28,25 @@ public class SupermarketRepository {
                 .build();
     }
 
+    public List<Product> getCart() throws WeDeployException, JSONException {
+        Response response = weDeploy
+                .data(DATA_URL)
+                .auth(new TokenAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsic3VwZXJtYXJrZXQiXSwic3ViIjoiMTg3OTAyMDY2MzY1NzY0MDczIiwic2NvcGUiOltdLCJpc3MiOiJzdXBlcm1hcmtldC53ZWRlcGxveS5pbyIsIm5hbWUiOiJGYWtlIE5hbWUiLCJpYXQiOjE0OTA4MTAxMDIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBpY3R1cmUiOm51bGwsInByb3ZpZGVycyI6e319.0wHxuvjhEs37D3cW4MdyUkQQvXMcd2iYVQwky8ClMrw="))
+                .where(exists("filename"))
+                .orderBy("title")
+                .get("cart")
+                .execute();
+
+        JSONArray jsonArray = new JSONArray(response.getBody());
+        List<Product> products = new ArrayList<>(50);
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            products.add(new Product(jsonArray.getJSONObject(i)));
+        }
+
+        return products;
+    }
+
     public List<Product> getProducts(String type) throws WeDeployException, JSONException {
         Filter typeFilter = (type != null) ? match("type", type) : not("type", "");
 

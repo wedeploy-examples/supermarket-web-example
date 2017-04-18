@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="27dp"
         android:gravity="center_horizontal"
-        android:textColor="@color/sign_up_title_color"
+        android:textColor="@color/title_color"
         android:textSize="26dp"
         tools:text="@string/whats_your_name" />
 
