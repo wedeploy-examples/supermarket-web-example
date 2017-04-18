@@ -18,6 +18,11 @@ public class WelcomeActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (Settings.getInstance(this).isLoggedIn()) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
+
         ActivityWelcomeBinding binding = DataBindingUtil.setContentView(
                 this, R.layout.activity_welcome);
 
