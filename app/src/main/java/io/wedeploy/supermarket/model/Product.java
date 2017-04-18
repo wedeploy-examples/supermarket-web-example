@@ -1,6 +1,11 @@
 package io.wedeploy.supermarket.model;
 
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
 import org.json.JSONObject;
+
+import io.wedeploy.supermarket.AddToCartRequest;
 
 /**
  * @author Silvio Santos
@@ -14,6 +19,10 @@ public class Product {
 		price = jsonObject.optDouble("price", 0);
 		title = jsonObject.optString("title", "");
 		type = jsonObject.optString("type", "");
+	}
+
+	public String getFilename() {
+		return filename;
 	}
 
 	public String getImageUrl() {
@@ -38,6 +47,11 @@ public class Product {
 
 	public String getType() {
 		return type;
+	}
+
+	public void onAddToCartButtonClick(View view) {
+		AppCompatActivity activity = (AppCompatActivity)view.getContext();
+		AddToCartRequest.addToCart(activity, this);
 	}
 
 	private String description;

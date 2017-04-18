@@ -1,5 +1,6 @@
 package io.wedeploy.supermarket.repository;
 
+import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.auth.TokenAuth;
 import com.wedeploy.sdk.exception.WeDeployException;
@@ -8,6 +9,7 @@ import com.wedeploy.sdk.transport.Response;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,20 @@ public class SupermarketRepository {
         this.settings = settings;
         this.weDeploy = new WeDeploy.Builder()
                 .build();
+    }
+
+    public void addToCart(Product product, Callback callback) throws JSONException {
+        JSONObject cartProductJsonObject = new JSONObject()
+                .put("productTitle", product.getTitle())
+                .put("productPrice", product.getPrice())
+                .put("productFilename", product.getFilename())
+                .put("productId", product.getId())
+                .put("userId", settings.getCurrentUserId());
+
+        weDeploy.data(DATA_URL)
+                .auth(settings.getToken())
+                .create("cart", cartProductJsonObject)
+                .execute(callback);
     }
 
     public List<CartProduct> getCart() throws WeDeployException, JSONException {

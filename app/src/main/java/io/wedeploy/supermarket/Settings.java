@@ -19,8 +19,8 @@ public class Settings {
         return instance;
     }
 
-    public boolean isLoggedIn() {
-        return getToken() != null;
+    public String getCurrentUserId() {
+        return preferences.getString(USER_ID, null);
     }
 
     public Auth getToken() {
@@ -35,6 +35,16 @@ public class Settings {
         return auth;
     }
 
+    public boolean isLoggedIn() {
+        return getToken() != null;
+    }
+
+    public void saveUser(String userId) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(USER_ID, userId);
+        editor.commit();
+    }
+
     public void saveToken(String token) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(USER_TOKEN, token);
@@ -45,6 +55,7 @@ public class Settings {
         preferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
     }
 
+    private static final String USER_ID = "userId";
     private static final String USER_TOKEN = "userToken";
 
     private final SharedPreferences preferences;

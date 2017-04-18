@@ -73,7 +73,7 @@ public class SignUpRequest extends Fragment {
         Settings.getInstance(getContext()).saveToken(tokenJsonObject.getString("access_token"));
     }
 
-    private static final String TAG = SignUpActivity.class.getSimpleName();
+    private static final String TAG = SignUpRequest.class.getSimpleName();
 
     private String email;
     private SignUpListener listener;
