@@ -23,6 +23,7 @@ public class OAuthActivity extends AppCompatActivity {
             finish();
         }
         else {
+            Settings.getInstance(this).saveToken(auth.getToken());
             startActivity(new Intent(this, MainActivity.class));
             finishAffinity();
         }

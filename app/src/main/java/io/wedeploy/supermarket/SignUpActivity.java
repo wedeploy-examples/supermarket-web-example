@@ -51,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpListener 
     public void onSignUpSuccess(Response response) {
         if (isFinishing()) return;
 
+        finishAffinity();
         startActivity(new Intent(this, MainActivity.class));
     }
 

@@ -6,10 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import io.wedeploy.supermarket.Settings;
 import io.wedeploy.supermarket.SupermarketAuth;
 
 /**
@@ -50,7 +55,14 @@ public class LoginRequest extends Fragment {
         auth.login(email, password, new Callback() {
             @Override
             public void onSuccess(Response response) {
-                listener.onLoginSuccess(response);
+                try {
+                    saveToken(response);
+                    listener.onLoginSuccess(response);
+
+                }
+                catch (JSONException e) {
+                    listener.onLoginFailed(e);
+                }
             }
 
             @Override
@@ -58,6 +70,11 @@ public class LoginRequest extends Fragment {
                 listener.onLoginFailed(e);
             }
         });
+    }
+
+    private void saveToken(Response response) throws JSONException {
+        JSONObject tokenJsonObject = new JSONObject(response.getBody());
+        Settings.getInstance(getContext()).saveToken(tokenJsonObject.getString("access_token"));
     }
 
     private String password;

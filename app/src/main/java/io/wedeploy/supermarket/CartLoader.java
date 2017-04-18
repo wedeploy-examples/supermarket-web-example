@@ -20,6 +20,8 @@ public class CartLoader extends AsyncTaskLoader<List<Product>> {
 
     public CartLoader(Context context) {
         super(context);
+
+        repository = new SupermarketRepository(Settings.getInstance(context));
     }
 
     @Override
@@ -47,6 +49,6 @@ public class CartLoader extends AsyncTaskLoader<List<Product>> {
     }
 
     private List<Product> products;
-    private SupermarketRepository repository = new SupermarketRepository();
+    private final SupermarketRepository repository;
 
 }

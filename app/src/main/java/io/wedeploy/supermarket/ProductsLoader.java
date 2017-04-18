@@ -22,6 +22,7 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
         super(context);
 
         this.filter = filter;
+        this.repository = new SupermarketRepository(Settings.getInstance(context));
     }
 
     @Override
@@ -52,6 +53,6 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
 
     private final String filter;
     private List<Product> products;
-    private SupermarketRepository repository = new SupermarketRepository();
+    private final SupermarketRepository repository;
 
 }

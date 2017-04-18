@@ -12,6 +12,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.wedeploy.supermarket.Settings;
 import io.wedeploy.supermarket.model.Product;
 
 import static com.wedeploy.sdk.query.filter.Filter.*;
@@ -23,15 +24,16 @@ import static com.wedeploy.sdk.query.filter.Filter.match;
  */
 public class SupermarketRepository {
 
-    public SupermarketRepository() {
-        weDeploy = new WeDeploy.Builder()
+    public SupermarketRepository(Settings settings) {
+        this.settings = settings;
+        this.weDeploy = new WeDeploy.Builder()
                 .build();
     }
 
     public List<Product> getCart() throws WeDeployException, JSONException {
         Response response = weDeploy
                 .data(DATA_URL)
-                .auth(new TokenAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsic3VwZXJtYXJrZXQiXSwic3ViIjoiMTg3OTAyMDY2MzY1NzY0MDczIiwic2NvcGUiOltdLCJpc3MiOiJzdXBlcm1hcmtldC53ZWRlcGxveS5pbyIsIm5hbWUiOiJGYWtlIE5hbWUiLCJpYXQiOjE0OTA4MTAxMDIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBpY3R1cmUiOm51bGwsInByb3ZpZGVycyI6e319.0wHxuvjhEs37D3cW4MdyUkQQvXMcd2iYVQwky8ClMrw="))
+                .auth(settings.getToken())
                 .where(exists("filename"))
                 .orderBy("title")
                 .get("cart")
@@ -52,7 +54,7 @@ public class SupermarketRepository {
 
         Response response = weDeploy
                 .data(DATA_URL)
-                .auth(new TokenAuth("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsic3VwZXJtYXJrZXQiXSwic3ViIjoiMTg3OTAyMDY2MzY1NzY0MDczIiwic2NvcGUiOltdLCJpc3MiOiJzdXBlcm1hcmtldC53ZWRlcGxveS5pbyIsIm5hbWUiOiJGYWtlIE5hbWUiLCJpYXQiOjE0OTA4MTAxMDIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsInBpY3R1cmUiOm51bGwsInByb3ZpZGVycyI6e319.0wHxuvjhEs37D3cW4MdyUkQQvXMcd2iYVQwky8ClMrw="))
+                .auth(settings.getToken())
                 .where(typeFilter.and(exists("filename")))
                 .orderBy("title")
                 .get("products")
@@ -69,7 +71,7 @@ public class SupermarketRepository {
     }
 
     private static final String DATA_URL = "http://data.supermarket.wedeploy.io";
-
-    private WeDeploy weDeploy;
+    private final Settings settings;
+    private final WeDeploy weDeploy;
 
 }

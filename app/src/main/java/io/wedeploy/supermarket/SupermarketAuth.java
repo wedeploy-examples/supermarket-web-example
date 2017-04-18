@@ -4,7 +4,16 @@ import android.app.Activity;
 
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
+import com.wedeploy.sdk.WeDeployAuth;
 import com.wedeploy.sdk.auth.AuthProvider;
+import com.wedeploy.sdk.transport.Response;
+
+import io.reactivex.SingleSource;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 import static com.wedeploy.sdk.auth.AuthProvider.Provider.GOOGLE;
 
@@ -30,12 +39,32 @@ public class SupermarketAuth {
                 .execute(callback);
     }
 
-    public void signUp(String email, String password, String name, Callback callback) {
-        WeDeploy weDeploy = new WeDeploy.Builder().build();
+    public void signUp(final String email, final String password, String name, final Callback callback) {
+        final WeDeployAuth weDeployAuth = new WeDeploy.Builder().build()
+                .auth(AUTH_URL);
 
-        weDeploy.auth(AUTH_URL)
-                .createUser(email, password, name)
-                .execute(callback);
+        weDeployAuth.createUser(email, password, name)
+                .asSingle()
+                .flatMap(new Function<Response, SingleSource<Response>>() {
+                    @Override
+                    public SingleSource<Response> apply(@NonNull Response response) throws Exception {
+                        return weDeployAuth.signIn(email, password).asSingle();
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Response>() {
+                       @Override
+                       public void accept(@NonNull Response response) throws Exception {
+                           callback.onSuccess(response);
+                       }
+                   }, new Consumer<Throwable>() {
+                       @Override
+                       public void accept(@NonNull Throwable throwable) throws Exception {
+                           callback.onFailure(new Exception(throwable));
+                       }
+                   }
+                );
     }
 
     public static void signIn(Activity activity, AuthProvider.Provider provider) {

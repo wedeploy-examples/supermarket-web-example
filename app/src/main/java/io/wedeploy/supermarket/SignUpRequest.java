@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import io.wedeploy.supermarket.login.LoginActivity;
 
 /**
@@ -48,7 +51,14 @@ public class SignUpRequest extends Fragment {
         auth.signUp(email, password, name, new Callback() {
             @Override
             public void onSuccess(Response response) {
-                listener.onSignUpSuccess(response);
+                try {
+                    saveToken(response);
+                    listener.onSignUpSuccess(response);
+                }
+                catch (JSONException e) {
+                    listener.onSignUpFailed(e);
+                }
+
             }
 
             @Override
@@ -56,6 +66,11 @@ public class SignUpRequest extends Fragment {
                 listener.onSignUpFailed(e);
             }
         });
+    }
+
+    private void saveToken(Response response) throws JSONException {
+        JSONObject tokenJsonObject = new JSONObject(response.getBody());
+        Settings.getInstance(getContext()).saveToken(tokenJsonObject.getString("access_token"));
     }
 
     private static final String TAG = SignUpActivity.class.getSimpleName();
