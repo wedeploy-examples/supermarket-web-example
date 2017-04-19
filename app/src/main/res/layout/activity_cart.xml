@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="io.wedeploy.supermarket.binding.Font" />
     </data>
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,7 +16,6 @@
             android:id="@+id/appBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,6 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/white"
                 app:title="@string/cart"
                 app:titleTextColor="@color/title_color" />
         </android.support.design.widget.AppBarLayout>
@@ -35,6 +35,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@+id/appBar"
@@ -96,8 +97,15 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
         </android.support.constraint.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            style="@style/WeLoading"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cartList"
@@ -105,18 +113,18 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:paddingTop="8dp"
+            android:visibility="invisible"
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="@+id/appBar"
-            app:layout_constraintTop_toBottomOf="@+id/appBar"
-            tools:visibility="gone" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:background="@android:color/white"
+            android:background="@color/colorAccent"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

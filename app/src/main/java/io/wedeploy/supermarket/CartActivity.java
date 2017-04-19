@@ -3,17 +3,18 @@ package io.wedeploy.supermarket;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
 import io.wedeploy.supermarket.adapter.CartAdapter;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
 import io.wedeploy.supermarket.model.CartProduct;
-import io.wedeploy.supermarket.model.Product;
 
 /**
  * @author Silvio Santos
@@ -30,6 +31,7 @@ public class CartActivity extends AppCompatActivity
 
         setSupportActionBar(binding.toolbar);
 
+        showLoading();
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
@@ -40,11 +42,13 @@ public class CartActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<List<CartProduct>> loader, List<CartProduct> products) {
+        showCartProducts();
+
         if (products == null) {
+            Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
+
             return;
         }
-
-        adapter.setItems(products);
 
         if (products.isEmpty()) {
             showEmptyCart();
@@ -52,12 +56,23 @@ public class CartActivity extends AppCompatActivity
             return;
         }
 
-        showCartProducts();
+        adapter.setItems(products);
+    }
+
+    private void showLoading() {
+        TransitionManager.beginDelayedTransition(binding.rootLayout);
+        binding.emptyView.setVisibility(View.INVISIBLE);
+        binding.loading.setVisibility(View.VISIBLE);
+        binding.cartList.setVisibility(View.INVISIBLE);
+        binding.button.setVisibility(View.INVISIBLE);
     }
 
     private void showCartProducts() {
-        binding.emptyView.setVisibility(View.GONE);
+        TransitionManager.beginDelayedTransition(binding.rootLayout);
+        binding.emptyView.setVisibility(View.INVISIBLE);
+        binding.loading.setVisibility(View.INVISIBLE);
         binding.cartList.setVisibility(View.VISIBLE);
+        binding.button.setVisibility(View.VISIBLE);
         binding.button.setText(R.string.checkout);
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +84,11 @@ public class CartActivity extends AppCompatActivity
     }
 
     private void showEmptyCart() {
+        TransitionManager.beginDelayedTransition(binding.rootLayout);
         binding.emptyView.setVisibility(View.VISIBLE);
-        binding.cartList.setVisibility(View.GONE);
+        binding.loading.setVisibility(View.INVISIBLE);
+        binding.cartList.setVisibility(View.INVISIBLE);
+        binding.button.setVisibility(View.VISIBLE);
         binding.button.setText(R.string.start_shopping);
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override

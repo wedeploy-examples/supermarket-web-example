@@ -1,5 +1,8 @@
 package io.wedeploy.supermarket.model;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -50,8 +53,18 @@ public class Product {
 	}
 
 	public void onAddToCartButtonClick(View view) {
-		AppCompatActivity activity = (AppCompatActivity)view.getContext();
-		AddToCartRequest.addToCart(activity, this);
+		AddToCartRequest.addToCart(getActivity(view.getContext()), this);
+	}
+
+	private AppCompatActivity getActivity(Context context) {
+		while (context instanceof ContextWrapper) {
+			if (context instanceof AppCompatActivity) {
+				return (AppCompatActivity)context;
+			}
+			context = ((ContextWrapper)context).getBaseContext();
+		}
+
+		return null;
 	}
 
 	private String description;

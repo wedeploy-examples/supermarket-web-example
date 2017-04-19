@@ -1,6 +1,7 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:progressBarStyle">@style/WeLoading</item>
         <item name="android:textAppearanceSmall">@style/WeTextAppearance.Small</item>
         <item name="android:textAppearanceLarge">@style/WeTextAppearance.Large</item>
         <item name="android:windowBackground">@android:color/white</item>
@@ -38,6 +39,11 @@
         <item name="backgroundTint">@color/we_edittext_selector</item>
         <item name="colorControlNormal">@color/we_edittext_background_default</item>
         <item name="colorControlActivated">@color/we_edittext_background_focused</item>
+    </style>
+
+    <style name="WeLoading" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
     </style>
 
     <style name="WeTextAppearance.Small" parent="TextAppearance.AppCompat.Small">

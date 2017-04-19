@@ -2,7 +2,7 @@ package io.wedeploy.supermarket;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
+import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity
             binding.filterBarView.setFilter(getString(R.string.all));
         }
 
+        showLoading();
         setSupportActionBar(binding.toolbar);
         getSupportLoaderManager().initLoader(0, null, this);
     }
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<List<Product>> loader, List<Product> products) {
+        showProducts();
+
         if (products == null) {
             Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
 
@@ -80,6 +83,18 @@ public class MainActivity extends AppCompatActivity
         super.onSaveInstanceState(outState);
 
         outState.putString(STATE_FILTER, binding.filterBarView.getFilter());
+    }
+
+    private void showProducts() {
+        TransitionManager.beginDelayedTransition(binding.rootLayout);
+        binding.loading.setVisibility(View.INVISIBLE);
+        binding.productsList.setVisibility(View.VISIBLE);
+    }
+
+    private void showLoading() {
+        TransitionManager.beginDelayedTransition(binding.rootLayout);
+        binding.loading.setVisibility(View.VISIBLE);
+        binding.productsList.setVisibility(View.INVISIBLE);
     }
 
     private static final String STATE_FILTER = "filter";
