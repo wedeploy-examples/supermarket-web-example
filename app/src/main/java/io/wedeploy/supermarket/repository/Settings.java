@@ -5,14 +5,24 @@ import android.content.SharedPreferences;
 import com.wedeploy.sdk.auth.Auth;
 import com.wedeploy.sdk.auth.TokenAuth;
 import io.wedeploy.supermarket.SupermarketApplication;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * @author Silvio Santos
  */
 public class Settings {
 
-	public static String getCurrentUserId() {
+	public static String getUserId() {
 		return getSettings().getString(USER_ID, null);
+	}
+
+	public static String getUserName() {
+		return getSettings().getString(USER_NAME, null);
+	}
+
+	public static String getUserPhoto() {
+		return getSettings().getString(USER_PHOTO, null);
 	}
 
 	public static Auth getAuth() {
@@ -31,9 +41,11 @@ public class Settings {
 		return getAuth() != null;
 	}
 
-	public static void saveUser(String userId) {
+	public static void saveUser(JSONObject userJsonObject) throws JSONException {
 		SharedPreferences.Editor editor = getSettings().edit();
-		editor.putString(USER_ID, userId);
+		editor.putString(USER_ID, userJsonObject.optString("id"));
+		editor.putString(USER_NAME, userJsonObject.optString("name"));
+		editor.putString(USER_PHOTO, userJsonObject.optString("photoUrl"));
 		editor.commit();
 	}
 
@@ -50,6 +62,8 @@ public class Settings {
 	}
 
 	private static final String USER_ID = "userId";
+	private static final String USER_NAME = "userName";
+	private static final String USER_PHOTO = "userId";
 	private static final String USER_TOKEN = "userToken";
 
 }

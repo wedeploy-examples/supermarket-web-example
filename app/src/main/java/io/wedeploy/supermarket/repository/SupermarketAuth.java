@@ -116,7 +116,7 @@ public class SupermarketAuth {
 
 	private void saveUser(Response response) throws JSONException {
 		JSONObject userJsonObject = new JSONObject(response.getBody());
-		Settings.saveUser(userJsonObject.getString("id"));
+		Settings.saveUser(userJsonObject);
 	}
 
 	private SupermarketAuth() {
