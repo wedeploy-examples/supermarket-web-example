@@ -66,4 +66,8 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <style name="ProductImage">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">108dp</item>
+    </style>
 </resources>

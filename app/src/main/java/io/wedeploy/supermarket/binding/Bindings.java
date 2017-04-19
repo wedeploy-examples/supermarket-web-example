@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+
+import io.wedeploy.supermarket.R;
+import jp.wasabeef.glide.transformations.CropSquareTransformation;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * @author Silvio Santos
@@ -20,11 +25,12 @@ public class Bindings {
 	@BindingAdapter({"imageUrl", "placeholder"})
 	public static void loadImage(ImageView view, String url, Drawable placeholder) {
 		Context context = view.getContext();
+		int corderRadius = context.getResources().getDimensionPixelSize(R.dimen.image_corner_radius);
 
 		Glide.with(context)
 			.load(url)
 			.placeholder(placeholder)
-			.centerCrop()
+			.bitmapTransform(new CenterCrop(context), new RoundedCornersTransformation(context, corderRadius, 0))
 			.into(view);
 	}
 

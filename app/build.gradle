@@ -25,4 +25,5 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.wedeploy:android-sdk:1.0-SNAPSHOT'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
 }

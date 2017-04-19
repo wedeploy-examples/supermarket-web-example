@@ -18,8 +18,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="120dp"
-            android:layout_height="108dp"
+            style="@style/ProductImage"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="8dp"
