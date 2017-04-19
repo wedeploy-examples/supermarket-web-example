@@ -51,6 +51,7 @@ public class SupermarketRepository {
         Response response = weDeploy
                 .data(DATA_URL)
                 .auth(settings.getToken())
+                .where(equal("userId", settings.getCurrentUserId()))
                 .orderBy("productTitle")
                 .get("cart")
                 .execute();
