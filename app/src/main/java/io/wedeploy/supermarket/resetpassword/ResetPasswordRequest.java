@@ -42,7 +42,7 @@ public class ResetPasswordRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
+		SupermarketAuth auth = SupermarketAuth.getInstance();
 		auth.resetPassword(email, new Callback() {
 			@Override
 			public void onSuccess(Response response) {

@@ -47,7 +47,7 @@ public class LoginRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
+		SupermarketAuth auth = SupermarketAuth.getInstance();
 		auth.signIn(email, password)
 			.subscribeOn(Schedulers.io())
 			.observeOn(AndroidSchedulers.mainThread())

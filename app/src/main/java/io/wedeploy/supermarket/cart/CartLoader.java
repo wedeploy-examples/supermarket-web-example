@@ -4,9 +4,8 @@ import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 import com.wedeploy.sdk.exception.WeDeployException;
-import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.cart.model.CartProduct;
-import io.wedeploy.supermarket.repository.SupermarketRepository;
+import io.wedeploy.supermarket.repository.SupermarketData;
 import org.json.JSONException;
 
 import java.util.List;
@@ -19,13 +18,13 @@ public class CartLoader extends AsyncTaskLoader<List<CartProduct>> {
 	public CartLoader(Context context) {
 		super(context);
 
-		repository = new SupermarketRepository(Settings.getInstance(context));
+		supermarketData = SupermarketData.getInstance();
 	}
 
 	@Override
 	public List<CartProduct> loadInBackground() {
 		try {
-			products = repository.getCart();
+			products = supermarketData.getCart();
 
 			return products;
 		}
@@ -47,6 +46,6 @@ public class CartLoader extends AsyncTaskLoader<List<CartProduct>> {
 	}
 
 	private List<CartProduct> products;
-	private final SupermarketRepository repository;
+	private final SupermarketData supermarketData;
 
 }

@@ -31,9 +31,10 @@ public class OAuthActivity extends AppCompatActivity {
 			finish();
 		}
 		else {
-			Settings.getInstance(this).saveToken(authorization.getToken());
+			Settings.saveToken(authorization.getToken());
 
-			auth.getUser()
+			SupermarketAuth auth = SupermarketAuth.getInstance();
+			auth.getUser(authorization)
 				.subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribe(new DisposableSingleObserver<Response>() {
@@ -54,7 +55,5 @@ public class OAuthActivity extends AppCompatActivity {
 				});
 		}
 	}
-
-	private SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(this));
 
 }

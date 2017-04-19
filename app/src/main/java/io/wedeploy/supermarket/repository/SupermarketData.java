@@ -1,7 +1,10 @@
 package io.wedeploy.supermarket.repository;
 
+import android.content.Context;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
+import com.wedeploy.sdk.WeDeployData;
+import com.wedeploy.sdk.auth.Auth;
 import com.wedeploy.sdk.exception.WeDeployException;
 import com.wedeploy.sdk.query.filter.Filter;
 import com.wedeploy.sdk.transport.Response;
@@ -19,12 +22,14 @@ import static com.wedeploy.sdk.query.filter.Filter.*;
 /**
  * @author Silvio Santos
  */
-public class SupermarketRepository {
+public class SupermarketData {
 
-	public SupermarketRepository(Settings settings) {
-		this.settings = settings;
-		this.weDeploy = new WeDeploy.Builder()
-			.build();
+	public static SupermarketData getInstance() {
+		if (instance == null) {
+			instance = new SupermarketData();
+		}
+
+		return instance;
 	}
 
 	public void addToCart(Product product, Callback callback) throws JSONException {
@@ -33,19 +38,16 @@ public class SupermarketRepository {
 			.put("productPrice", product.getPrice())
 			.put("productFilename", product.getFilename())
 			.put("productId", product.getId())
-			.put("userId", settings.getCurrentUserId());
+			.put("userId", currentUserId);
 
-		weDeploy.data(DATA_URL)
-			.auth(settings.getToken())
+		weDeployData
 			.create("cart", cartProductJsonObject)
 			.execute(callback);
 	}
 
 	public List<CartProduct> getCart() throws WeDeployException, JSONException {
-		Response response = weDeploy
-			.data(DATA_URL)
-			.auth(settings.getToken())
-			.where(equal("userId", settings.getCurrentUserId()))
+		Response response = weDeployData
+			.where(equal("userId", currentUserId))
 			.orderBy("productTitle")
 			.get("cart")
 			.execute();
@@ -61,9 +63,8 @@ public class SupermarketRepository {
 	}
 
 	public void getCartCount(Callback callback) {
-		weDeploy.data(DATA_URL)
-			.auth(settings.getToken())
-			.where(equal("userId", settings.getCurrentUserId()))
+		weDeployData
+			.where(equal("userId", currentUserId))
 			.count()
 			.get("cart")
 			.execute(callback);
@@ -72,9 +73,7 @@ public class SupermarketRepository {
 	public List<Product> getProducts(String type) throws WeDeployException, JSONException {
 		Filter typeFilter = (type != null) ? match("type", type) : not("type", "");
 
-		Response response = weDeploy
-			.data(DATA_URL)
-			.auth(settings.getToken())
+		Response response = weDeployData
 			.where(typeFilter.and(exists("filename")))
 			.orderBy("title")
 			.get("products")
@@ -90,8 +89,19 @@ public class SupermarketRepository {
 		return products;
 	}
 
-	private final Settings settings;
-	private final WeDeploy weDeploy;
+	private SupermarketData() {
+		WeDeploy weDeploy = new WeDeploy.Builder().build();
+
+		this.currentUserId = Settings.getCurrentUserId();
+		this.weDeployData = weDeploy.data(DATA_URL)
+			.auth(Settings.getAuth());
+	}
+
+	private final String currentUserId;
+	private final WeDeployData weDeployData;
+
+	private static SupermarketData instance;
+
 	private static final String DATA_URL = "http://data.supermarket.wedeploy.io";
 
 }

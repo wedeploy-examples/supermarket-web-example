@@ -4,7 +4,9 @@ import android.app.Activity;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.WeDeployAuth;
+import com.wedeploy.sdk.auth.Auth;
 import com.wedeploy.sdk.auth.AuthProvider;
+import com.wedeploy.sdk.auth.TokenAuth;
 import com.wedeploy.sdk.transport.Response;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
@@ -22,11 +24,7 @@ import org.json.JSONObject;
 
 public class SupermarketAuth {
 
-	public SupermarketAuth(Settings settings) {
-		this.settings = settings;
-	}
-
-	public static void signIn(Activity activity, AuthProvider.Provider provider) {
+	public void signIn(Activity activity, AuthProvider.Provider provider) {
 		AuthProvider authProvider = new AuthProvider.Builder()
 			.redirectUri("oauth-wedeploy://io.wedeploy.supermarket")
 			.providerScope("email")
@@ -39,11 +37,19 @@ public class SupermarketAuth {
 			.signIn(activity, authProvider);
 	}
 
-	public Single<Response> getUser() {
+	public static SupermarketAuth getInstance() {
+		if (instance == null) {
+			instance = new SupermarketAuth();
+		}
+
+		return instance;
+	}
+
+	public Single<Response> getUser(Auth authorization) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
 		return weDeploy.auth(AUTH_URL)
-			.auth(settings.getToken())
+			.auth(authorization)
 			.getCurrentUser()
 			.asSingle()
 			.doOnSuccess(new Consumer<Response>() {
@@ -74,9 +80,9 @@ public class SupermarketAuth {
 				@Override
 				public SingleSource<? extends Response> apply(@NonNull Response response)
 					throws Exception {
-					saveToken(response);
+					String token = saveToken(response);
 
-					return getUser().subscribeOn(Schedulers.io());
+					return getUser(new TokenAuth(token)).subscribeOn(Schedulers.io());
 				}
 			});
 	}
@@ -101,16 +107,23 @@ public class SupermarketAuth {
 			});
 	}
 
-	public void saveToken(Response response) throws JSONException {
+	public String saveToken(Response response) throws JSONException {
 		JSONObject tokenJsonObject = new JSONObject(response.getBody());
-		settings.saveToken(tokenJsonObject.getString("access_token"));
+		String token = tokenJsonObject.getString("access_token");
+		Settings.saveToken(token);
+
+		return token;
 	}
 
 	private void saveUser(Response response) throws JSONException {
 		JSONObject userJsonObject = new JSONObject(response.getBody());
-		settings.saveUser(userJsonObject.getString("id"));
+		Settings.saveUser(userJsonObject.getString("id"));
 	}
 
-	private final Settings settings;
+	private SupermarketAuth() {
+	}
+
+	private static SupermarketAuth instance;
+
 	private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
 }

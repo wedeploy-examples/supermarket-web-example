@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (Settings.getInstance(this).isLoggedIn()) {
+		if (Settings.isLoggedIn()) {
 			startActivity(new Intent(this, ProductsActivity.class));
 			finish();
 		}

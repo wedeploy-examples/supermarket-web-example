@@ -62,14 +62,14 @@ public class SocialLoginInButtons extends FrameLayout {
 		binding.facebookSignIn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				SupermarketAuth.signIn((Activity)context, FACEBOOK);
+				SupermarketAuth.getInstance().signIn((Activity)context, FACEBOOK);
 			}
 		});
 
 		binding.googleSignIn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				SupermarketAuth.signIn((Activity)context, GOOGLE);
+				SupermarketAuth.getInstance().signIn((Activity)context, GOOGLE);
 			}
 		});
 	}

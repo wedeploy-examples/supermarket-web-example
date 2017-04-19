@@ -11,7 +11,7 @@ import com.wedeploy.sdk.transport.Response;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.products.model.Product;
-import io.wedeploy.supermarket.repository.SupermarketRepository;
+import io.wedeploy.supermarket.repository.SupermarketData;
 import org.json.JSONException;
 
 /**
@@ -33,11 +33,10 @@ public class AddToCartRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketRepository repository = new SupermarketRepository(
-			Settings.getInstance(getContext()));
+		SupermarketData supermarketData = SupermarketData.getInstance();
 
 		try {
-			repository.addToCart(product, new Callback() {
+			supermarketData.addToCart(product, new Callback() {
 				@Override
 				public void onSuccess(Response response) {
 					Toast.makeText(

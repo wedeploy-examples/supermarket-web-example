@@ -6,7 +6,7 @@ import android.util.Log;
 import com.wedeploy.sdk.exception.WeDeployException;
 import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.products.model.Product;
-import io.wedeploy.supermarket.repository.SupermarketRepository;
+import io.wedeploy.supermarket.repository.SupermarketData;
 import org.json.JSONException;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
 		super(context);
 
 		this.filter = filter;
-		this.repository = new SupermarketRepository(Settings.getInstance(context));
+		this.supermarketData = SupermarketData.getInstance();
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
 		try {
 			String type = ("all".equalsIgnoreCase(filter)) ? null : filter;
 
-			products = repository.getProducts(type);
+			products = supermarketData.getProducts(type);
 
 			return products;
 		}
@@ -51,6 +51,6 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
 
 	private List<Product> products;
 	private final String filter;
-	private final SupermarketRepository repository;
+	private final SupermarketData supermarketData;
 
 }

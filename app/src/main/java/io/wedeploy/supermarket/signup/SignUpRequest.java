@@ -45,7 +45,7 @@ public class SignUpRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
+		SupermarketAuth auth = SupermarketAuth.getInstance();
 		auth.signUp(email, password, name)
 			.subscribeOn(Schedulers.io())
 			.observeOn(AndroidSchedulers.mainThread())

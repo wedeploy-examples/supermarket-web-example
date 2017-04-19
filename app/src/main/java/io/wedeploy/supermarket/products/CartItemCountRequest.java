@@ -11,7 +11,7 @@ import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
 import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.cart.CartItemListener;
-import io.wedeploy.supermarket.repository.SupermarketRepository;
+import io.wedeploy.supermarket.repository.SupermarketData;
 
 /**
  * @author Silvio Santos
@@ -43,8 +43,8 @@ public class CartItemCountRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketRepository auth = new SupermarketRepository(Settings.getInstance(getContext()));
-		auth.getCartCount(new Callback() {
+		SupermarketData supermarketData = SupermarketData.getInstance();
+		supermarketData.getCartCount(new Callback() {
 			@Override
 			public void onSuccess(Response response) {
 				listener.onGetCartItemCountSuccess(Integer.valueOf(response.getBody()));
