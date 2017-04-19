@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.signup;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import com.wedeploy.sdk.transport.Response;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import io.wedeploy.supermarket.repository.Settings;
+import io.wedeploy.supermarket.repository.SupermarketAuth;
 
 /**
  * @author Silvio Santos

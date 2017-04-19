@@ -1,10 +1,10 @@
-package io.wedeploy.supermarket.adapter;
+package io.wedeploy.supermarket.products.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import io.wedeploy.supermarket.databinding.ItemProductBinding;
-import io.wedeploy.supermarket.model.Product;
+import io.wedeploy.supermarket.products.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

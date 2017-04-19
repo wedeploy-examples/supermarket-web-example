@@ -5,11 +5,9 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import com.wedeploy.sdk.auth.Auth;
-import com.wedeploy.sdk.auth.TokenAuth;
-import io.wedeploy.supermarket.MainActivity;
+import io.wedeploy.supermarket.products.ProductsActivity;
 import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.SignUpActivity;
+import io.wedeploy.supermarket.signup.SignUpActivity;
 import io.wedeploy.supermarket.databinding.ActivityLoginBinding;
 import io.wedeploy.supermarket.resetpassword.ResetPasswordActivity;
 import io.wedeploy.supermarket.view.AlertMessage;
@@ -23,7 +21,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 	public void onLoginSuccess() {
 		if (isFinishing()) return;
 
-		startActivity(new Intent(this, MainActivity.class));
+		startActivity(new Intent(this, ProductsActivity.class));
 		finishAffinity();
 	}
 
@@ -72,18 +70,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 					REQUEST_RESET_PASSWORD);
 			}
 		});
-	}
-
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-
-		Auth auth = TokenAuth.getAuthFromIntent(intent);
-
-		if (auth != null) {
-			startActivity(new Intent(this, MainActivity.class));
-			finishAffinity();
-		}
 	}
 
 	@Override

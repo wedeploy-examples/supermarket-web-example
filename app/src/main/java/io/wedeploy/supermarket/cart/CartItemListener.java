@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.cart;
 
 /**
  * @author Silvio Santos

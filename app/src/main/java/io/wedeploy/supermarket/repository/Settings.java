@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;

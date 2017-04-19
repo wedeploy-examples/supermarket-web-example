@@ -6,13 +6,13 @@
     <data>
         <variable
             name="cartProduct"
-            type="io.wedeploy.supermarket.model.CartProduct" />
+            type="io.wedeploy.supermarket.cart.model.CartProduct" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity"
+        tools:context=".products.ProductsActivity"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="81dp">
 

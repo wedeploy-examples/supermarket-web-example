@@ -1,10 +1,11 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.products;
 
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 import com.wedeploy.sdk.exception.WeDeployException;
-import io.wedeploy.supermarket.model.Product;
+import io.wedeploy.supermarket.repository.Settings;
+import io.wedeploy.supermarket.products.model.Product;
 import io.wedeploy.supermarket.repository.SupermarketRepository;
 import org.json.JSONException;
 

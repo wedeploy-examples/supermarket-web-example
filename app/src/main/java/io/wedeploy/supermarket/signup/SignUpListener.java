@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.signup;
 
 import com.wedeploy.sdk.transport.Response;
 

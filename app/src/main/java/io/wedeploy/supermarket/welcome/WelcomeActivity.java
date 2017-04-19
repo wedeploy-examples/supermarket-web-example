@@ -1,12 +1,16 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.welcome;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import io.wedeploy.supermarket.R;
+import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.databinding.ActivityWelcomeBinding;
 import io.wedeploy.supermarket.login.LoginActivity;
+import io.wedeploy.supermarket.products.ProductsActivity;
+import io.wedeploy.supermarket.signup.SignUpActivity;
 
 /**
  * @author Silvio Santos
@@ -18,7 +22,7 @@ public class WelcomeActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		if (Settings.getInstance(this).isLoggedIn()) {
-			startActivity(new Intent(this, MainActivity.class));
+			startActivity(new Intent(this, ProductsActivity.class));
 			finish();
 		}
 

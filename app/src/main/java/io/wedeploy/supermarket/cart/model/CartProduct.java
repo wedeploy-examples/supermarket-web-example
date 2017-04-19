@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket.model;
+package io.wedeploy.supermarket.cart.model;
 
 import org.json.JSONObject;
 

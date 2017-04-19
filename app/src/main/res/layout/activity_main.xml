@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="io.wedeploy.supermarket.binding.Font" />
+        <import type="io.wedeploy.supermarket.view.binding.Font" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".products.ProductsActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/topBar"

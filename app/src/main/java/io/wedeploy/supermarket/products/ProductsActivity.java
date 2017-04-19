@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.products;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -9,9 +9,12 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
-import io.wedeploy.supermarket.adapter.ProductAdapter;
+import io.wedeploy.supermarket.cart.CartActivity;
+import io.wedeploy.supermarket.cart.CartItemListener;
+import io.wedeploy.supermarket.R;
+import io.wedeploy.supermarket.products.adapter.ProductAdapter;
 import io.wedeploy.supermarket.databinding.ActivityMainBinding;
-import io.wedeploy.supermarket.model.Product;
+import io.wedeploy.supermarket.products.model.Product;
 import io.wedeploy.supermarket.view.OnFilterSelectedListener;
 
 import java.util.List;
@@ -19,7 +22,7 @@ import java.util.List;
 /**
  * @author Silvio Santos
  */
-public class MainActivity extends AppCompatActivity
+public class ProductsActivity extends AppCompatActivity
 	implements LoaderManager.LoaderCallbacks<List<Product>>, OnFilterSelectedListener,
 	CartItemListener {
 
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity
 		binding.cartButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, CartActivity.class));
+				startActivity(new Intent(ProductsActivity.this, CartActivity.class));
 			}
 		});
 

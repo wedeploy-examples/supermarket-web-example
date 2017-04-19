@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket.binding;
+package io.wedeploy.supermarket.view.binding;
 
 import android.content.Context;
 import android.content.res.AssetManager;

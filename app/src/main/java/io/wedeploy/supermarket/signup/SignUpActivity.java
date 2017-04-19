@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.signup;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import com.wedeploy.sdk.transport.Response;
+import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.databinding.ActivitySignUpBinding;
 import io.wedeploy.supermarket.login.LoginActivity;
+import io.wedeploy.supermarket.products.ProductsActivity;
 import io.wedeploy.supermarket.view.AlertMessage;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpListener {
@@ -17,7 +19,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpListener 
 		if (isFinishing()) return;
 
 		finishAffinity();
-		startActivity(new Intent(this, MainActivity.class));
+		startActivity(new Intent(this, ProductsActivity.class));
 	}
 
 	@Override

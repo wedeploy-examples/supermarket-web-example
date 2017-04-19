@@ -1,10 +1,10 @@
-package io.wedeploy.supermarket.model;
+package io.wedeploy.supermarket.products.model;
 
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import io.wedeploy.supermarket.AddToCartRequest;
+import io.wedeploy.supermarket.products.AddToCartRequest;
 import org.json.JSONObject;
 
 /**

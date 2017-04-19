@@ -7,13 +7,13 @@
 
         <variable
             name="product"
-            type="io.wedeploy.supermarket.model.Product" />
+            type="io.wedeploy.supermarket.products.model.Product" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity"
+        tools:context=".products.ProductsActivity"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="81dp">
 

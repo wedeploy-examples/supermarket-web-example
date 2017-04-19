@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.products;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
+import io.wedeploy.supermarket.repository.Settings;
+import io.wedeploy.supermarket.cart.CartItemListener;
 import io.wedeploy.supermarket.repository.SupermarketRepository;
 
 /**

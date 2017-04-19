@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="io.wedeploy.supermarket.binding.Font" />
+        <import type="io.wedeploy.supermarket.view.binding.Font" />
     </data>
 
     <android.support.constraint.ConstraintLayout

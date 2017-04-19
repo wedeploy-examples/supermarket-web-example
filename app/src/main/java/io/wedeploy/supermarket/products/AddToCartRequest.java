@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.products;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
-import io.wedeploy.supermarket.model.Product;
+import io.wedeploy.supermarket.R;
+import io.wedeploy.supermarket.repository.Settings;
+import io.wedeploy.supermarket.products.model.Product;
 import io.wedeploy.supermarket.repository.SupermarketRepository;
 import org.json.JSONException;
 

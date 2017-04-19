@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.oauth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import com.wedeploy.sdk.transport.Response;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import io.wedeploy.supermarket.R;
+import io.wedeploy.supermarket.repository.Settings;
+import io.wedeploy.supermarket.repository.SupermarketAuth;
+import io.wedeploy.supermarket.products.ProductsActivity;
 
 /**
  * @author Silvio Santos
@@ -35,7 +39,7 @@ public class OAuthActivity extends AppCompatActivity {
 				.subscribe(new DisposableSingleObserver<Response>() {
 					@Override
 					public void onSuccess(Response response) {
-						Intent intent = new Intent(OAuthActivity.this, MainActivity.class);
+						Intent intent = new Intent(OAuthActivity.this, ProductsActivity.class);
 						startActivity(intent);
 						finishAffinity();
 					}

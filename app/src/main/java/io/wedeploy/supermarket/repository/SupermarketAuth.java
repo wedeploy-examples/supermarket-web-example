@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.repository;
 
 import android.app.Activity;
 import com.wedeploy.sdk.Callback;

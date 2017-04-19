@@ -1,4 +1,4 @@
-package io.wedeploy.supermarket;
+package io.wedeploy.supermarket.cart;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -9,9 +9,10 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
-import io.wedeploy.supermarket.adapter.CartAdapter;
+import io.wedeploy.supermarket.R;
+import io.wedeploy.supermarket.cart.adapter.CartAdapter;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
-import io.wedeploy.supermarket.model.CartProduct;
+import io.wedeploy.supermarket.cart.model.CartProduct;
 
 import java.util.List;
 
