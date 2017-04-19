@@ -1,14 +1,11 @@
 package io.wedeploy.supermarket.model;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import org.json.JSONObject;
-
 import io.wedeploy.supermarket.AddToCartRequest;
+import org.json.JSONObject;
 
 /**
  * @author Silvio Santos

@@ -8,8 +8,8 @@ import com.wedeploy.sdk.transport.Response;
 
 interface ResetPasswordListener {
 
-    void onResetPasswordSuccess(Response response);
+	void onResetPasswordSuccess(Response response);
 
-    void onResetPasswordFailed(Exception e);
+	void onResetPasswordFailed(Exception e);
 
 }

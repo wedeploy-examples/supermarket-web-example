@@ -3,46 +3,10 @@
   <component name="ProjectCodeStyleSettingsManager">
     <option name="PER_PROJECT_SETTINGS">
       <value>
-        <option name="OTHER_INDENT_OPTIONS">
-          <value>
-            <option name="INDENT_SIZE" value="4" />
-            <option name="CONTINUATION_INDENT_SIZE" value="4" />
-            <option name="TAB_SIZE" value="4" />
-            <option name="USE_TAB_CHARACTER" value="true" />
-            <option name="SMART_TABS" value="true" />
-            <option name="LABEL_INDENT_SIZE" value="0" />
-            <option name="LABEL_INDENT_ABSOLUTE" value="false" />
-            <option name="USE_RELATIVE_INDENTS" value="false" />
-          </value>
-        </option>
-        <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="99" />
-        <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="99" />
-        <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">
-          <value />
-        </option>
-        <option name="IMPORT_LAYOUT_TABLE">
-          <value>
-            <package name="android" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="com" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="junit" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="net" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="org" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="java" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="javax" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="" withSubpackages="true" static="false" />
-            <emptyLine />
-            <package name="" withSubpackages="true" static="true" />
-            <emptyLine />
-          </value>
-        </option>
-        <option name="RIGHT_MARGIN" value="80" />
+        <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="10" />
+        <option name="RIGHT_MARGIN" value="100" />
+        <option name="JD_ALIGN_PARAM_COMMENTS" value="false" />
+        <option name="JD_ALIGN_EXCEPTION_COMMENTS" value="false" />
         <AndroidXmlCodeStyleSettings>
           <option name="USE_CUSTOM_SETTINGS" value="true" />
         </AndroidXmlCodeStyleSettings>
@@ -76,26 +40,23 @@
           <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
-        <codeStyleSettings language="Groovy">
-          <indentOptions>
-            <option name="CONTINUATION_INDENT_SIZE" value="4" />
-            <option name="USE_TAB_CHARACTER" value="true" />
-            <option name="SMART_TABS" value="true" />
-          </indentOptions>
-        </codeStyleSettings>
         <codeStyleSettings language="JAVA">
+          <option name="RIGHT_MARGIN" value="100" />
+          <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
+          <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
+          <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="1" />
+          <option name="ELSE_ON_NEW_LINE" value="true" />
+          <option name="CATCH_ON_NEW_LINE" value="true" />
+          <option name="FINALLY_ON_NEW_LINE" value="true" />
+          <option name="SPACE_AFTER_TYPE_CAST" value="false" />
+          <option name="CALL_PARAMETERS_WRAP" value="5" />
+          <option name="CALL_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
+          <option name="METHOD_PARAMETERS_WRAP" value="1" />
+          <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
+          <option name="THROWS_KEYWORD_WRAP" value="1" />
+          <option name="WRAP_LONG_LINES" value="true" />
           <indentOptions>
             <option name="CONTINUATION_INDENT_SIZE" value="4" />
-            <option name="USE_TAB_CHARACTER" value="true" />
-            <option name="SMART_TABS" value="true" />
-          </indentOptions>
-        </codeStyleSettings>
-        <codeStyleSettings language="XML">
-          <option name="FORCE_REARRANGE_MODE" value="1" />
-          <indentOptions>
-            <option name="INDENT_SIZE" value="2" />
-            <option name="CONTINUATION_INDENT_SIZE" value="2" />
-            <option name="TAB_SIZE" value="2" />
             <option name="USE_TAB_CHARACTER" value="true" />
             <option name="SMART_TABS" value="true" />
           </indentOptions>
@@ -104,9 +65,18 @@
               <section>
                 <rule>
                   <match>
+                    <INTERFACE>true</INTERFACE>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
                     <AND>
-                      <NAME>xmlns:android</NAME>
-                      <XML_NAMESPACE>Namespace:</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PUBLIC>true</PUBLIC>
+                      <STATIC>true</STATIC>
                     </AND>
                   </match>
                 </rule>
@@ -115,8 +85,134 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>xmlns:.*</NAME>
-                      <XML_NAMESPACE>Namespace:</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <PUBLIC>true</PUBLIC>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PACKAGE_PRIVATE>true</PACKAGE_PRIVATE>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <FIELD>true</FIELD>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <INITIALIZER_BLOCK>true</INITIALIZER_BLOCK>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PUBLIC>true</PUBLIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PUBLIC>true</PUBLIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <INITIALIZER_BLOCK>true</INITIALIZER_BLOCK>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <CONSTRUCTOR>true</CONSTRUCTOR>
+                      <PUBLIC>true</PUBLIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <CONSTRUCTOR>true</CONSTRUCTOR>
+                      <PROTECTED>true</PROTECTED>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <CONSTRUCTOR>true</CONSTRUCTOR>
+                      <PACKAGE_PRIVATE>true</PACKAGE_PRIVATE>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PUBLIC>true</PUBLIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PROTECTED>true</PROTECTED>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PRIVATE>true</PRIVATE>
                     </AND>
                   </match>
                   <order>BY_NAME</order>
@@ -126,8 +222,9 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*:id</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PACKAGE_PRIVATE>true</PACKAGE_PRIVATE>
                     </AND>
                   </match>
                 </rule>
@@ -136,8 +233,9 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*:name</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <PACKAGE_PRIVATE>true</PACKAGE_PRIVATE>
+                      <STATIC>true</STATIC>
                     </AND>
                   </match>
                 </rule>
@@ -146,8 +244,10 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>name</NAME>
-                      <XML_NAMESPACE>^$</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PACKAGE_PRIVATE>true</PACKAGE_PRIVATE>
+                      <STATIC>true</STATIC>
                     </AND>
                   </match>
                 </rule>
@@ -156,8 +256,8 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>style</NAME>
-                      <XML_NAMESPACE>^$</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <PROTECTED>true</PROTECTED>
                     </AND>
                   </match>
                 </rule>
@@ -166,8 +266,43 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*</NAME>
-                      <XML_NAMESPACE>^$</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PROTECTED>true</PROTECTED>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <PROTECTED>true</PROTECTED>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PROTECTED>true</PROTECTED>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <METHOD>true</METHOD>
+                      <PRIVATE>true</PRIVATE>
+                      <STATIC>true</STATIC>
                     </AND>
                   </match>
                   <order>BY_NAME</order>
@@ -177,8 +312,8 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*:layout_width</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <CONSTRUCTOR>true</CONSTRUCTOR>
+                      <PRIVATE>true</PRIVATE>
                     </AND>
                   </match>
                 </rule>
@@ -187,18 +322,8 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*:layout_height</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
-                    </AND>
-                  </match>
-                </rule>
-              </section>
-              <section>
-                <rule>
-                  <match>
-                    <AND>
-                      <NAME>.*:layout_.*</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <PRIVATE>true</PRIVATE>
                     </AND>
                   </match>
                   <order>BY_NAME</order>
@@ -208,8 +333,9 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*:width</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PRIVATE>true</PRIVATE>
                     </AND>
                   </match>
                   <order>BY_NAME</order>
@@ -219,8 +345,21 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*:height</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <FIELD>true</FIELD>
+                      <PRIVATE>true</PRIVATE>
+                      <STATIC>true</STATIC>
+                    </AND>
+                  </match>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <AND>
+                      <FIELD>true</FIELD>
+                      <FINAL>true</FINAL>
+                      <PRIVATE>true</PRIVATE>
+                      <STATIC>true</STATIC>
                     </AND>
                   </match>
                   <order>BY_NAME</order>
@@ -230,36 +369,41 @@
                 <rule>
                   <match>
                     <AND>
-                      <NAME>.*</NAME>
-                      <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+                      <CLASS>true</CLASS>
+                      <STATIC>true</STATIC>
                     </AND>
                   </match>
-                  <order>BY_NAME</order>
                 </rule>
               </section>
               <section>
                 <rule>
                   <match>
-                    <AND>
-                      <NAME>.*</NAME>
-                      <XML_NAMESPACE>.*</XML_NAMESPACE>
-                    </AND>
+                    <CLASS>true</CLASS>
                   </match>
-                  <order>BY_NAME</order>
+                </rule>
+              </section>
+              <section>
+                <rule>
+                  <match>
+                    <ENUM>true</ENUM>
+                  </match>
                 </rule>
               </section>
             </rules>
           </arrangement>
         </codeStyleSettings>
+        <codeStyleSettings language="XML">
+          <indentOptions>
+            <option name="CONTINUATION_INDENT_SIZE" value="4" />
+          </indentOptions>
+        </codeStyleSettings>
         <codeStyleSettings language="kotlin">
           <indentOptions>
             <option name="CONTINUATION_INDENT_SIZE" value="4" />
-            <option name="USE_TAB_CHARACTER" value="true" />
-            <option name="SMART_TABS" value="true" />
           </indentOptions>
         </codeStyleSettings>
       </value>
     </option>
-    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
+    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
   </component>
 </project>

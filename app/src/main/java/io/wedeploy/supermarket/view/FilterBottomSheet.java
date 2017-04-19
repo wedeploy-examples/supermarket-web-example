@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import io.wedeploy.supermarket.R;
 
 /**
@@ -17,51 +16,51 @@ import io.wedeploy.supermarket.R;
  */
 public class FilterBottomSheet extends BottomSheetDialogFragment implements View.OnClickListener {
 
-    public static void show(AppCompatActivity activity) {
-        FilterBottomSheet bottomSheet = new FilterBottomSheet();
-        bottomSheet.show(activity.getSupportFragmentManager(), TAG);
-    }
+	public static void show(AppCompatActivity activity) {
+		FilterBottomSheet bottomSheet = new FilterBottomSheet();
+		bottomSheet.show(activity.getSupportFragmentManager(), TAG);
+	}
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+	@Override
+	public void onAttach(Context context) {
+		super.onAttach(context);
 
-        if (context instanceof OnFilterSelectedListener) {
-            this.listener = (OnFilterSelectedListener)context;
-        }
-    }
+		if (context instanceof OnFilterSelectedListener) {
+			this.listener = (OnFilterSelectedListener)context;
+		}
+	}
 
-    @Nullable
-    @Override
-    public View onCreateView(
-        LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+	@Nullable
+	@Override
+	public View onCreateView(
+		LayoutInflater inflater, @Nullable ViewGroup container,
+		@Nullable Bundle savedInstanceState) {
 
-        String[] types = getResources().getStringArray(R.array.filter);
+		String[] types = getResources().getStringArray(R.array.filter);
 
-        ViewGroup viewGroup = (ViewGroup)inflater.inflate(
-            R.layout.filter_bottom_sheet, container, false);
+		ViewGroup viewGroup = (ViewGroup)inflater.inflate(
+			R.layout.filter_bottom_sheet, container, false);
 
-        for (String type : types) {
-            TextView textView = (TextView)inflater.inflate(
-                R.layout.filter_bottom_sheet_item, viewGroup, false);
+		for (String type : types) {
+			TextView textView = (TextView)inflater.inflate(
+				R.layout.filter_bottom_sheet_item, viewGroup, false);
 
-            textView.setText(type);
-            textView.setOnClickListener(this);
-            viewGroup.addView(textView);
-        }
+			textView.setText(type);
+			textView.setOnClickListener(this);
+			viewGroup.addView(textView);
+		}
 
-        return viewGroup;
-    }
+		return viewGroup;
+	}
 
-    @Override
-    public void onClick(View view) {
-        TextView textView = (TextView)view;
-        listener.onFilterSelected(textView.getText().toString());
-        dismiss();
-    }
+	@Override
+	public void onClick(View view) {
+		TextView textView = (TextView)view;
+		listener.onFilterSelected(textView.getText().toString());
+		dismiss();
+	}
 
-    private static final String TAG = FilterBottomSheet.class.getSimpleName();
-
-    private OnFilterSelectedListener listener;
+	private OnFilterSelectedListener listener;
+	private static final String TAG = FilterBottomSheet.class.getSimpleName();
 
 }

@@ -6,16 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
-import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.wedeploy.supermarket.Settings;
@@ -26,56 +18,54 @@ import io.wedeploy.supermarket.SupermarketAuth;
  */
 public class LoginRequest extends Fragment {
 
-    public static final String TAG = "loginRequest";
+	public static final String TAG = "loginRequest";
 
-    public LoginRequest() {
-        setRetainInstance(true);
-    }
+	public LoginRequest() {
+		setRetainInstance(true);
+	}
 
-    public static void login(AppCompatActivity activity, String email, String password) {
-        LoginRequest request = new LoginRequest();
-        request.email = email;
-        request.password = password;
+	public static void login(AppCompatActivity activity, String email, String password) {
+		LoginRequest request = new LoginRequest();
+		request.email = email;
+		request.password = password;
 
-        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-        transaction.add(request, TAG);
-        transaction.commit();
-    }
+		FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+		transaction.add(request, TAG);
+		transaction.commit();
+	}
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+	@Override
+	public void onAttach(Context context) {
+		super.onAttach(context);
 
-        if (context instanceof LoginListener) {
-            this.listener = (LoginListener)context;
-        }
-    }
+		if (context instanceof LoginListener) {
+			this.listener = (LoginListener)context;
+		}
+	}
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-        SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
-        auth.signIn(email, password)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableSingleObserver<Response>() {
-                    @Override
-                    public void onSuccess(Response response) {
-                        listener.onLoginSuccess();
-                    }
+		SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
+		auth.signIn(email, password)
+			.subscribeOn(Schedulers.io())
+			.observeOn(AndroidSchedulers.mainThread())
+			.subscribe(new DisposableSingleObserver<Response>() {
+				@Override
+				public void onSuccess(Response response) {
+					listener.onLoginSuccess();
+				}
 
-                    @Override
-                    public void onError(Throwable e) {
-                        listener.onLoginFailed(new Exception(e));
-                    }
-                });
-    }
+				@Override
+				public void onError(Throwable e) {
+					listener.onLoginFailed(new Exception(e));
+				}
+			});
+	}
 
-
-
-    private String password;
-    private String email;
-    private LoginListener listener;
+	private String email;
+	private LoginListener listener;
+	private String password;
 
 }

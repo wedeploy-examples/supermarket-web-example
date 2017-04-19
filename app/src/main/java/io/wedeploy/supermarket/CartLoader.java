@@ -3,53 +3,49 @@ package io.wedeploy.supermarket;
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
-
 import com.wedeploy.sdk.exception.WeDeployException;
-
+import io.wedeploy.supermarket.model.CartProduct;
+import io.wedeploy.supermarket.repository.SupermarketRepository;
 import org.json.JSONException;
 
 import java.util.List;
-
-import io.wedeploy.supermarket.model.CartProduct;
-import io.wedeploy.supermarket.model.Product;
-import io.wedeploy.supermarket.repository.SupermarketRepository;
 
 /**
  * @author Silvio Santos
  */
 public class CartLoader extends AsyncTaskLoader<List<CartProduct>> {
 
-    public CartLoader(Context context) {
-        super(context);
+	public CartLoader(Context context) {
+		super(context);
 
-        repository = new SupermarketRepository(Settings.getInstance(context));
-    }
+		repository = new SupermarketRepository(Settings.getInstance(context));
+	}
 
-    @Override
-    protected void onStartLoading() {
-        if (products != null) {
-            deliverResult(products);
-        }
-        else {
-            forceLoad();
-        }
-    }
+	@Override
+	public List<CartProduct> loadInBackground() {
+		try {
+			products = repository.getCart();
 
-    @Override
-    public List<CartProduct> loadInBackground() {
-        try {
-            products = repository.getCart();
+			return products;
+		}
+		catch (WeDeployException | JSONException e) {
+			Log.e(getClass().getSimpleName(), e.getMessage());
+		}
 
-            return products;
-        }
-        catch (WeDeployException | JSONException e) {
-            Log.e(getClass().getSimpleName(), e.getMessage());
-        }
+		return null;
+	}
 
-        return null;
-    }
+	@Override
+	protected void onStartLoading() {
+		if (products != null) {
+			deliverResult(products);
+		}
+		else {
+			forceLoad();
+		}
+	}
 
-    private List<CartProduct> products;
-    private final SupermarketRepository repository;
+	private List<CartProduct> products;
+	private final SupermarketRepository repository;
 
 }

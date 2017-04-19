@@ -9,100 +9,99 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
-
-import java.util.List;
-
 import io.wedeploy.supermarket.adapter.CartAdapter;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
 import io.wedeploy.supermarket.model.CartProduct;
+
+import java.util.List;
 
 /**
  * @author Silvio Santos
  */
 public class CartActivity extends AppCompatActivity
-    implements LoaderManager.LoaderCallbacks<List<CartProduct>> {
+	implements LoaderManager.LoaderCallbacks<List<CartProduct>> {
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	public Loader<List<CartProduct>> onCreateLoader(int id, Bundle args) {
+		return new CartLoader(this);
+	}
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_cart);
-        binding.cartList.setAdapter(adapter);
+	@Override
+	public void onLoadFinished(Loader<List<CartProduct>> loader, List<CartProduct> products) {
+		showCartProducts();
 
-        setSupportActionBar(binding.toolbar);
+		if (products == null) {
+			Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
 
-        showLoading();
-        getSupportLoaderManager().initLoader(0, null, this);
-    }
+			return;
+		}
 
-    @Override
-    public Loader<List<CartProduct>> onCreateLoader(int id, Bundle args) {
-        return new CartLoader(this);
-    }
+		if (products.isEmpty()) {
+			showEmptyCart();
 
-    @Override
-    public void onLoadFinished(Loader<List<CartProduct>> loader, List<CartProduct> products) {
-        showCartProducts();
+			return;
+		}
 
-        if (products == null) {
-            Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
+		adapter.setItems(products);
+	}
 
-            return;
-        }
+	@Override
+	public void onLoaderReset(Loader<List<CartProduct>> loader) {
+		adapter.setItems(null);
+	}
 
-        if (products.isEmpty()) {
-            showEmptyCart();
+	@Override
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-            return;
-        }
+		binding = DataBindingUtil.setContentView(this, R.layout.activity_cart);
+		binding.cartList.setAdapter(adapter);
 
-        adapter.setItems(products);
-    }
+		setSupportActionBar(binding.toolbar);
 
-    private void showLoading() {
-        TransitionManager.beginDelayedTransition(binding.rootLayout);
-        binding.emptyView.setVisibility(View.INVISIBLE);
-        binding.loading.setVisibility(View.VISIBLE);
-        binding.cartList.setVisibility(View.INVISIBLE);
-        binding.button.setVisibility(View.INVISIBLE);
-    }
+		showLoading();
+		getSupportLoaderManager().initLoader(0, null, this);
+	}
 
-    private void showCartProducts() {
-        TransitionManager.beginDelayedTransition(binding.rootLayout);
-        binding.emptyView.setVisibility(View.INVISIBLE);
-        binding.loading.setVisibility(View.INVISIBLE);
-        binding.cartList.setVisibility(View.VISIBLE);
-        binding.button.setVisibility(View.VISIBLE);
-        binding.button.setText(R.string.checkout);
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO SEND EMAIL
-                finish();
-            }
-        });
-    }
+	private void showCartProducts() {
+		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		binding.emptyView.setVisibility(View.INVISIBLE);
+		binding.loading.setVisibility(View.INVISIBLE);
+		binding.cartList.setVisibility(View.VISIBLE);
+		binding.button.setVisibility(View.VISIBLE);
+		binding.button.setText(R.string.checkout);
+		binding.button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				//TODO SEND EMAIL
+				finish();
+			}
+		});
+	}
 
-    private void showEmptyCart() {
-        TransitionManager.beginDelayedTransition(binding.rootLayout);
-        binding.emptyView.setVisibility(View.VISIBLE);
-        binding.loading.setVisibility(View.INVISIBLE);
-        binding.cartList.setVisibility(View.INVISIBLE);
-        binding.button.setVisibility(View.VISIBLE);
-        binding.button.setText(R.string.start_shopping);
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-    }
+	private void showEmptyCart() {
+		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		binding.emptyView.setVisibility(View.VISIBLE);
+		binding.loading.setVisibility(View.INVISIBLE);
+		binding.cartList.setVisibility(View.INVISIBLE);
+		binding.button.setVisibility(View.VISIBLE);
+		binding.button.setText(R.string.start_shopping);
+		binding.button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				finish();
+			}
+		});
+	}
 
-    @Override
-    public void onLoaderReset(Loader<List<CartProduct>> loader) {
-        adapter.setItems(null);
-    }
+	private void showLoading() {
+		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		binding.emptyView.setVisibility(View.INVISIBLE);
+		binding.loading.setVisibility(View.VISIBLE);
+		binding.cartList.setVisibility(View.INVISIBLE);
+		binding.button.setVisibility(View.INVISIBLE);
+	}
 
-    private CartAdapter adapter = new CartAdapter();
-    private ActivityCartBinding binding;
+	private CartAdapter adapter = new CartAdapter();
+	private ActivityCartBinding binding;
 }

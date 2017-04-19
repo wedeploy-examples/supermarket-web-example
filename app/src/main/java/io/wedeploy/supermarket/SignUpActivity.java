@@ -2,77 +2,74 @@ package io.wedeploy.supermarket;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import com.wedeploy.sdk.transport.Response;
-
 import io.wedeploy.supermarket.databinding.ActivitySignUpBinding;
 import io.wedeploy.supermarket.login.LoginActivity;
 import io.wedeploy.supermarket.view.AlertMessage;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpListener {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	public void onSignUpSuccess(Response response) {
+		if (isFinishing()) return;
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up);
+		finishAffinity();
+		startActivity(new Intent(this, MainActivity.class));
+	}
 
-        binding.logInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
-                finish();
-            }
-        });
+	@Override
+	public void onSignUpFailed(Exception e) {
+		if (isFinishing()) return;
 
-        setupStepButtons();
-    }
+		enableFields(true);
+		binding.steps.getNextButton().setText(R.string.sign_up);
+		AlertMessage.showErrorMessage(this, "Could not sign up");
+	}
 
-    private void setupStepButtons() {
-        binding.steps.setOnDoneClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                enableFields(false);
-                binding.steps.getNextButton().setText(R.string.signing_up);
+	public void enableFields(boolean enable) {
+		binding.name.setEnabled(enable);
+		binding.email.setEnabled(enable);
+		binding.password.setEnabled(enable);
+		binding.steps.getNextButton().setEnabled(enable);
+		binding.steps.getPreviousButton().setEnabled(enable);
+	}
 
-                String email = binding.email.getText().toString();
-                String password = binding.password.getText().toString();
-                String name = binding.name.getText().toString();
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-                SignUpRequest.signUp(SignUpActivity.this, email, password, name);
-            }
-        });
-    }
+		binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up);
 
-    @Override
-    public void onSignUpSuccess(Response response) {
-        if (isFinishing()) return;
+		binding.logInButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+				finish();
+			}
+		});
 
-        finishAffinity();
-        startActivity(new Intent(this, MainActivity.class));
-    }
+		setupStepButtons();
+	}
 
-    @Override
-    public void onSignUpFailed(Exception e) {
-        if (isFinishing()) return;
+	private void setupStepButtons() {
+		binding.steps.setOnDoneClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				enableFields(false);
+				binding.steps.getNextButton().setText(R.string.signing_up);
 
-        enableFields(true);
-        binding.steps.getNextButton().setText(R.string.sign_up);
-        AlertMessage.showErrorMessage(this, "Could not sign up");
-    }
+				String email = binding.email.getText().toString();
+				String password = binding.password.getText().toString();
+				String name = binding.name.getText().toString();
 
+				SignUpRequest.signUp(SignUpActivity.this, email, password, name);
+			}
+		});
+	}
 
-    public void enableFields(boolean enable) {
-        binding.name.setEnabled(enable);
-        binding.email.setEnabled(enable);
-        binding.password.setEnabled(enable);
-        binding.steps.getNextButton().setEnabled(enable);
-        binding.steps.getPreviousButton().setEnabled(enable);
-    }
-
-    private ActivitySignUpBinding binding;
+	private ActivitySignUpBinding binding;
 
 }

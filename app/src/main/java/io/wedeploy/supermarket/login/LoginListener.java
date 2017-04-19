@@ -5,8 +5,8 @@ package io.wedeploy.supermarket.login;
  */
 interface LoginListener {
 
-    void onLoginSuccess();
+	void onLoginSuccess();
 
-    void onLoginFailed(Exception exception);
+	void onLoginFailed(Exception exception);
 
 }

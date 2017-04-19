@@ -2,14 +2,11 @@ package io.wedeploy.supermarket.login;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import com.wedeploy.sdk.auth.Auth;
 import com.wedeploy.sdk.auth.TokenAuth;
-import com.wedeploy.sdk.transport.Response;
-
 import io.wedeploy.supermarket.MainActivity;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.SignUpActivity;
@@ -22,91 +19,90 @@ import io.wedeploy.supermarket.view.AlertMessage;
  */
 public class LoginActivity extends AppCompatActivity implements LoginListener {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	public void onLoginSuccess() {
+		if (isFinishing()) return;
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+		startActivity(new Intent(this, MainActivity.class));
+		finishAffinity();
+	}
 
-        binding.signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
-                finish();
-            }
-        });
+	@Override
+	public void onLoginFailed(Exception exception) {
+		if (isFinishing()) return;
 
-        binding.signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                enableFields(false);
-                binding.signInButton.setText(R.string.logging_in);
+		enableFields(true);
+		binding.signInButton.setText(R.string.log_in);
 
-                String email = binding.email.getText().toString();
-                String password = binding.password.getText().toString();
+		AlertMessage.showErrorMessage(this, getString(R.string.invalid_email_or_password));
+	}
 
-                LoginRequest.login(LoginActivity.this, email, password);
-            }
-        });
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-        binding.forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivityForResult(
-                    new Intent(LoginActivity.this, ResetPasswordActivity.class),
-                    REQUEST_RESET_PASSWORD);
-            }
-        });
-    }
+		binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
+		binding.signUpButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
+				finish();
+			}
+		});
 
-        Auth auth = TokenAuth.getAuthFromIntent(intent);
+		binding.signInButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				enableFields(false);
+				binding.signInButton.setText(R.string.logging_in);
 
-        if (auth != null) {
-            startActivity(new Intent(this, MainActivity.class));
-            finishAffinity();
-        }
-    }
+				String email = binding.email.getText().toString();
+				String password = binding.password.getText().toString();
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+				LoginRequest.login(LoginActivity.this, email, password);
+			}
+		});
 
-        if ((requestCode == REQUEST_RESET_PASSWORD) &&  (resultCode == RESULT_OK)) {
-            AlertMessage.showSuccessMessage(
-                this, getString(R.string.the_email_should_arrive_within_a_few_minuts));
-        }
-    }
+		binding.forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivityForResult(
+					new Intent(LoginActivity.this, ResetPasswordActivity.class),
+					REQUEST_RESET_PASSWORD);
+			}
+		});
+	}
 
-    @Override
-    public void onLoginSuccess() {
-        if (isFinishing()) return;
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
 
-        startActivity(new Intent(this, MainActivity.class));
-        finishAffinity();
-    }
+		Auth auth = TokenAuth.getAuthFromIntent(intent);
 
-    @Override
-    public void onLoginFailed(Exception exception) {
-        if (isFinishing()) return;
+		if (auth != null) {
+			startActivity(new Intent(this, MainActivity.class));
+			finishAffinity();
+		}
+	}
 
-        enableFields(true);
-        binding.signInButton.setText(R.string.log_in);
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
 
-        AlertMessage.showErrorMessage(this, getString(R.string.invalid_email_or_password));
-    }
+		if ((requestCode == REQUEST_RESET_PASSWORD) && (resultCode == RESULT_OK)) {
+			AlertMessage.showSuccessMessage(
+				this, getString(R.string.the_email_should_arrive_within_a_few_minuts));
+		}
+	}
 
-    private void enableFields(boolean enable) {
-        binding.password.setEnabled(enable);
-        binding.email.setEnabled(enable);
-        binding.signInButton.setEnabled(enable);
-    }
+	private void enableFields(boolean enable) {
+		binding.password.setEnabled(enable);
+		binding.email.setEnabled(enable);
+		binding.signInButton.setEnabled(enable);
+	}
 
-    private static final int REQUEST_RESET_PASSWORD = 1;
-
-    private ActivityLoginBinding binding;
+	private ActivityLoginBinding binding;
+	private static final int REQUEST_RESET_PASSWORD = 1;
 
 }

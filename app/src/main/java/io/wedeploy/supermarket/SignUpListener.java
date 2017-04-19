@@ -8,8 +8,8 @@ import com.wedeploy.sdk.transport.Response;
 
 interface SignUpListener {
 
-    void onSignUpSuccess(Response response);
+	void onSignUpSuccess(Response response);
 
-    void onSignUpFailed(Exception e);
+	void onSignUpFailed(Exception e);
 
 }

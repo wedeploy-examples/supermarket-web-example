@@ -2,104 +2,102 @@ package io.wedeploy.supermarket;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
-import java.util.List;
-
 import io.wedeploy.supermarket.adapter.ProductAdapter;
 import io.wedeploy.supermarket.databinding.ActivityMainBinding;
 import io.wedeploy.supermarket.model.Product;
 import io.wedeploy.supermarket.view.OnFilterSelectedListener;
 
+import java.util.List;
+
 /**
  * @author Silvio Santos
  */
 public class MainActivity extends AppCompatActivity
-    implements LoaderManager.LoaderCallbacks<List<Product>>, OnFilterSelectedListener {
+	implements LoaderManager.LoaderCallbacks<List<Product>>, OnFilterSelectedListener {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	public void onFilterSelected(String filter) {
+		binding.filterBarView.setFilter(filter);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.productsList.setAdapter(adapter);
-        binding.cartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CartActivity.class));
-            }
-        });
+		getSupportLoaderManager().restartLoader(0, null, this);
+	}
 
-        if (savedInstanceState != null) {
-            binding.filterBarView.setFilter(savedInstanceState.getString(STATE_FILTER));
-        }
-        else {
-            binding.filterBarView.setFilter(getString(R.string.all));
-        }
+	@Override
+	public Loader<List<Product>> onCreateLoader(int id, Bundle args) {
+		return new ProductsLoader(this, binding.filterBarView.getFilter());
+	}
 
-        showLoading();
-        setSupportActionBar(binding.toolbar);
-        getSupportLoaderManager().initLoader(0, null, this);
-    }
+	@Override
+	public void onLoadFinished(Loader<List<Product>> loader, List<Product> products) {
+		showProducts();
 
-    @Override
-    public void onFilterSelected(String filter) {
-        binding.filterBarView.setFilter(filter);
+		if (products == null) {
+			Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
 
-        getSupportLoaderManager().restartLoader(0, null, this);
-    }
+			return;
+		}
 
-    @Override
-    public Loader<List<Product>> onCreateLoader(int id, Bundle args) {
-        return new ProductsLoader(this, binding.filterBarView.getFilter());
-    }
+		adapter.setItems(products);
+	}
 
-    @Override
-    public void onLoadFinished(Loader<List<Product>> loader, List<Product> products) {
-        showProducts();
+	@Override
+	public void onLoaderReset(Loader<List<Product>> loader) {
+		adapter.setItems(null);
+	}
 
-        if (products == null) {
-            Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-            return;
-        }
+		binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+		binding.productsList.setAdapter(adapter);
+		binding.cartButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainActivity.this, CartActivity.class));
+			}
+		});
 
-        adapter.setItems(products);
-    }
+		if (savedInstanceState != null) {
+			binding.filterBarView.setFilter(savedInstanceState.getString(STATE_FILTER));
+		}
+		else {
+			binding.filterBarView.setFilter(getString(R.string.all));
+		}
 
-    @Override
-    public void onLoaderReset(Loader<List<Product>> loader) {
-        adapter.setItems(null);
-    }
+		showLoading();
+		setSupportActionBar(binding.toolbar);
+		getSupportLoaderManager().initLoader(0, null, this);
+	}
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
 
-        outState.putString(STATE_FILTER, binding.filterBarView.getFilter());
-    }
+		outState.putString(STATE_FILTER, binding.filterBarView.getFilter());
+	}
 
-    private void showProducts() {
-        TransitionManager.beginDelayedTransition(binding.rootLayout);
-        binding.loading.setVisibility(View.INVISIBLE);
-        binding.productsList.setVisibility(View.VISIBLE);
-    }
+	private void showLoading() {
+		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		binding.loading.setVisibility(View.VISIBLE);
+		binding.productsList.setVisibility(View.INVISIBLE);
+	}
 
-    private void showLoading() {
-        TransitionManager.beginDelayedTransition(binding.rootLayout);
-        binding.loading.setVisibility(View.VISIBLE);
-        binding.productsList.setVisibility(View.INVISIBLE);
-    }
+	private void showProducts() {
+		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		binding.loading.setVisibility(View.INVISIBLE);
+		binding.productsList.setVisibility(View.VISIBLE);
+	}
 
-    private static final String STATE_FILTER = "filter";
-
-    private ProductAdapter adapter = new ProductAdapter();
-    private ActivityMainBinding binding;
+	private ProductAdapter adapter = new ProductAdapter();
+	private ActivityMainBinding binding;
+	private static final String STATE_FILTER = "filter";
 
 }

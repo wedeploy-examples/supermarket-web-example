@@ -6,6 +6,6 @@ package io.wedeploy.supermarket.view;
 
 public interface OnFilterSelectedListener {
 
-    void onFilterSelected(String filter);
+	void onFilterSelected(String filter);
 
 }

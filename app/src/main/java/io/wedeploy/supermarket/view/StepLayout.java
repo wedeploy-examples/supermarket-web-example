@@ -17,193 +17,194 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.ViewAnimator;
+import io.wedeploy.supermarket.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.wedeploy.supermarket.R;
 
 /**
  * @author Silvio Santos
  */
 public class StepLayout extends FrameLayout {
 
-    public StepLayout(@NonNull Context context) {
-        super(context);
+	public StepLayout(@NonNull Context context) {
+		super(context);
 
-        init(null);
-    }
+		init(null);
+	}
 
-    public StepLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+	public StepLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+		super(context, attrs);
 
-        init(attrs);
-    }
+		init(attrs);
+	}
 
-    public StepLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+	public StepLayout(
+		@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
 
-        init(attrs);
-    }
+		init(attrs);
+	}
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public StepLayout(
-        @NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+	public StepLayout(
+		@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr,
+		@StyleRes int defStyleRes) {
 
-        super(context, attrs, defStyleAttr, defStyleRes);
+		super(context, attrs, defStyleAttr, defStyleRes);
 
-        init(attrs);
-    }
+		init(attrs);
+	}
 
-    public void setOnDoneClickListener(OnClickListener doneAction) {
-        this.doneAction = doneAction;
-    }
+	public void setOnDoneClickListener(OnClickListener doneAction) {
+		this.doneAction = doneAction;
+	}
 
-    public List<View> getStepViews() {
-        List<View> stepViews = new ArrayList<>();
+	public List<View> getStepViews() {
+		List<View> stepViews = new ArrayList<>();
 
-        for (int i = 0; i < viewAnimator.getChildCount(); i++) {
-            stepViews.add(viewAnimator.getChildAt(i));
-        }
+		for (int i = 0; i < viewAnimator.getChildCount(); i++) {
+			stepViews.add(viewAnimator.getChildAt(i));
+		}
 
-        return stepViews;
-    }
+		return stepViews;
+	}
 
-    public Button getNextButton() {
-        return nextButton;
-    }
+	public Button getNextButton() {
+		return nextButton;
+	}
 
-    public Button getPreviousButton() {
-        return previousButton;
-    }
+	public Button getPreviousButton() {
+		return previousButton;
+	}
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
 
-        nextButton = (Button)findViewById(R.id.nextButton);
-        previousButton = (Button)findViewById(R.id.previousButton);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        viewAnimator = (ViewAnimator)findViewById(R.id.viewSwitcher);
+		nextButton = (Button)findViewById(R.id.nextButton);
+		previousButton = (Button)findViewById(R.id.previousButton);
+		progressBar = (ProgressBar)findViewById(R.id.progressBar);
+		viewAnimator = (ViewAnimator)findViewById(R.id.viewSwitcher);
 
-        initViewAnimator();
-        initProgressBar();
-        initButtons();
-    }
+		initViewAnimator();
+		initProgressBar();
+		initButtons();
+	}
 
-    private void initButtons() {
-        nextButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isLastView()) {
-                    if (doneAction != null) {
-                        doneAction.onClick(nextButton);
-                    }
-                }
-                else {
-                    viewAnimator.showNext();
-                    setProgress();
-                    setNextButtonLabel();
-                    setPreviousButtonVisiblity();
-                }
-            }
-        });
+	private int getCurrentIndex() {
+		return viewAnimator.indexOfChild(viewAnimator.getCurrentView());
+	}
 
-        previousButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewAnimator.showPrevious();
+	private void init(AttributeSet attributes) {
+		Context context = getContext();
 
-                setProgress();
-                setNextButtonLabel();
-                setPreviousButtonVisiblity();
-            }
-        });
-    }
+		inflate(context, R.layout.step_layout, this);
 
-    private void initProgressBar() {
-        int max = viewAnimator.getChildCount();
+		TypedArray typedArray = context.getTheme().obtainStyledAttributes(
+			attributes, R.styleable.StepLayout, 0, 0);
 
-        progressBar.setMax(max);
-        progressBar.setProgress(1);
-    }
+		doneButtonText = typedArray.getResourceId(R.styleable.StepLayout_doneButtonText, 0);
+	}
 
-    private void initViewAnimator() {
-        int childCount = getChildCount();
+	private void initButtons() {
+		nextButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (isLastView()) {
+					if (doneAction != null) {
+						doneAction.onClick(nextButton);
+					}
+				}
+				else {
+					viewAnimator.showNext();
+					setProgress();
+					setNextButtonLabel();
+					setPreviousButtonVisiblity();
+				}
+			}
+		});
 
-        for (int i = childCount - 1; i >= 0; i--) {
-            View child = getChildAt(i);
+		previousButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				viewAnimator.showPrevious();
 
-            if (child.getId() != R.id.step_layout_root) {
-                removeViewAt(i);
-                viewAnimator.addView(child, 0);
-            }
-        }
+				setProgress();
+				setNextButtonLabel();
+				setPreviousButtonVisiblity();
+			}
+		});
+	}
 
-        viewAnimator.setDisplayedChild(0);
-    }
+	private void initProgressBar() {
+		int max = viewAnimator.getChildCount();
 
-    private boolean isLastView() {
-        return getCurrentIndex() == viewAnimator.getChildCount() - 1;
-    }
+		progressBar.setMax(max);
+		progressBar.setProgress(1);
+	}
 
-    private void setNextButtonLabel() {
-        if (isLastView()) {
-            nextButton.setText(doneButtonText);
-        }
-        else {
-            nextButton.setText(R.string.next);
-        }
-    }
+	private void initViewAnimator() {
+		int childCount = getChildCount();
 
-    private void setPreviousButtonVisiblity() {
-        if (getCurrentIndex() == 0) {
-            previousButton.setVisibility(GONE);
-        }
-        else {
-            previousButton.setVisibility(VISIBLE);
-        }
-    }
+		for (int i = childCount - 1; i >= 0; i--) {
+			View child = getChildAt(i);
 
-    private void setProgress() {
-        int currentProgress = progressBar.getProgress();
-        int progress = getCurrentIndex() + 1;
+			if (child.getId() != R.id.step_layout_root) {
+				removeViewAt(i);
+				viewAnimator.addView(child, 0);
+			}
+		}
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            progressBar.setProgress(progress, true);
-        }
-        else {
-            ObjectAnimator animation = ObjectAnimator.ofInt(
-                    progressBar, "progress", currentProgress, progress);
+		viewAnimator.setDisplayedChild(0);
+	}
 
-            animation.setInterpolator(new DecelerateInterpolator());
-            animation.setDuration(1000);
-            animation.start();
-        }
-    }
+	private boolean isLastView() {
+		return getCurrentIndex() == viewAnimator.getChildCount() - 1;
+	}
 
-    private int getCurrentIndex() {
-        return viewAnimator.indexOfChild(viewAnimator.getCurrentView());
-    }
+	private void setNextButtonLabel() {
+		if (isLastView()) {
+			nextButton.setText(doneButtonText);
+		}
+		else {
+			nextButton.setText(R.string.next);
+		}
+	}
 
-    private void init(AttributeSet attributes) {
-        Context context = getContext();
+	private void setPreviousButtonVisiblity() {
+		if (getCurrentIndex() == 0) {
+			previousButton.setVisibility(GONE);
+		}
+		else {
+			previousButton.setVisibility(VISIBLE);
+		}
+	}
 
-        inflate(context, R.layout.step_layout, this);
+	private void setProgress() {
+		int currentProgress = progressBar.getProgress();
+		int progress = getCurrentIndex() + 1;
 
-        TypedArray typedArray = context.getTheme().obtainStyledAttributes(
-                attributes, R.styleable.StepLayout, 0, 0);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			progressBar.setProgress(progress, true);
+		}
+		else {
+			ObjectAnimator animation = ObjectAnimator.ofInt(
+				progressBar, "progress", currentProgress, progress);
 
-        doneButtonText = typedArray.getResourceId(R.styleable.StepLayout_doneButtonText, 0);
-    }
+			animation.setInterpolator(new DecelerateInterpolator());
+			animation.setDuration(1000);
+			animation.start();
+		}
+	}
 
-    private OnClickListener doneAction;
+	private OnClickListener doneAction;
 
-    @StringRes
-    private int doneButtonText;
-    private Button nextButton;
-    private Button previousButton;
-    private ProgressBar progressBar;
-    private ViewAnimator viewAnimator;
+	@StringRes
+	private int doneButtonText;
+	private Button nextButton;
+	private Button previousButton;
+	private ProgressBar progressBar;
+	private ViewAnimator viewAnimator;
 
 }
