@@ -12,7 +12,9 @@ import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -127,8 +129,8 @@ public class StepLayout extends FrameLayout {
 	private void initProgressBar() {
 		int max = viewAnimator.getChildCount();
 
-		progressBar.setMax(max);
-		progressBar.setProgress(1);
+		progressBar.setMax(max * 100);
+		progressBar.setProgress(100);
 	}
 
 	private void initViewAnimator() {
@@ -170,7 +172,7 @@ public class StepLayout extends FrameLayout {
 
 	private void setProgress() {
 		int currentProgress = progressBar.getProgress();
-		int progress = getCurrentIndex() + 1;
+		int progress = (getCurrentIndex() + 1) * 100;
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 			progressBar.setProgress(progress, true);
@@ -180,7 +182,7 @@ public class StepLayout extends FrameLayout {
 				progressBar, "progress", currentProgress, progress);
 
 			animation.setInterpolator(new DecelerateInterpolator());
-			animation.setDuration(1000);
+			animation.setDuration(200);
 			animation.start();
 		}
 	}
