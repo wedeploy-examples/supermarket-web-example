@@ -115,13 +115,9 @@ public class SupermarketAuth {
 			.flatMap(new Function<Response, SingleSource<Response>>() {
 				@Override
 				public SingleSource<Response> apply(@NonNull Response response) throws Exception {
+					saveUser(response);
+
 					return signIn(email, password).subscribeOn(Schedulers.io());
-				}
-			})
-			.doOnSuccess(new Consumer<Response>() {
-				@Override
-				public void accept(@NonNull Response response) throws Exception {
-					saveToken(response);
 				}
 			});
 	}
