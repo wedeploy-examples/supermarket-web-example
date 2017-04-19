@@ -29,7 +29,15 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@android:color/white" />
+                app:titleTextColor="@android:color/white">
+
+                <io.wedeploy.supermarket.view.UserPhotoView
+                    android:id="@+id/userPhoto"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_gravity="right" />
+            </android.support.v7.widget.Toolbar>
 
             <io.wedeploy.supermarket.view.FilterBarView
                 android:id="@+id/filterBarView"
