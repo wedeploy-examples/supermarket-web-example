@@ -2,7 +2,6 @@ package io.wedeploy.supermarket.repository;
 
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
-import com.wedeploy.sdk.WeDeployData;
 import com.wedeploy.sdk.exception.WeDeployException;
 import com.wedeploy.sdk.query.filter.Filter;
 import com.wedeploy.sdk.transport.Response;
@@ -38,13 +37,13 @@ public class SupermarketData {
 			.put("productId", product.getId())
 			.put("userId", currentUserId);
 
-		weDeployData
+		weDeploy.data(DATA_URL)
 			.create("cart", cartProductJsonObject)
 			.execute(callback);
 	}
 
 	public List<CartProduct> getCart() throws WeDeployException, JSONException {
-		Response response = weDeployData
+		Response response = weDeploy.data(DATA_URL)
 			.where(equal("userId", currentUserId))
 			.orderBy("productTitle")
 			.get("cart")
@@ -61,7 +60,7 @@ public class SupermarketData {
 	}
 
 	public void getCartCount(Callback callback) {
-		weDeployData
+		weDeploy.data(DATA_URL)
 			.where(equal("userId", currentUserId))
 			.count()
 			.get("cart")
@@ -71,7 +70,7 @@ public class SupermarketData {
 	public List<Product> getProducts(String type) throws WeDeployException, JSONException {
 		Filter typeFilter = (type != null) ? match("type", type) : not("type", "");
 
-		Response response = weDeployData
+		Response response = weDeploy.data(DATA_URL)
 			.where(typeFilter.and(exists("filename")))
 			.orderBy("title")
 			.get("products")
@@ -88,15 +87,15 @@ public class SupermarketData {
 	}
 
 	private SupermarketData() {
-		WeDeploy weDeploy = new WeDeploy.Builder().build();
+		weDeploy = new WeDeploy.Builder()
+			.auth(Settings.getAuth())
+			.build();
 
 		this.currentUserId = Settings.getUserId();
-		this.weDeployData = weDeploy.data(DATA_URL)
-			.auth(Settings.getAuth());
 	}
 
 	private final String currentUserId;
-	private final WeDeployData weDeployData;
+	private final WeDeploy weDeploy;
 
 	private static SupermarketData instance;
 
