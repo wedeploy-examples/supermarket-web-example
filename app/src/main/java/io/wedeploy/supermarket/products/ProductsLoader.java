@@ -47,6 +47,7 @@ public class ProductsLoader extends AsyncTaskLoader<List<Product>> {
 			forceLoad();
 		}
 	}
+
 	private final String filter;
 	private List<Product> products;
 	private final SupermarketData supermarketData;

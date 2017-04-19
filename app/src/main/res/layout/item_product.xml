@@ -71,7 +71,6 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="@string/add_to_cart"
-            android:onClick="@{product::onAddToCartButtonClick}"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/price"

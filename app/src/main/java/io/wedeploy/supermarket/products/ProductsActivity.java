@@ -7,6 +7,7 @@ import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 import io.wedeploy.supermarket.R;
@@ -24,7 +25,7 @@ import java.util.List;
  */
 public class ProductsActivity extends AppCompatActivity
 	implements LoaderManager.LoaderCallbacks<List<Product>>, OnFilterSelectedListener,
-	CartItemListener {
+	CartItemListener, AddToCartListener {
 
 	@Override
 	public void onFilterSelected(String filter) {
@@ -58,13 +59,21 @@ public class ProductsActivity extends AppCompatActivity
 
 	@Override
 	public void onGetCartItemCountSuccess(int count) {
-		if (count > 0) {
-			binding.cartItemCount.setText(String.valueOf(count));
-			binding.cartItemCount.setVisibility(View.VISIBLE);
+		updateCartItemCount(count);
+	}
+
+	@Override
+	public void onItemAddedToCart(Product product) {
+		String countText = binding.cartItemCount.getText().toString();
+		int count = 0;
+
+		if (TextUtils.isDigitsOnly(countText)) {
+			count = Integer.valueOf(countText);
 		}
-		else {
-			binding.cartItemCount.setVisibility(View.GONE);
-		}
+
+		updateCartItemCount(count + 1);
+
+		AddToCartRequest.addToCart(this, product);
 	}
 
 	@Override
@@ -118,7 +127,12 @@ public class ProductsActivity extends AppCompatActivity
 		binding.productsList.setVisibility(View.VISIBLE);
 	}
 
-	private final ProductAdapter adapter = new ProductAdapter();
+	private void updateCartItemCount(int count) {
+		binding.cartItemCount.setText(String.valueOf(count));
+		binding.cartItemCount.setVisibility((count > 0) ? View.VISIBLE : View.GONE);
+	}
+
+	private final ProductAdapter adapter = new ProductAdapter(this);
 	private ActivityMainBinding binding;
 
 	private static final String STATE_FILTER = "filter";

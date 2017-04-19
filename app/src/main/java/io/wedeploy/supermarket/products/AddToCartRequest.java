@@ -38,10 +38,6 @@ public class AddToCartRequest extends Fragment {
 			supermarketData.addToCart(product, new Callback() {
 				@Override
 				public void onSuccess(Response response) {
-					Toast.makeText(
-						getContext(),
-						R.string.item_added_to_cart,
-						Toast.LENGTH_SHORT).show();
 				}
 
 				@Override
