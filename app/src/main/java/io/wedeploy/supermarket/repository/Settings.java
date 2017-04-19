@@ -13,6 +13,10 @@ import org.json.JSONObject;
  */
 public class Settings {
 
+	public static void clear() {
+		getSettings().edit().clear().commit();
+	}
+
 	public static String getUserId() {
 		return getSettings().getString(USER_ID, null);
 	}

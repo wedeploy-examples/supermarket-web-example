@@ -6,17 +6,23 @@ import android.os.Bundle;
 import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
+import com.bumptech.glide.Glide;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.cart.CartActivity;
 import io.wedeploy.supermarket.cart.CartItemListener;
 import io.wedeploy.supermarket.databinding.ActivityMainBinding;
+import io.wedeploy.supermarket.logout.LogoutBottomSheet;
 import io.wedeploy.supermarket.products.adapter.ProductAdapter;
 import io.wedeploy.supermarket.products.model.Product;
+import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.view.OnFilterSelectedListener;
+import io.wedeploy.supermarket.view.binding.Bindings;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import java.util.List;
 
@@ -86,6 +92,14 @@ public class ProductsActivity extends AppCompatActivity
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(ProductsActivity.this, CartActivity.class));
+			}
+		});
+
+		binding.userPhoto.setUserPhoto(Settings.getUserPhoto(), Settings.getUserName());
+		binding.userPhoto.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				LogoutBottomSheet.show(ProductsActivity.this);
 			}
 		});
 

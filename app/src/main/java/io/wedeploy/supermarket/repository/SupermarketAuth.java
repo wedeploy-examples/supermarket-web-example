@@ -1,6 +1,7 @@
 package io.wedeploy.supermarket.repository;
 
 import android.app.Activity;
+import android.util.Log;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.WeDeployAuth;
@@ -67,6 +68,25 @@ public class SupermarketAuth {
 			.signIn(activity, authProvider);
 	}
 
+	public void signOut(Auth authorization) {
+		WeDeploy weDeploy = new WeDeploy.Builder().build();
+
+		weDeploy.auth(AUTH_URL)
+			.auth(authorization)
+			.signOut()
+			.execute(new Callback() {
+				@Override
+				public void onSuccess(Response response) {
+					Log.i(TAG, "Token revoked");
+				}
+
+				@Override
+				public void onFailure(Exception e) {
+					Log.i(TAG, "Could not revoke token", e);
+				}
+			});
+	}
+
 	public Single<Response> signIn(String email, String password) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
@@ -125,4 +145,5 @@ public class SupermarketAuth {
 	private static SupermarketAuth instance;
 
 	private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
+	private static final String TAG = SupermarketAuth.class.getSimpleName();
 }

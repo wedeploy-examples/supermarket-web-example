@@ -8,7 +8,7 @@
 	<color name="we_button_background_default">#FF4040</color>
 	<color name="we_button_background_disabled">#99FF4040</color>
 	<color name="we_button_background_pressed">#CCFF4040</color>
-	<color name="alert_error_icon_background">#F81616</color>
+	<color name="alert_error_icon_background">@color/red</color>
 	<color name="alert_success_icon_background">#00D455</color>
 	<color name="cart_button_background">#082947</color>
 	<color name="cart_icon_color">#660E141A</color>
@@ -23,4 +23,5 @@
 	<color name="social_facebook_button_background">#3B5998</color>
 	<color name="title_color">#CC0E141A</color>
 	<color name="h2_color">#660E141A</color>
+	<color name="red">#F81616</color>
 </resources>

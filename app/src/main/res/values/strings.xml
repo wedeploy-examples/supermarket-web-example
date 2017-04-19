@@ -42,6 +42,8 @@
     <string name="icon_arrow"></string>
     <string name="icon_facebook"></string>
     <string name="icon_google"></string>
+    <string name="log_out">Log out</string>
+    <string name="cancel">Cancel</string>
 
     <string-array name="filter">
         <item>@string/all</item>
