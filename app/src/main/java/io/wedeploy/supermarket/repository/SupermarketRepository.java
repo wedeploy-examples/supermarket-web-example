@@ -61,6 +61,15 @@ public class SupermarketRepository {
 		return cartProducts;
 	}
 
+	public void getCartCount(Callback callback) {
+		weDeploy.data(DATA_URL)
+			.auth(settings.getToken())
+			.where(equal("userId", settings.getCurrentUserId()))
+			.count()
+			.get("cart")
+			.execute(callback);
+	}
+
 	public List<Product> getProducts(String type) throws WeDeployException, JSONException {
 		Filter typeFilter = (type != null) ? match("type", type) : not("type", "");
 

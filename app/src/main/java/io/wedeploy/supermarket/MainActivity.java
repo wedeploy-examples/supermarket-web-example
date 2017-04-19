@@ -20,7 +20,8 @@ import java.util.List;
  * @author Silvio Santos
  */
 public class MainActivity extends AppCompatActivity
-	implements LoaderManager.LoaderCallbacks<List<Product>>, OnFilterSelectedListener {
+	implements LoaderManager.LoaderCallbacks<List<Product>>, OnFilterSelectedListener,
+	CartItemListener {
 
 	@Override
 	public void onFilterSelected(String filter) {
@@ -53,6 +54,17 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	@Override
+	public void onGetCartItemCountSuccess(int count) {
+		if (count > 0) {
+			binding.cartItemCount.setText(String.valueOf(count));
+			binding.cartItemCount.setVisibility(View.VISIBLE);
+		}
+		else {
+			binding.cartItemCount.setVisibility(View.GONE);
+		}
+	}
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -78,6 +90,13 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	@Override
+	protected void onResume() {
+		super.onResume();
+
+		CartItemCountRequest.getCartItemCount(this);
+	}
+
+	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 
@@ -98,6 +117,7 @@ public class MainActivity extends AppCompatActivity
 
 	private ProductAdapter adapter = new ProductAdapter();
 	private ActivityMainBinding binding;
+
 	private static final String STATE_FILTER = "filter";
 
 }
