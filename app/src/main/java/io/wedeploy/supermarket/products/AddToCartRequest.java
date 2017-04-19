@@ -9,7 +9,6 @@ import android.widget.Toast;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.transport.Response;
 import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.products.model.Product;
 import io.wedeploy.supermarket.repository.SupermarketData;
 import org.json.JSONException;

@@ -5,11 +5,11 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import io.wedeploy.supermarket.products.ProductsActivity;
 import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.signup.SignUpActivity;
 import io.wedeploy.supermarket.databinding.ActivityLoginBinding;
+import io.wedeploy.supermarket.products.ProductsActivity;
 import io.wedeploy.supermarket.resetpassword.ResetPasswordActivity;
+import io.wedeploy.supermarket.signup.SignUpActivity;
 import io.wedeploy.supermarket.view.AlertMessage;
 
 /**
@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 	}
 
 	@Override
-	public void onLoginFailed(Exception exception) {
+	public void onLoginFailed(Exception e) {
 		if (isFinishing()) return;
 
 		enableFields(true);
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
 		if ((requestCode == REQUEST_RESET_PASSWORD) && (resultCode == RESULT_OK)) {
 			AlertMessage.showSuccessMessage(
-				this, getString(R.string.the_email_should_arrive_within_a_few_minuts));
+				this, getString(R.string.the_email_should_arrive_within_a_few_minutes));
 		}
 	}
 

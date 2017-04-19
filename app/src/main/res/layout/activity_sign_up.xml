@@ -49,7 +49,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/whats_your_name"
                     android:textColor="@color/title_color"
-                    android:textSize="26dp"
+                    android:textSize="26sp"
                     tools:text="@string/whats_your_name" />
 
                 <EditText
@@ -72,7 +72,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/and_your_email"
                     android:textColor="@color/title_color"
-                    android:textSize="26dp"
+                    android:textSize="26sp"
                     tools:text="@string/and_your_email" />
 
                 <EditText
@@ -96,7 +96,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/now_create_a_password"
                     android:textColor="@color/title_color"
-                    android:textSize="26dp" />
+                    android:textSize="26sp" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"

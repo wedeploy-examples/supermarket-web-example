@@ -21,21 +21,7 @@ import org.json.JSONObject;
 /**
  * @author Silvio Santos
  */
-
 public class SupermarketAuth {
-
-	public void signIn(Activity activity, AuthProvider.Provider provider) {
-		AuthProvider authProvider = new AuthProvider.Builder()
-			.redirectUri("oauth-wedeploy://io.wedeploy.supermarket")
-			.providerScope("email")
-			.provider(provider)
-			.build();
-
-		WeDeploy weDeploy = new WeDeploy.Builder().build();
-
-		weDeploy.auth(AUTH_URL)
-			.signIn(activity, authProvider);
-	}
 
 	public static SupermarketAuth getInstance() {
 		if (instance == null) {
@@ -66,6 +52,19 @@ public class SupermarketAuth {
 		weDeploy.auth(AUTH_URL)
 			.sendPasswordResetEmail(email)
 			.execute(callback);
+	}
+
+	public void signIn(Activity activity, AuthProvider.Provider provider) {
+		AuthProvider authProvider = new AuthProvider.Builder()
+			.redirectUri("oauth-wedeploy://io.wedeploy.supermarket")
+			.providerScope("email")
+			.provider(provider)
+			.build();
+
+		WeDeploy weDeploy = new WeDeploy.Builder().build();
+
+		weDeploy.auth(AUTH_URL)
+			.signIn(activity, authProvider);
 	}
 
 	public Single<Response> signIn(String email, String password) {
@@ -107,7 +106,7 @@ public class SupermarketAuth {
 			});
 	}
 
-	public String saveToken(Response response) throws JSONException {
+	private String saveToken(Response response) throws JSONException {
 		JSONObject tokenJsonObject = new JSONObject(response.getBody());
 		String token = tokenJsonObject.getString("access_token");
 		Settings.saveToken(token);

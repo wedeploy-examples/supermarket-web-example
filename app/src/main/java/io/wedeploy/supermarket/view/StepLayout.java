@@ -19,9 +19,6 @@ import android.widget.ProgressBar;
 import android.widget.ViewAnimator;
 import io.wedeploy.supermarket.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Silvio Santos
  */
@@ -58,16 +55,6 @@ public class StepLayout extends FrameLayout {
 
 	public void setOnDoneClickListener(OnClickListener doneAction) {
 		this.doneAction = doneAction;
-	}
-
-	public List<View> getStepViews() {
-		List<View> stepViews = new ArrayList<>();
-
-		for (int i = 0; i < viewAnimator.getChildCount(); i++) {
-			stepViews.add(viewAnimator.getChildAt(i));
-		}
-
-		return stepViews;
 	}
 
 	public Button getNextButton() {
@@ -120,7 +107,7 @@ public class StepLayout extends FrameLayout {
 					viewAnimator.showNext();
 					setProgress();
 					setNextButtonLabel();
-					setPreviousButtonVisiblity();
+					setPreviousButtonVisibility();
 				}
 			}
 		});
@@ -132,7 +119,7 @@ public class StepLayout extends FrameLayout {
 
 				setProgress();
 				setNextButtonLabel();
-				setPreviousButtonVisiblity();
+				setPreviousButtonVisibility();
 			}
 		});
 	}
@@ -172,7 +159,7 @@ public class StepLayout extends FrameLayout {
 		}
 	}
 
-	private void setPreviousButtonVisiblity() {
+	private void setPreviousButtonVisibility() {
 		if (getCurrentIndex() == 0) {
 			previousButton.setVisibility(GONE);
 		}

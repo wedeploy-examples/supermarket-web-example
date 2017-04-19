@@ -43,17 +43,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 		notifyDataSetChanged();
 	}
 
-	private List<Product> products = new ArrayList<>();
+	private final List<Product> products = new ArrayList<>();
 
 	class ProductViewHolder extends RecyclerView.ViewHolder {
-
-		ItemProductBinding binding;
 
 		public ProductViewHolder(ItemProductBinding binding) {
 			super(binding.getRoot());
 
 			this.binding = binding;
 		}
+
+		final ItemProductBinding binding;
 	}
 
 }

@@ -10,7 +10,6 @@ import com.wedeploy.sdk.transport.Response;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.repository.SupermarketAuth;
 
 /**
@@ -52,7 +51,7 @@ public class SignUpRequest extends Fragment {
 			.subscribe(new DisposableSingleObserver<Response>() {
 				@Override
 				public void onSuccess(Response response) {
-					listener.onSignUpSuccess(response);
+					listener.onSignUpSuccess();
 				}
 
 				@Override

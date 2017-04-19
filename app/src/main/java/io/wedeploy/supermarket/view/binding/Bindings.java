@@ -20,7 +20,7 @@ public class Bindings {
 	@BindingAdapter({"imageUrl", "placeholder"})
 	public static void loadImage(ImageView view, String url, Drawable placeholder) {
 		Context context = view.getContext();
-		int corderRadius = context.getResources().getDimensionPixelSize(R.dimen
+		int cornerRadius = context.getResources().getDimensionPixelSize(R.dimen
 			.image_corner_radius);
 
 		Glide.with(context)
@@ -28,7 +28,7 @@ public class Bindings {
 			.placeholder(placeholder)
 			.bitmapTransform(
 				new CenterCrop(context),
-				new RoundedCornersTransformation(context, corderRadius, 0))
+				new RoundedCornersTransformation(context, cornerRadius, 0))
 			.into(view);
 	}
 

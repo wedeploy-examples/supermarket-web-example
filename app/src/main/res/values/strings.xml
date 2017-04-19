@@ -20,7 +20,7 @@
     <string name="invalid_email_or_password">Ops! Invalid email or password</string>
     <string name="logging_in">Logging in</string>
     <string name="sending_reset_instructions">Sending reset instructions</string>
-    <string name="the_email_should_arrive_within_a_few_minuts">The email should arrive within a few minutes</string>
+    <string name="the_email_should_arrive_within_a_few_minutes">The email should arrive within a few minutes</string>
     <string name="invalid_email">Ops! Invalid email</string>
     <string name="your_full_name">your full name</string>
     <string name="signing_up">Signing up</string>
@@ -35,6 +35,13 @@
     <string name="could_not_add_item_to_cart">Could not add item to cart</string>
     <string name="item_added_to_cart">Item added to cart</string>
     <string name="could_not_sign_in_please_try_again">Could not log in. Please, try again</string>
+    <string name="an_ecommerce_mobile_demo_for_wedeploy">An ecommerce mobile demo for WeDeploy</string>
+    <string name="your_cart_is_empty">Your cart is empty</string>
+    <string name="the_items_you_add_to_the_cart_will_show_up_here">The items you add to the cart will show up here</string>
+    <string name="supermarket">Supermarket</string>
+    <string name="icon_arrow"></string>
+    <string name="icon_facebook"></string>
+    <string name="icon_google"></string>
 
     <string-array name="filter">
         <item>@string/all</item>

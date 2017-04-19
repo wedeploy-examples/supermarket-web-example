@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="io.wedeploy.supermarket.view.binding.Font" />
     </data>
 
@@ -89,7 +90,8 @@
                 android:text="@string/icon_cart"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                app:font="@{Font.ICONS_12}" />
+                app:font="@{Font.ICONS_12}"
+                tools:targetApi="lollipop" />
 
             <TextView
                 android:id="@+id/cartItemCount"
@@ -98,15 +100,16 @@
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/we_rounded_background"
-                android:backgroundTint="@color/colorAccent"
                 android:elevation="7dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 android:visibility="gone"
+                app:backgroundTint="@color/colorAccent"
                 tools:text="2"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                tools:targetApi="lollipop" />
         </FrameLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>

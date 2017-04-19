@@ -9,11 +9,11 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.cart.CartActivity;
 import io.wedeploy.supermarket.cart.CartItemListener;
-import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.products.adapter.ProductAdapter;
 import io.wedeploy.supermarket.databinding.ActivityMainBinding;
+import io.wedeploy.supermarket.products.adapter.ProductAdapter;
 import io.wedeploy.supermarket.products.model.Product;
 import io.wedeploy.supermarket.view.OnFilterSelectedListener;
 
@@ -118,7 +118,7 @@ public class ProductsActivity extends AppCompatActivity
 		binding.productsList.setVisibility(View.VISIBLE);
 	}
 
-	private ProductAdapter adapter = new ProductAdapter();
+	private final ProductAdapter adapter = new ProductAdapter();
 	private ActivityMainBinding binding;
 
 	private static final String STATE_FILTER = "filter";

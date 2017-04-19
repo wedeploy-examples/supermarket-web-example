@@ -38,7 +38,7 @@
                 android:layout_marginLeft="9dp"
                 android:layout_marginRight="16dp"
                 android:gravity="center_vertical"
-                android:text=""
+                android:text="@string/icon_arrow"
                 app:font="@{Font.ICONS_12}" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

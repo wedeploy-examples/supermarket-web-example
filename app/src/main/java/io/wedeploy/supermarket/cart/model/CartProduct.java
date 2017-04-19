@@ -10,17 +10,12 @@ public class CartProduct {
 	public CartProduct(JSONObject jsonObject) {
 		id = jsonObject.optString("id", "");
 		productFilename = jsonObject.optString("productFilename", "");
-		productId = jsonObject.optString("productId", "");
 		productPrice = jsonObject.optDouble("productPrice", 0);
 		productTitle = jsonObject.optString("productTitle", "");
 	}
 
 	public String getImageUrl() {
 		return "http://public.supermarket.wedeploy.io/assets/images/" + productFilename;
-	}
-
-	public String getProductId() {
-		return productId;
 	}
 
 	public double getProductPrice() {
@@ -35,10 +30,9 @@ public class CartProduct {
 		return id;
 	}
 
-	private String id;
-	private String productFilename;
-	private String productId;
-	private double productPrice;
-	private String productTitle;
+	private final String id;
+	private final String productFilename;
+	private final double productPrice;
+	private final String productTitle;
 
 }

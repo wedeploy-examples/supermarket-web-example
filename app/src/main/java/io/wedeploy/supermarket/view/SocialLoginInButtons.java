@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.repository.SupermarketAuth;
 import io.wedeploy.supermarket.databinding.SocialLoginButtonsBinding;
+import io.wedeploy.supermarket.repository.SupermarketAuth;
 
 import static com.wedeploy.sdk.auth.AuthProvider.Provider.FACEBOOK;
 import static com.wedeploy.sdk.auth.AuthProvider.Provider.GOOGLE;

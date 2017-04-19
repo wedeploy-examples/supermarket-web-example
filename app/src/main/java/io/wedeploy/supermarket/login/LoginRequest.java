@@ -10,15 +10,12 @@ import com.wedeploy.sdk.transport.Response;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.repository.SupermarketAuth;
 
 /**
  * @author Silvio Santos
  */
 public class LoginRequest extends Fragment {
-
-	public static final String TAG = "loginRequest";
 
 	public LoginRequest() {
 		setRetainInstance(true);
@@ -67,5 +64,7 @@ public class LoginRequest extends Fragment {
 	private String email;
 	private LoginListener listener;
 	private String password;
+
+	private static final String TAG = LoginRequest.class.getSimpleName();
 
 }

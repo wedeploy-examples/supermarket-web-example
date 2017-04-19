@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Toast;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.cart.adapter.CartAdapter;
-import io.wedeploy.supermarket.databinding.ActivityCartBinding;
 import io.wedeploy.supermarket.cart.model.CartProduct;
+import io.wedeploy.supermarket.databinding.ActivityCartBinding;
 
 import java.util.List;
 
@@ -103,6 +103,6 @@ public class CartActivity extends AppCompatActivity
 		binding.button.setVisibility(View.INVISIBLE);
 	}
 
-	private CartAdapter adapter = new CartAdapter();
+	private final CartAdapter adapter = new CartAdapter();
 	private ActivityCartBinding binding;
 }

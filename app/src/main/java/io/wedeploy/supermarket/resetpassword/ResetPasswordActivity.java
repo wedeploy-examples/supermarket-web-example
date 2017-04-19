@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import com.wedeploy.sdk.transport.Response;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.databinding.ActivityResetPasswordBinding;
 import io.wedeploy.supermarket.view.AlertMessage;
@@ -16,7 +15,7 @@ import io.wedeploy.supermarket.view.AlertMessage;
 public class ResetPasswordActivity extends AppCompatActivity implements ResetPasswordListener {
 
 	@Override
-	public void onResetPasswordSuccess(Response response) {
+	public void onResetPasswordSuccess() {
 		setResult(RESULT_OK);
 		finish();
 	}

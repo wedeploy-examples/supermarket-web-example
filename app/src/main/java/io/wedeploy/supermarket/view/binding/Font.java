@@ -17,13 +17,6 @@ public class Font {
 
 	public static final String ICONS_16 = "icons-16px.ttf";
 
-	public static Typeface getFont(Context context, String name) {
-		AssetManager manager = context.getAssets();
-		name = "fonts/" + name;
-
-		return Typeface.createFromAsset(manager, name);
-	}
-
 	public static void setFont(TextView textView, String name) {
 		if (textView.isInEditMode()) {
 			return;
@@ -39,6 +32,13 @@ public class Font {
 		}
 
 		textView.setTypeface(font);
+	}
+
+	private static Typeface getFont(Context context, String name) {
+		AssetManager manager = context.getAssets();
+		name = "fonts/" + name;
+
+		return Typeface.createFromAsset(manager, name);
 	}
 
 	private static final Map<String, Typeface> _fonts = new HashMap<>();

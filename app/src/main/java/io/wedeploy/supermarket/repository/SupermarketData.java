@@ -1,10 +1,8 @@
 package io.wedeploy.supermarket.repository;
 
-import android.content.Context;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.WeDeployData;
-import com.wedeploy.sdk.auth.Auth;
 import com.wedeploy.sdk.exception.WeDeployException;
 import com.wedeploy.sdk.query.filter.Filter;
 import com.wedeploy.sdk.transport.Response;
