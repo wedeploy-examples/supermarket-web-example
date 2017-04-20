@@ -64,8 +64,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartProductVie
 		notifyDataSetChanged();
 	}
 
-	private final DeleteFromCartListener listener;
 	private final List<CartProduct> cartProducts = new ArrayList<>();
+	private final DeleteFromCartListener listener;
 
 	class CartProductViewHolder extends RecyclerView.ViewHolder {
 

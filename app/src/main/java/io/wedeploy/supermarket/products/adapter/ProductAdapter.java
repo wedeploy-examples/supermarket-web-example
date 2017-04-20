@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import io.wedeploy.supermarket.databinding.ItemProductBinding;
 import io.wedeploy.supermarket.products.AddToCartListener;
-import io.wedeploy.supermarket.products.ProductsActivity;
 import io.wedeploy.supermarket.products.model.Product;
 
 import java.util.ArrayList;

@@ -7,7 +7,6 @@ import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.WeDeployAuth;
 import com.wedeploy.sdk.auth.Authorization;
 import com.wedeploy.sdk.auth.ProviderAuthorization;
-import com.wedeploy.sdk.auth.Authorization;
 import com.wedeploy.sdk.auth.TokenAuthorization;
 import com.wedeploy.sdk.transport.Response;
 import io.reactivex.Single;
