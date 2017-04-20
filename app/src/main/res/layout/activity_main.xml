@@ -77,8 +77,8 @@
             tools:listitem="@layout/item_product" />
 
         <FrameLayout
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent">
 
@@ -87,14 +87,17 @@
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 app:backgroundTint="@color/cart_button_background"
+                app:useCompatPadding="true"
+                android:layout_gravity="top|left"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent" />
 
             <TextView
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:elevation="7dp"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:text="@string/icon_cart"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -105,8 +108,9 @@
                 android:id="@+id/cartItemCount"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="12dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/we_rounded_background"
                 android:elevation="7dp"
                 android:gravity="center"
