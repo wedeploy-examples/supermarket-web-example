@@ -20,6 +20,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartProductVie
 		this.listener = listener;
 	}
 
+	public List<CartProduct> getCartProducts() {
+		return cartProducts;
+	}
+
 	@Override
 	public CartProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		LayoutInflater inflater = LayoutInflater.from(parent.getContext());

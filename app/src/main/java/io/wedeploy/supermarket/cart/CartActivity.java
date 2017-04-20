@@ -8,6 +8,7 @@ import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 import io.wedeploy.supermarket.R;
@@ -31,9 +32,8 @@ public class CartActivity extends AppCompatActivity
 
 	@Override
 	public void onLoadFinished(Loader<List<CartProduct>> loader, List<CartProduct> products) {
-		showCartProducts();
-
 		if (products == null) {
+			showEmptyCart();
 			Toast.makeText(this, "Could not load products", Toast.LENGTH_LONG).show();
 
 			return;
@@ -45,6 +45,7 @@ public class CartActivity extends AppCompatActivity
 			return;
 		}
 
+		showCartProducts();
 		adapter.setItems(products);
 	}
 
@@ -70,6 +71,18 @@ public class CartActivity extends AppCompatActivity
 		binding.cartList.setAdapter(adapter);
 
 		setSupportActionBar(binding.toolbar);
+
+		adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+			@Override
+			public void onChanged() {
+				updateCheckoutAmount();
+			}
+
+			@Override
+			public void onItemRangeRemoved(int positionStart, int itemCount) {
+				updateCheckoutAmount();
+			}
+		});
 
 		showLoading();
 		getSupportLoaderManager().initLoader(0, null, this);
@@ -112,6 +125,21 @@ public class CartActivity extends AppCompatActivity
 		binding.loading.setVisibility(View.VISIBLE);
 		binding.cartList.setVisibility(View.INVISIBLE);
 		binding.button.setVisibility(View.INVISIBLE);
+	}
+
+	private void updateCheckoutAmount() {
+		if (adapter.getItemCount() == 0) {
+			return;
+		}
+
+		List<CartProduct> cartProducts = adapter.getCartProducts();
+		double sum = 0;
+
+		for (CartProduct cartProduct : cartProducts) {
+			sum = sum + cartProduct.getProductPrice();
+		}
+
+		binding.button.setText(getString(R.string.checkout) + ": " + String.format("%.2f", sum));
 	}
 
 	private final CartAdapter adapter = new CartAdapter(this);
