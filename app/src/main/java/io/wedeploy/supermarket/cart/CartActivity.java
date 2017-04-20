@@ -9,6 +9,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import io.wedeploy.supermarket.R;
@@ -66,6 +67,19 @@ public class CartActivity extends AppCompatActivity
 	}
 
 	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+
+		switch (id) {
+			case android.R.id.home:
+				onBackPressed();
+				return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -73,6 +87,7 @@ public class CartActivity extends AppCompatActivity
 		binding.cartList.setAdapter(adapter);
 
 		setSupportActionBar(binding.toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 		adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
 			@Override

@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
+                app:navigationIcon="@drawable/ic_close"
                 app:title="@string/cart"
                 app:titleTextColor="@color/title_color" />
         </android.support.design.widget.AppBarLayout>
