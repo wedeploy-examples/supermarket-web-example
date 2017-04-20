@@ -18,7 +18,7 @@
             android:id="@+id/container"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/dropdown_background"
             app:layout_constraintLeft_toLeftOf="parent"
