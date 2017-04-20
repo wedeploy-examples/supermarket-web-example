@@ -5,9 +5,10 @@ import android.util.Log;
 import com.wedeploy.sdk.Callback;
 import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.WeDeployAuth;
-import com.wedeploy.sdk.auth.Auth;
-import com.wedeploy.sdk.auth.AuthProvider;
-import com.wedeploy.sdk.auth.TokenAuth;
+import com.wedeploy.sdk.auth.Authorization;
+import com.wedeploy.sdk.auth.ProviderAuthorization;
+import com.wedeploy.sdk.auth.Authorization;
+import com.wedeploy.sdk.auth.TokenAuthorization;
 import com.wedeploy.sdk.transport.Response;
 import io.reactivex.Single;
 import io.reactivex.SingleSource;
@@ -32,11 +33,11 @@ public class SupermarketAuth {
 		return instance;
 	}
 
-	public Single<Response> getUser(Auth authorization) {
+	public Single<Response> getUser(Authorization authorization) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
 		return weDeploy.auth(AUTH_URL)
-			.auth(authorization)
+			.authorization(authorization)
 			.getCurrentUser()
 			.asSingle()
 			.doOnSuccess(new Consumer<Response>() {
@@ -55,8 +56,8 @@ public class SupermarketAuth {
 			.execute(callback);
 	}
 
-	public void signIn(Activity activity, AuthProvider.Provider provider) {
-		AuthProvider authProvider = new AuthProvider.Builder()
+	public void signIn(Activity activity, ProviderAuthorization.Provider provider) {
+		ProviderAuthorization authProvider = new ProviderAuthorization.Builder()
 			.redirectUri("oauth-wedeploy://io.wedeploy.supermarket")
 			.providerScope("email")
 			.provider(provider)
@@ -82,16 +83,16 @@ public class SupermarketAuth {
 					throws Exception {
 					String token = saveToken(response);
 
-					return getUser(new TokenAuth(token)).subscribeOn(Schedulers.io());
+					return getUser(new TokenAuthorization(token)).subscribeOn(Schedulers.io());
 				}
 			});
 	}
 
-	public void signOut(Auth authorization) {
+	public void signOut(Authorization authorization) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
 		weDeploy.auth(AUTH_URL)
-			.auth(authorization)
+			.authorization(authorization)
 			.signOut()
 			.execute(new Callback() {
 				@Override

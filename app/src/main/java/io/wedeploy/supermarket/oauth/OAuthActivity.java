@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-import com.wedeploy.sdk.auth.Auth;
-import com.wedeploy.sdk.auth.TokenAuth;
+import com.wedeploy.sdk.auth.Authorization;
+import com.wedeploy.sdk.auth.TokenAuthorization;
 import com.wedeploy.sdk.transport.Response;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -25,7 +25,7 @@ public class OAuthActivity extends AppCompatActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Auth authorization = TokenAuth.getAuthFromIntent(getIntent());
+		Authorization authorization = TokenAuthorization.getAuthorizationFromIntent(getIntent());
 
 		if (authorization == null) {
 			finish();

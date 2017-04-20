@@ -106,7 +106,7 @@ public class SupermarketData {
 
 	private SupermarketData() {
 		weDeploy = new WeDeploy.Builder()
-			.auth(Settings.getAuth())
+			.authorization(Settings.getAuthorization())
 			.build();
 
 		this.currentUserId = Settings.getUserId();

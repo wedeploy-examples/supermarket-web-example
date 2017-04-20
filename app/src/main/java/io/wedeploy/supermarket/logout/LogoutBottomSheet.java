@@ -66,7 +66,7 @@ public class LogoutBottomSheet extends BottomSheetDialogFragment {
 	}
 
 	private void logout() {
-		SupermarketAuth.getInstance().signOut(Settings.getAuth());
+		SupermarketAuth.getInstance().signOut(Settings.getAuthorization());
 		SupermarketData.getInstance().destroy();
 		Settings.clear();
 

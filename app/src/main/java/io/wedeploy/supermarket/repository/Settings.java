@@ -2,8 +2,8 @@ package io.wedeploy.supermarket.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.wedeploy.sdk.auth.Auth;
-import com.wedeploy.sdk.auth.TokenAuth;
+import com.wedeploy.sdk.auth.Authorization;
+import com.wedeploy.sdk.auth.TokenAuthorization;
 import io.wedeploy.supermarket.SupermarketApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,20 +33,20 @@ public class Settings {
 		return getSettings().getString(USER_PHOTO, null);
 	}
 
-	public static Auth getAuth() {
+	public static Authorization getAuthorization() {
 		String token = getSettings().getString(USER_TOKEN, null);
 
-		TokenAuth auth = null;
+		TokenAuthorization auth = null;
 
 		if (token != null) {
-			auth = new TokenAuth(token);
+			auth = new TokenAuthorization(token);
 		}
 
 		return auth;
 	}
 
 	public static boolean isLoggedIn() {
-		return getAuth() != null;
+		return getAuthorization() != null;
 	}
 
 	public static void saveUser(JSONObject userJsonObject) throws JSONException {

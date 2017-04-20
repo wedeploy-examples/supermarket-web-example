@@ -13,8 +13,8 @@ import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.databinding.SocialLoginButtonsBinding;
 import io.wedeploy.supermarket.repository.SupermarketAuth;
 
-import static com.wedeploy.sdk.auth.AuthProvider.Provider.FACEBOOK;
-import static com.wedeploy.sdk.auth.AuthProvider.Provider.GOOGLE;
+import static com.wedeploy.sdk.auth.ProviderAuthorization.Provider.FACEBOOK;
+import static com.wedeploy.sdk.auth.ProviderAuthorization.Provider.GOOGLE;
 
 /**
  * @author Silvio Santos
