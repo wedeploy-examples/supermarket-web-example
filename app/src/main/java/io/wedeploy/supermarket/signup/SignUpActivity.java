@@ -3,7 +3,12 @@ package io.wedeploy.supermarket.signup;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.databinding.ActivitySignUpBinding;
@@ -36,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpListener 
 
 		binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up);
 
+		binding.logInButton.setText(getLogInButtonText());
 		binding.logInButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -53,6 +59,21 @@ public class SignUpActivity extends AppCompatActivity implements SignUpListener 
 		binding.password.setEnabled(enable);
 		binding.steps.getNextButton().setEnabled(enable);
 		binding.steps.getPreviousButton().setEnabled(enable);
+	}
+
+	private CharSequence getLogInButtonText() {
+		SpannableStringBuilder sb = new SpannableStringBuilder(
+			getString(R.string.already_have_an_account));
+
+		ForegroundColorSpan colorSpan = new ForegroundColorSpan(
+			ResourcesCompat.getColor(getResources(), R.color.colorAccent, null));
+
+		SpannableString signUpString = new SpannableString(getString(R.string.log_in));
+		signUpString.setSpan(colorSpan, 0, signUpString.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+		sb.append(" ");
+		sb.append(signUpString);
+
+		return sb;
 	}
 
 	private void setupStepButtons() {

@@ -103,11 +103,11 @@
             android:gravity="center"
             android:background="@android:color/white"
             android:elevation="8dp"
-            android:text="@string/dont_you_have_an_account_sign_up"
             android:textColor="@color/text_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="@string/dont_you_have_an_account" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline4"
