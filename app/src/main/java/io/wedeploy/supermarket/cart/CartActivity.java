@@ -15,7 +15,9 @@ import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.cart.adapter.CartAdapter;
 import io.wedeploy.supermarket.cart.model.CartProduct;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
+import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.repository.SupermarketData;
+import io.wedeploy.supermarket.repository.SupermarketEmail;
 
 import java.util.List;
 
@@ -98,7 +100,9 @@ public class CartActivity extends AppCompatActivity
 		binding.button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				//TODO SEND EMAIL
+				SupermarketEmail.getInstance().sendCheckoutEmail(
+					Settings.getUserName(), Settings.getUserEmail(), adapter.getCartProducts());
+
 				finish();
 			}
 		});

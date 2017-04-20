@@ -17,6 +17,10 @@ public class Settings {
 		getSettings().edit().clear().commit();
 	}
 
+	public static String getUserEmail() {
+		return getSettings().getString(USER_EMAIL, null);
+	}
+
 	public static String getUserId() {
 		return getSettings().getString(USER_ID, null);
 	}
@@ -48,6 +52,7 @@ public class Settings {
 	public static void saveUser(JSONObject userJsonObject) throws JSONException {
 		SharedPreferences.Editor editor = getSettings().edit();
 		editor.putString(USER_ID, userJsonObject.optString("id"));
+		editor.putString(USER_EMAIL, userJsonObject.optString("email"));
 		editor.putString(USER_NAME, userJsonObject.optString("name"));
 		editor.putString(USER_PHOTO, userJsonObject.optString("photoUrl"));
 		editor.commit();
@@ -66,6 +71,7 @@ public class Settings {
 	}
 
 	private static final String USER_ID = "userId";
+	private static final String USER_EMAIL = "userEmail";
 	private static final String USER_NAME = "userName";
 	private static final String USER_PHOTO = "userId";
 	private static final String USER_TOKEN = "userToken";

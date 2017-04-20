@@ -68,25 +68,6 @@ public class SupermarketAuth {
 			.signIn(activity, authProvider);
 	}
 
-	public void signOut(Auth authorization) {
-		WeDeploy weDeploy = new WeDeploy.Builder().build();
-
-		weDeploy.auth(AUTH_URL)
-			.auth(authorization)
-			.signOut()
-			.execute(new Callback() {
-				@Override
-				public void onSuccess(Response response) {
-					Log.i(TAG, "Token revoked");
-				}
-
-				@Override
-				public void onFailure(Exception e) {
-					Log.i(TAG, "Could not revoke token", e);
-				}
-			});
-	}
-
 	public Single<Response> signIn(String email, String password) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
@@ -102,6 +83,25 @@ public class SupermarketAuth {
 					String token = saveToken(response);
 
 					return getUser(new TokenAuth(token)).subscribeOn(Schedulers.io());
+				}
+			});
+	}
+
+	public void signOut(Auth authorization) {
+		WeDeploy weDeploy = new WeDeploy.Builder().build();
+
+		weDeploy.auth(AUTH_URL)
+			.auth(authorization)
+			.signOut()
+			.execute(new Callback() {
+				@Override
+				public void onSuccess(Response response) {
+					Log.i(TAG, "Token revoked");
+				}
+
+				@Override
+				public void onFailure(Exception e) {
+					Log.i(TAG, "Could not revoke token", e);
 				}
 			});
 	}
