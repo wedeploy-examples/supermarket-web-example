@@ -3,6 +3,7 @@ package io.wedeploy.supermarket.products;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.transition.Fade;
 import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -130,13 +131,13 @@ public class ProductsActivity extends AppCompatActivity
 	}
 
 	private void showLoading() {
-		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		TransitionManager.beginDelayedTransition(binding.rootLayout, new Fade());
 		binding.loading.setVisibility(View.VISIBLE);
 		binding.productsList.setVisibility(View.INVISIBLE);
 	}
 
 	private void showProducts() {
-		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		TransitionManager.beginDelayedTransition(binding.rootLayout, new Fade());
 		binding.loading.setVisibility(View.INVISIBLE);
 		binding.productsList.setVisibility(View.VISIBLE);
 	}

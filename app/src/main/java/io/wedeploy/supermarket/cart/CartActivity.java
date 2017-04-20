@@ -3,6 +3,7 @@ package io.wedeploy.supermarket.cart;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.transition.Fade;
 import android.support.transition.TransitionManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
@@ -65,7 +66,7 @@ public class CartActivity extends AppCompatActivity
 	}
 
 	private void showCartProducts() {
-		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		TransitionManager.beginDelayedTransition(binding.rootLayout, new Fade());
 		binding.emptyView.setVisibility(View.INVISIBLE);
 		binding.loading.setVisibility(View.INVISIBLE);
 		binding.cartList.setVisibility(View.VISIBLE);
@@ -81,7 +82,7 @@ public class CartActivity extends AppCompatActivity
 	}
 
 	private void showEmptyCart() {
-		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		TransitionManager.beginDelayedTransition(binding.rootLayout, new Fade());
 		binding.emptyView.setVisibility(View.VISIBLE);
 		binding.loading.setVisibility(View.INVISIBLE);
 		binding.cartList.setVisibility(View.INVISIBLE);
@@ -96,7 +97,7 @@ public class CartActivity extends AppCompatActivity
 	}
 
 	private void showLoading() {
-		TransitionManager.beginDelayedTransition(binding.rootLayout);
+		TransitionManager.beginDelayedTransition(binding.rootLayout, new Fade());
 		binding.emptyView.setVisibility(View.INVISIBLE);
 		binding.loading.setVisibility(View.VISIBLE);
 		binding.cartList.setVisibility(View.INVISIBLE);
