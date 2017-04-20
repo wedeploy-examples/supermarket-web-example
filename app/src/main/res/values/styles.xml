@@ -23,7 +23,7 @@
     </style>
 
     <style name="WeButton" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/we_button_background</item>
+        <item name="android:background">@drawable/we_rounded_corners_background</item>
         <item name="android:textStyle">bold</item>
         <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
         <item name="backgroundTint">@color/we_button_selector</item>
@@ -69,5 +69,7 @@
     <style name="ProductImage">
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">108dp</item>
+        <item name="android:background">@drawable/we_rounded_corners_background</item>
+        <item name="android:elevation" tools:targetApi="lollipop">4dp</item>
     </style>
 </resources>
