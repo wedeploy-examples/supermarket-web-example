@@ -17,9 +17,8 @@ import java.util.List;
  */
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-	public ProductAdapter(ProductsActivity activity) {
-		this.activity = activity;
-		this.listener = activity;
+	public ProductAdapter(AddToCartListener listener) {
+		this.listener = listener;
 	}
 
 	@Override
@@ -59,7 +58,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 		notifyDataSetChanged();
 	}
 
-	private final ProductsActivity activity;
 	private final AddToCartListener listener;
 	private final List<Product> products = new ArrayList<>();
 

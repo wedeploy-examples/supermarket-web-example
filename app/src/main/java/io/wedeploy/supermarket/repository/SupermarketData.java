@@ -67,6 +67,20 @@ public class SupermarketData {
 			.execute(callback);
 	}
 
+	public void deleteFromCart(String id) {
+		weDeploy.data(DATA_URL)
+			.delete("cart/" + id)
+			.execute(new Callback() {
+				@Override
+				public void onSuccess(Response response) {
+				}
+
+				@Override
+				public void onFailure(Exception e) {
+				}
+			});
+	}
+
 	public List<Product> getProducts(String type) throws WeDeployException, JSONException {
 		Filter typeFilter = (type != null) ? match("type", type) : not("type", "");
 

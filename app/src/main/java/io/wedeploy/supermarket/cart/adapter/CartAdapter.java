@@ -2,7 +2,9 @@ package io.wedeploy.supermarket.cart.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import io.wedeploy.supermarket.cart.DeleteFromCartListener;
 import io.wedeploy.supermarket.cart.model.CartProduct;
 import io.wedeploy.supermarket.databinding.ItemCartBinding;
 
@@ -14,6 +16,10 @@ import java.util.List;
  */
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartProductViewHolder> {
 
+	public CartAdapter(DeleteFromCartListener listener) {
+		this.listener = listener;
+	}
+
 	@Override
 	public CartProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 		LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -23,27 +29,39 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartProductVie
 	}
 
 	@Override
-	public void onBindViewHolder(CartProductViewHolder holder, int position) {
-		CartProduct cartProduct = products.get(position);
+	public void onBindViewHolder(final CartProductViewHolder holder, int position) {
+		CartProduct cartProduct = cartProducts.get(position);
 		holder.binding.setCartProduct(cartProduct);
+		holder.binding.deleteFromCartButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				int position = holder.getAdapterPosition();
+				CartProduct deletedItem = cartProducts.get(position);
+				cartProducts.remove(position);
+				notifyItemRemoved(position);
+
+				listener.onDeleteFromCart(deletedItem);
+			}
+		});
 	}
 
 	@Override
 	public int getItemCount() {
-		return products.size();
+		return cartProducts.size();
 	}
 
-	public void setItems(List<CartProduct> products) {
-		this.products.clear();
+	public void setItems(List<CartProduct> cartProducts) {
+		this.cartProducts.clear();
 
-		if (products != null) {
-			this.products.addAll(products);
+		if (cartProducts != null) {
+			this.cartProducts.addAll(cartProducts);
 		}
 
 		notifyDataSetChanged();
 	}
 
-	private final List<CartProduct> products = new ArrayList<>();
+	private final DeleteFromCartListener listener;
+	private final List<CartProduct> cartProducts = new ArrayList<>();
 
 	class CartProductViewHolder extends RecyclerView.ViewHolder {
 

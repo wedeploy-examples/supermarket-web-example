@@ -14,6 +14,7 @@ import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.cart.adapter.CartAdapter;
 import io.wedeploy.supermarket.cart.model.CartProduct;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
+import io.wedeploy.supermarket.repository.SupermarketData;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
  * @author Silvio Santos
  */
 public class CartActivity extends AppCompatActivity
-	implements LoaderManager.LoaderCallbacks<List<CartProduct>> {
+	implements LoaderManager.LoaderCallbacks<List<CartProduct>>, DeleteFromCartListener {
 
 	@Override
 	public Loader<List<CartProduct>> onCreateLoader(int id, Bundle args) {
@@ -50,6 +51,15 @@ public class CartActivity extends AppCompatActivity
 	@Override
 	public void onLoaderReset(Loader<List<CartProduct>> loader) {
 		adapter.setItems(null);
+	}
+
+	@Override
+	public void onDeleteFromCart(CartProduct cartProduct) {
+		SupermarketData.getInstance().deleteFromCart(cartProduct.getId());
+
+		if (adapter.getItemCount() == 0) {
+			showEmptyCart();
+		}
 	}
 
 	@Override
@@ -104,6 +114,6 @@ public class CartActivity extends AppCompatActivity
 		binding.button.setVisibility(View.INVISIBLE);
 	}
 
-	private final CartAdapter adapter = new CartAdapter();
+	private final CartAdapter adapter = new CartAdapter(this);
 	private ActivityCartBinding binding;
 }
