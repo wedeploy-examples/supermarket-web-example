@@ -14,6 +14,7 @@ import android.widget.TextView;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.repository.SupermarketAuth;
+import io.wedeploy.supermarket.repository.SupermarketData;
 import io.wedeploy.supermarket.welcome.WelcomeActivity;
 
 /**
@@ -66,6 +67,7 @@ public class LogoutBottomSheet extends BottomSheetDialogFragment {
 
 	private void logout() {
 		SupermarketAuth.getInstance().signOut(Settings.getAuth());
+		SupermarketData.getInstance().destroy();
 		Settings.clear();
 
 		Activity activity = getActivity();

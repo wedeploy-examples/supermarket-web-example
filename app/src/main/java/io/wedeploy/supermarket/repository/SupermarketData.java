@@ -21,12 +21,16 @@ import static com.wedeploy.sdk.query.filter.Filter.*;
  */
 public class SupermarketData {
 
-	public static SupermarketData getInstance() {
+	public synchronized static SupermarketData getInstance() {
 		if (instance == null) {
 			instance = new SupermarketData();
 		}
 
 		return instance;
+	}
+
+	public synchronized static void destroy() {
+		instance = null;
 	}
 
 	public void addToCart(Product product, Callback callback) throws JSONException {
@@ -109,7 +113,7 @@ public class SupermarketData {
 	}
 
 	private final String currentUserId;
-	private final WeDeploy weDeploy;
+	private WeDeploy weDeploy;
 
 	private static SupermarketData instance;
 
