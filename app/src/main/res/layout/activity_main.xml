@@ -66,7 +66,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="0dp"
             android:clipToPadding="false"
-            android:paddingTop="16dp"
+            android:paddingTop="8dp"
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
