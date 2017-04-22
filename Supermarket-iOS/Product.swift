@@ -21,11 +21,32 @@ public struct Product {
 	let name: String
 	let imageUrl: String
 
-	public init(json: [String: AnyObject]) {
-		self.id = json["id"] as! String
-		self.price = json["price"] as! Float
-		self.name = json["title"] as! String
-		self.imageUrl = "http://public.easley84.wedeploy.io/assets/images/" + (json["filename"] as! String)
+	public init?(json: [String: AnyObject]) {
+		guard let id = json["id"] as? String,
+			let price = json["price"] as? Float,
+			let name = json["title"] as? String,
+			let filename = json["filename"] as? String else { return nil }
+
+		self.id = id
+		self.price = price
+		self.name = name
+		self.imageUrl = "http://public.easley84.wedeploy.io/assets/images/\(filename)"
 	}
 }
+
+extension Product : Equatable {
+
+	public static func ==(lhs: Product, rhs: Product) -> Bool {
+		return lhs.id == rhs.id
+	}
+}
+
+extension Product : Hashable {
+
+	public var hashValue: Int {
+		return "\(id)\(price)\(name)\(imageUrl)".hashValue
+	}
+}
+
+
 
