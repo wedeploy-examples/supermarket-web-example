@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gFU-sc-xOD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gFU-sc-xOD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,10 +7,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="loop_icons_12px.ttf">
+            <string>loop-icons-12px</string>
+        </array>
         <array key="loop_icons_16px.ttf">
             <string>loop-icons-16px</string>
         </array>
@@ -38,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8L-sM-pTo">
-                                <rect key="frame" x="20" y="50" width="84.5" height="84.5"/>
+                                <rect key="frame" x="20" y="50" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="L8L-sM-pTo" secondAttribute="height" multiplier="1:1" id="QUk-4C-aSx"/>
                                 </constraints>
@@ -46,8 +50,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a short description of your app here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="q5R-Yw-BO4">
-                                <rect key="frame" x="20" y="291.5" width="335" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An ecommerce mobile demo for WeDeploy." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="q5R-Yw-BO4">
+                                <rect key="frame" x="20" y="336" width="335" height="60"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="Galano Grotesque" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -79,12 +83,19 @@
                                     <segue destination="TKK-f3-3SG" kind="show" id="QBS-J4-MiW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to AppName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mOG-Ny-ETp">
-                                <rect key="frame" x="20" y="154.5" width="335" height="120"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supermarket" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mOG-Ny-ETp">
+                                <rect key="frame" x="20" y="253" width="335" height="83"/>
                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Bold" family="Galano Grotesque" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="RQs-Fs-Q43">
+                                <rect key="frame" x="16" y="140" width="110" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="pK7-zB-bti"/>
+                                    <constraint firstAttribute="height" constant="128" id="ryU-mt-XKD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.1498036968" blue="0.40921200470000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -92,19 +103,21 @@
                             <constraint firstItem="mOG-Ny-ETp" firstAttribute="leading" secondItem="gUm-GB-Ewn" secondAttribute="leading" constant="20" id="3m9-zL-mMW"/>
                             <constraint firstAttribute="trailing" secondItem="XQM-62-d0U" secondAttribute="trailing" constant="20" id="9ec-3J-MoC"/>
                             <constraint firstItem="L8L-sM-pTo" firstAttribute="leading" secondItem="gUm-GB-Ewn" secondAttribute="leading" constant="20" id="EXO-Qx-vdR"/>
+                            <constraint firstItem="RQs-Fs-Q43" firstAttribute="leading" secondItem="gUm-GB-Ewn" secondAttribute="leadingMargin" id="Fad-wm-KZ8"/>
                             <constraint firstItem="hcl-on-HL9" firstAttribute="top" secondItem="XQM-62-d0U" secondAttribute="bottom" constant="12" id="Tmp-4P-3ZZ"/>
-                            <constraint firstItem="mOG-Ny-ETp" firstAttribute="height" secondItem="gUm-GB-Ewn" secondAttribute="height" multiplier="0.18" id="UCi-aG-xGP"/>
-                            <constraint firstItem="L8L-sM-pTo" firstAttribute="height" secondItem="mOG-Ny-ETp" secondAttribute="height" multiplier="0.7" id="VhJ-nm-f8V"/>
+                            <constraint firstItem="mOG-Ny-ETp" firstAttribute="height" secondItem="gUm-GB-Ewn" secondAttribute="height" multiplier="0.18" constant="-37.060000000000002" id="UCi-aG-xGP"/>
+                            <constraint firstItem="L8L-sM-pTo" firstAttribute="height" secondItem="mOG-Ny-ETp" secondAttribute="height" multiplier="0.7" constant="25.900000000000006" id="VhJ-nm-f8V"/>
                             <constraint firstAttribute="trailing" secondItem="q5R-Yw-BO4" secondAttribute="trailing" constant="20" id="W57-GZ-kbf"/>
                             <constraint firstItem="pbY-iI-OvF" firstAttribute="top" secondItem="hcl-on-HL9" secondAttribute="bottom" constant="31" id="Xk9-Ff-Odd"/>
                             <constraint firstItem="L8L-sM-pTo" firstAttribute="top" secondItem="QoE-0i-MJK" secondAttribute="bottom" constant="30" id="aMU-wE-xkf"/>
-                            <constraint firstItem="mOG-Ny-ETp" firstAttribute="top" secondItem="L8L-sM-pTo" secondAttribute="bottom" constant="20" id="agm-xY-y8c"/>
-                            <constraint firstItem="q5R-Yw-BO4" firstAttribute="height" secondItem="mOG-Ny-ETp" secondAttribute="height" multiplier="0.5" id="blI-W1-Ozq"/>
+                            <constraint firstItem="mOG-Ny-ETp" firstAttribute="top" secondItem="L8L-sM-pTo" secondAttribute="bottom" constant="119" id="agm-xY-y8c"/>
+                            <constraint firstItem="q5R-Yw-BO4" firstAttribute="height" secondItem="mOG-Ny-ETp" secondAttribute="height" multiplier="0.5" constant="18.5" id="blI-W1-Ozq"/>
                             <constraint firstItem="q5R-Yw-BO4" firstAttribute="leading" secondItem="gUm-GB-Ewn" secondAttribute="leading" constant="20" id="eiN-QS-vse"/>
                             <constraint firstAttribute="trailing" secondItem="mOG-Ny-ETp" secondAttribute="trailing" constant="20" id="ejU-2U-6s4"/>
+                            <constraint firstItem="mOG-Ny-ETp" firstAttribute="top" secondItem="RQs-Fs-Q43" secondAttribute="bottom" constant="-15" id="l0Z-ho-jOq"/>
                             <constraint firstItem="XQM-62-d0U" firstAttribute="leading" secondItem="gUm-GB-Ewn" secondAttribute="leading" constant="20" id="n2X-FK-e3r"/>
                             <constraint firstAttribute="trailing" secondItem="hcl-on-HL9" secondAttribute="trailing" constant="20" id="sle-PQ-uXg"/>
-                            <constraint firstItem="q5R-Yw-BO4" firstAttribute="top" secondItem="mOG-Ny-ETp" secondAttribute="bottom" constant="17" id="wSg-WA-Q8Z"/>
+                            <constraint firstItem="q5R-Yw-BO4" firstAttribute="top" secondItem="mOG-Ny-ETp" secondAttribute="bottom" id="wSg-WA-Q8Z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dtv-61-8DD"/>
@@ -115,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEB-6h-d2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="226" y="-315"/>
+            <point key="canvasLocation" x="224.80000000000001" y="-315.29235382308849"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="37q-Mn-XAf">
@@ -582,6 +595,9 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="loop-icons-16px" family="loop-icons-16px" pointSize="24"/>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <segue destination="lnh-xT-HM5" kind="presentation" id="9oW-A0-gD0"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

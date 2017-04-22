@@ -289,4 +289,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource,
 
 		return CGSize(width: itemWidth, height: itemHeight)
 	}
+
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
 }
