@@ -15,24 +15,34 @@
 
 import Foundation
 import WeDeploy
+import PromiseKit
 
 
 struct WeDeployAPIClient {
+
+	let settings: Settings
+
+	init(settings: Settings = .shared) {
+		self.settings = settings
+	}
 	
 	func login(with username: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+
 		WeDeploy.auth(WeDeployConfig.authUrl)
 			.signInWith(username: username, password: password)
-			.toCallback { auth, error in
-				if let auth = auth {
-					AppDelegate.currentAuth = auth
-					WeDeploy.auth(WeDeployConfig.authUrl)
-						.authorize(auth: auth)
-						.getCurrentUser()
-						.toCallback(callback: completion)
-				}
-				else {
-					completion(nil, error)
-				}
+			.then { auth -> Promise<User> in
+				self.settings.saveAuth(auth: auth)
+
+				return WeDeploy.auth(WeDeployConfig.authUrl, authorization: auth)
+					.getCurrentUser()
+			}
+			.then { user -> Void in
+				self.settings.saveUser(user: user)
+
+				completion(user, nil)
+			}
+			.catch { error in
+				completion(nil, error)
 			}
 	}
 
@@ -44,7 +54,7 @@ struct WeDeployAPIClient {
 		WeDeploy.auth(WeDeployConfig.authUrl)
 			.signInWithRedirect(provider: authProvider) { auth, error in
 				if let auth = auth {
-					AppDelegate.currentAuth = auth
+					self.settings.saveAuth(auth: auth)
 					WeDeploy.auth(WeDeployConfig.authUrl)
 						.authorize(auth: auth)
 						.getCurrentUser()
@@ -61,31 +71,26 @@ struct WeDeployAPIClient {
 
 		WeDeploy.auth(WeDeployConfig.authUrl)
 			.createUser(email: email, password: password, name: name)
-			.toCallback { user, error in
-				if let user = user {
-					AppDelegate.currentUser = user
-					WeDeploy.auth(WeDeployConfig.authUrl)
-						.signInWith(username: email, password: password)
-						.toCallback { auth, error in
-							if let auth = auth {
-								AppDelegate.currentAuth = auth
+			.then { user -> Promise<Auth> in
+				self.settings.saveUser(user: user)
 
-								completion(user, nil)
-							}
-							else {
-								completion(nil, error)
-							}
-						}
-				}
-				else {
-					completion(nil, error)
-				}
+				return WeDeploy.auth(WeDeployConfig.authUrl)
+					.signInWith(username: email, password: password)
+			}
+			.then { auth -> Void in
+				self.settings.saveAuth(auth: auth)
+
+				completion(self.settings.user, nil)
+			}
+			.catch { error in
+				completion(nil, error)
 			}
 	}
 
 	func sendResetPassword(email: String, completion: @escaping (Void?, Error?) -> Void) {
 		WeDeploy.auth(WeDeployConfig.authUrl)
-			.sendPasswordReset(email: email).toCallback(callback: completion)
+			.sendPasswordReset(email: email)
+			.toCallback(callback: completion)
 	}
 
 	func loadProducts(category: String, completion: @escaping ([[String: AnyObject]]?, Error?) -> Void) {

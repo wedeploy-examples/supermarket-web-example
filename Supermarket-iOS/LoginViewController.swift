@@ -49,7 +49,6 @@ class LoginViewController: BaseKeyboardViewController {
 
 	func finishLogin(user: User?, error: Error?) {
 		if let user = user {
-			AppDelegate.currentUser = user
 			print("user logged \(user)")
 
 			floatingView.show(message: "Login correct!", error: false)

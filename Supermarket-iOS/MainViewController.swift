@@ -63,7 +63,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource,
 
 		loadDataFrom(category: "all")
 
-		if let url = AppDelegate.currentUser?.photoUrl {
+		if let url = Settings.shared.user?.photoUrl {
 			profileImage.kf.setImage(with: URL(string: url)!)
 		}
 	}
@@ -77,7 +77,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource,
 		weDeployClient.loadProducts(category: category.lowercased()) { objects, error in
 			self.spinner.stopAnimating()
 			if let objects = objects {
-				self.items = objects.map(Product.init)
+				self.items = objects
 				self.collectionView.reloadData()
 			}
 		}

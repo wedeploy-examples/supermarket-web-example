@@ -56,7 +56,6 @@ class SignUpViewController: BaseKeyboardViewController {
 
 	func finishSignUp(user: User?, error: Error?) {
 		if let user = user {
-			AppDelegate.currentUser = user
 			print("Signed up \(user)")
 
 			self.floatingView.show(message: "Sign up correct!", error: false)
