@@ -38,6 +38,13 @@
 		0B28425A1E928E11000E12EA /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2842591E928E11000E12EA /* Product.swift */; };
 		0B28425D1E92963B000E12EA /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B28425B1E92963B000E12EA /* ProductCell.swift */; };
 		0B28425E1E92963B000E12EA /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B28425C1E92963B000E12EA /* ProductCell.xib */; };
+		0B66A4F61EA9FD64007DC61E /* apple-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B66A4F51EA9FD64007DC61E /* apple-icon.png */; };
+		0B66A4F81EAA03E6007DC61E /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66A4F71EAA03E6007DC61E /* Stepper.swift */; };
+		0B66A4FB1EAA03FB007DC61E /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66A4F91EAA03FB007DC61E /* CartItemCell.swift */; };
+		0B66A4FC1EAA03FB007DC61E /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B66A4FA1EAA03FB007DC61E /* CartItemCell.xib */; };
+		0B66A4FE1EAA0A82007DC61E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66A4FD1EAA0A82007DC61E /* CartViewController.swift */; };
+		0B8FC4981EABD79D00408AEC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FC4971EABD79D00408AEC /* Settings.swift */; };
+		0B8FC49A1EABE44700408AEC /* ProductCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FC4991EABE44700408AEC /* ProductCart.swift */; };
 		702E8E5799D2C5BFBC723295 /* Pods_Supermarket_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B62BF2A49DC88D70779811 /* Pods_Supermarket_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +83,13 @@
 		0B2842591E928E11000E12EA /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0B28425B1E92963B000E12EA /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		0B28425C1E92963B000E12EA /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		0B66A4F51EA9FD64007DC61E /* apple-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-icon.png"; sourceTree = "<group>"; };
+		0B66A4F71EAA03E6007DC61E /* Stepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
+		0B66A4F91EAA03FB007DC61E /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		0B66A4FA1EAA03FB007DC61E /* CartItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		0B66A4FD1EAA0A82007DC61E /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		0B8FC4971EABD79D00408AEC /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0B8FC4991EABE44700408AEC /* ProductCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCart.swift; sourceTree = "<group>"; };
 		25B62BF2A49DC88D70779811 /* Pods_Supermarket_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Supermarket_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		515449CD07319F4FEAEB5E1E /* Pods-Supermarket-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supermarket-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Supermarket-iOS/Pods-Supermarket-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +143,8 @@
 				0B2842431E9255A8000E12EA /* ForgotPasswordViewController.swift */,
 				0B2842471E92597E000E12EA /* SignUpViewController.swift */,
 				0B2842541E9282E4000E12EA /* MainViewController.swift */,
+				0B66A4FD1EAA0A82007DC61E /* CartViewController.swift */,
+				0B8FC4971EABD79D00408AEC /* Settings.swift */,
 			);
 			path = "Supermarket-iOS";
 			sourceTree = "<group>";
@@ -136,8 +152,11 @@
 		0B2842221E923FA8000E12EA /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				0B66A4F71EAA03E6007DC61E /* Stepper.swift */,
 				0B28425B1E92963B000E12EA /* ProductCell.swift */,
 				0B28425C1E92963B000E12EA /* ProductCell.xib */,
+				0B66A4F91EAA03FB007DC61E /* CartItemCell.swift */,
+				0B66A4FA1EAA03FB007DC61E /* CartItemCell.xib */,
 				0B2842521E9280E8000E12EA /* ViewWithArrow.swift */,
 				0B28424B1E92614E000E12EA /* FloatingView.swift */,
 				0B2842451E925722000E12EA /* WeBackButton.swift */,
@@ -164,6 +183,7 @@
 		0B28422C1E923FF7000E12EA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0B66A4F51EA9FD64007DC61E /* apple-icon.png */,
 				0B2842321E924005000E12EA /* Fonts */,
 			);
 			name = Assets;
@@ -194,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0B2842591E928E11000E12EA /* Product.swift */,
+				0B8FC4991EABE44700408AEC /* ProductCart.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,8 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B28425E1E92963B000E12EA /* ProductCell.xib in Resources */,
+				0B66A4F61EA9FD64007DC61E /* apple-icon.png in Resources */,
 				0B28421B1E923EA4000E12EA /* LaunchScreen.storyboard in Resources */,
 				0B2842181E923EA4000E12EA /* Assets.xcassets in Resources */,
+				0B66A4FC1EAA03FB007DC61E /* CartItemCell.xib in Resources */,
 				0B2842161E923EA4000E12EA /* Main.storyboard in Resources */,
 				0B2842341E924005000E12EA /* rene_bieder_galano_grotesque_medium.otf in Resources */,
 				0B2842331E924005000E12EA /* rene_bieder_galano_grotesque_bold.otf in Resources */,
@@ -346,10 +369,14 @@
 			files = (
 				0B28424F1E926332000E12EA /* WeDeployAPIClient.swift in Sources */,
 				0B2842461E925722000E12EA /* WeBackButton.swift in Sources */,
+				0B8FC4981EABD79D00408AEC /* Settings.swift in Sources */,
 				0B2842401E925301000E12EA /* BaseKeyboardViewController.swift in Sources */,
 				0B2842531E9280E8000E12EA /* ViewWithArrow.swift in Sources */,
+				0B8FC49A1EABE44700408AEC /* ProductCart.swift in Sources */,
 				0B2842131E923EA4000E12EA /* InitialViewController.swift in Sources */,
 				0B28425A1E928E11000E12EA /* Product.swift in Sources */,
+				0B66A4F81EAA03E6007DC61E /* Stepper.swift in Sources */,
+				0B66A4FE1EAA0A82007DC61E /* CartViewController.swift in Sources */,
 				0B28423B1E924524000E12EA /* SpanButton.swift in Sources */,
 				0B2842571E92846C000E12EA /* LayoutType.swift in Sources */,
 				0B2842111E923EA4000E12EA /* AppDelegate.swift in Sources */,
@@ -357,6 +384,7 @@
 				0B2842241E923FBB000E12EA /* WeColorButton.swift in Sources */,
 				0B28422B1E923FF3000E12EA /* WeIcons.swift in Sources */,
 				0B2842481E92597E000E12EA /* SignUpViewController.swift in Sources */,
+				0B66A4FB1EAA03FB007DC61E /* CartItemCell.swift in Sources */,
 				0B2842391E9243FA000E12EA /* WeTextField.swift in Sources */,
 				0B2842441E9255A8000E12EA /* ForgotPasswordViewController.swift in Sources */,
 				0B28424A1E925A57000E12EA /* WeView.swift in Sources */,

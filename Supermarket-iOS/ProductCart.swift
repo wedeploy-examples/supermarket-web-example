@@ -33,6 +33,26 @@ class ProductCart {
 		self.userId = userId
 		self.ids = [id]
 	}
+
+	init(product: Product, userId: String) {
+		self.id = UUID().uuidString
+		self.productId = product.id
+		self.userId = userId
+		self.imageUrl = product.imageUrl
+		self.name = product.name
+		self.price = product.price
+		self.ids = []
+	}
+
+	func toJson() -> [String: Any] {
+		return [
+			"productId": productId,
+			"userId": userId,
+			"productTitle": name,
+			"productFilename": imageUrl.components(separatedBy: "/").last!,
+			"productPrice": price
+		]
+	}
 }
 
 extension ProductCart : Equatable {

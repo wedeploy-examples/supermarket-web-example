@@ -16,6 +16,8 @@ class CartViewController: UIViewController, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var emptyCartView: UIView!
 
+	let weDeployClient = WeDeployAPIClient()
+
 	var products: [ProductCart] = []
 
     override func viewDidLoad() {
@@ -45,13 +47,14 @@ class CartViewController: UIViewController, UICollectionViewDataSource {
 	}
 
 	func fillCart() {
-		WeDeployAPIClient().loadCartProducts { cartProducts, error in
+		weDeployClient.loadCartProducts { cartProducts, error in
 			guard let cartProducts = cartProducts else { return }
 
 			self.products = cartProducts
 			if self.products.isEmpty {
 				self.emptyCartView.isHidden = false
 			}
+			self.updateTotalPrice()
 			self.collectionView.reloadData()
 		}
 	}
@@ -70,8 +73,21 @@ class CartViewController: UIViewController, UICollectionViewDataSource {
 		let product = products[indexPath.row]
 		cell.imageUrl = product.imageUrl
 		cell.nameLabel.text = product.name
-		cell.priceLabel.text = "\(product.price)"
+		cell.priceLabel.text = "$\(product.price)"
 		cell.stepper.currentValue = product.ids.count
+		cell.onDecrement = { _ in
+			self.updateTotalPrice()
+			guard let id = product.ids.popLast() else { return }
+			self.weDeployClient.removeCartItem(id: id) {
+				self.fillCart()
+			}
+		}
+		cell.onAdd = { _ in
+			self.updateTotalPrice()
+			self.weDeployClient.addCartItem(product: product) { _, _ in
+				self.fillCart()
+			}
+		}
 
 		return cell
 	}
@@ -85,4 +101,15 @@ class CartViewController: UIViewController, UICollectionViewDataSource {
 		}
 	}
 
+	@IBAction func dismissCart() {
+		self.dismiss(animated: true, completion: nil)
+	}
+
+	func updateTotalPrice() {
+		let totalPrice = products.reduce(Float(0)) { acc, element in
+			acc + element.price * Float(element.ids.count)
+		}
+
+		checkoutButton.setTitle("Checkout $\(String(format: "%.2f", totalPrice))", for: .normal)
+	}
 }

@@ -93,15 +93,75 @@ struct WeDeployAPIClient {
 			.toCallback(callback: completion)
 	}
 
-	func loadProducts(category: String, completion: @escaping ([[String: AnyObject]]?, Error?) -> Void) {
-		let wedeploy = WeDeploy.data(WeDeployConfig.dataUrl)
+	func loadProducts(category: String, completion: @escaping ([Product]?, Error?) -> Void) {
+		let auth = settings.auth
+		let wedeploy = WeDeploy.data(WeDeployConfig.dataUrl, authorization: auth)
 
 		if category != "all" {
 			_ = wedeploy.where(field: "type", op: "=", value: category)
 		}
 
 		wedeploy.get(resourcePath: "products")
-			.toCallback(callback: completion)
+			.then { json -> Void in
+				let products = json.map(Product.init).flatMap { $0 }
+				completion(products, nil)
+			}
+			.catch { error in
+				completion(nil, error)
+			}
+	}
+
+	func loadCartProducts(completion: @escaping ([ProductCart]?, Error?) -> Void) {
+		let currentUser = settings.user!
+		let auth = settings.auth
+
+		WeDeploy.data(WeDeployConfig.dataUrl, authorization: auth)
+			.where(field: "userId", op: "=", value: currentUser.id)
+			.get(resourcePath: "cart")
+			.toCallback { json, error in
+				guard let json = json else {
+					completion(nil, error)
+					return
+				}
+				let products = json.map(ProductCart.init).flatMap { $0 }
+				let productQuantity = products.reduce([ProductCart]()) { acc, product in
+					if let product = acc.filter ({ p in p == product }).first {
+						product.ids.append(product.id)
+						return acc
+					}
+					else {
+						return acc + [product]
+					}
+				}
+
+
+				completion(productQuantity, nil)
+			}
+	}
+
+	func addCartItem(product: ProductCart, completion: ((ProductCart?, Error?) -> Void)? = nil) {
+		let auth = settings.auth
+
+		WeDeploy.data(WeDeployConfig.dataUrl, authorization: auth)
+			.create(resource: "cart", object: product.toJson())
+			.then { json in
+				completion?(ProductCart(json: json), nil)
+			}
+			.catch { error in
+				completion?(nil, error)
+			}
+	}
+
+	func removeCartItem(id: String, completion: @escaping (Void) -> Void) {
+		let auth = settings.auth
+
+		WeDeploy.data(WeDeployConfig.dataUrl, authorization: auth)
+			.delete(collectionOrResourcePath: "cart/\(id)")
+			.tap { _ in
+				completion()
+			}
+	}
+
 	func sendCheckoutEmail(products: [ProductCart]) {
 		let auth = settings.auth
 		let email = settings.user?.email ?? ""
