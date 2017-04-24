@@ -11,9 +11,9 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.1.7):
     - PromiseKit/CorePromise
-  - RxSwift (3.3.1)
-  - Socket.IO-Client-Swift (8.3.2)
-  - WeDeploy (0.3.0):
+  - RxSwift (3.4.0)
+  - Socket.IO-Client-Swift (8.3.3)
+  - WeDeploy (0.4.0):
     - PromiseKit (~> 4.0)
     - RxSwift (~> 3.0)
     - Socket.IO-Client-Swift (~> 8.1)
@@ -21,26 +21,17 @@ PODS:
 
 DEPENDENCIES:
   - Kingfisher
-  - WeDeploy (from `https://github.com/victorg1991/api-swift`)
+  - WeDeploy
   - WZLBadge
-
-EXTERNAL SOURCES:
-  WeDeploy:
-    :git: https://github.com/victorg1991/api-swift
-
-CHECKOUT OPTIONS:
-  WeDeploy:
-    :commit: 525094e0bf882647c948e43f570a9da00d6d74ca
-    :git: https://github.com/victorg1991/api-swift
 
 SPEC CHECKSUMS:
   Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
   PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
-  RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
-  Socket.IO-Client-Swift: 68b60e12f76b18233cc6300394fb8b6588c80200
-  WeDeploy: 43c7ad1c9cba1b83e0c1f46ea3eb65017b4bd4c8
+  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
+  WeDeploy: f1c38fb1113748356e72b3bf1162d31438dfc2aa
   WZLBadge: 16c08aa0a645e2591690f21cbcb410a3d878c7ac
 
-PODFILE CHECKSUM: f69ad619d55e321c46ca5928a03617505e30df16
+PODFILE CHECKSUM: 78571b4dedee10aaf8a752a45a567122cbf47161
 
 COCOAPODS: 1.2.0
