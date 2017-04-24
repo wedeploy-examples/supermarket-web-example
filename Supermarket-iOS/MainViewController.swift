@@ -137,6 +137,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource,
 			self.animationImageView.image = cell.productImage.image
 			self.animationImageView.backgroundColor = .white
 
+			let productCart = ProductCart(product: item, userId: Settings.shared.user?.id ?? "")
+			self.weDeployClient.addCartItem(product: productCart)
+
 			self.animateAddToCart()
 		}
 	}
