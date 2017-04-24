@@ -16,11 +16,6 @@
 		0B2842291E923FF3000E12EA /* WeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2842261E923FF3000E12EA /* WeColors.swift */; };
 		0B28422A1E923FF3000E12EA /* WeFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2842271E923FF3000E12EA /* WeFonts.swift */; };
 		0B28422B1E923FF3000E12EA /* WeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2842281E923FF3000E12EA /* WeIcons.swift */; };
-		0B2842331E924005000E12EA /* rene_bieder_galano_grotesque_bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B28422D1E924005000E12EA /* rene_bieder_galano_grotesque_bold.otf */; };
-		0B2842341E924005000E12EA /* rene_bieder_galano_grotesque_medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B28422E1E924005000E12EA /* rene_bieder_galano_grotesque_medium.otf */; };
-		0B2842351E924005000E12EA /* rene_bieder_galano_grotesque_semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B28422F1E924005000E12EA /* rene_bieder_galano_grotesque_semibold.otf */; };
-		0B2842361E924005000E12EA /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B2842301E924005000E12EA /* loop_icons_16px.ttf */; };
-		0B2842371E924005000E12EA /* loop_icons_12px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B2842311E924005000E12EA /* loop_icons_12px.ttf */; };
 		0B2842391E9243FA000E12EA /* WeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2842381E9243FA000E12EA /* WeTextField.swift */; };
 		0B28423B1E924524000E12EA /* SpanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B28423A1E924524000E12EA /* SpanButton.swift */; };
 		0B28423D1E92453A000E12EA /* WeProviderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B28423C1E92453A000E12EA /* WeProviderButton.swift */; };
@@ -45,6 +40,11 @@
 		0B66A4FE1EAA0A82007DC61E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B66A4FD1EAA0A82007DC61E /* CartViewController.swift */; };
 		0B8FC4981EABD79D00408AEC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FC4971EABD79D00408AEC /* Settings.swift */; };
 		0B8FC49A1EABE44700408AEC /* ProductCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8FC4991EABE44700408AEC /* ProductCart.swift */; };
+		5790837C1EAE7B440039C3AB /* rene_bieder_galano_grotesque_bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 579083771EAE7B440039C3AB /* rene_bieder_galano_grotesque_bold.otf */; };
+		5790837D1EAE7B440039C3AB /* rene_bieder_galano_grotesque_medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 579083781EAE7B440039C3AB /* rene_bieder_galano_grotesque_medium.otf */; };
+		5790837E1EAE7B440039C3AB /* rene_bieder_galano_grotesque_semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 579083791EAE7B440039C3AB /* rene_bieder_galano_grotesque_semibold.otf */; };
+		5790837F1EAE7B440039C3AB /* loop_icons_12px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5790837A1EAE7B440039C3AB /* loop_icons_12px.ttf */; };
+		579083801EAE7B440039C3AB /* loop_icons_16px.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5790837B1EAE7B440039C3AB /* loop_icons_16px.ttf */; };
 		702E8E5799D2C5BFBC723295 /* Pods_Supermarket_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B62BF2A49DC88D70779811 /* Pods_Supermarket_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,11 +61,6 @@
 		0B2842261E923FF3000E12EA /* WeColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeColors.swift; sourceTree = "<group>"; };
 		0B2842271E923FF3000E12EA /* WeFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeFonts.swift; sourceTree = "<group>"; };
 		0B2842281E923FF3000E12EA /* WeIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeIcons.swift; sourceTree = "<group>"; };
-		0B28422D1E924005000E12EA /* rene_bieder_galano_grotesque_bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = rene_bieder_galano_grotesque_bold.otf; sourceTree = "<group>"; };
-		0B28422E1E924005000E12EA /* rene_bieder_galano_grotesque_medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = rene_bieder_galano_grotesque_medium.otf; sourceTree = "<group>"; };
-		0B28422F1E924005000E12EA /* rene_bieder_galano_grotesque_semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = rene_bieder_galano_grotesque_semibold.otf; sourceTree = "<group>"; };
-		0B2842301E924005000E12EA /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
-		0B2842311E924005000E12EA /* loop_icons_12px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_12px.ttf; sourceTree = "<group>"; };
 		0B2842381E9243FA000E12EA /* WeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeTextField.swift; sourceTree = "<group>"; };
 		0B28423A1E924524000E12EA /* SpanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpanButton.swift; sourceTree = "<group>"; };
 		0B28423C1E92453A000E12EA /* WeProviderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeProviderButton.swift; sourceTree = "<group>"; };
@@ -92,6 +87,11 @@
 		0B8FC4991EABE44700408AEC /* ProductCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCart.swift; sourceTree = "<group>"; };
 		25B62BF2A49DC88D70779811 /* Pods_Supermarket_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Supermarket_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		515449CD07319F4FEAEB5E1E /* Pods-Supermarket-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Supermarket-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Supermarket-iOS/Pods-Supermarket-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		579083771EAE7B440039C3AB /* rene_bieder_galano_grotesque_bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = rene_bieder_galano_grotesque_bold.otf; sourceTree = "<group>"; };
+		579083781EAE7B440039C3AB /* rene_bieder_galano_grotesque_medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = rene_bieder_galano_grotesque_medium.otf; sourceTree = "<group>"; };
+		579083791EAE7B440039C3AB /* rene_bieder_galano_grotesque_semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = rene_bieder_galano_grotesque_semibold.otf; sourceTree = "<group>"; };
+		5790837A1EAE7B440039C3AB /* loop_icons_12px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_12px.ttf; sourceTree = "<group>"; };
+		5790837B1EAE7B440039C3AB /* loop_icons_16px.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loop_icons_16px.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,23 +183,14 @@
 		0B28422C1E923FF7000E12EA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				579083771EAE7B440039C3AB /* rene_bieder_galano_grotesque_bold.otf */,
+				579083781EAE7B440039C3AB /* rene_bieder_galano_grotesque_medium.otf */,
+				579083791EAE7B440039C3AB /* rene_bieder_galano_grotesque_semibold.otf */,
+				5790837A1EAE7B440039C3AB /* loop_icons_12px.ttf */,
+				5790837B1EAE7B440039C3AB /* loop_icons_16px.ttf */,
 				0B66A4F51EA9FD64007DC61E /* apple-icon.png */,
-				0B2842321E924005000E12EA /* Fonts */,
 			);
 			name = Assets;
-			sourceTree = "<group>";
-		};
-		0B2842321E924005000E12EA /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				0B28422D1E924005000E12EA /* rene_bieder_galano_grotesque_bold.otf */,
-				0B28422E1E924005000E12EA /* rene_bieder_galano_grotesque_medium.otf */,
-				0B28422F1E924005000E12EA /* rene_bieder_galano_grotesque_semibold.otf */,
-				0B2842301E924005000E12EA /* loop_icons_16px.ttf */,
-				0B2842311E924005000E12EA /* loop_icons_12px.ttf */,
-			);
-			name = Fonts;
-			path = ../../WeDeployApp/WeDeployApp/Resources/Fonts;
 			sourceTree = "<group>";
 		};
 		0B28424D1E926322000E12EA /* WeDeploy */ = {
@@ -299,16 +290,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B28425E1E92963B000E12EA /* ProductCell.xib in Resources */,
+				5790837D1EAE7B440039C3AB /* rene_bieder_galano_grotesque_medium.otf in Resources */,
+				5790837F1EAE7B440039C3AB /* loop_icons_12px.ttf in Resources */,
+				5790837C1EAE7B440039C3AB /* rene_bieder_galano_grotesque_bold.otf in Resources */,
 				0B66A4F61EA9FD64007DC61E /* apple-icon.png in Resources */,
 				0B28421B1E923EA4000E12EA /* LaunchScreen.storyboard in Resources */,
 				0B2842181E923EA4000E12EA /* Assets.xcassets in Resources */,
 				0B66A4FC1EAA03FB007DC61E /* CartItemCell.xib in Resources */,
+				579083801EAE7B440039C3AB /* loop_icons_16px.ttf in Resources */,
 				0B2842161E923EA4000E12EA /* Main.storyboard in Resources */,
-				0B2842341E924005000E12EA /* rene_bieder_galano_grotesque_medium.otf in Resources */,
-				0B2842331E924005000E12EA /* rene_bieder_galano_grotesque_bold.otf in Resources */,
-				0B2842351E924005000E12EA /* rene_bieder_galano_grotesque_semibold.otf in Resources */,
-				0B2842371E924005000E12EA /* loop_icons_12px.ttf in Resources */,
-				0B2842361E924005000E12EA /* loop_icons_16px.ttf in Resources */,
+				5790837E1EAE7B440039C3AB /* rene_bieder_galano_grotesque_semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
