@@ -17,7 +17,7 @@
             android:layout_marginTop="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline"
-            app:srcCompat="@drawable/logo_app" />
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView"
