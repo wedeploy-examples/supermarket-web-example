@@ -80,6 +80,9 @@ class CartViewController: UIViewController, UICollectionViewDataSource {
 		if products.isEmpty {
 			self.dismiss(animated: true, completion: nil)
 		}
+		else {
+			weDeployClient.sendCheckoutEmail(products: products)
+		}
 	}
 
 }

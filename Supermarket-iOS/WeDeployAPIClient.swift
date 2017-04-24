@@ -102,6 +102,18 @@ struct WeDeployAPIClient {
 
 		wedeploy.get(resourcePath: "products")
 			.toCallback(callback: completion)
+	func sendCheckoutEmail(products: [ProductCart]) {
+		let auth = settings.auth
+		let email = settings.user?.email ?? ""
+		let message = products.reduce("") { acc, element in
+			acc + "\n\(element.name): $\(element.price) x\(element.ids.count)"
+		}
 
+		_ = WeDeploy.email(WeDeployConfig.emailUrl, authorization: auth)
+			.from("auto-confirm@supermarket.wedeploy.io")
+			.to(email)
+			.subject("Your order")
+			.message(message)
+			.send()
 	}
 }
