@@ -32,9 +32,15 @@ class CartItemCell: UICollectionViewCell {
 	@IBOutlet weak var stepper: Stepper!
 	@IBOutlet weak var priceLabel: UILabel!
 
-	public var itemQuantityChanged: ((Int) -> Void)? {
+	public var onAdd: ((Int) -> Void)? {
 		didSet {
-			stepper.currentValueChanged = itemQuantityChanged
+			stepper.onAdd = onAdd
+		}
+	}
+
+	public var onDecrement: ((Int) -> Void)? {
+		didSet {
+			stepper.onDecrement = onDecrement
 		}
 	}
 
