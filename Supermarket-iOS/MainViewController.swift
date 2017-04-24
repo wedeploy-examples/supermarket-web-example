@@ -83,6 +83,20 @@ class MainViewController: UIViewController, UICollectionViewDataSource,
 		}
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		weDeployClient.loadCartProducts { cartProducts, error in
+			guard let cartProducts = cartProducts else { return }
+
+			if !cartProducts.isEmpty {
+				self.totalItemsInCart = cartProducts.reduce(0) { $0 + $1.ids.count }
+				self.cartIcon.showBadge(with: .number, value: self.totalItemsInCart,
+				                        animationType: .none)
+			}
+		}
+	}
+
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return items.count
 	}
