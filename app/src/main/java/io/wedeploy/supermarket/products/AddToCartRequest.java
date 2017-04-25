@@ -35,19 +35,20 @@ public class AddToCartRequest extends Fragment {
 		SupermarketData supermarketData = SupermarketData.getInstance();
 
 		try {
-			supermarketData.addToCart(product, new Callback() {
-				@Override
-				public void onSuccess(Response response) {
-				}
+			supermarketData.addToCart(product)
+				.execute(new Callback() {
+					@Override
+					public void onSuccess(Response response) {
+					}
 
-				@Override
-				public void onFailure(Exception e) {
-					Toast.makeText(
-						getContext(),
-						R.string.could_not_add_item_to_cart,
-						Toast.LENGTH_SHORT).show();
-				}
-			});
+					@Override
+					public void onFailure(Exception e) {
+						Toast.makeText(
+							getContext(),
+							R.string.could_not_add_item_to_cart,
+							Toast.LENGTH_SHORT).show();
+					}
+				});
 		}
 		catch (JSONException e) {
 			Toast.makeText(

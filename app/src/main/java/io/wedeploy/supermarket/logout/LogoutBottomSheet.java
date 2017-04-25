@@ -7,10 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.wedeploy.sdk.Callback;
+import com.wedeploy.sdk.transport.Response;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.repository.Settings;
 import io.wedeploy.supermarket.repository.SupermarketAuth;
@@ -66,13 +69,29 @@ public class LogoutBottomSheet extends BottomSheetDialogFragment {
 	}
 
 	private void logout() {
-		SupermarketAuth.getInstance().signOut(Settings.getAuthorization());
+		removeToken();
+
 		SupermarketData.getInstance().destroy();
 		Settings.clear();
 
 		Activity activity = getActivity();
 		activity.finish();
 		startActivity(new Intent(activity, WelcomeActivity.class));
+	}
+
+	private static void removeToken() {
+		SupermarketAuth.getInstance().signOut(Settings.getAuthorization())
+			.execute(new Callback() {
+				@Override
+				public void onSuccess(Response response) {
+					Log.i(TAG, "Token revoked");
+				}
+
+				@Override
+				public void onFailure(Exception e) {
+					Log.i(TAG, "Could not revoke token", e);
+				}
+			});
 	}
 
 	private static final String TAG = LogoutBottomSheet.class.getSimpleName();

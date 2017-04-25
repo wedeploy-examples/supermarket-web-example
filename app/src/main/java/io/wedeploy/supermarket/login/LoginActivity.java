@@ -109,6 +109,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
 		return sb;
 	}
+
 	private ActivityLoginBinding binding;
 	private static final int REQUEST_RESET_PASSWORD = 1;
 

@@ -9,15 +9,17 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import com.wedeploy.sdk.Callback;
+import com.wedeploy.sdk.transport.Response;
 import io.wedeploy.supermarket.R;
 import io.wedeploy.supermarket.cart.adapter.CartAdapter;
 import io.wedeploy.supermarket.cart.model.CartProduct;
 import io.wedeploy.supermarket.databinding.ActivityCartBinding;
 import io.wedeploy.supermarket.repository.Settings;
-import io.wedeploy.supermarket.repository.SupermarketData;
 import io.wedeploy.supermarket.repository.SupermarketEmail;
 
 import java.util.List;
@@ -59,7 +61,7 @@ public class CartActivity extends AppCompatActivity
 
 	@Override
 	public void onDeleteFromCart(CartProduct cartProduct) {
-		SupermarketData.getInstance().deleteFromCart(cartProduct.getId());
+		DeleteCartItemRequest.delete(this, cartProduct.getId());
 
 		if (adapter.getItemCount() == 0) {
 			showEmptyCart();
@@ -105,6 +107,25 @@ public class CartActivity extends AppCompatActivity
 		getSupportLoaderManager().initLoader(0, null, this);
 	}
 
+	private void sendCheckoutEmail() {
+		SupermarketEmail.getInstance()
+			.sendCheckoutEmail(
+				Settings.getUserName(),
+				Settings.getUserEmail(),
+				adapter.getCartProducts())
+			.execute(new Callback() {
+				@Override
+				public void onSuccess(Response response) {
+					Log.i(TAG, "Checkout email sent");
+				}
+
+				@Override
+				public void onFailure(Exception e) {
+					Log.e(TAG, "Failed to send checkout email", e);
+				}
+			});
+	}
+
 	private void showCartProducts() {
 		TransitionManager.beginDelayedTransition(binding.rootLayout, new Fade());
 		binding.emptyView.setVisibility(View.INVISIBLE);
@@ -115,8 +136,7 @@ public class CartActivity extends AppCompatActivity
 		binding.button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				SupermarketEmail.getInstance().sendCheckoutEmail(
-					Settings.getUserName(), Settings.getUserEmail(), adapter.getCartProducts());
+				sendCheckoutEmail();
 
 				finish();
 			}
@@ -163,4 +183,7 @@ public class CartActivity extends AppCompatActivity
 
 	private final CartAdapter adapter = new CartAdapter(this);
 	private ActivityCartBinding binding;
+
+	private static final String TAG = CartActivity.class.getSimpleName();
+
 }

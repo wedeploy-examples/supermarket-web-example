@@ -1,18 +1,13 @@
 package io.wedeploy.supermarket.repository;
 
-import com.wedeploy.sdk.Callback;
+import com.wedeploy.sdk.Call;
 import com.wedeploy.sdk.WeDeploy;
 import com.wedeploy.sdk.exception.WeDeployException;
 import com.wedeploy.sdk.query.filter.Filter;
 import com.wedeploy.sdk.transport.Response;
-import io.wedeploy.supermarket.cart.model.CartProduct;
 import io.wedeploy.supermarket.products.model.Product;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.wedeploy.sdk.query.filter.Filter.*;
 
@@ -33,7 +28,7 @@ public class SupermarketData {
 		instance = null;
 	}
 
-	public void addToCart(Product product, Callback callback) throws JSONException {
+	public Call<Response> addToCart(Product product) throws JSONException {
 		JSONObject cartProductJsonObject = new JSONObject()
 			.put("productTitle", product.getTitle())
 			.put("productPrice", product.getPrice())
@@ -41,67 +36,36 @@ public class SupermarketData {
 			.put("productId", product.getId())
 			.put("userId", currentUserId);
 
-		weDeploy.data(DATA_URL)
-			.create("cart", cartProductJsonObject)
-			.execute(callback);
+		return weDeploy.data(DATA_URL)
+			.create("cart", cartProductJsonObject);
 	}
 
-	public List<CartProduct> getCart() throws WeDeployException, JSONException {
-		Response response = weDeploy.data(DATA_URL)
+	public Call<Response> getCart() throws WeDeployException, JSONException {
+		return weDeploy.data(DATA_URL)
 			.where(equal("userId", currentUserId))
 			.orderBy("productTitle")
-			.get("cart")
-			.execute();
-
-		JSONArray jsonArray = new JSONArray(response.getBody());
-		List<CartProduct> cartProducts = new ArrayList<>(50);
-
-		for (int i = 0; i < jsonArray.length(); i++) {
-			cartProducts.add(new CartProduct(jsonArray.getJSONObject(i)));
-		}
-
-		return cartProducts;
+			.get("cart");
 	}
 
-	public void getCartCount(Callback callback) {
-		weDeploy.data(DATA_URL)
+	public Call<Response> getCartCount() {
+		return weDeploy.data(DATA_URL)
 			.where(equal("userId", currentUserId))
 			.count()
-			.get("cart")
-			.execute(callback);
+			.get("cart");
 	}
 
-	public void deleteFromCart(String id) {
-		weDeploy.data(DATA_URL)
-			.delete("cart/" + id)
-			.execute(new Callback() {
-				@Override
-				public void onSuccess(Response response) {
-				}
-
-				@Override
-				public void onFailure(Exception e) {
-				}
-			});
+	public Call<Response> deleteFromCart(String id) {
+		return weDeploy.data(DATA_URL)
+			.delete("cart/" + id);
 	}
 
-	public List<Product> getProducts(String type) throws WeDeployException, JSONException {
+	public Call<Response> getProducts(String type) throws WeDeployException, JSONException {
 		Filter typeFilter = (type != null) ? match("type", type) : not("type", "");
 
-		Response response = weDeploy.data(DATA_URL)
+		return weDeploy.data(DATA_URL)
 			.where(typeFilter.and(exists("filename")))
 			.orderBy("title")
-			.get("products")
-			.execute();
-
-		JSONArray jsonArray = new JSONArray(response.getBody());
-		List<Product> products = new ArrayList<>(50);
-
-		for (int i = 0; i < jsonArray.length(); i++) {
-			products.add(new Product(jsonArray.getJSONObject(i)));
-		}
-
-		return products;
+			.get("products");
 	}
 
 	private SupermarketData() {

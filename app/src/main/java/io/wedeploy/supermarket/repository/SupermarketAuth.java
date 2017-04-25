@@ -1,21 +1,11 @@
 package io.wedeploy.supermarket.repository;
 
 import android.app.Activity;
-import android.util.Log;
-import com.wedeploy.sdk.Callback;
+import com.wedeploy.sdk.Call;
 import com.wedeploy.sdk.WeDeploy;
-import com.wedeploy.sdk.WeDeployAuth;
 import com.wedeploy.sdk.auth.Authorization;
 import com.wedeploy.sdk.auth.ProviderAuthorization;
-import com.wedeploy.sdk.auth.TokenAuthorization;
 import com.wedeploy.sdk.transport.Response;
-import io.reactivex.Single;
-import io.reactivex.SingleSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,27 +22,19 @@ public class SupermarketAuth {
 		return instance;
 	}
 
-	public Single<Response> getUser(Authorization authorization) {
+	public Call<Response> getUser(Authorization authorization) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
 		return weDeploy.auth(AUTH_URL)
 			.authorization(authorization)
-			.getCurrentUser()
-			.asSingle()
-			.doOnSuccess(new Consumer<Response>() {
-				@Override
-				public void accept(@NonNull Response response) throws Exception {
-					saveUser(response);
-				}
-			});
+			.getCurrentUser();
 	}
 
-	public void resetPassword(String email, Callback callback) {
+	public Call<Response> resetPassword(String email) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
-		weDeploy.auth(AUTH_URL)
-			.sendPasswordResetEmail(email)
-			.execute(callback);
+		return weDeploy.auth(AUTH_URL)
+			.sendPasswordResetEmail(email);
 	}
 
 	public void signIn(Activity activity, ProviderAuthorization.Provider provider) {
@@ -68,71 +50,39 @@ public class SupermarketAuth {
 			.signIn(activity, authProvider);
 	}
 
-	public Single<Response> signIn(String email, String password) {
+	public Call<Response> signIn(String email, String password) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
 		return weDeploy.auth(AUTH_URL)
-			.signIn(email, password)
-			.asSingle()
-			.subscribeOn(Schedulers.io())
-			.observeOn(AndroidSchedulers.mainThread())
-			.flatMap(new Function<Response, SingleSource<? extends Response>>() {
-				@Override
-				public SingleSource<? extends Response> apply(@NonNull Response response)
-					throws Exception {
-					String token = saveToken(response);
-
-					return getUser(new TokenAuthorization(token)).subscribeOn(Schedulers.io());
-				}
-			});
+			.signIn(email, password);
 	}
 
-	public void signOut(Authorization authorization) {
+	public Call<Response> signOut(Authorization authorization) {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
-		weDeploy.auth(AUTH_URL)
+		return weDeploy.auth(AUTH_URL)
 			.authorization(authorization)
-			.signOut()
-			.execute(new Callback() {
-				@Override
-				public void onSuccess(Response response) {
-					Log.i(TAG, "Token revoked");
-				}
-
-				@Override
-				public void onFailure(Exception e) {
-					Log.i(TAG, "Could not revoke token", e);
-				}
-			});
+			.signOut();
 	}
 
-	public Single<Response> signUp(final String email, final String password, String name) {
-		final WeDeployAuth weDeployAuth = new WeDeploy.Builder().build()
-			.auth(AUTH_URL);
+	public Call<Response> signUp(String email, String password, String name) {
+		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
-		return weDeployAuth.createUser(email, password, name)
-			.asSingle()
-			.flatMap(new Function<Response, SingleSource<Response>>() {
-				@Override
-				public SingleSource<Response> apply(@NonNull Response response) throws Exception {
-					saveUser(response);
-
-					return signIn(email, password).subscribeOn(Schedulers.io());
-				}
-			});
+		return weDeploy.auth(AUTH_URL)
+			.createUser(email, password, name);
 	}
 
-	private String saveToken(Response response) throws JSONException {
+	public void saveUser(Response response) throws JSONException {
+		JSONObject userJsonObject = new JSONObject(response.getBody());
+		Settings.saveUser(userJsonObject);
+	}
+
+	public String saveToken(Response response) throws JSONException {
 		JSONObject tokenJsonObject = new JSONObject(response.getBody());
 		String token = tokenJsonObject.getString("access_token");
 		Settings.saveToken(token);
 
 		return token;
-	}
-
-	private void saveUser(Response response) throws JSONException {
-		JSONObject userJsonObject = new JSONObject(response.getBody());
-		Settings.saveUser(userJsonObject);
 	}
 
 	private SupermarketAuth() {
@@ -142,4 +92,5 @@ public class SupermarketAuth {
 
 	private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
 	private static final String TAG = SupermarketAuth.class.getSimpleName();
+
 }

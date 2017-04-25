@@ -6,8 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import com.wedeploy.sdk.auth.TokenAuthorization;
 import com.wedeploy.sdk.transport.Response;
+import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.wedeploy.supermarket.repository.SupermarketAuth;
@@ -44,9 +49,27 @@ public class LoginRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketAuth auth = SupermarketAuth.getInstance();
+		final SupermarketAuth auth = SupermarketAuth.getInstance();
 		auth.signIn(email, password)
+			.asSingle()
 			.subscribeOn(Schedulers.io())
+			.flatMap(new Function<Response, SingleSource<? extends Response>>() {
+				@Override
+				public SingleSource<? extends Response> apply(@NonNull Response response)
+					throws Exception {
+					String token = auth.saveToken(response);
+
+					return auth.getUser(new TokenAuthorization(token))
+						.asSingle()
+						.subscribeOn(Schedulers.io());
+				}
+			})
+			.doOnSuccess(new Consumer<Response>() {
+				@Override
+				public void accept(@NonNull Response response) throws Exception {
+					auth.saveUser(response);
+				}
+			})
 			.observeOn(AndroidSchedulers.mainThread())
 			.subscribe(new DisposableSingleObserver<Response>() {
 				@Override

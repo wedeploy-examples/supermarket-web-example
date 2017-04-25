@@ -45,6 +45,7 @@
     <string name="log_out">Log out</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+    <string name="could_not_delete_product_from_cart">Could not delete product from cart</string>
 
     <string-array name="filter">
         <item>@string/all</item>

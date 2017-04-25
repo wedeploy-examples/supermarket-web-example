@@ -9,6 +9,8 @@ import com.wedeploy.sdk.auth.Authorization;
 import com.wedeploy.sdk.auth.TokenAuthorization;
 import com.wedeploy.sdk.transport.Response;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.wedeploy.supermarket.R;
@@ -33,10 +35,17 @@ public class OAuthActivity extends AppCompatActivity {
 		else {
 			Settings.saveToken(authorization.getToken());
 
-			SupermarketAuth auth = SupermarketAuth.getInstance();
+			final SupermarketAuth auth = SupermarketAuth.getInstance();
 			auth.getUser(authorization)
+				.asSingle()
 				.subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
+				.doOnSuccess(new Consumer<Response>() {
+					@Override
+					public void accept(@NonNull Response response) throws Exception {
+						auth.saveUser(response);
+					}
+				})
 				.subscribe(new DisposableSingleObserver<Response>() {
 					@Override
 					public void onSuccess(Response response) {
