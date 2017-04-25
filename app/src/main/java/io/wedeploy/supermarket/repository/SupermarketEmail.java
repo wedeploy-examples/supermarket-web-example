@@ -26,6 +26,7 @@ public class SupermarketEmail {
 		WeDeploy weDeploy = new WeDeploy.Builder().build();
 
 		return weDeploy.email(EMAIL_URL)
+			.authorization(Settings.getAuthorization())
 			.from("auto-confirm@supermarket.wedeploy.io")
 			.to(email)
 			.subject("Thank you " + name + ", your order was confirmed!")
