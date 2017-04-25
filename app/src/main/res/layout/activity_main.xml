@@ -95,7 +95,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="7dp"
+                android:elevation="12dp"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:text="@string/icon_cart"
@@ -112,7 +112,7 @@
                 android:layout_marginRight="24dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/we_rounded_background"
-                android:elevation="7dp"
+                android:elevation="12dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
                 android:textSize="10sp"
