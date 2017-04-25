@@ -70,7 +70,7 @@ public class ProductsActivity extends AppCompatActivity
 		String countText = binding.cartItemCount.getText().toString();
 		int count = 0;
 
-		if (TextUtils.isDigitsOnly(countText)) {
+		if (!TextUtils.isEmpty(countText) && TextUtils.isDigitsOnly(countText)) {
 			count = Integer.valueOf(countText);
 		}
 
