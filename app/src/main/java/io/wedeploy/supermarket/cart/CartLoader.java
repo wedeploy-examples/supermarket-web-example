@@ -63,6 +63,7 @@ public class CartLoader extends AsyncTaskLoader<List<CartProduct>> {
 
 		return cartProducts;
 	}
+
 	private List<CartProduct> cartProducts;
 	private final SupermarketData supermarketData;
 

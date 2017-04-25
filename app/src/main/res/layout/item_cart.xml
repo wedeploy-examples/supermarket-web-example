@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="cartProduct"
             type="io.wedeploy.supermarket.cart.model.CartProduct" />
@@ -67,10 +68,10 @@
             android:layout_marginLeft="0dp"
             android:layout_marginTop="8dp"
             android:paddingLeft="8dp"
-            android:textSize="12sp"
             android:paddingRight="8dp"
             android:text="@string/delete"
             android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/price"
             app:layout_constraintTop_toBottomOf="@+id/price" />

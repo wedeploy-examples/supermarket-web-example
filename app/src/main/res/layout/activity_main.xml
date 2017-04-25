@@ -35,8 +35,8 @@
                     android:id="@+id/userPhoto"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:layout_marginRight="16dp" />
             </android.support.v7.widget.Toolbar>
 
             <io.wedeploy.supermarket.view.FilterBarView
@@ -86,18 +86,18 @@
                 android:id="@+id/cart_button"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
-                app:backgroundTint="@color/cart_button_background"
-                app:useCompatPadding="true"
                 android:layout_gravity="top|left"
+                app:backgroundTint="@color/cart_button_background"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:useCompatPadding="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:elevation="12dp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:text="@string/icon_cart"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -119,9 +119,9 @@
                 android:textStyle="bold"
                 android:visibility="gone"
                 app:backgroundTint="@color/colorAccent"
+                tools:targetApi="lollipop"
                 tools:text="2"
-                tools:visibility="visible"
-                tools:targetApi="lollipop" />
+                tools:visibility="visible" />
         </FrameLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>
