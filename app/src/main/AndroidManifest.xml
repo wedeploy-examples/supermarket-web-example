@@ -59,7 +59,7 @@
 
         <activity android:name=".products.ProductsActivity" android:launchMode="singleTask" />
 
-        <activity android:name=".cart.CartActivity" />
+        <activity android:name=".cart.CartActivity" android:theme="@style/AppTheme.GrayStatusBar" />
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@
     <color name="cart_button_background">#082947</color>
     <color name="cart_icon_color">#660E141A</color>
     <color name="dropdown_background">#E6E7E8</color>
+    <color name="gray_status_bar">#CCCCCC</color>
     <color name="textColor">#3E4348</color>
     <color name="textColor2">#E60E141A</color>
     <color name="editTextColor">#CC0E141A</color>
