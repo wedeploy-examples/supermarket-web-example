@@ -27,6 +27,8 @@ public class OAuthActivity extends AppCompatActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(R.layout.activity_oauth);
+
 		Authorization authorization = TokenAuthorization.getAuthorizationFromIntent(getIntent());
 
 		if (authorization == null) {
@@ -56,10 +58,14 @@ public class OAuthActivity extends AppCompatActivity {
 
 					@Override
 					public void onError(Throwable e) {
+						Settings.clear();
+
 						Toast.makeText(
 							OAuthActivity.this,
 							getString(R.string.could_not_sign_in_please_try_again),
 							Toast.LENGTH_SHORT).show();
+
+						finish();
 					}
 				});
 		}
