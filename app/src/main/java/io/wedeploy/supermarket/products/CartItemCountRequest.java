@@ -7,8 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import com.wedeploy.sdk.Callback;
-import com.wedeploy.sdk.transport.Response;
+import com.wedeploy.android.Callback;
+import com.wedeploy.android.transport.Response;
 import io.wedeploy.supermarket.cart.CartItemListener;
 import io.wedeploy.supermarket.repository.SupermarketData;
 

@@ -23,7 +23,7 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.wedeploy:android-sdk:1.0-SNAPSHOT'
+    compile 'com.wedeploy:com.wedeploy.android:1.0-SNAPSHOT'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'jp.wasabeef:glide-transformations:2.0.2'
 }

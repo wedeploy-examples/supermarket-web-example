@@ -1,8 +1,8 @@
 package io.wedeploy.supermarket.repository;
 
-import com.wedeploy.sdk.Call;
-import com.wedeploy.sdk.WeDeploy;
-import com.wedeploy.sdk.transport.Response;
+import com.wedeploy.android.Call;
+import com.wedeploy.android.WeDeploy;
+import com.wedeploy.android.transport.Response;
 import io.wedeploy.supermarket.cart.model.CartProduct;
 
 import java.util.List;

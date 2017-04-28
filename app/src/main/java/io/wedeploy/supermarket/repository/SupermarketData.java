@@ -1,15 +1,15 @@
 package io.wedeploy.supermarket.repository;
 
-import com.wedeploy.sdk.Call;
-import com.wedeploy.sdk.WeDeploy;
-import com.wedeploy.sdk.exception.WeDeployException;
-import com.wedeploy.sdk.query.filter.Filter;
-import com.wedeploy.sdk.transport.Response;
+import com.wedeploy.android.Call;
+import com.wedeploy.android.WeDeploy;
+import com.wedeploy.android.exception.WeDeployException;
+import com.wedeploy.android.query.filter.Filter;
+import com.wedeploy.android.transport.Response;
 import io.wedeploy.supermarket.products.model.Product;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.wedeploy.sdk.query.filter.Filter.*;
+import static com.wedeploy.android.query.filter.Filter.*;
 
 /**
  * @author Silvio Santos

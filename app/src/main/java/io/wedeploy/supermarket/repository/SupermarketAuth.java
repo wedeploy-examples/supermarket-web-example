@@ -1,11 +1,11 @@
 package io.wedeploy.supermarket.repository;
 
 import android.app.Activity;
-import com.wedeploy.sdk.Call;
-import com.wedeploy.sdk.WeDeploy;
-import com.wedeploy.sdk.auth.Authorization;
-import com.wedeploy.sdk.auth.ProviderAuthorization;
-import com.wedeploy.sdk.transport.Response;
+import com.wedeploy.android.Call;
+import com.wedeploy.android.WeDeploy;
+import com.wedeploy.android.auth.Authorization;
+import com.wedeploy.android.auth.ProviderAuthorization;
+import com.wedeploy.android.transport.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 

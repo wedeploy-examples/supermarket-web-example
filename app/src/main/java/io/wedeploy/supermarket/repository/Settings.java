@@ -2,8 +2,8 @@ package io.wedeploy.supermarket.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.wedeploy.sdk.auth.Authorization;
-import com.wedeploy.sdk.auth.TokenAuthorization;
+import com.wedeploy.android.auth.Authorization;
+import com.wedeploy.android.auth.TokenAuthorization;
 import io.wedeploy.supermarket.SupermarketApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
