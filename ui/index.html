@@ -78,12 +78,12 @@
 					<span class="icon"></span>
 				</button>
 			</div>
-			
+
 		</div>
 
 	</main>
-		
-	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+
+	<script src="https://cdn.wedeploy.com/api/2.3.1/wedeploy.js"></script>
 	<script>
 		// Login ------------------------------------------------------------------------
 
@@ -92,14 +92,14 @@
 			if (currentUser.photoUrl) {
 				document.getElementById('userPhoto').src = currentUser.photoUrl;
 			}
-			document.getElementById('userInitials').innerHTML = currentUser.name.charAt(0); 
+			document.getElementById('userInitials').innerHTML = currentUser.name.charAt(0);
 		}
 		else {
 			location.href = 'login.html';
 		}
 
 		function signOut() {
-			WeDeploy.auth('auth.supermarket.wedeploy.io')
+			WeDeploy.auth('auth-supermarket.wedeploy.io')
 				.signOut()
 				.then(function() {
 					location.href = 'login.html';
@@ -109,7 +109,7 @@
 		// Database ------------------------------------------------------------------------
 
 		function filter(type) {
-			return WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data-supermarket.wedeploy.io')
 				.any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
 				.get('products')
 				.then(function(products) {
@@ -120,7 +120,7 @@
 		}
 
 		function filterSimilarProducts(description) {
-			return WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data-supermarket.wedeploy.io')
 				.similar('description', description)
 				.search('products')
 				.then(function(search) {
@@ -130,7 +130,7 @@
 		}
 
 		function saveItemToShoppingCart(productId, productTitle, productFilename, productPrice) {
-			return WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data-supermarket.wedeploy.io')
 				.create('cart', {
 					"productTitle": productTitle,
 					"productPrice": productPrice,
@@ -144,7 +144,7 @@
 		}
 
 		function deleteItemToShoppingCart(cartId) {
-			return WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data-supermarket.wedeploy.io')
 				.delete('cart/' + cartId)
 				.then(function(item) {
 					return loadShoppingCart();
@@ -152,7 +152,7 @@
 		}
 
 		function loadShoppingCart() {
-			return WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data-supermarket.wedeploy.io')
 				.where('userId', currentUser.id)
 				.get('cart')
 				.then(function(items) {
@@ -180,7 +180,7 @@
 		}
 
 		// Checkout ------------------------------------------------------------------------
-		
+
 		function checkout() {
 			makeCheckoutMessageFromShoppingCartList()
 				.then(function(message) {
@@ -189,7 +189,7 @@
 		}
 
 		function makeCheckoutMessageFromShoppingCartList() {
-			return WeDeploy.data('data.supermarket.wedeploy.io')
+			return WeDeploy.data('data-supermarket.wedeploy.io')
 				.where('userId', currentUser.id)
 				.get('cart')
 				.then(function(items) {

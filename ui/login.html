@@ -35,7 +35,7 @@
 				</div>
 
 				<form name="signIn" class="form" onsubmit="signInWithEmailAndPassword(); return false;">
-					
+
 					<div class="form-group">
 						<label>Email</label>
 						<input type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="" required="" />
@@ -78,9 +78,9 @@
 
 	</main>
 
-    <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+    <script src="https://cdn.wedeploy.com/api/2.3.1/wedeploy.js"></script>
     <script>
-    	var auth = WeDeploy.auth('auth.supermarket.wedeploy.io');
+    	var auth = WeDeploy.auth('auth-supermarket.wedeploy.io');
 
     	function signInWithEmailAndPassword() {
     		auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
