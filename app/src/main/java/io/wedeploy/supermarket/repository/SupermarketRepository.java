@@ -84,6 +84,6 @@ public class SupermarketRepository {
 
 	private final Settings settings;
 	private final WeDeploy weDeploy;
-	private static final String DATA_URL = "http://data.supermarket.wedeploy.io";
+	private static final String DATA_URL = "https://data-supermarket.wedeploy.sh";
 
 }

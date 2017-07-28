@@ -112,5 +112,5 @@ public class SupermarketAuth {
 	}
 
 	private final Settings settings;
-	private static final String AUTH_URL = "http://auth.supermarket.wedeploy.io";
+	private static final String AUTH_URL = "https://auth-supermarket.wedeploy.sh";
 }
