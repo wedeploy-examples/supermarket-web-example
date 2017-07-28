@@ -27,7 +27,7 @@ class ProductCart {
 
 		self.id = id
 		self.productId = productId
-		self.imageUrl = "http://public.easley84.wedeploy.io/assets/images/\(imageUrl)"
+		self.imageUrl = WeDeployConfig.webUrl + "/assets/images/\(imageUrl)"
 		self.name = name
 		self.price = price
 		self.userId = userId

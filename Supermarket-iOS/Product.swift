@@ -30,7 +30,7 @@ public struct Product {
 		self.id = id
 		self.price = price
 		self.name = name
-		self.imageUrl = "http://public.easley84.wedeploy.io/assets/images/\(filename)"
+		self.imageUrl = WeDeployConfig.webUrl + "/assets/images/\(filename)"
 	}
 }
 
