@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="icon_arrow"></string>
+    <string name="icon_cart"></string>
+    <string name="icon_error"></string>
+    <string name="icon_facebook"></string>
+    <string name="icon_google"></string>
+    <string name="icon_success"></string>
+</resources>

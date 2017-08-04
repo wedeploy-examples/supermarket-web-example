@@ -7,22 +7,22 @@
 
         <variable
             name="product"
-            type="io.wedeploy.supermarket.model.Product" />
+            type="io.wedeploy.supermarket.products.model.Product" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity"
+        tools:context=".products.ProductsActivity"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="81dp">
 
         <ImageView
             android:id="@+id/imageView"
             style="@style/ProductImage"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             app:imageUrl="@{product.imageUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -67,15 +67,13 @@
             android:layout_height="36dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/we_button_background"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="@string/add_to_cart"
-            android:onClick="@{product::onAddToCartButtonClick}"
             android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="@+id/price"
-            app:layout_constraintTop_toBottomOf="@+id/price"
-            tools:text="Add to cart" />
+            app:layout_constraintTop_toBottomOf="@+id/price" />
     </android.support.constraint.ConstraintLayout>
 </layout>

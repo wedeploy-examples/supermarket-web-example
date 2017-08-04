@@ -10,11 +10,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.SupermarketAuth;
 import io.wedeploy.supermarket.databinding.SocialLoginButtonsBinding;
+import io.wedeploy.supermarket.repository.SupermarketAuth;
 
-import static com.wedeploy.sdk.auth.AuthProvider.Provider.FACEBOOK;
-import static com.wedeploy.sdk.auth.AuthProvider.Provider.GOOGLE;
+import static com.wedeploy.android.auth.ProviderAuthorization.Provider.FACEBOOK;
+import static com.wedeploy.android.auth.ProviderAuthorization.Provider.GOOGLE;
 
 /**
  * @author Silvio Santos
@@ -62,14 +62,14 @@ public class SocialLoginInButtons extends FrameLayout {
 		binding.facebookSignIn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				SupermarketAuth.signIn((Activity)context, FACEBOOK);
+				SupermarketAuth.getInstance().signIn((Activity)context, FACEBOOK);
 			}
 		});
 
 		binding.googleSignIn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				SupermarketAuth.signIn((Activity)context, GOOGLE);
+				SupermarketAuth.getInstance().signIn((Activity)context, GOOGLE);
 			}
 		});
 	}

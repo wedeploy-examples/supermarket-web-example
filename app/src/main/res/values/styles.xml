@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:progressBarStyle">@style/WeLoading</item>
@@ -12,6 +12,10 @@
         <item name="editTextStyle">@style/WeEditText</item>
     </style>
 
+    <style name="AppTheme.GrayStatusBar" parent="AppTheme">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/gray_status_bar</item>
+    </style>
+
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -23,9 +27,9 @@
     </style>
 
     <style name="WeButton" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/we_button_background</item>
+        <item name="android:background">@drawable/we_rounded_corners_background</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:stateListAnimator">@null</item>
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
         <item name="backgroundTint">@color/we_button_selector</item>
     </style>
 
@@ -69,5 +73,7 @@
     <style name="ProductImage">
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">108dp</item>
+        <item name="android:background">@drawable/we_rounded_corners_background</item>
+        <item name="android:elevation" tools:targetApi="lollipop">4dp</item>
     </style>
 </resources>

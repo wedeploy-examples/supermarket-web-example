@@ -3,15 +3,18 @@ package io.wedeploy.supermarket.login;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import com.wedeploy.sdk.auth.Auth;
-import com.wedeploy.sdk.auth.TokenAuth;
-import io.wedeploy.supermarket.MainActivity;
 import io.wedeploy.supermarket.R;
-import io.wedeploy.supermarket.SignUpActivity;
 import io.wedeploy.supermarket.databinding.ActivityLoginBinding;
+import io.wedeploy.supermarket.products.ProductsActivity;
 import io.wedeploy.supermarket.resetpassword.ResetPasswordActivity;
+import io.wedeploy.supermarket.signup.SignUpActivity;
 import io.wedeploy.supermarket.view.AlertMessage;
 
 /**
@@ -23,12 +26,12 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 	public void onLoginSuccess() {
 		if (isFinishing()) return;
 
-		startActivity(new Intent(this, MainActivity.class));
+		startActivity(new Intent(this, ProductsActivity.class));
 		finishAffinity();
 	}
 
 	@Override
-	public void onLoginFailed(Exception exception) {
+	public void onLoginFailed(Exception e) {
 		if (isFinishing()) return;
 
 		enableFields(true);
@@ -43,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
 		binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
+		binding.signUpButton.setText(getSignUpButtonText());
 		binding.signUpButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -75,24 +79,12 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 	}
 
 	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-
-		Auth auth = TokenAuth.getAuthFromIntent(intent);
-
-		if (auth != null) {
-			startActivity(new Intent(this, MainActivity.class));
-			finishAffinity();
-		}
-	}
-
-	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
 		if ((requestCode == REQUEST_RESET_PASSWORD) && (resultCode == RESULT_OK)) {
 			AlertMessage.showSuccessMessage(
-				this, getString(R.string.the_email_should_arrive_within_a_few_minuts));
+				this, getString(R.string.the_email_should_arrive_within_a_few_minutes));
 		}
 	}
 
@@ -100,6 +92,22 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 		binding.password.setEnabled(enable);
 		binding.email.setEnabled(enable);
 		binding.signInButton.setEnabled(enable);
+	}
+
+	private CharSequence getSignUpButtonText() {
+		SpannableStringBuilder sb = new SpannableStringBuilder(
+			getString(R.string.dont_you_have_an_account));
+
+		ForegroundColorSpan colorSpan = new ForegroundColorSpan(
+			ResourcesCompat.getColor(getResources(), R.color.colorAccent, null));
+
+		SpannableString signUpString = new SpannableString(getString(R.string.sign_up));
+		signUpString.setSpan(colorSpan, 0, signUpString.length(), Spanned
+			.SPAN_INCLUSIVE_INCLUSIVE);
+		sb.append(" ");
+		sb.append(signUpString);
+
+		return sb;
 	}
 
 	private ActivityLoginBinding binding;

@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="cartProduct"
-            type="io.wedeploy.supermarket.model.CartProduct" />
+            type="io.wedeploy.supermarket.cart.model.CartProduct" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".MainActivity"
+        tools:context=".products.ProductsActivity"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="81dp">
 
         <ImageView
             android:id="@+id/imageView"
             style="@style/ProductImage"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             app:imageUrl="@{cartProduct.imageUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -59,5 +60,20 @@
             app:layout_constraintLeft_toLeftOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/name"
             tools:text="$28.1" />
+
+        <Button
+            android:id="@+id/deleteFromCartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/delete"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/price" />
     </android.support.constraint.ConstraintLayout>
 </layout>

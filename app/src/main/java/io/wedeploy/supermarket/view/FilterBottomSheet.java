@@ -39,11 +39,11 @@ public class FilterBottomSheet extends BottomSheetDialogFragment implements View
 		String[] types = getResources().getStringArray(R.array.filter);
 
 		ViewGroup viewGroup = (ViewGroup)inflater.inflate(
-			R.layout.filter_bottom_sheet, container, false);
+			R.layout.bottom_sheet, container, false);
 
 		for (String type : types) {
 			TextView textView = (TextView)inflater.inflate(
-				R.layout.filter_bottom_sheet_item, viewGroup, false);
+				R.layout.bottom_sheet_item, viewGroup, false);
 
 			textView.setText(type);
 			textView.setOnClickListener(this);

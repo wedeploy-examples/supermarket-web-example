@@ -19,9 +19,6 @@ import android.widget.ProgressBar;
 import android.widget.ViewAnimator;
 import io.wedeploy.supermarket.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Silvio Santos
  */
@@ -58,16 +55,6 @@ public class StepLayout extends FrameLayout {
 
 	public void setOnDoneClickListener(OnClickListener doneAction) {
 		this.doneAction = doneAction;
-	}
-
-	public List<View> getStepViews() {
-		List<View> stepViews = new ArrayList<>();
-
-		for (int i = 0; i < viewAnimator.getChildCount(); i++) {
-			stepViews.add(viewAnimator.getChildAt(i));
-		}
-
-		return stepViews;
 	}
 
 	public Button getNextButton() {
@@ -120,7 +107,7 @@ public class StepLayout extends FrameLayout {
 					viewAnimator.showNext();
 					setProgress();
 					setNextButtonLabel();
-					setPreviousButtonVisiblity();
+					setPreviousButtonVisibility();
 				}
 			}
 		});
@@ -132,7 +119,7 @@ public class StepLayout extends FrameLayout {
 
 				setProgress();
 				setNextButtonLabel();
-				setPreviousButtonVisiblity();
+				setPreviousButtonVisibility();
 			}
 		});
 	}
@@ -140,8 +127,8 @@ public class StepLayout extends FrameLayout {
 	private void initProgressBar() {
 		int max = viewAnimator.getChildCount();
 
-		progressBar.setMax(max);
-		progressBar.setProgress(1);
+		progressBar.setMax(max * 100);
+		progressBar.setProgress(100);
 	}
 
 	private void initViewAnimator() {
@@ -172,7 +159,7 @@ public class StepLayout extends FrameLayout {
 		}
 	}
 
-	private void setPreviousButtonVisiblity() {
+	private void setPreviousButtonVisibility() {
 		if (getCurrentIndex() == 0) {
 			previousButton.setVisibility(GONE);
 		}
@@ -183,7 +170,7 @@ public class StepLayout extends FrameLayout {
 
 	private void setProgress() {
 		int currentProgress = progressBar.getProgress();
-		int progress = getCurrentIndex() + 1;
+		int progress = (getCurrentIndex() + 1) * 100;
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 			progressBar.setProgress(progress, true);
@@ -193,7 +180,7 @@ public class StepLayout extends FrameLayout {
 				progressBar, "progress", currentProgress, progress);
 
 			animation.setInterpolator(new DecelerateInterpolator());
-			animation.setDuration(1000);
+			animation.setDuration(200);
 			animation.start();
 		}
 	}

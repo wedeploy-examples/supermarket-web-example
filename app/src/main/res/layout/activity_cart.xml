@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="io.wedeploy.supermarket.binding.Font" />
+
+        <import type="io.wedeploy.supermarket.view.binding.Font" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -25,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
+                app:navigationIcon="@drawable/ic_close"
                 app:title="@string/cart"
                 app:titleTextColor="@color/title_color" />
         </android.support.design.widget.AppBarLayout>
@@ -57,7 +59,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.39"
-                app:layout_constraintVertical_chainStyle="packed" />
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:targetApi="lollipop" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -70,7 +73,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="36dp"
                 android:gravity="center_horizontal"
-                android:text="Your cart is empty"
+                android:text="@string/your_cart_is_empty"
                 android:textColor="@color/title_color"
                 android:textSize="28sp"
                 app:layout_constraintBottom_toTopOf="@+id/textView9"
@@ -83,13 +86,11 @@
                 style="@style/WeTextAppearance.Medium"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:text="The items you add to the cart will show up here"
+                android:text="@string/the_items_you_add_to_the_cart_will_show_up_here"
                 android:textColor="@color/h2_color"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"

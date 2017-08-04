@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="io.wedeploy.supermarket.binding.Font" />
+        <import type="io.wedeploy.supermarket.view.binding.Font" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -18,7 +18,7 @@
             android:id="@+id/container"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/dropdown_background"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -38,7 +38,7 @@
                 android:layout_marginLeft="9dp"
                 android:layout_marginRight="16dp"
                 android:gravity="center_vertical"
-                android:text=""
+                android:text="@string/icon_arrow"
                 app:font="@{Font.ICONS_12}" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

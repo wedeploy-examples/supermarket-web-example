@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="io.wedeploy.supermarket.view.binding.Font" />
+    </data>
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".products.ProductsActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/topBar"
@@ -24,7 +29,15 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@android:color/white" />
+                app:titleTextColor="@android:color/white">
+
+                <io.wedeploy.supermarket.view.UserPhotoView
+                    android:id="@+id/userPhoto"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="16dp" />
+            </android.support.v7.widget.Toolbar>
 
             <io.wedeploy.supermarket.view.FilterBarView
                 android:id="@+id/filterBarView"
@@ -37,7 +50,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </android.support.design.widget.AppBarLayout>
 
         <ProgressBar
@@ -54,7 +66,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="0dp"
             android:clipToPadding="false"
-            android:paddingTop="16dp"
+            android:paddingTop="8dp"
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -64,14 +76,52 @@
             app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/item_product" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/cart_button"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            app:backgroundTint="@color/cart_button_background"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/cart_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="top|left"
+                app:backgroundTint="@color/cart_button_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:useCompatPadding="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="12dp"
+                android:gravity="center"
+                android:text="@string/icon_cart"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                app:font="@{Font.ICONS_12}"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:id="@+id/cartItemCount"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/we_rounded_background"
+                android:elevation="12dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:backgroundTint="@color/colorAccent"
+                tools:targetApi="lollipop"
+                tools:text="2"
+                tools:visibility="visible" />
+        </FrameLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -6,17 +6,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import com.wedeploy.sdk.Callback;
-import com.wedeploy.sdk.transport.Response;
-import io.wedeploy.supermarket.Settings;
-import io.wedeploy.supermarket.SupermarketAuth;
+import com.wedeploy.android.Callback;
+import com.wedeploy.android.transport.Response;
+import io.wedeploy.supermarket.repository.SupermarketAuth;
 
 /**
  * @author Silvio Santos
  */
 public class ResetPasswordRequest extends Fragment {
-
-	public static final String TAG = "resetPasswordRequest";
 
 	public ResetPasswordRequest() {
 		setRetainInstance(true);
@@ -44,21 +41,24 @@ public class ResetPasswordRequest extends Fragment {
 	public void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SupermarketAuth auth = new SupermarketAuth(Settings.getInstance(getContext()));
-		auth.resetPassword(email, new Callback() {
-			@Override
-			public void onSuccess(Response response) {
-				listener.onResetPasswordSuccess(response);
-			}
+		SupermarketAuth auth = SupermarketAuth.getInstance();
+		auth.resetPassword(email)
+			.execute(new Callback() {
+				@Override
+				public void onSuccess(Response response) {
+					listener.onResetPasswordSuccess();
+				}
 
-			@Override
-			public void onFailure(Exception e) {
-				listener.onResetPasswordFailed(e);
-			}
-		});
+				@Override
+				public void onFailure(Exception e) {
+					listener.onResetPasswordFailed(e);
+				}
+			});
 	}
 
 	private String email;
 	private ResetPasswordListener listener;
+
+	private static final String TAG = ResetPasswordRequest.class.getSimpleName();
 
 }
