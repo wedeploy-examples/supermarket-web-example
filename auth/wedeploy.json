@@ -1,6 +1,6 @@
 {
 	"id": "auth",
-  "image": "wedeploy/auth:0.0.1",
+  "image": "wedeploy/auth:2.0.0",
 	"env": {
 		"WEDEPLOY_AUTH_PASSWORD": "true",
 		"WEDEPLOY_AUTH_GOOGLE": "true",
