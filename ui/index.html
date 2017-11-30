@@ -83,11 +83,11 @@
 
 	</main>
 
-	<script src="https://cdn.wedeploy.com/api/2.3.1/wedeploy.js"></script>
+	<script src="https://cdn.wedeploy.com/api/4.0.2/wedeploy.js"></script>
 	<script>
 		// Login ------------------------------------------------------------------------
 
-		var currentUser = WeDeploy.auth().currentUser;
+		var currentUser = WeDeploy.auth('auth-supermarket.wedeploy.io').currentUser;
 		if (currentUser) {
 			if (currentUser.photoUrl) {
 				document.getElementById('userPhoto').src = currentUser.photoUrl;
@@ -110,6 +110,7 @@
 
 		function filter(type) {
 			return WeDeploy.data('data-supermarket.wedeploy.io')
+        .auth(currentUser)
 				.any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
 				.get('products')
 				.then(function(products) {
@@ -121,6 +122,7 @@
 
 		function filterSimilarProducts(description) {
 			return WeDeploy.data('data-supermarket.wedeploy.io')
+        .auth(currentUser)
 				.similar('description', description)
 				.search('products')
 				.then(function(search) {
@@ -131,6 +133,7 @@
 
 		function saveItemToShoppingCart(productId, productTitle, productFilename, productPrice) {
 			return WeDeploy.data('data-supermarket.wedeploy.io')
+        .auth(currentUser)
 				.create('cart', {
 					"productTitle": productTitle,
 					"productPrice": productPrice,
@@ -145,6 +148,7 @@
 
 		function deleteItemToShoppingCart(cartId) {
 			return WeDeploy.data('data-supermarket.wedeploy.io')
+        .auth(currentUser)
 				.delete('cart/' + cartId)
 				.then(function(item) {
 					return loadShoppingCart();
@@ -153,6 +157,7 @@
 
 		function loadShoppingCart() {
 			return WeDeploy.data('data-supermarket.wedeploy.io')
+        .auth(currentUser)
 				.where('userId', currentUser.id)
 				.get('cart')
 				.then(function(items) {
@@ -190,6 +195,7 @@
 
 		function makeCheckoutMessageFromShoppingCartList() {
 			return WeDeploy.data('data-supermarket.wedeploy.io')
+        .auth(currentUser)
 				.where('userId', currentUser.id)
 				.get('cart')
 				.then(function(items) {
@@ -203,22 +209,18 @@
 
 		function sendCheckoutEmail(message) {
 			return WeDeploy
-					.url('http://email.supermarket.wedeploy.io/emails')
-					.form('from', 'auto-confirm@supermarket.wedeploy.io')
-					.form('to', currentUser.email)
-					.form('subject', `Thank you ${currentUser.name}, your order was confirmed!`)
-					.form('message', message)
-					.post()
-					.then(function(response) {
-						if (response.succeeded()) {
-							alert('Your order was confirmed, check your inbox.');
-						}
-						else {
-							alert('Your order was not confirmed, try again.');
-						}
+					.email('email-supermarket.wedeploy.io')
+          .auth(currentUser)
+					.from('auto-confirm@supermarket.wedeploy.io')
+					.to(currentUser.email)
+					.subject(`Thank you ${currentUser.name}, your order was confirmed!`)
+					.message(message)
+					.send()
+					.then(function(result) {
+						alert('Your order was confirmed, check your inbox.');
 					})
 					.catch(function(error) {
-						alert('Ops, some error has happened.');
+						alert('Oops, some error has happened.');
 					});
 		}
 
