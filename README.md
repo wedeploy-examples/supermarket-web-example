@@ -10,6 +10,11 @@ A demo of [WeDeploy Hosting](https://wedeploy.com/docs/hosting), [WeDeploy Data]
 4. Search for all occurrences of `supermarket.wedeploy.io` and replace with `yourproject.wedeploy.io`.
 5. Open the project with your command line and run `we deploy -p yourproject`.
 
+## See also:
+- [Android Demo](https://github.com/wedeploy/demo-supermarket/tree/android)
+- [iOS Demo](https://github.com/wedeploy/demo-supermarket/tree/ios)
+- [React Native Demo](https://github.com/wedeploy/demo-supermarket/tree/react-native-demo)
+
 ## License
 
 [BSD-3-Clause](./LICENSE.md), © Liferay, Inc.
