@@ -17,97 +17,97 @@
 </head>
 <body>
 
-	<div class="bg-red"></div>
+  <div class="bg-red"></div>
 
-	<header class="grid-login">
-		<div class="content-header">
-			<h1>Login into your account</h1>
-		</div>
-	</header>
+  <header class="grid-login">
+    <div class="content-header">
+      <h1>Login into your account</h1>
+    </div>
+  </header>
 
-	<main class="grid-login">
+  <main class="grid-login">
 
-		<section>
-			<div class="content-body">
+    <section>
+      <div class="content-body">
 
-				<div class="logo">
-					<img src="assets/style/images/apple.svg" />
-				</div>
+        <div class="logo">
+          <img src="assets/style/images/apple.svg" />
+        </div>
 
-				<form name="signIn" class="form" onsubmit="signInWithEmailAndPassword(); return false;">
+        <form name="signIn" class="form" onsubmit="signInWithEmailAndPassword(); return false;">
 
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="" required="" />
-					</div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="" required="" />
+          </div>
 
-					<div class="form-group">
-						<label>Password</label>
-						<input type="password" placeholder="Password (at least 6 characters)" class="form-control" name="password" value="" maxlength="100" required="" />
-					</div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Password (at least 6 characters)" class="form-control" name="password" value="" maxlength="100" required="" />
+          </div>
 
-					<div class="btn-wrapper">
-						<button type="submit" class="btn btn-success" name="submit">Login</button>
-					</div>
+          <div class="btn-wrapper">
+            <button type="submit" class="btn btn-success" name="submit">Login</button>
+          </div>
 
-				</form>
+        </form>
 
-				<p class="info-small">Don't you have an account? <a href="signup.html">Sign up</a></p>
-			</div>
-		</section>
+        <p class="info-small">Don't you have an account? <a href="signup.html">Sign up</a></p>
+      </div>
+    </section>
 
-		<section>
-			<div class="content-body">
-				<p class="info-small social">Use your Facebook or Google account for a faster login</p>
-				<div class="col-flex-row-spacebetween-center">
-					<button class="btn btn-social btn-facebook" type="button" onclick="signInWithFacebook();">
-						<div class="btn-content">
-							<span class="icon-16-facebook"></span>
-							<span class="btn-label">Login with Facebook</span>
-						</div>
-					</button>
-					<button class="btn btn-social btn-google" type="button" onclick="signInWithGoogle();">
-						<div class="btn-content">
-							<span class="icon-google"></span>
-							<span class="btn-label">Login with Google</span>
-						</div>
-					</button>
-				</div>
-			</div>
-		</section>
+    <section>
+      <div class="content-body">
+        <p class="info-small social">Use your Facebook or Google account for a faster login</p>
+        <div class="col-flex-row-spacebetween-center">
+          <button class="btn btn-social btn-facebook" type="button" onclick="signInWithFacebook();">
+            <div class="btn-content">
+              <span class="icon-16-facebook"></span>
+              <span class="btn-label">Login with Facebook</span>
+            </div>
+          </button>
+          <button class="btn btn-social btn-google" type="button" onclick="signInWithGoogle();">
+            <div class="btn-content">
+              <span class="icon-google"></span>
+              <span class="btn-label">Login with Google</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
 
-	</main>
+  </main>
 
     <script src="https://cdn.wedeploy.com/api/4.0.2/wedeploy.js"></script>
     <script>
-    	var auth = WeDeploy.auth('auth-supermarket.wedeploy.io');
+      var auth = WeDeploy.auth('auth-supermarket.wedeploy.io');
 
-    	function signInWithEmailAndPassword() {
-    		auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
-    			.then(function() {
-    				signIn.reset();
-    			})
-    			.catch(function() {
-    				alert('Sign-in failed.');
-    				signIn.reset();
-    			});
-    	}
+      function signInWithEmailAndPassword() {
+        auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
+          .then(function() {
+            signIn.reset();
+          })
+          .catch(function() {
+            alert('Sign-in failed.');
+            signIn.reset();
+          });
+      }
 
-    	function signInWithFacebook() {
-    		var facebookProvider = new auth.provider.Facebook();
-    		facebookProvider.setProviderScope('email');
-    		auth.signInWithRedirect(facebookProvider);
-    	}
+      function signInWithFacebook() {
+        var facebookProvider = new auth.provider.Facebook();
+        facebookProvider.setProviderScope('email');
+        auth.signInWithRedirect(facebookProvider);
+      }
 
-    	function signInWithGoogle() {
-    		var googleProvider = new auth.provider.Google();
-    		googleProvider.setProviderScope('email');
-    		auth.signInWithRedirect(googleProvider);
-    	}
+      function signInWithGoogle() {
+        var googleProvider = new auth.provider.Google();
+        googleProvider.setProviderScope('email');
+        auth.signInWithRedirect(googleProvider);
+      }
 
-    	auth.onSignIn(function(user) {
-    		location.href = '/';
-    	});
+      auth.onSignIn(function(user) {
+        location.href = '/';
+      });
     </script>
 </body>
 </html>

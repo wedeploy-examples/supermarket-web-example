@@ -17,69 +17,69 @@
 </head>
 <body>
 
-	<div class="bg-red"></div>
+  <div class="bg-red"></div>
 
-	<header class="grid-login">
-		<div class="content-header">
-			<h1>Create your account</h1>
-		</div>
-	</header>
+  <header class="grid-login">
+    <div class="content-header">
+      <h1>Create your account</h1>
+    </div>
+  </header>
 
-	<main class="grid-login">
-		<section>
-			<div class="content-body">
+  <main class="grid-login">
+    <section>
+      <div class="content-body">
 
-				<div class="logo">
-					<img src="assets/style/images/apple.svg" />
-				</div>
+        <div class="logo">
+          <img src="assets/style/images/apple.svg" />
+        </div>
 
-				<form name="signUp" class="form" onsubmit="submitForm(); return false;">
+        <form name="signUp" class="form" onsubmit="submitForm(); return false;">
 
-					<div class="form-group">
-						<label>Name</label>
-						<input type="text" placeholder="Your full name" class="form-control" name="name" value="" maxlength="100" autofocus="" required="">
-					</div>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your full name" class="form-control" name="name" value="" maxlength="100" autofocus="" required="">
+          </div>
 
-					<div class="form-group">
-						<label>Email</label>
-						<input type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="" required="" />
-					</div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="youremail@company.com" class="form-control" name="email" value="" maxlength="100" autofocus="" required="" />
+          </div>
 
-					<div class="form-group">
-						<label>Password</label>
-						<input type="password" placeholder="Password (at least 6 characters)" class="form-control" name="password" value="" maxlength="100" required="" />
-					</div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Password (at least 6 characters)" class="form-control" name="password" value="" maxlength="100" required="" />
+          </div>
 
-					<div class="btn-wrapper">
-						<button type="submit" class="btn btn-success" name="submit">Create an Account</button>
-					</div>
+          <div class="btn-wrapper">
+            <button type="submit" class="btn btn-success" name="submit">Create an Account</button>
+          </div>
 
-				</form>
+        </form>
 
-				<p class="info-small">Already have an account? <a href="login.html">Login</a></p>
-			</div>
-		</section>
+        <p class="info-small">Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </section>
 
-	</main>
+  </main>
 
     <script src="https://cdn.wedeploy.com/api/4.0.2/wedeploy.js"></script>
     <script>
-    	function submitForm() {
-    		WeDeploy.auth('auth-supermarket.wedeploy.io')
-    			.createUser({
-    				email: signUp.email.value,
-    				name: signUp.name.value,
-    				password: signUp.password.value
-    			})
-    			.then(function(user) {
-    				alert('Sign-up successfully.');
-    				location.href = '/';
-    			})
-    			.catch(function() {
-    				alert('Sign-up failed. Try another email.');
-    				signUp.reset();
-    			});
-    	}
+      function submitForm() {
+        WeDeploy.auth('auth-supermarket.wedeploy.io')
+          .createUser({
+            email: signUp.email.value,
+            name: signUp.name.value,
+            password: signUp.password.value
+          })
+          .then(function(user) {
+            alert('Sign-up successfully.');
+            location.href = '/';
+          })
+          .catch(function() {
+            alert('Sign-up failed. Try another email.');
+            signUp.reset();
+          });
+      }
     </script>
 </body>
 </html>

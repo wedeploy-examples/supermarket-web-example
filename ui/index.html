@@ -1,264 +1,264 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Supermarket</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Supermarket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300">
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-	<link rel="stylesheet" type="text/css" href="assets/style/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/style/fonts/galano/galano.css">
-	<link rel="stylesheet" type="text/css" href="assets/style/fonts/icon-12/icon-12.css">
-	<link rel="stylesheet" type="text/css" href="assets/style/fonts/icon-16/icon-16.css">
-	<link rel="stylesheet" type="text/css" href="assets/style/cards.css">
+  <link rel="stylesheet" type="text/css" href="assets/style/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/style/fonts/galano/galano.css">
+  <link rel="stylesheet" type="text/css" href="assets/style/fonts/icon-12/icon-12.css">
+  <link rel="stylesheet" type="text/css" href="assets/style/fonts/icon-16/icon-16.css">
+  <link rel="stylesheet" type="text/css" href="assets/style/cards.css">
 
 </head>
 <body id="products" class="white">
 
-	<header>
-		<div class="logo">
-			<img src="assets/style/images/apple.svg" />
-		</div>
-		<div class="menu">
-			<span class="avatar">
-				<span id="userInitials"></span>
-				<img id="userPhoto" src="" />
-			</span>
-			<button class="logout" onclick="signOut();">
-				<span class="icon-12-leave"></span>
-			</button>
-		</div>
-	</header>
+  <header>
+    <div class="logo">
+      <img src="assets/style/images/apple.svg" />
+    </div>
+    <div class="menu">
+      <span class="avatar">
+        <span id="userInitials"></span>
+        <img id="userPhoto" src="" />
+      </span>
+      <button class="logout" onclick="signOut();">
+        <span class="icon-12-leave"></span>
+      </button>
+    </div>
+  </header>
 
-	<main class="main-content">
+  <main class="main-content">
 
-		<div class="tab-filter-wrapper">
-			<div class="tab-filter">
-				<ul class="filters">
-					<li class="filter">
-						<a data-menu="" href="javascript:filter('');">All</a>
-					</li>
-					<li class="filter">
-						<a data-menu="bakery" href="javascript:filter('bakery');">Bakery</a>
-					</li>
-					<li class="filter">
-						<a data-menu="dairy" href="javascript:filter('dairy');">Dairy</a>
-					</li>
-					<li class="filter">
-						<a data-menu="fruit" href="javascript:filter('fruit');">Fruit</a>
-					</li>
-					<li class="filter">
-						<a data-menu="vegetable" href="javascript:filter('vegetable');">Vegetable</a>
-					</li>
-					<li class="filter">
-						<a data-menu="meat" href="javascript:filter('meat');">Meat</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+    <div class="tab-filter-wrapper">
+      <div class="tab-filter">
+        <ul class="filters">
+          <li class="filter">
+            <a data-menu="" href="javascript:filter('');">All</a>
+          </li>
+          <li class="filter">
+            <a data-menu="bakery" href="javascript:filter('bakery');">Bakery</a>
+          </li>
+          <li class="filter">
+            <a data-menu="dairy" href="javascript:filter('dairy');">Dairy</a>
+          </li>
+          <li class="filter">
+            <a data-menu="fruit" href="javascript:filter('fruit');">Fruit</a>
+          </li>
+          <li class="filter">
+            <a data-menu="vegetable" href="javascript:filter('vegetable');">Vegetable</a>
+          </li>
+          <li class="filter">
+            <a data-menu="meat" href="javascript:filter('meat');">Meat</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-		<section class="gallery">
-			<ul id="productList"></ul>
-			<div class="fail-message">No products found</div>
-		</section>
+    <section class="gallery">
+      <ul id="productList"></ul>
+      <div class="fail-message">No products found</div>
+    </section>
 
-		<div id="cartList" class="cart-list">
-			<div class="cart-list__header">
-				<span>CART</span>
-			</div>
-			<div class="cart-list__items">
-				<ul id="shoppingCartList"></ul>
-			</div>
-			<div class="cart-list__footer">
-				<button class="btn-checkout" onclick="checkout();">Checkout - $<span id="shoppingCartTotal"></span></button>
-				<button class="btn-trigger-checkout" onclick="document.getElementById('cartList').classList.toggle('active');">
-					<span id="shoppingCartCount">0</span>
-					<span class="icon"></span>
-				</button>
-			</div>
+    <div id="cartList" class="cart-list">
+      <div class="cart-list__header">
+        <span>CART</span>
+      </div>
+      <div class="cart-list__items">
+        <ul id="shoppingCartList"></ul>
+      </div>
+      <div class="cart-list__footer">
+        <button class="btn-checkout" onclick="checkout();">Checkout - $<span id="shoppingCartTotal"></span></button>
+        <button class="btn-trigger-checkout" onclick="document.getElementById('cartList').classList.toggle('active');">
+          <span id="shoppingCartCount">0</span>
+          <span class="icon"></span>
+        </button>
+      </div>
 
-		</div>
+    </div>
 
-	</main>
+  </main>
 
-	<script src="https://cdn.wedeploy.com/api/4.0.2/wedeploy.js"></script>
-	<script>
-		// Login ------------------------------------------------------------------------
+  <script src="https://cdn.wedeploy.com/api/4.0.2/wedeploy.js"></script>
+  <script>
+    // Login ------------------------------------------------------------------------
 
-		var currentUser = WeDeploy.auth('auth-supermarket.wedeploy.io').currentUser;
-		if (currentUser) {
-			if (currentUser.photoUrl) {
-				document.getElementById('userPhoto').src = currentUser.photoUrl;
-			}
-			document.getElementById('userInitials').innerHTML = currentUser.name.charAt(0);
-		}
-		else {
-			location.href = 'login.html';
-		}
+    var currentUser = WeDeploy.auth('auth-supermarket.wedeploy.io').currentUser;
+    if (currentUser) {
+      if (currentUser.photoUrl) {
+        document.getElementById('userPhoto').src = currentUser.photoUrl;
+      }
+      document.getElementById('userInitials').innerHTML = currentUser.name.charAt(0);
+    }
+    else {
+      location.href = 'login.html';
+    }
 
-		function signOut() {
-			WeDeploy.auth('auth-supermarket.wedeploy.io')
-				.signOut()
-				.then(function() {
-					location.href = 'login.html';
-				});
-		}
+    function signOut() {
+      WeDeploy.auth('auth-supermarket.wedeploy.io')
+        .signOut()
+        .then(function() {
+          location.href = 'login.html';
+        });
+    }
 
-		// Database ------------------------------------------------------------------------
+    // Database ------------------------------------------------------------------------
 
-		function filter(type) {
-			return WeDeploy.data('data-supermarket.wedeploy.io')
+    function filter(type) {
+      return WeDeploy.data('data-supermarket.wedeploy.io')
         .auth(currentUser)
-				.any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
-				.get('products')
-				.then(function(products) {
-					plotProducts(products);
-					selectActiveMenu(type);
-					return this;
-				});
-		}
+        .any('type', type ? [type] : ['vegetable', 'meat', 'bakery', 'dairy', 'fruit'])
+        .get('products')
+        .then(function(products) {
+          plotProducts(products);
+          selectActiveMenu(type);
+          return this;
+        });
+    }
 
-		function filterSimilarProducts(description) {
-			return WeDeploy.data('data-supermarket.wedeploy.io')
+    function filterSimilarProducts(description) {
+      return WeDeploy.data('data-supermarket.wedeploy.io')
         .auth(currentUser)
-				.similar('description', description)
-				.search('products')
-				.then(function(search) {
-					plotProducts(search.documents);
-					return this;
-				});
-		}
+        .similar('description', description)
+        .search('products')
+        .then(function(search) {
+          plotProducts(search.documents);
+          return this;
+        });
+    }
 
-		function saveItemToShoppingCart(productId, productTitle, productFilename, productPrice) {
-			return WeDeploy.data('data-supermarket.wedeploy.io')
+    function saveItemToShoppingCart(productId, productTitle, productFilename, productPrice) {
+      return WeDeploy.data('data-supermarket.wedeploy.io')
         .auth(currentUser)
-				.create('cart', {
-					"productTitle": productTitle,
-					"productPrice": productPrice,
-					"productFilename": productFilename,
-					"productId": productId,
-					"userId": currentUser.id
-				})
-				.then(function(item) {
-					return loadShoppingCart();
-				});
-		}
+        .create('cart', {
+          "productTitle": productTitle,
+          "productPrice": productPrice,
+          "productFilename": productFilename,
+          "productId": productId,
+          "userId": currentUser.id
+        })
+        .then(function(item) {
+          return loadShoppingCart();
+        });
+    }
 
-		function deleteItemToShoppingCart(cartId) {
-			return WeDeploy.data('data-supermarket.wedeploy.io')
+    function deleteItemToShoppingCart(cartId) {
+      return WeDeploy.data('data-supermarket.wedeploy.io')
         .auth(currentUser)
-				.delete('cart/' + cartId)
-				.then(function(item) {
-					return loadShoppingCart();
-				});
-		}
+        .delete('cart/' + cartId)
+        .then(function(item) {
+          return loadShoppingCart();
+        });
+    }
 
-		function loadShoppingCart() {
-			return WeDeploy.data('data-supermarket.wedeploy.io')
+    function loadShoppingCart() {
+      return WeDeploy.data('data-supermarket.wedeploy.io')
         .auth(currentUser)
-				.where('userId', currentUser.id)
-				.get('cart')
-				.then(function(items) {
-					var total = 0;
-					document.getElementById('shoppingCartList').innerHTML = items
-						.map(function(item) {
-							total += item.productPrice;
-							return `<li>
-								<div class="item__image-container">
-									<img src="assets/images/${item.productFilename}" />
-								</div>
-								<div class="item__name-container">
-									<span class="name">${item.productTitle}</span>
-									<button class="btn-delete-item" onclick="deleteItemToShoppingCart('${item.id}')">Delete</button>
-								</div>
-								<div class="item__price-container">
-									<span>$${item.productPrice}</span>
-								</div>
-							</li>`;
-						});
-					document.getElementById('shoppingCartTotal').innerHTML = total;
-					document.getElementById('shoppingCartCount').innerHTML = items.length;
-					return this;
-				});
-		}
+        .where('userId', currentUser.id)
+        .get('cart')
+        .then(function(items) {
+          var total = 0;
+          document.getElementById('shoppingCartList').innerHTML = items
+            .map(function(item) {
+              total += item.productPrice;
+              return `<li>
+                <div class="item__image-container">
+                  <img src="assets/images/${item.productFilename}" />
+                </div>
+                <div class="item__name-container">
+                  <span class="name">${item.productTitle}</span>
+                  <button class="btn-delete-item" onclick="deleteItemToShoppingCart('${item.id}')">Delete</button>
+                </div>
+                <div class="item__price-container">
+                  <span>$${item.productPrice}</span>
+                </div>
+              </li>`;
+            });
+          document.getElementById('shoppingCartTotal').innerHTML = total;
+          document.getElementById('shoppingCartCount').innerHTML = items.length;
+          return this;
+        });
+    }
 
-		// Checkout ------------------------------------------------------------------------
+    // Checkout ------------------------------------------------------------------------
 
-		function checkout() {
-			makeCheckoutMessageFromShoppingCartList()
-				.then(function(message) {
-					sendCheckoutEmail(message);
-				});
-		}
+    function checkout() {
+      makeCheckoutMessageFromShoppingCartList()
+        .then(function(message) {
+          sendCheckoutEmail(message);
+        });
+    }
 
-		function makeCheckoutMessageFromShoppingCartList() {
-			return WeDeploy.data('data-supermarket.wedeploy.io')
+    function makeCheckoutMessageFromShoppingCartList() {
+      return WeDeploy.data('data-supermarket.wedeploy.io')
         .auth(currentUser)
-				.where('userId', currentUser.id)
-				.get('cart')
-				.then(function(items) {
-					return items
-						.map(function(item) {
-							return `<div>${item.productTitle} - $${item.productPrice}</div>`;
-						})
-						.join('') + '<br>Thank you!';
-				});
-		}
+        .where('userId', currentUser.id)
+        .get('cart')
+        .then(function(items) {
+          return items
+            .map(function(item) {
+              return `<div>${item.productTitle} - $${item.productPrice}</div>`;
+            })
+            .join('') + '<br>Thank you!';
+        });
+    }
 
-		function sendCheckoutEmail(message) {
-			return WeDeploy
-					.email('email-supermarket.wedeploy.io')
+    function sendCheckoutEmail(message) {
+      return WeDeploy
+          .email('email-supermarket.wedeploy.io')
           .auth(currentUser)
-					.from('auto-confirm@supermarket.wedeploy.io')
-					.to(currentUser.email)
-					.subject(`Thank you ${currentUser.name}, your order was confirmed!`)
-					.message(message)
-					.send()
-					.then(function(result) {
-						alert('Your order was confirmed, check your inbox.');
-					})
-					.catch(function(error) {
-						alert('Oops, some error has happened.');
-					});
-		}
+          .from('auto-confirm@supermarket.wedeploy.io')
+          .to(currentUser.email)
+          .subject(`Thank you ${currentUser.name}, your order was confirmed!`)
+          .message(message)
+          .send()
+          .then(function(result) {
+            alert('Your order was confirmed, check your inbox.');
+          })
+          .catch(function(error) {
+            alert('Oops, some error has happened.');
+          });
+    }
 
-		// Helpers ------------------------------------------------------------------------
+    // Helpers ------------------------------------------------------------------------
 
-		function selectActiveMenu(type) {
-			document.querySelectorAll('[data-menu]')
-				.forEach(function(menu) {
-					menu.classList.remove('selected');
-					if (menu.dataset.menu === type) {
-						menu.classList.add('selected');
-					}
-				});
-		}
+    function selectActiveMenu(type) {
+      document.querySelectorAll('[data-menu]')
+        .forEach(function(menu) {
+          menu.classList.remove('selected');
+          if (menu.dataset.menu === type) {
+            menu.classList.add('selected');
+          }
+        });
+    }
 
-		function plotProducts(products) {
-			var html = '';
-			var list = document.getElementById('productList');
-			for(var i = 0; i < products.length; i++) {
-				html += `<li class="mix ${products[i].type}" data-title="${products[i].title}">
-					<a href="javascript:saveItemToShoppingCart('${products[i].id}', '${products[i].title}', '${products[i].filename}', ${products[i].price});" class="add-to-cart">Add To Cart</a>
-					<a href="javascript:filterSimilarProducts('${products[i].description}');" class="filter-similar-products"><span class="icon-12-magnifier"></span><span class="tooltip">Search for Similar Items</span></a>
-					<div class="bottom-info">
-						<span class="title">${products[i].title}</span>
-						<span class="price">$${products[i].price}</span>
-					</div>
-					<div class="blur"></div>
-					<div class="img-mask">
-						<img src="assets/images/${products[i].filename}" alt="${products[i].description}" />
-					</div>
-				</li>`;
-			}
-			list.innerHTML = html;
-		}
+    function plotProducts(products) {
+      var html = '';
+      var list = document.getElementById('productList');
+      for(var i = 0; i < products.length; i++) {
+        html += `<li class="mix ${products[i].type}" data-title="${products[i].title}">
+          <a href="javascript:saveItemToShoppingCart('${products[i].id}', '${products[i].title}', '${products[i].filename}', ${products[i].price});" class="add-to-cart">Add To Cart</a>
+          <a href="javascript:filterSimilarProducts('${products[i].description}');" class="filter-similar-products"><span class="icon-12-magnifier"></span><span class="tooltip">Search for Similar Items</span></a>
+          <div class="bottom-info">
+            <span class="title">${products[i].title}</span>
+            <span class="price">$${products[i].price}</span>
+          </div>
+          <div class="blur"></div>
+          <div class="img-mask">
+            <img src="assets/images/${products[i].filename}" alt="${products[i].description}" />
+          </div>
+        </li>`;
+      }
+      list.innerHTML = html;
+    }
 
-		// Load items first time -------------------------------------------------------
+    // Load items first time -------------------------------------------------------
 
-		filter('').then(loadShoppingCart);
-	</script>
+    filter('').then(loadShoppingCart);
+  </script>
 </body>
 </html>
