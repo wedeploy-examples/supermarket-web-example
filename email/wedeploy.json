@@ -1,4 +1,4 @@
 {
   "id": "email",
-  "image": "wedeploy/email:2.6.0"
+  "image": "wedeploy/email:2.7.0"
 }
